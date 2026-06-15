@@ -383,7 +383,13 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
    as aligned by eye even when their photographs differ in height. */
 .study-cards{align-items:stretch}
 .study-cards .s-card{display:flex;flex-direction:column;justify-content:flex-end}
-.study-cards .s-card .shot{flex:none;aspect-ratio:4/5 !important}
+.study-cards .s-card .shot{flex:none;}
+.study-cards .s-card .shot img{width:100%;height:100%;object-fit:cover;display:block;}
+/* Per-category image proportions — locked sizing system */
+#hospitality .study-cards .s-card .shot{aspect-ratio:2/3;}
+#places      .study-cards .s-card .shot{aspect-ratio:3/4;}
+#craft       .study-cards .s-card .shot{aspect-ratio:4/5;}
+#experience  .study-cards .s-card .shot{aspect-ratio:3/4;}
 
 /* Homepage Four Worlds — clickable chapters, observation counts, restrained hover */
 .pillars a.pillar{display:block;text-decoration:none;color:inherit;cursor:pointer}
