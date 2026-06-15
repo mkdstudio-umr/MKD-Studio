@@ -361,6 +361,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 @media(max-width:760px){
   .chapter-lead{grid-template-columns:1fr}
   .chapter-lead .chapter-lead-text{margin-top:0;margin-bottom:1.6rem;order:-1}
+  .chapter-lead-text p{font-size:.9rem;line-height:1.7;max-width:58ch}
   .chapter-lead .s-card{order:0}
 }
 
