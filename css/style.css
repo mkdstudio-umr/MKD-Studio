@@ -330,8 +330,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 /* === Editorial margin notes (additive; Publications chapters only) === */
 .feature-margin{display:grid;grid-template-columns:minmax(0,860px) 1fr;column-gap:clamp(2rem,5vw,5.5rem);align-items:start}
 .feature-margin>.study-cards{grid-column:1;grid-row:1}
-.feature-margin>.chapter-note{grid-column:2;grid-row:1;margin-top:.5rem}
-.chapter-note{max-width:38ch}
+.feature-margin>.chapter-note{grid-column:2;grid-row:1;margin: top 5rem}.chapter-note{max: width 38px;ch}
 .chapter-note p{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:1rem;line-height:1.62;color:var(--ink-faint);margin:0 0 .85rem}
 .chapter-note p:last-child{margin-bottom:0}
 @media(max-width:760px){
@@ -341,8 +340,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 }
 
 /* === Final publications refinement === */
-/* 1. Desktop: vertically centre the section note against the feature image */
-.feature-margin>.chapter-note{align-self:center;margin-top:0}
+/* 1. Desktop: vertically centre the section note against the feature image */.feature-margin>.chapter-note{align-self:flex-start;margin: top 18px;}
 /* 2. Mobile: a little more breathing room above each chapter title */
 @media(max-width:760px){
   .publications .pub-chapter{padding-top:26px}
