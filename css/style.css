@@ -569,15 +569,20 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
   .publications .study-cards + .study-cards {
     margin-top: clamp(2rem, 6vw, 3rem) !important;
   }
+  /* Uniform gap on mobile for publications study grids */
+  .publications .study-cards {
+    gap: clamp(1.6rem, 4vw, 2.4rem) clamp(1rem, 3vw, 1.4rem);
+    align-items: start;
+  }
+  /* Cards start from the top so images align across both columns */
+  .study-cards .s-card {
+    justify-content: flex-start;
+  }
   /* Lone last card in an odd-count group: centre it in the grid */
   .study-cards .s-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     justify-self: center;
     width: 50%;
-  }
-  /* Uniform gap on mobile for publications study grids */
-  .publications .study-cards {
-    gap: clamp(1rem, 3vw, 1.6rem);
   }
   /* Card text: consistent left-align across both columns */
   .study-cards .s-card .no,
