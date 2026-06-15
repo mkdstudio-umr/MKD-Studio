@@ -568,6 +568,11 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
   }
 }
 
+/* Mobile: Experience images nudged ~6% taller to reduce visual jump from Hospitality */
+@media (max-width: 760px) {
+  #experience .study-cards .s-card .shot { aspect-ratio: 5/7; }
+}
+
 /* Mobile: studies grid — clean 2-col, nothing floating */
 @media (max-width: 760px) {
   /* Neutralise the hardcoded 100px desktop spacing between card rows */
