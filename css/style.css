@@ -353,6 +353,13 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 /* Narrow the desktop margin notes ~13% for a printed-margin feel (Hospitality/Places/Experience only) */
 .feature-margin>.chapter-note{max-width:33ch}
 
+/* === Chapter lead: first study per chapter (image left, text right) === */
+.chapter-lead{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(2rem,4vw,4rem);align-items:start;margin-bottom:clamp(2.4rem,4vw,3.6rem)}
+.chapter-lead-text p{font-family:"Cormorant Garamond",serif;font-size:1rem;line-height:1.62;color:var(--ink-faint);margin:0 0 .85rem}
+.chapter-lead-text p:last-child{margin-bottom:0}
+.chapter-lead .s-card h3{font-size:clamp(1.1rem,1.5vw,1.35rem)}
+@media(max-width:760px){.chapter-lead{grid-template-columns:1fr}.chapter-lead .chapter-lead-text{margin-top:1.2rem}}
+
 /* Homepage category imagery / quiet hover (desktop pointer devices only) */
 @media (hover:hover) and (pointer:fine){
   .pillars .shot img{transition:filter .5s ease,transform .5s ease;will-change:filter,transform}
@@ -547,6 +554,31 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* Mobile: studies grid — clean 2-col, nothing floating */
+@media (max-width: 760px) {
+  /* Neutralise the hardcoded 100px desktop spacing between card rows */
+  .publications .study-cards + .study-cards {
+    margin-top: clamp(2rem, 6vw, 3rem) !important;
+  }
+  /* Lone last card in an odd-count group: centre it in the grid */
+  .study-cards .s-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 50%;
+  }
+  /* Uniform gap on mobile for publications study grids */
+  .publications .study-cards {
+    gap: clamp(1rem, 3vw, 1.6rem);
+  }
+  /* Card text: consistent left-align across both columns */
+  .study-cards .s-card .no,
+  .study-cards .s-card h3,
+  .study-cards .s-card .place,
+  .study-cards .s-card .arrow {
+    text-align: left;
   }
 }
 
