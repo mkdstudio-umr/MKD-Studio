@@ -344,7 +344,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 /* 1. Desktop: vertically centre the section note against the feature image */
 .feature-margin>.chapter-note{align-self:center;margin-top:0}
 /* Places has two featured cards stacked, so centre sits too low — pin to top */
-#places .feature-margin>.chapter-note{align-self:start}
+#places .feature-margin>.chapter-note{align-self:start;margin-top:clamp(2rem,4vw,3.5rem)}
 /* 2. Mobile: a little more breathing room above each chapter title */
 @media(max-width:760px){
   .publications .pub-chapter{padding-top:26px}
