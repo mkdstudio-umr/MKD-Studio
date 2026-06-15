@@ -358,7 +358,11 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 .chapter-lead-text p{font-family:"Cormorant Garamond",serif;font-size:1rem;line-height:1.62;color:var(--ink-faint);margin:0 0 .85rem}
 .chapter-lead-text p:last-child{margin-bottom:0}
 .chapter-lead .s-card h3{font-size:clamp(1.1rem,1.5vw,1.35rem)}
-@media(max-width:760px){.chapter-lead{grid-template-columns:1fr}.chapter-lead .chapter-lead-text{margin-top:1.2rem}}
+@media(max-width:760px){
+  .chapter-lead{grid-template-columns:1fr}
+  .chapter-lead .chapter-lead-text{margin-top:0;margin-bottom:1.6rem;order:-1}
+  .chapter-lead .s-card{order:0}
+}
 
 /* Homepage category imagery / quiet hover (desktop pointer devices only) */
 @media (hover:hover) and (pointer:fine){
