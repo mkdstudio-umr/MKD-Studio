@@ -376,7 +376,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
    as aligned by eye even when their photographs differ in height. */
 .study-cards{align-items:stretch}
 .study-cards .s-card{display:flex;flex-direction:column;justify-content:flex-end}
-.study-cards .s-card .shot{flex:none}
+.study-cards .s-card .shot{flex:none;aspect-ratio:4/5 !important}
 
 /* Homepage Four Worlds — clickable chapters, observation counts, restrained hover */
 .pillars a.pillar{display:block;text-decoration:none;color:inherit;cursor:pointer}
