@@ -216,13 +216,13 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .pf-group .gh .no{font-family:"Jost",sans-serif;letter-spacing:.24em;font-size:.62rem;color:var(--ink-faint);text-transform:uppercase}
 .pf-note{font-family:"Cormorant",serif;font-style:italic;color:var(--ink-faint);font-size:1.05rem;margin-top:1.6rem}
 /* studies index */
-.study-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(2rem,4vw,3.4rem)}
-@media(max-width:760px){.study-cards{grid-template-columns:1fr}}
+.study-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.6rem)}
+@media(max-width:760px){.study-cards{grid-template-columns:repeat(2,1fr);gap:clamp(1rem,3vw,1.6rem)}}
 .s-card{display:block;text-decoration:none;color:inherit;group:0}
 .s-card .shot{margin-bottom:1.1rem}
 .s-card .no{font-family:"Jost",sans-serif;letter-spacing:.28em;text-transform:uppercase;font-size:.62rem;color:var(--accent)}
-.s-card h3{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.15rem,1.71vw,1.5rem);line-height:1.15;margin:.5rem 0 .3rem}
-.s-card .place{font-family:"Cormorant",serif;font-style:italic;color:var(--ink-faint);font-size:1.05rem}
+.s-card h3{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1rem,1.3vw,1.2rem);line-height:1.15;margin:.5rem 0 .3rem}
+.s-card .place{font-family:"Cormorant",serif;font-style:italic;color:var(--ink-faint);font-size:.9rem}
 .s-card .arrow{font-family:"Jost",sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;color:var(--ink-faint);margin-top:.9rem;display:inline-block;transition:color .3s}
 .s-card:hover .arrow{color:var(--accent)}
 /* study nav */
@@ -261,7 +261,7 @@ nav.scrolled{mix-blend-mode:normal;color:var(--ink);background:linear-gradient(t
 /* studies: more breathing room */
 .study-head{margin-bottom:clamp(2.8rem,6vw,4.6rem)}
 .study-head .place{margin-top:1.1rem}
-.study-cards{gap:clamp(2.8rem,5vw,4.2rem)}
+.study-cards{gap:clamp(1.4rem,3vw,2.6rem)}
 .s-card h3{margin:.7rem 0 .5rem}
 .s-card .arrow{margin-top:1.3rem}
 .page-head .intro{margin-top:1.9rem}
