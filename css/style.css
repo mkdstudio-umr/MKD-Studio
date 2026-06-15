@@ -568,9 +568,12 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
   }
 }
 
-/* Mobile: all study images slightly taller for a more editorial feel */
+/* Mobile: all study images same height — override per-category ID rules */
 @media (max-width: 760px) {
-  .study-cards .s-card .shot { aspect-ratio: 5/7; }
+  #hospitality .study-cards .s-card .shot,
+  #places      .study-cards .s-card .shot,
+  #craft       .study-cards .s-card .shot,
+  #experience  .study-cards .s-card .shot { aspect-ratio: 5/7; }
 }
 
 /* Mobile: studies grid — clean 2-col, nothing floating */
