@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Framework / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=3">
+<link rel="manifest" href="/site.webmanifest?v=3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+<meta name="description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and publications.">
+<link rel="canonical" href="https://mkdstudio.net/framework/">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #1a1a1a;
+  color: #2a2723;
+}
+
+.framework-viewer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.pdf-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  overflow: auto;
+  position: relative;
+}
+
+#pdfCanvas {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: #f2efe9;
+  border-top: 1px solid #d8d3c9;
+  gap: 2rem;
+}
+
+.controls-left {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.btn {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #2a2723;
+  padding: 0.5rem 0;
+  transition: opacity 0.3s;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.6;
+}
+
+.btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: clamp(0.8rem, 0.95vw, 0.95rem);
+  color: #8b8376;
+  letter-spacing: 0.1em;
+  min-width: 60px;
+  text-align: center;
+}
+
+.back-link {
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+  color: #8b8376;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.back-link:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .controls-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  #pdfCanvas {
+    max-width: 95vw;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="framework-viewer">
+  <div class="pdf-container">
+    <canvas id="pdfCanvas"></canvas>
+  </div>
+  
+  <div class="controls">
+    <div class="controls-left">
+      <button class="btn" id="prevBtn" onclick="previousPage()">← Previous</button>
+      <div class="page-info">
+        <span id="pageNum">1</span> / 17
+      </div>
+      <button class="btn" id="nextBtn" onclick="nextPage()">Next →</button>
+    </div>
+    <a href="/partnerships/" class="back-link">← Back to Partnerships</a>
+  </div>
+</div>
+
+<script>
+pdfjsLib.getDocument('/framework-edition-01.pdf').promise.then(pdf => {
+  window.pdfDoc = pdf;
+  renderPage(1);
+});
+
+let currentPage = 1;
+const totalPages = 17;
+
+async function renderPage(pageNum) {
+  if (!window.pdfDoc) return;
+  
+  const page = await window.pdfDoc.getPage(pageNum);
+  const scale = window.devicePixelRatio || 1;
+  const viewport = page.getViewport({ scale: 1.5 });
+  
+  const canvas = document.getElementById('pdfCanvas');
+  const context = canvas.getContext('2d');
+  
+  canvas.width = viewport.width;
+  canvas.height = viewport.height;
+  
+  await page.render({
+    canvasContext: context,
+    viewport: viewport
+  }).promise;
+  
+  updateControls();
+  window.history.replaceState(null, null, `/framework/?page=${pageNum}`);
+}
+
+function updateControls() {
+  document.getElementById('pageNum').textContent = currentPage;
+  document.getElementById('prevBtn').disabled = currentPage === 1;
+  document.getElementById('nextBtn').disabled = currentPage === totalPages;
+}
+
+function nextPage() {
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPage(currentPage);
+  }
+}
+
+function previousPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage(currentPage);
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') nextPage();
+  if (e.key === 'ArrowLeft') previousPage();
+});
+
+const params = new URLSearchParams(window.location.search);
+const pageFromUrl = parseInt(params.get('page')) || 1;
+if (pageFromUrl > 0 && pageFromUrl <= totalPages) {
+  currentPage = pageFromUrl;
+  setTimeout(() => renderPage(currentPage), 100);
+}
+
+updateControls();
+</script>
+
+</body>
+</html>

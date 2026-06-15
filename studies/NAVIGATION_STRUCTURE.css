@@ -1,0 +1,23 @@
+/* Section Navigation Mapping
+   
+   This file documents the automatic section flow for "End of Chapter" navigation.
+   When a new study is added, ensure it's placed in the correct chapter section,
+   and the navigation will automatically flow to the next chapter.
+   
+   Section Order (circular):
+   Hospitality → Craft → Experience → Places → Hospitality
+   
+   Last Study in Each Section (triggers "End of Chapter"):
+   - Hospitality: qinwan-msheireb (→ Craft)
+   - Craft: apotek-57 (→ Experience)  
+   - Experience: ilkley-open (→ Places)
+   - Places: the-mosque (→ Hospitality)
+   
+   When adding new studies:
+   1. Place study in the appropriate section's <div id="section-name">
+   2. If it's the new last study, move the "End of Chapter" nav to it
+   3. Update the data-next-section attribute to match the next section
+   
+   The anchor links (#hospitality, #craft, #experience, #places) 
+   on /studies/ will ensure users jump to the correct section.
+*/

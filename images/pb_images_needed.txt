@@ -1,0 +1,14 @@
+PENNY BUN — Required image files
+Add these 8 files to the images/ directory:
+
+pb_thumb.jpg  — thumbnail for studies index card (use pb_08 cropped or pb_05)
+pb_01.jpg     — Morning: breakfast on windowsill (yoghurt, croissant, rain-speckled glass)
+pb_02.jpg     — Object: B&W blurred bottle on fabric (editorial/abstract)
+pb_03.jpg     — Material: dark wooden bowl on worn timber plate
+pb_04.jpg     — Observation: bronze taps at bar sink, trees through window
+pb_05.jpg     — Stillness: dining room, Windsor chairs, shelf unit, mushroom lamp, clay plaster
+pb_06.jpg     — Light: B&W interior, globe pendant, gridded glazed partition, candle on table
+pb_07.jpg     — Ritual: pour-over coffee set on tray, dark ceramics
+pb_08.jpg     — HERO: clay plaster wall, unlit fireplace, Windsor chair, draped blanket, candles
+
+Note: pb_08.jpg is also used as the study hero (r-cinema) and OG image.

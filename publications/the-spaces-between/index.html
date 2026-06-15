@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>The Spaces Between / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=3">
+<link rel="manifest" href="/site.webmanifest?v=3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+
+<style>
+/* ── PUBLICATION LANDING ──────────────────────────────── */
+
+.pubp-head {
+  padding-top: clamp(6.5rem, 9vw, 9rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+.pubp-head .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+.pubp-cover {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  aspect-ratio: 1/1;
+}
+.pubp-cover.book-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem;
+  aspect-ratio: auto;
+  background: none;
+}
+.pubp-cover.book-pair img {
+  aspect-ratio: 3/4;
+}
+.pubp-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pubp-title-block .label {
+  display: block;
+  margin-bottom: 1.6rem;
+}
+.pubp-title-block h1 {
+  font-family: "Cormorant", serif;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3.8vw, 2.7rem);
+  line-height: 1.05;
+  margin: 0 0 .6rem;
+}
+.pubp-edition {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  color: var(--ink-soft);
+  margin-bottom: .4rem;
+}
+.pubp-place {
+  font-family: "Cormorant", serif;
+  font-style: italic;
+  color: var(--ink-faint);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+}
+.pubp-meta p {
+  font-size: .9rem;
+  letter-spacing: .04em;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+.pubp-meta {
+  margin-bottom: clamp(1.8rem, 3vw, 2.6rem);
+}
+.pubp-published {
+  font-size: .9rem;
+  letter-spacing: .04em;
+  color: var(--ink-faint);
+}
+
+/* ── FIELD SECTIONS (statement / details / edition / register) ── */
+
+.pubp-section {
+  padding-top: clamp(3rem, 5vw, 4rem);
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+.pubp-section .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.pubp-section .field-label {
+  font-family: "Jost", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .28em;
+  font-size: .64rem;
+  color: var(--ink-faint);
+  display: block;
+  padding-top: .2rem;
+}
+.pubp-section p {
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+.pubp-section p + p {
+  margin-top: 1.2rem;
+}
+.pubp-section .pubp-list p {
+  margin: 0;
+  line-height: 2.1;
+}
+.pubp-section .pubp-list p + p {
+  margin-top: 0;
+}
+
+/* ── PREVIEW READER EMBED ─────────────────────────────── */
+
+.pubp-preview-note {
+  font-family: "Cormorant", serif;
+  font-style: italic;
+  color: var(--ink-faint);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.7;
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+.pubp-reader-frame {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: block;
+  aspect-ratio: 8/5;
+  border: 1px solid var(--line);
+  background: #111009;
+}
+@media (max-width: 899px) {
+  .pubp-reader-frame {
+    max-width: none;
+    aspect-ratio: 3/5;
+  }
+}
+
+/* ── REGISTER INTEREST ─────────────────────────────────── */
+
+.pubp-register p {
+  margin-bottom: .6rem;
+}
+.pubp-register a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .3s, border-color .3s;
+}
+.pubp-register a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── RELATED PUBLICATIONS ─────────────────────────────── */
+
+.pubp-related .wrap {
+  display: block;
+}
+.pubp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.pubp-related-item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.pubp-related-shot {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+  aspect-ratio: 3/4;
+  margin-bottom: .8rem;
+}
+.pubp-related-shot.book-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .4rem;
+  aspect-ratio: auto;
+  background: none;
+}
+.pubp-related-shot.book-pair img {
+  aspect-ratio: 3/4;
+}
+.pubp-related-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(.16,.8,.3,1);
+}
+.pubp-related-item:hover .pubp-related-shot img {
+  transform: scale(1.025);
+}
+.pubp-related-item .rel-title {
+  font-family: "Cormorant", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.pubp-related-item.is-upcoming {
+  cursor: default;
+}
+.pubp-related-item.is-upcoming .pubp-related-shot img {
+  filter: grayscale(1) blur(2px);
+  transform: scale(1.03);
+}
+.pubp-related-item.is-upcoming .pubp-related-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper, #f5f3ef);
+  opacity: .55;
+}
+.pubp-related-item .rel-status {
+  font-family: "Jost", sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-size: .6rem;
+  color: var(--ink-faint);
+  display: inline-block;
+  margin-top: .3rem;
+}
+.pubp-related-future {
+  font-size: .9rem;
+  color: var(--ink-faint);
+  line-height: 1.9;
+  display: flex;
+  align-items: center;
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  .pubp-head .wrap,
+  .pubp-section .wrap {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  .pubp-section .field-label {
+    margin-bottom: .4rem;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div>
+</nav>
+
+<section class="pad pubp-head"><div class="wrap">
+  <div class="pubp-cover book-pair reveal">
+    <img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between, Formula One, Volume I">
+    <img loading="lazy" decoding="async" src="/images/spaces_between_book.jpg" alt="The Spaces Between, hardcover edition">
+  </div>
+  <div class="pubp-title-block reveal d1">
+    <span class="label">Publication 001</span>
+    <h1>The Spaces Between</h1>
+    <p class="pubp-edition">Formula One / Volume I</p>
+    <p class="pubp-place">Silverstone / Lusail</p>
+    <div class="pubp-meta">
+      <p>104 pages</p>
+      <p>First Edition</p>
+    </div>
+    <p class="pubp-published">Published by mkd STUDIO</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Publication Statement</span>
+  <div>
+    <p>The Spaces Between is a photographic publication exploring Formula One away from the racing line.</p>
+    <p>Across Silverstone and Lusail, attention shifts from competition to atmosphere, observing the architecture, movement, labour, hospitality and ritual that exist around the event itself.</p>
+    <p>What emerges is not a study of racing, but of the spaces that make racing possible.</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Publication Details</span>
+  <div class="pubp-list">
+    <p>Volume I</p>
+    <p>Formula One</p>
+    <p>Silverstone</p>
+    <p>Lusail</p>
+    <p>104 Pages</p>
+    <p>First Edition</p>
+    <p>Published 2026</p>
+    <p>Photography and text by mkd STUDIO</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Preview</span>
+  <div>
+    <p class="pubp-preview-note">What follows is a small selection from the publication, including one chapter shown in full.<br>The remainder exists only within the complete edition.</p>
+    <iframe class="pubp-reader-frame reveal" src="/publications/the-spaces-between/preview.html" title="The Spaces Between — Preview" loading="lazy"></iframe>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Edition Information</span>
+  <div class="pubp-list">
+    <p>First Edition</p>
+    <p>104 Pages</p>
+    <p>Limited Print Run</p>
+    <p>Published by mkd STUDIO</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section pubp-register"><div class="wrap">
+  <span class="field-label">Register Interest</span>
+  <div>
+    <p>Printed copies are produced in small numbers.</p>
+    <p>For availability or future editions, contact <a href="mailto:hello@mkdstudio.net">hello@mkdstudio.net</a></p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section pubp-related"><div class="wrap">
+  <span class="field-label">Publications</span>
+  <div class="pubp-related-grid">
+    <a class="pubp-related-item" href="/publications/the-spaces-between/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between"></div>
+      <span class="rel-title">The Spaces Between</span>
+    </a>
+    <div class="pubp-related-item">
+      <div class="pubp-related-shot book-pair"><img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" alt="The Ned, Doha"><img loading="lazy" decoding="async" src="/images/ned_doha_book.jpg" alt="The Ned, Doha, hardcover edition"></div>
+      <span class="rel-title">The Ned Doha</span>
+      <span class="rel-status">Coming Soon</span>
+    </div>
+    <div class="pubp-related-future">Future publications can be added here.</div>
+  </div>
+</div></section>
+
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO &middot; An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">&copy; mkd STUDIO. All photography, films and written works are protected by copyright.</div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+</body>
+</html>

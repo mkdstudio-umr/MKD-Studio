@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=3">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=3">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=3">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=3">
+<link rel="manifest" href="/site.webmanifest?v=3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="page-head"><div class="wrap">
+  <span class="label reveal">Journal</span>
+  <h1 class="reveal d1">A living archive.</h1>
+  <p class="intro reveal d2">Notes from the road. Observations on hospitality, fragrance, cities and the occasional Grand Prix. Shorter than a study, and added to often.</p>
+</div></section><section class="pad" style="padding-top:0"><div class="wrap"><div class="journal-list"><article class="j-card reveal"><figure class="shot r-land"><img loading="lazy" decoding="async" src="/images/oud.jpg" alt="On Oud, and the Memory of Places"></figure><span class="kicker">Fragrance</span><h3>On Oud, and the Memory of Places</h3><p>The first oud I ever wore belonged to a city before it belonged to me. Some scents do that. They arrive already full of somewhere you have been.</p><span class="meta">Reflection</span></article><article class="j-card reveal"><figure class="shot r-portrait"><img loading="lazy" decoding="async" src="/images/cph-window.jpg" alt="Mornings in Copenhagen"></figure><span class="kicker">Coffee</span><h3>Mornings in Copenhagen</h3><p>The city does not rush its first hour. Light arrives slowly through café windows, and for a while nobody seems to be going anywhere in particular.</p><span class="meta">Note</span></article><article class="j-card reveal"><figure class="shot r-portrait"><img loading="lazy" decoding="async" src="/images/qatar-night.jpg" alt="After Dark at Lusail"></figure><span class="kicker">Formula One</span><h3>After Dark at Lusail</h3><p>The cars are the loudest thing and somehow the least interesting. What stays is the hour before, when a place built for one weekend holds its breath.</p><span class="meta">Reflection</span></article><article class="j-card reveal"><figure class="shot r-portrait"><img loading="lazy" decoding="async" src="/images/ned-marble.jpg" alt="What Quiet Luxury Actually Means"></figure><span class="kicker">Hospitality</span><h3>What Quiet Luxury Actually Means</h3><p>The most convincing rooms never announce themselves. They withhold. You notice the restraint last, once everything louder has already faded.</p><span class="meta">Observation</span></article></div></div></section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All photography, films and written works are protected by copyright.</div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+</body>
+</html>

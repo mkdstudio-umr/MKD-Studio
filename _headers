@@ -1,0 +1,35 @@
+# Force browsers and CDN to never serve stale HTML or CSS
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/css/style.css
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Favicon assets: cacheable for Googlebot's favicon fetcher, cache-busted via ?v= query param on every reference
+/favicon.ico
+  Cache-Control: public, max-age=86400
+  Content-Type: image/x-icon
+
+/images/favicon-16.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/images/favicon-32.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/images/favicon-64.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/images/favicon-180.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/images/favicon-512.png
+  Cache-Control: public, max-age=86400
+  Content-Type: image/png
+
+/site.webmanifest
+  Cache-Control: public, max-age=3600
+  Content-Type: application/manifest+json
