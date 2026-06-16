@@ -606,6 +606,7 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
   }
 }
 
+@media(max-width:760px){.pub-two-col{grid-template-columns:1fr !important}}
 .text-link{transition:border-color .3s ease}
 .text-link:hover{border-color:var(--accent) !important}
 a.volume-link{transition:color .3s ease,border-color .3s ease}
