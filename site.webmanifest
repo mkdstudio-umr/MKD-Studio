@@ -1,0 +1,27 @@
+{
+  "name": "mkd STUDIO",
+  "short_name": "mkd STUDIO",
+  "description": "Editorial archive of hospitality, places, craft, experience and publications.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/images/favicon-32.png?v=5",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon-180.png?v=5",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon-512.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
