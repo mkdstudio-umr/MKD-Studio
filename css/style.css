@@ -620,6 +620,7 @@ a.volume-link:hover{border-color:var(--accent) !important}
 /* ── MOBILE NAVIGATION OVERLAY ────────────────────────── */
 .mob-menu-btn{display:none;background:none;border:none;cursor:pointer;color:inherit;font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.22em;font-size:.66rem;text-transform:uppercase;padding:0;line-height:1}
 @media(max-width:760px){.mob-menu-btn{display:block}}
+@media(max-width:760px){nav .mark{font-size:.975rem}}
 .mob-overlay{display:none;position:fixed;inset:0;z-index:1001;background:var(--paper);flex-direction:column;opacity:0;transition:opacity .25s ease}
 .mob-overlay.is-visible{opacity:1}
 .mob-overlay-head{display:flex;justify-content:space-between;align-items:center;padding:max(1.4rem,env(safe-area-inset-top)) clamp(1.5rem,5vw,2rem) 1.4rem;flex-shrink:0}
