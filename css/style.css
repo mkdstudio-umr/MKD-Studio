@@ -625,3 +625,4 @@ a.volume-link:hover{border-color:var(--accent) !important}
 .mob-overlay-links a{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.2rem,5.2vw,1.55rem);color:var(--ink-soft);text-decoration:none;letter-spacing:.01em;line-height:1.2;padding:.65rem 0;border-bottom:1px solid rgba(207,199,182,.18);display:block;transition:color .2s}
 .mob-overlay-links a.active{color:var(--ink);font-weight:400}
 .mob-overlay-links a:active{color:var(--ink)}
+@media(max-width:760px){.light-head nav{border-bottom:1px solid rgba(207,199,182,.25)}}
