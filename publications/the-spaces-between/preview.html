@@ -183,5 +183,6 @@ document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[
 document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>44&&Math.abs(dx)>Math.abs(dy))dx<0?next():prev();},{passive:true});
 let wd=isDesk();
 window.addEventListener('resize',()=>{const n=isDesk();if(n!==wd){wd=n;btnPrev.style.display=btnNext.style.display=n?'block':'none';if(n)renderDesk(cur);else renderMobile(cur);}});</script>
+<script src="/js/mobile-nav.js" defer></script>
 </body>
 </html>

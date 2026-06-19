@@ -332,5 +332,6 @@
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
 </script>
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
 </body>
 </html>
