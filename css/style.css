@@ -196,10 +196,7 @@
   .shot.book-pair{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;background:none;aspect-ratio:auto}
   .shot.book-pair img{aspect-ratio:3/4}
   .shot.study-hero img{}
-  .beat{position:absolute;left:0;bottom:0;margin:0;padding:.7rem .9rem;font-family:"Jost",sans-serif;
-    text-transform:uppercase;letter-spacing:.26em;font-size:.56rem;color:#fff;
-    background:linear-gradient(to top,rgba(20,18,15,.55),transparent);width:100%}
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.16,.8,.3,1),transform 1.1s cubic-bezier(.16,.8,.3,1)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1.1s cubic-bezier(.16,.8,.3,1),transform 1.1s cubic-bezier(.16,.8,.3,1)}
   .reveal.in{opacity:1;transform:none}
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 
