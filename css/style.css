@@ -222,6 +222,12 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .s-card .place{font-family:"Cormorant",serif;font-style:italic;color:var(--ink-faint);font-size:.9rem}
 .s-card .arrow{font-family:"Jost",sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;color:var(--ink-faint);margin-top:.9rem;display:inline-block;transition:color .3s}
 .s-card:hover .arrow{color:var(--accent)}
+/* archive links */
+.archive-links{border-top:1px solid var(--line);padding:clamp(2rem,4vw,3rem) 0}
+.archive-links>.label{display:block;margin-bottom:1.4rem}
+.archive-links ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.5rem 2.8rem}
+.archive-links ul li a{font-family:"Cormorant Garamond",serif;font-size:clamp(0.95rem,1.14vw,1.0rem);color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s ease}
+.archive-links ul li a:hover{border-bottom-color:var(--ink-soft)}
 /* study nav */
 .study-nav{border-top:1px solid var(--line);margin-top:var(--space);padding-top:clamp(2rem,4vw,3rem);display:flex;justify-content:space-between;gap:1.4rem}
 .study-nav a{text-decoration:none;color:var(--ink-soft);font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;transition:color .3s}
