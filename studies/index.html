@@ -188,9 +188,10 @@
       btn.classList.add('active');
       const f=btn.dataset.filter;
       document.querySelectorAll('.pub-chapter').forEach(ch=>{
-        ch.style.display=(f==='all'||ch.id===f)?'':'none';
+        const show=f==='all'||ch.id===f;
+        ch.style.display=show?'':'none';
+        ch.style.marginTop=f==='all'?'':0;
       });
-      document.querySelector('.pub-divider').style.display=f==='all'?'':'none';
     });
   });
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
