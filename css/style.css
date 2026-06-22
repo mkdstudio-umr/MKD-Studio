@@ -229,7 +229,7 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .archive-links ul li a{font-family:"Cormorant Garamond",serif;font-size:clamp(0.95rem,1.14vw,1.0rem);color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s ease;padding:.15rem 0;display:inline-block}
 .archive-links ul li a:hover{border-bottom-color:var(--ink-soft)}
 .archive-links + .study-nav{margin-top:clamp(2rem,4vw,3rem)}
-@media(max-width:760px){.archive-links ul{gap:.5rem 1.6rem}}
+@media(max-width:760px){.archive-links ul{flex-direction:column;gap:.75rem}}
 /* study nav */
 .study-nav{border-top:1px solid var(--line);margin-top:var(--space);padding-top:clamp(2rem,4vw,3rem);display:flex;justify-content:space-between;gap:1.4rem}
 .study-nav a{text-decoration:none;color:var(--ink-soft);font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;transition:color .3s}
