@@ -14,55 +14,34 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
-
-
-
-
-
-
-<meta name="description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and publications.">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and commissioned publications.">
 <link rel="canonical" href="https://mkdstudio.net/framework/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mkd STUDIO">
 <meta property="og:title" content="Framework / mkd STUDIO">
-<meta property="og:description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and publications.">
+<meta property="og:description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and commissioned publications.">
 <meta property="og:url" content="https://mkdstudio.net/framework/">
 <meta property="og:image" content="https://mkdstudio.net/images/homepage-hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Framework / mkd STUDIO">
-<meta name="twitter:description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and publications.">
+<meta name="twitter:description" content="The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and commissioned publications.">
 <meta name="twitter:image" content="https://mkdstudio.net/images/homepage-hero.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Framework","url":"https://mkdstudio.net/framework/","description":"The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and publications.","isPartOf":{"@id":"https://mkdstudio.net/#website"},"publisher":{"@id":"https://mkdstudio.net/#organization"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Framework","url":"https://mkdstudio.net/framework/","description":"The mkd STUDIO Framework. An editorial publication explaining how the studio approaches hospitality, places, craft, experience and commissioned publications.","isPartOf":{"@id":"https://mkdstudio.net/#website"},"publisher":{"@id":"https://mkdstudio.net/#organization"}}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  font-family: 'Jost', sans-serif;
-  background: #1a1a1a;
-  color: #2a2723;
-}
-
 .framework-viewer {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
 }
 
 .pdf-container {
@@ -147,12 +126,12 @@ body {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .controls-left {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   #pdfCanvas {
     max-width: 95vw;
   }
@@ -160,12 +139,32 @@ body {
 </style>
 </head>
 <body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div>
+</nav>
+
+<section class="page-head" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)"><div class="wrap">
+  <span class="label">Framework</span>
+  <h1>How we approach the work.</h1>
+</div></section>
+
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div style="max-width:740px">
+      <p style="font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.85;margin-bottom:clamp(1.4rem,2vw,1.8rem)">The Framework is a document written before any commission begins. Seventeen pages describing how mkd STUDIO approaches photography, writing and design as a single integrated discipline, and why the output is always a publication rather than a collection of files.</p>
+      <p style="font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.85;margin-bottom:clamp(1.4rem,2vw,1.8rem)">The document covers the four subjects the studio works across: hospitality, places, craft and experience. For each, it describes not what the studio photographs but how it decides what matters. A hotel at the particular hour when the lobby is quiet. A city approached through the peripheral streets rather than the landmarks. A fragrance house photographed through the objects and spaces that give the work its character.</p>
+      <p style="font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.85;margin-bottom:clamp(1.4rem,2vw,1.8rem)">The Framework exists because commissioning an editorial publication requires a different conversation than booking a photographer. A client who has read it understands that the studio works toward a specific kind of result: one that documents what something actually feels like rather than how it has been positioned. The conversation that follows is shorter and better for it.</p>
+      <p style="font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.85;font-style:italic;color:#8b8376">It is not a price list or a service brochure. It is a record of how the studio thinks.</p>
+    </div>
+  </div>
+</section>
 
 <div class="framework-viewer">
   <div class="pdf-container">
     <canvas id="pdfCanvas"></canvas>
   </div>
-  
+
   <div class="controls">
     <div class="controls-left">
       <button class="btn" id="prevBtn" onclick="previousPage()">← Previous</button>
@@ -189,22 +188,22 @@ const totalPages = 17;
 
 async function renderPage(pageNum) {
   if (!window.pdfDoc) return;
-  
+
   const page = await window.pdfDoc.getPage(pageNum);
   const scale = window.devicePixelRatio || 1;
   const viewport = page.getViewport({ scale: 1.5 });
-  
+
   const canvas = document.getElementById('pdfCanvas');
   const context = canvas.getContext('2d');
-  
+
   canvas.width = viewport.width;
   canvas.height = viewport.height;
-  
+
   await page.render({
     canvasContext: context,
     viewport: viewport
   }).promise;
-  
+
   updateControls();
   window.history.replaceState(null, null, `/framework/?page=${pageNum}`);
 }
@@ -242,6 +241,8 @@ if (pageFromUrl > 0 && pageFromUrl <= totalPages) {
 }
 
 updateControls();
+
+let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
 </script>
 
 <script src="/js/mobile-nav.js" defer></script>
