@@ -68,6 +68,14 @@
     <p class="intro">Four worlds. One archive.</p>
   </div>
 
+  <div class="filter-tabs reveal" style="margin-top:clamp(1.8rem,3vw,2.5rem);margin-bottom:0;display:flex;gap:clamp(1.2rem,2.5vw,2rem);flex-wrap:wrap">
+    <button class="ftab active" data-filter="all">All</button>
+    <button class="ftab" data-filter="hospitality">Hospitality</button>
+    <button class="ftab" data-filter="places">Places</button>
+    <button class="ftab" data-filter="craft">Craft</button>
+    <button class="ftab" data-filter="experience">Experience</button>
+  </div>
+
   <hr class="pub-divider">
 
   <div class="pub-chapter reveal" id="hospitality">
@@ -174,6 +182,17 @@
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.ftab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f=btn.dataset.filter;
+      document.querySelectorAll('.pub-chapter').forEach(ch=>{
+        ch.style.display=(f==='all'||ch.id===f)?'':'none';
+      });
+      document.querySelector('.pub-divider').style.display=f==='all'?'':'none';
+    });
+  });
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
 </script>
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
