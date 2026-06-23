@@ -115,7 +115,7 @@
   .obs-item.obs-land{grid-column:span 2}
   .obs-item figcaption{margin-top:.75rem;font-family:Jost,sans-serif;font-weight:300;font-size:0.67rem;letter-spacing:0.055em;color:var(--ink-faint);line-height:1.55}
   .r-square{aspect-ratio:1/1}
-  @media(min-width:1500px){.obs-grid{grid-template-columns:repeat(5,1fr);gap:72px 48px;max-width:1440px}}
+  @media(min-width:1500px){.obs-grid{grid-template-columns:repeat(5,1fr);gap:72px 40px;max-width:1600px}}
   @media(max-width:960px){.obs-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:600px){.obs-grid{grid-template-columns:repeat(2,1fr);gap:clamp(2rem,5vw,2.8rem) clamp(1rem,3vw,1.4rem)}}
 
