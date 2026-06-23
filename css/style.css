@@ -406,8 +406,8 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 #experience  .study-cards .s-card .shot{aspect-ratio:3/4;}
 
 /* Homepage Four Worlds — clickable chapters, observation counts, restrained hover */
-.pillars a.pillar{display:block;text-decoration:none;color:inherit;cursor:pointer}
-.pillars a.pillar .obs{display:block;margin-top:.6rem;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:1rem;letter-spacing:.01em;color:var(--ink-soft);opacity:.6;transition:opacity .45s ease,color .45s ease}
+.pillars a.pillar{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
+.pillars a.pillar .obs{display:block;margin-top:auto;padding-top:.6rem;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:1rem;letter-spacing:.01em;color:var(--ink-soft);opacity:.6;transition:opacity .45s ease,color .45s ease}
 .pillars a.pillar h3{transition:color .45s ease}
 @media(hover:hover){
   .pillars a.pillar:hover .shot img{filter:brightness(1.04);transform:none}
