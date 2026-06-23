@@ -117,7 +117,7 @@
   try{
     var res=await fetch('/studies/',{cache:'no-store'});
     var doc=new DOMParser().parseFromString(await res.text(),'text/html');
-    var W=['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
+    var W=['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Twenty-one','Twenty-two','Twenty-three','Twenty-four','Twenty-five','Twenty-six','Twenty-seven','Twenty-eight','Twenty-nine','Thirty'];
     var chapters=[].slice.call(doc.querySelectorAll('.pub-chapter'));
     function chapterByName(n){return chapters.find(function(c){var h=c.querySelector('.pub-h');return h&&h.textContent.trim().toLowerCase()===n.toLowerCase();});}
     // observation counts
