@@ -394,7 +394,7 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
    as aligned by eye even when their photographs differ in height. */
 .study-cards{align-items:stretch}
 .study-cards .s-card{display:flex;flex-direction:column;justify-content:flex-end}
-.ftab{background:none;border:none;cursor:pointer;font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.18em;font-size:.62rem;text-transform:uppercase;color:var(--ink-faint);padding:0;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.ftab{background:none;border:none;cursor:pointer;font-family:"Cormorant",serif;font-weight:300;letter-spacing:0;font-size:clamp(1.1rem,1.4vw,1.25rem);text-transform:none;color:var(--ink-faint);padding:0;padding-bottom:.2rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
 .ftab:hover{color:var(--ink)}
 .ftab.active{color:var(--ink);border-bottom-color:currentColor}
 .study-cards .s-card .shot{flex:none;}
