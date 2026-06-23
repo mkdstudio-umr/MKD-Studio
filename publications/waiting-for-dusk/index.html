@@ -51,6 +51,16 @@
   background: var(--paper-2);
   aspect-ratio: 3/4;
 }
+.pubp-cover.book-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .6rem;
+  aspect-ratio: auto;
+  background: none;
+}
+.pubp-cover.book-pair img {
+  aspect-ratio: 3/4;
+}
 .pubp-cover img {
   display: block;
   width: 100%;
@@ -301,8 +311,9 @@
 </nav>
 
 <section class="pad pubp-head"><div class="wrap">
-  <div class="pubp-cover reveal">
-    <img loading="lazy" decoding="async" src="/images/waiting_dusk_cover.jpg" alt="Waiting for Dusk — cover, Doha Golf Club, Qatar">
+  <div class="pubp-cover book-pair reveal">
+    <img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk, Doha Golf Club, Qatar">
+    <img loading="lazy" decoding="async" src="/images/waiting_dusk_cover.jpg" alt="Waiting for Dusk — hardcover edition">
   </div>
   <div class="pubp-title-block reveal d1">
     <span class="label">Publication 002</span>
