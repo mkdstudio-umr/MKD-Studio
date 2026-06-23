@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Waiting for Dusk / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+/* linen cloth texture */
+.page::before {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+  opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  opacity: .032; mix-blend-mode: multiply;
+}
+
+.page.plate {
+  padding: 0; background: var(--dark);
+}
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  z-index: 1;
+}
+.page.plate::before { z-index: 2; opacity: .022; }
+.page.plate::after  { z-index: 3; opacity: .015; }
+
+.page > *:not(img) { position: relative; z-index: 10; }
+
+#panel-left, #panel-right { background: var(--linen); }
+
+/* text pages */
+.textwrap {
+  width: 100%;
+  padding: 11% 13%;
+  text-align: left;
+}
+.act-no {
+  font-style: italic; font-size: .6rem;
+  color: var(--soft); letter-spacing: .12em;
+  margin-bottom: .5rem;
+}
+.act-title {
+  font-style: italic; font-size: 1.5rem;
+  line-height: 1.15; margin-bottom: 1rem;
+  color: var(--ink);
+}
+.rule {
+  border: none; border-top: .4px solid var(--soft);
+  width: 36px; margin: 0 0 1.5rem; opacity: .45;
+}
+.body {
+  font-size: .78rem; line-height: 1.95;
+  margin-bottom: 1.2rem; color: var(--ink);
+}
+.body.i { font-style: italic; }
+.body.sm { font-size: .72rem; line-height: 2.0; color: var(--mid); }
+
+/* centre / chapter / display pages */
+.center { text-align: center; padding: 2rem; }
+.cover-inner { text-align: center; padding: 2rem; }
+
+.pub-title {
+  font-style: italic; font-size: 1.7rem;
+  letter-spacing: .02em; color: var(--ink);
+  line-height: 1.2; margin-bottom: .8rem;
+}
+.pub-sub {
+  font-size: .52rem; letter-spacing: .3em;
+  color: var(--mid); text-transform: uppercase;
+  margin-top: .6rem;
+}
+.pub-studio {
+  font-size: .46rem; letter-spacing: .34em;
+  color: var(--soft); text-transform: uppercase;
+  margin-top: 5rem;
+}
+
+.eyebrow {
+  font-size: .62rem; letter-spacing: .34em;
+  text-transform: uppercase; color: var(--ink);
+}
+.halftitle {
+  font-size: .58rem; letter-spacing: .32em;
+  color: var(--mid); text-transform: uppercase;
+}
+.colophon p {
+  font-size: .52rem; letter-spacing: .18em;
+  color: var(--soft); line-height: 2.4;
+  text-transform: uppercase;
+}
+
+/* chapter divider pages */
+.chapter-page { text-align: center; }
+.ch-num {
+  font-style: italic; font-size: .72rem;
+  color: var(--soft); letter-spacing: .1em;
+  margin-bottom: .5rem;
+}
+.ch-name {
+  font-style: italic; font-size: 1.45rem;
+  color: var(--ink); letter-spacing: .04em;
+}
+
+/* epigraph / closing line */
+.epigraph p {
+  font-style: italic; font-size: .9rem;
+  line-height: 1.82; color: var(--ink);
+  margin: 0 auto; max-width: 24em;
+}
+.epigraph p + p { margin-top: 1.1rem; color: var(--mid); }
+
+.closing p {
+  font-style: italic; font-size: .92rem;
+  line-height: 1.75; color: var(--mid);
+  max-width: 26em; margin: 0 auto;
+}
+
+/* plate caption — very small, low on dark pages */
+.plate-label {
+  position: absolute; bottom: 1.4rem; left: 0; right: 0;
+  text-align: center; z-index: 12;
+  font-size: .42rem; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(255,255,255,.28);
+  pointer-events: none;
+}
+
+/* mobile */
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .48s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .48s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .48s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .48s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+
+#desktop-wrap { display: none; }
+
+/* intro overlay */
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--linen);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity .9s ease, visibility .9s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro .i-title {
+  font-style: italic; font-size: 1.55rem;
+  color: var(--ink); margin-bottom: .6rem;
+}
+#intro .i-sub {
+  font-size: .52rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--mid);
+  margin-bottom: 3.5rem;
+}
+#intro .open {
+  font-size: .58rem; letter-spacing: .24em; text-transform: uppercase;
+  border: .5px solid var(--ink); background: none;
+  padding: .9rem 2.2rem; cursor: pointer;
+  font-family: inherit; color: var(--ink);
+  transition: background .3s, color .3s;
+}
+#intro .open:hover { background: var(--ink); color: var(--linen); }
+
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+  font-size: .48rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .55; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.6rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .48rem; letter-spacing: .22em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .65; transition: opacity 1s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+/* desktop */
+@media (min-width: 900px) {
+  body { background: #131210; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 2.5vh 2.5vw;
+  }
+
+  #book-spread {
+    display: flex; width: 100%; height: 100%;
+    max-width: 1480px; max-height: 90vh; gap: 0;
+  }
+
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0;
+    position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow:
+      0 12px 80px rgba(0,0,0,.7),
+      0 2px 8px rgba(0,0,0,.4),
+      inset 0 0 0 .5px rgba(180,160,130,.18);
+  }
+
+  #spine {
+    flex: 0 0 36px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.30) 0%, rgba(0,0,0,.10) 35%,
+      rgba(0,0,0,.05) 50%, rgba(0,0,0,.10) 65%,
+      rgba(0,0,0,.30) 100%
+    );
+    position: relative; z-index: 5;
+  }
+
+  #panel-left::after {
+    content: ""; position: absolute;
+    top:0; right:0; width:20px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.09), transparent);
+    z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute;
+    top:0; left:0; width:20px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.09), transparent);
+    z-index: 4; pointer-events: none;
+  }
+
+  #panel-left .page, #panel-right .page {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+  }
+
+  #counter { bottom: 1.6rem; left: auto; right: 3vw; transform: none; }
+
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: var(--soft); font-family: inherit;
+    font-size: .48rem; letter-spacing: .2em; text-transform: uppercase;
+    opacity: .4; transition: opacity .2s; padding: 1rem 1.5rem;
+  }
+  #btn-prev { left: .5vw; }
+  #btn-next { right: .5vw; }
+  #btn-prev:hover, #btn-next:hover { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left,
+  .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="i-title">Waiting for Dusk</div>
+  <div class="i-sub">Doha Golf Club, Qatar &middot; mkd STUDIO</div>
+  <button class="open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap">
+  <div id="mobile-panel"></div>
+</div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* 01 — COVER */
+`<section class="page">
+  <div class="cover-inner">
+    <div class="pub-title">Waiting for Dusk</div>
+    <div class="pub-sub">Doha Golf Club, Qatar</div>
+    <div class="pub-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 02 — HALF-TITLE */
+`<section class="page center">
+  <div class="halftitle">Waiting for Dusk</div>
+</section>`,
+
+/* 03 — TITLE PAGE */
+`<section class="page center">
+  <div class="cover-inner">
+    <div style="font-style:italic;font-size:1.35rem;color:var(--ink);margin-bottom:.7rem">Waiting for Dusk</div>
+    <div style="font-size:.5rem;letter-spacing:.28em;color:var(--mid);text-transform:uppercase;line-height:2.2">Doha Golf Club, Qatar<br>Commercial Bank Qatar Masters</div>
+    <div style="font-size:.46rem;letter-spacing:.32em;color:var(--soft);text-transform:uppercase;margin-top:4rem">mkd STUDIO</div>
+    <div style="font-style:italic;font-size:.68rem;color:var(--soft);margin-top:3.5rem">An editorial study of time, atmosphere and light.</div>
+  </div>
+</section>`,
+
+/* 04 — COLOPHON */
+`<section class="page center">
+  <div class="colophon" style="max-width:26em">
+    <p>Photography and editorial direction</p>
+    <p>mkd STUDIO</p>
+    <p style="margin-top:1.2rem">All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+    <p style="margin-top:1.2rem">First edition &middot; 2024</p>
+  </div>
+</section>`,
+
+/* 05 — EDITORIAL LABEL */
+`<section class="page">
+  <div class="textwrap">
+    <div style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);margin-bottom:3rem">Editorial</div>
+    <p class="body">A golf tournament lasts four days. Each day lasts approximately six hours of active play, though the hours on either side of that are also hours spent at the course, in the same light, under the same sky. The final day is the one most people come to. It is also, for our purposes, the least interesting one.</p>
+    <p class="body">What we were looking for was the quality of the other hours: the early ones, when the course is still cool and the bags are resting beside the bags of other players who have not yet arrived; the middle hours, when the rhythm of the thing settles and the gaps between groups are long enough that you notice the grass and the palms and the distance markers; and the late hours, when the light comes down at an angle that turns an ordinary desert afternoon into something that demands to be looked at.</p>
+    <p class="body">This publication is made from ten photographs taken during one such afternoon at Doha Golf Club, at the Commercial Bank Qatar Masters. The game itself is not the subject. The subject is what surrounds it: the ritual of arrival, the pattern of movement across a landscape, the objects placed in the ground to divide time and distance, the stillness that gathers between one moment and the next, and the light, finally, that makes the whole thing worth staying for.</p>
+  </div>
+</section>`,
+
+/* 06 — EDITORIAL CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">Doha is a city that deals seriously with the question of hospitality. It has built institutions around it, invested in landscape and atmosphere, drawn events from across the world and placed them in a setting that is neither purely traditional nor entirely modern. The golf course sits inside this question. It is a European sport, played here by a global field, in a desert climate, watched by a crowd that includes people who have come for the golf and people who have simply come to be outside on a particular kind of afternoon.</p>
+    <p class="body">We were among the latter. What we were observing was not the competition but the conditions it created: a particular kind of collective attention, a particular kind of slow movement through a landscape, a particular relationship between the city on the horizon and the formal green world in the foreground. These things exist at every major sporting event. They are rarely photographed, because they are not the story. We were interested in them because they are the atmosphere, and atmosphere is what the photographs in this publication are of.</p>
+    <p class="body i" style="margin-top:2rem">Ten images. Seven chapters. A day measured in light.</p>
+  </div>
+</section>`,
+
+/* 07 — BLANK */
+`<section class="page"></section>`,
+
+/* 08 — CHAPTER I */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">I</div>
+    <div class="ch-name">Arrival</div>
+  </div>
+</section>`,
+
+/* 09 — BLANK facing image 01 */
+`<section class="page"></section>`,
+
+/* 10 — IMAGE 01: course before play */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_01.jpg" alt="The course before play, Doha Golf Club, Qatar">
+</section>`,
+
+/* 11 — ARRIVAL TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">I &mdash; Arrival</div>
+    <hr class="rule">
+    <p class="body">The course is open before the first group reaches it. Fairways extend toward a low white building, palm trees standing along the boundary. The grass holds the early light differently from how it will hold it later. Flatter, cooler, without the warmth the afternoon will bring.</p>
+    <p class="body">A bag stands beside a green. A caddie moves across the far side of the fairway. Nothing has started yet, though everything is in place for it to. There is a particular quality to a place prepared for a day that has not yet begun: a readiness that is also a kind of silence. The chairs are out. The signs are up. The ground has been attended to. Whatever is about to happen has not yet displaced the air with its having happened.</p>
+    <p class="body">Arrival at a sporting event is distinct from arrival at most other places. The destination is known. The structure of the day is known. What is not known yet is what the day will feel like, how the light will fall, what the temperature will be when the afternoon runs long.</p>
+    <p class="body">The course in these first images belongs to the people who work on it rather than the people who play it. The groundsmen have already been. The hospitality structures are in place. The bags have arrived ahead of their owners. It is a world mid-preparation, and that state has its own atmosphere, distinct from the one that follows.</p>
+  </div>
+</section>`,
+
+/* 12 — IMAGE 02: open fairway */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_02.jpg" alt="An open fairway, Doha Golf Club, Qatar">
+</section>`,
+
+/* 13 — ARRIVAL CLOSE */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">The fairway in the early photograph is empty because the day has not started in the way that matters to the people who will play it. But it is not actually empty. It is a place in use in a different register: being walked, measured, attended to. This is true of most spaces before an event. They are never as empty as they appear from the outside. They are at their most fully inhabited by the people who make them work.</p>
+  </div>
+</section>`,
+
+/* 14 — ARRIVAL CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>What the photographs show is not absence.<br>They show anticipation.<br>The difference is important.</p>
+  </div>
+</section>`,
+
+/* 15 — CHAPTER II */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">II</div>
+    <div class="ch-name">Movement</div>
+  </div>
+</section>`,
+
+/* 16 — BLANK facing image 03 */
+`<section class="page"></section>`,
+
+/* 17 — IMAGE 03: caddies walking */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_03.jpg" alt="Caddies walking the fairway, Doha Golf Club, Qatar">
+</section>`,
+
+/* 18 — MOVEMENT TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">II &mdash; Movement</div>
+    <hr class="rule">
+    <p class="body">Figures cross the landscape in groups, bags carried between them. The distance between one group and the next repeats itself along the course. Each group moves at the same pace, toward the same horizon.</p>
+    <p class="body">Seen from far enough away, the movement becomes a pattern rather than a sequence of individuals. This is one of the things a golf course does that most sporting venues do not: it spreads its participants across a landscape wide enough that you can observe the logic of the movement as a whole rather than its individual instances. At a stadium, you see the crowd. Here, you see the structure.</p>
+    <p class="body">The game produces a specific kind of choreography. Each hole repeats the pattern of the last: arrival at the tee, dispersal across the fairway, convergence at the green, departure. They move together and apart in a sequence as formal as any ritual. The fact that it is also a competition does not displace its quality as a procession.</p>
+    <p class="body">Golf is a sport of repetition made to feel, each time, like a problem being solved for the first time. The distances change. The lie changes. The wind changes. But the shape of the thing remains: walk, wait, strike, walk. The landscape is crossed in a fixed grammar.</p>
+  </div>
+</section>`,
+
+/* 19 — MOVEMENT CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>The gap between groups is its own landscape: the course as it is between occupations, which is also the course as it actually is.</p>
+  </div>
+</section>`,
+
+/* 20 — BLANK */
+`<section class="page"></section>`,
+
+/* 21 — CHAPTER III */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">III</div>
+    <div class="ch-name">Measurement</div>
+  </div>
+</section>`,
+
+/* 22 — MEASUREMENT TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">III &mdash; Measurement</div>
+    <hr class="rule">
+    <p class="body">A clock stands among the palm trees, its face visible from several directions. Elsewhere, a board gives a distance and a direction, numbers fixed beside the fairway. At the tee, a marker names the hole and its par.</p>
+    <p class="body">These objects do not explain the day. They divide it. Time and distance, marked and remarked at every interval, so that a day on the course can be read in increments rather than experienced as a whole. The landscape is crossed in units. The numbers are always there.</p>
+    <p class="body">The clock is a particular object. It is placed in a setting that already belongs to measurement, and yet it introduces a different kind of measurement alongside the spatial one. The distance markers tell you where you are in relation to the hole. The clock tells you where you are in relation to the end of the day.</p>
+    <p class="body">A clock placed outdoors, among trees and open sky, has a different quality from a clock in a room. It is not consulted to catch a train. It is consulted to understand, approximately, how much of the afternoon remains. The question behind the consultation is not logistical. It is atmospheric.</p>
+  </div>
+</section>`,
+
+/* 23 — IMAGE 04: clock */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_04.jpg" alt="A clock among the palm trees, Doha Golf Club, Qatar" style="object-fit:contain;background:var(--linen)">
+</section>`,
+
+/* 24 — IMAGE 05: distance marker */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_05.jpg" alt="A distance marker beside the fairway, Doha Golf Club, Qatar">
+</section>`,
+
+/* 25 — MEASUREMENT CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">The distance marker translates position into number. It replaces the experience of distance with its denomination. But when you look at it outside the context of the game, as an object placed in a landscape pointing at something, it becomes more peculiar. Together, these objects create a kind of notation, a written record of the course's geometry laid out on the ground itself.</p>
+    <p class="body">The tournament adds further measurement on top of the course's own. Leaderboards. Scoring apps. The caddie's yardage book, annotated by hand. A day at a professional golf tournament is among the most thoroughly measured days it is possible to have outdoors. Everything has been counted.</p>
+    <p class="body">What this measurement cannot capture is the quality of the thing being measured. The number on the distance marker does not tell you how the grass smells after the sprinklers have run, or how the wind has shifted since morning, or that the particular angle of the afternoon light makes the green look further away than it is. These things are real. They affect the shot. They are not in the numbers.</p>
+    <p class="body">Measurement, taken far enough, reaches the edge of what it can say. The photographs work at that edge.</p>
+  </div>
+</section>`,
+
+/* 26 — MEASUREMENT CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>Photography removes context.<br>What remains is appearance.</p>
+  </div>
+</section>`,
+
+/* 27 — BLANK */
+`<section class="page"></section>`,
+
+/* 28 — BLANK (double blank after Measurement) */
+`<section class="page"></section>`,
+
+/* 29 — CHAPTER IV */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">IV</div>
+    <div class="ch-name">Observation</div>
+  </div>
+</section>`,
+
+/* 30 — OBSERVATION TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">IV &mdash; Observation</div>
+    <hr class="rule">
+    <p class="body">Beside the course, a sign names the tournament, partners listed beneath it in smaller type. Nearby, people stand without doing very much. A pause before a shot. A conversation that does not appear urgent. A wait for a group ahead to clear the green.</p>
+    <p class="body">These moments take up most of the day, though they rarely appear in how a day like this is described. Sports coverage is a grammar of action: the decisive putt, the missed cut, the final-hole birdie. The hours of waiting that surround each of these moments are structurally necessary but invisible in how it is told.</p>
+    <p class="body">The photographs kept returning to the stillness. The caddie waiting with both hands on the bag. The official watching from a distance with nothing currently requiring his attention. This stillness is not nothing. It is the medium in which the event occurs.</p>
+    <p class="body">A golf tournament is as much waiting as it is playing, and the waiting has its own texture. It is a shared waiting, structured and purposeful, with a clear object. What is being observed here is the quality of that collective patience. It is specific to this kind of event and to the kind of hospitality it generates.</p>
+  </div>
+</section>`,
+
+/* 31 — IMAGE 06: tournament signage */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_06.jpg" alt="Tournament signage beside the course, Doha Golf Club, Qatar">
+</section>`,
+
+/* 32 — OBSERVATION CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>The sign names the event.<br>The event is mostly what surrounds the sign.</p>
+  </div>
+</section>`,
+
+/* 33 — BLANK */
+`<section class="page"></section>`,
+
+/* 34 — CHAPTER V */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">V</div>
+    <div class="ch-name">Landscape</div>
+  </div>
+</section>`,
+
+/* 35 — BLANK facing image 07 */
+`<section class="page"></section>`,
+
+/* 36 — IMAGE 07: Doha skyline */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_07.jpg" alt="The Doha skyline beyond the course, Qatar">
+</section>`,
+
+/* 37 — LANDSCAPE TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">V &mdash; Landscape</div>
+    <hr class="rule">
+    <p class="body">Beyond the course, the city is visible without being close. Towers sit along the horizon, pale against the sky, separated from the fairways by a wide stretch of grass and open ground.</p>
+    <p class="body">The course and the city occupy the same view but not the same world. The fairways are governed by the rules they have always been governed by. The towers behind them are indifferent to the score. There is something clarifying about that distance: the game proceeding with complete seriousness against a backdrop that does not notice it.</p>
+    <p class="body">Doha built itself quickly and continues to build. The towers represent, between them, a span of construction that in most cities would take a century. The skyline is still adding to itself. From the course, you can sometimes see cranes above the buildings.</p>
+    <p class="body">The golf course is, in one reading, a kind of opposite project: old rules, fixed dimensions, maintained surfaces, a landscape whose purpose has not changed in a hundred years. The course represents a kind of permanence in a city that has built its identity around transformation. The distance between them in the photograph is not just geographical. It is a distance between two relationships with time.</p>
+  </div>
+</section>`,
+
+/* 38 — LANDSCAPE CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>The game proceeds with complete seriousness.<br>Behind it, indifferently, the city continues.</p>
+  </div>
+</section>`,
+
+/* 39 — BLANK */
+`<section class="page"></section>`,
+
+/* 40 — CHAPTER VI */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">VI</div>
+    <div class="ch-name">Light</div>
+  </div>
+</section>`,
+
+/* 41 — LIGHT TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">VI &mdash; Light</div>
+    <hr class="rule">
+    <p class="body">By late afternoon, the light has changed. Shadows extend across the fairways, longer than they were an hour before. The colour of the grass shifts toward gold, then deeper toward amber.</p>
+    <p class="body">This is not a subtle shift. It is a transformation. The same course that was blue-green in the morning is warm in a way that has nothing to do with temperature. The light is changing the colour of everything it touches, and everything it touches becomes briefly extraordinary.</p>
+    <p class="body">The hour before dusk at Doha Golf Club, in February, on a clear afternoon: this is the specific condition the publication is about. It is a condition that lasts approximately forty minutes and then is gone. The quality of it cannot be recreated by arriving earlier or staying later.</p>
+    <p class="body">This applies to a golf tournament. It applies to a hotel terrace, a rooftop, a harbour, a courtyard, an awards dinner held outside as the sun sets behind the venue. The specific atmosphere of that hour is available to whoever is there and paying attention. Most events end inside. The ones that acknowledge the end of the afternoon outdoors have access to something that cannot be staged or commissioned.</p>
+  </div>
+</section>`,
+
+/* 42 — IMAGE 08: bag under palms at sunset */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_08.jpg" alt="A golf bag beneath the palm trees at sunset, Doha Golf Club, Qatar">
+</section>`,
+
+/* 43 — BLANK facing image 09 (diptych rest) */
+`<section class="page"></section>`,
+
+/* 44 — IMAGE 09: bag against clubhouse (diptych) */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_09.jpg" alt="A golf bag against the clubhouse at sunset, Doha Golf Club, Qatar">
+</section>`,
+
+/* 45 — LIGHT CLOSE */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">This is the part of the day that lasts the shortest and is noticed the most. It has a quality of acceleration. The light loses ground in a way that makes it visible as something finite, which is unusual: for most of the day, light is simply the medium in which things are seen. In the last forty minutes before dusk, it becomes the subject itself.</p>
+    <p class="body">The photographs in this chapter were made because the light made them necessary. The bags, the palms, the white building: these were the things that were there. The light was the thing that made them worth making photographs of. Without the light, they are inventory. With it, they are something else.</p>
+  </div>
+</section>`,
+
+/* 46 — LIGHT CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>What that something else is, the publication does not try to name.<br>It is made of colour and angle and duration.<br>It is real. It ends.</p>
+  </div>
+</section>`,
+
+/* 47 — BLANK */
+`<section class="page"></section>`,
+
+/* 48 — BLANK (double blank before Dusk) */
+`<section class="page"></section>`,
+
+/* 49 — CHAPTER VII */
+`<section class="page center">
+  <div class="chapter-page">
+    <div class="ch-num">VII</div>
+    <div class="ch-name" style="font-size:1.7rem">Dusk</div>
+  </div>
+</section>`,
+
+/* 50 — BLANK facing final image */
+`<section class="page"></section>`,
+
+/* 51 — IMAGE 10: course at dusk */
+`<section class="page plate">
+  <img src="/images/waiting_dusk_10.jpg" alt="The course at dusk, skyline beyond, Doha Golf Club, Qatar">
+</section>`,
+
+/* 52 — DUSK TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="act-no">VII &mdash; Dusk</div>
+    <hr class="rule">
+    <p class="body">The last groups move across the course as the towers catch the remaining light. The grass holds its colour a little longer than the sky does. The score is still being kept somewhere, though it is harder to care about it now.</p>
+    <p class="body">Dusk at a sporting event is a structural ending and an atmospheric beginning. The competition closes on its own terms: a final score, a winner, a result that will be recorded and referred to. But the end of the day is not governed by the competition. It is governed by the light.</p>
+    <p class="body">In the last photograph, the course is still occupied. Players are still out. The towers are still lit in a way they were not an hour ago. The grass has gone from green to gold to something closer to bronze. None of this is scheduled. It happens because the day is long enough and the location is right and someone chose to stay rather than leave.</p>
+    <p class="body">This is the hospitality of an outdoor event: not the catering or the access or the entertainment, but the accumulated quality of a day spent in a particular place under a particular sky. These things cannot be designed. They can only be prepared for and, when they arrive, attended to.</p>
+  </div>
+</section>`,
+
+/* 53 — DUSK CLOSING LINE */
+`<section class="page center">
+  <div class="closing">
+    <p>The sport is the reason everyone is there.<br>The light is what remains.</p>
+  </div>
+</section>`,
+
+/* 54 — BLANK */
+`<section class="page"></section>`,
+
+/* 55 — CLOSING REFLECTION LABEL */
+`<section class="page">
+  <div class="textwrap">
+    <div style="font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);margin-bottom:3rem">Closing Reflection</div>
+    <p class="body">These are ten photographs made at a golf tournament in Doha. They are not photographs of golf. They are photographs of a day in a place with a particular atmosphere, structured by an event that provided the reason to be there.</p>
+    <p class="body">The structure of the event is important. Without it, the course is empty and the day has no shape. The tournament brings the bags and the caddies and the distance markers and the clock among the palms and the people waiting beside the fairway. It creates the conditions for everything that is photographed here.</p>
+    <p class="body">But the photographs are not of the tournament. They are of what the tournament makes possible: a particular kind of collective presence in a landscape, governed by ritual and measured by time, arriving finally at the quality of late afternoon light that a desert city at this latitude produces in February. The tournament is the vehicle. The light is the destination.</p>
+  </div>
+</section>`,
+
+/* 56 — CLOSING REFLECTION CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">mkd STUDIO works at the intersection of place and occasion. A venue is not only its architecture; it is also the specific quality of a day spent inside it, the atmosphere it accumulates over the course of an event, the texture of the hours before and after the central moment. Our work is to attend to these things and make them visible.</p>
+    <p class="body">The photographs in this publication were made at a sporting event, but the same attention applies to any occasion where hospitality and place come together: a hotel at a particular hour, a terrace at the end of a dinner, a corridor before an opening, an empty ballroom before the first guests arrive. What these moments share is their quality as thresholds: they are not the event itself but the atmosphere in which the event occurs.</p>
+    <p class="body">For event partners, hospitality organisations, and venues interested in how their work looks when observed at this level of attention, this publication is a document of method. It is not a record of what happened. It is a record of what was worth looking at.</p>
+    <p class="body sm" style="margin-top:2.5rem">mkd STUDIO &middot; 2024</p>
+  </div>
+</section>`,
+
+/* 57 — BLANK */
+`<section class="page"></section>`,
+
+/* 58 — BLANK (final) */
+`<section class="page"></section>`,
+
+];
+
+const N = PAGES.length;
+let cur = 0;
+let busy = false;
+let cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) {
+    el.innerHTML = '';
+    el.style.background = 'var(--linen)';
+    return;
+  }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  el.style.background = (pg && pg.classList.contains('plate'))
+    ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2200);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft,  cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+  setTimeout(() => {
+    out.remove();
+    mPanel.classList.remove(inCls);
+    busy = false;
+  }, 500);
+}
+
+function next() {
+  if (isDesk()) { renderDesk(cur + 2); }
+  else { if (cur < N - 1) slide('next', cur + 1); }
+}
+function prev() {
+  if (isDesk()) { renderDesk(cur - 2); }
+  else { if (cur > 0) slide('prev', cur - 1); }
+}
+
+function enter() {
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) {
+    btnPrev.style.display = btnNext.style.display = 'block';
+    renderDesk(0);
+  } else {
+    renderMobile(0);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => {
+  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+    dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur);
+    else renderMobile(cur);
+  }
+});
+</script>
+</body>
+</html>
