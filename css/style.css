@@ -105,7 +105,7 @@
   .pf-head .label{display:block;margin-bottom:1rem}
   .pf-lead{font-family:"Cormorant",serif;font-weight:300;line-height:1.18;letter-spacing:-0.01em;font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--ink)}
   .pf-sub{margin-top:.75rem;max-width:560px;color:var(--ink-soft);font-size:clamp(.88rem,1.1vw,1rem);line-height:1.6}
-  .pf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+  .pf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .pf-grid .full{grid-column:1 / -1}
   @media(max-width:760px){.pf-grid{grid-template-columns:repeat(2,1fr);gap:2px}}
 
