@@ -433,7 +433,7 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
 .feat{display:flex;flex-direction:column;text-decoration:none;color:inherit}
 .feat .feat-img{aspect-ratio:4/3;width:100%;margin-bottom:.95rem}
 .feat .feat-img img{transition:filter .5s ease}
-.feat-text{display:flex;flex-direction:column}
+.feat-text{display:flex;flex-direction:column;flex:1}
 .feat-cat{font-family:'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;font-size:.62rem;color:var(--ink-faint)}
 .feat-title{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.2rem,1.6vw,1.55rem);line-height:1.15;margin:.42rem 0 .5rem}
 .feat-year{font-family:'Jost',sans-serif;letter-spacing:.16em;font-size:.66rem;color:var(--ink-faint);margin-top:.1rem}
