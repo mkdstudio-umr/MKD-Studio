@@ -450,7 +450,7 @@ section.about.about-note{padding-top:calc(var(--space) * .42);padding-bottom:cal
 /* About the Studio — single closing note: studio, collaboration, contact */
 .about-note .narrow{max-width:660px;text-align:center}
 .about-note .label{color:var(--ink-faint)}
-.about-note p{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.62;color:var(--ink-soft);margin-top:1.05rem}
+.about-note p{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.22rem);line-height:1.62;color:var(--ink-soft);margin-top:1.05rem}
 .about-note .about-contact{margin-top:1.5rem}
 .about-note .about-contact a{font-family:'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:.68rem;color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:.3rem;transition:color .4s ease,border-color .4s ease}
 .about-note .about-contact a:hover{border-color:var(--accent)}
