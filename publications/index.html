@@ -261,44 +261,6 @@
   }
 }
 
-/* ── JOURNAL ENTRY ───────────────────────────────── */
-.pub-journal-entry {
-  padding-top: clamp(2rem, 4vw, 3rem);
-  padding-bottom: clamp(3rem, 6vw, 5rem);
-}
-.journal-entry-link {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  text-decoration: none;
-  color: inherit;
-}
-.journal-entry-link:hover .je-title {
-  color: var(--ink);
-}
-.je-meta {
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  display: block;
-}
-.je-title {
-  font-family: "Cormorant", serif;
-  font-weight: 400;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  color: var(--ink-soft);
-  letter-spacing: 0.04em;
-  transition: color .2s;
-  display: block;
-}
-.je-sub {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  display: block;
-}
 </style>
 </head>
 <body class="light-head">
@@ -369,18 +331,24 @@
     </div>
   </div>
 
+  <div class="volume reveal">
+    <div class="volume-shot book-pair">
+      <img loading="lazy" decoding="async" src="/images/kaawa_01.jpg" alt="KAAWA, Manchester — Open Late">
+      <img loading="lazy" decoding="async" src="/images/kaawa_cover.jpg" alt="Open Late — journal edition">
+    </div>
+    <div class="volume-text">
+      <span class="volume-no">Publication 004</span>
+      <h2 class="volume-title">Open Late</h2>
+      <span class="volume-edition">Craft / Volume I</span>
+      <p class="volume-blurb">A study of a caf&eacute; that remains open. KAAWA, Manchester, on a rainy evening in the part of the year when afternoons end early. Nine photographs, six chapters. The city goes dark. The room stays lit.</p>
+      <a class="volume-link" href="/publications/open-late/" target="_blank" rel="noopener">Read the publication <span class="arrow-mark">&rarr;</span></a>
+    </div>
+  </div>
+
 </div></section>
 
 <section class="pad pub-note"><div class="wrap">
   <p class="reveal">New volumes join this collection as they are made, each built around the place, brand or world it was made for. The archive of independent studies, which sits alongside the publications, is where the ongoing work lives between volumes.</p>
-</div></section>
-
-<section class="pad pub-journal-entry"><div class="wrap">
-  <a href="/publications/open-late/" class="journal-entry-link reveal">
-    <span class="je-meta">Journal Edition &nbsp;&middot;&nbsp; 004</span>
-    <span class="je-title">Open Late</span>
-    <span class="je-sub">KAAWA, Manchester &nbsp;&rarr;</span>
-  </a>
 </div></section>
 
 <footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/partnerships/">Partnerships</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO &middot; An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">&copy; mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
