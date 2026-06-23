@@ -152,20 +152,63 @@
   line-height: 1.7;
   margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
 }
-.pubp-reader-frame {
+.pubp-reader-wrap {
+  position: relative;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
+}
+.pubp-reader-frame {
+  width: 100%;
   display: block;
   aspect-ratio: 8/5;
   border: 1px solid var(--line);
   background: #111009;
+  pointer-events: none;
 }
+.pubp-reader-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+.pubp-open-btn {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: "Jost", sans-serif;
+  font-size: .62rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: .15rem;
+  transition: color .3s, border-color .3s;
+}
+.pubp-open-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+#pub-modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: #0a0908;
+}
+#pub-modal.open { display: block; }
+#pub-modal iframe {
+  width: 100%; height: 100%;
+  border: none; display: block;
+}
+#pub-modal-close {
+  position: fixed; top: 1.2rem; right: 1.4rem; z-index: 210;
+  font-family: "Jost", sans-serif;
+  font-size: .5rem; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(176,171,166,.55); background: none; border: none; cursor: pointer;
+  padding: .5rem .8rem;
+  transition: color .2s;
+}
+#pub-modal-close:hover { color: rgba(26,24,20,.9); }
+
 @media (max-width: 899px) {
-  .pubp-reader-frame {
-    max-width: none;
-    aspect-ratio: 3/5;
-  }
+  .pubp-reader-frame { aspect-ratio: 3/5; }
 }
 
 /* ── REGISTER INTEREST ─────────────────────────────────── */
@@ -330,8 +373,12 @@
 <section class="pad pubp-section"><div class="wrap">
   <span class="field-label">Preview</span>
   <div>
-    <p class="pubp-preview-note">What follows is a small selection from the publication, including one chapter shown in full.<br>The remainder exists only within the complete edition.</p>
-    <iframe class="pubp-reader-frame reveal" src="/publications/the-spaces-between/preview.html" title="The Spaces Between — Preview" loading="lazy"></iframe>
+    <p class="pubp-preview-note">What follows is a small selection from the publication, including one chapter shown in full.<br>The remainder exists only within the complete edition. Click to open in full.</p>
+    <div class="pubp-reader-wrap reveal">
+      <iframe class="pubp-reader-frame" src="/publications/the-spaces-between/preview.html" title="The Spaces Between — Preview" loading="lazy"></iframe>
+      <div class="pubp-reader-overlay" onclick="openPublication()"></div>
+    </div>
+    <a class="pubp-open-btn" href="javascript:void(0)" onclick="openPublication()">Open publication in full</a>
   </div>
 </div></section>
 
@@ -386,6 +433,28 @@
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<div id="pub-modal">
+  <button id="pub-modal-close" onclick="closePublication()">Close &times;</button>
+  <iframe id="pub-modal-frame" src="" title="The Spaces Between — mkd STUDIO"></iframe>
+</div>
+<script>
+function openPublication() {
+  const modal = document.getElementById('pub-modal');
+  const frame = document.getElementById('pub-modal-frame');
+  if (!frame.src || frame.src === window.location.href) {
+    frame.src = '/publications/the-spaces-between/preview.html';
+  }
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePublication() {
+  document.getElementById('pub-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePublication();
+});
 </script>
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
 <script src="/js/mobile-nav.js" defer></script>
