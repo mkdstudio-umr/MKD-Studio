@@ -110,7 +110,8 @@
   @media(max-width:760px){.pf-grid{grid-template-columns:repeat(2,1fr);gap:2px}}
 
   /* OBSERVATIONS ARCHIVE */
-  .obs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:60px 28px;max-width:1780px;margin:0 auto}
+  .obs-archive{padding-left:clamp(2.5rem,6vw,6rem);padding-right:clamp(2.5rem,6vw,6rem)}
+  .obs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:60px 28px}
   .obs-item{display:flex;flex-direction:column}
   .obs-item.obs-land{grid-column:span 2}
   .obs-item figcaption{margin-top:.8rem;font-family:Jost,sans-serif;font-weight:300;font-size:0.72rem;letter-spacing:0.05em;color:var(--ink-soft);line-height:1.6}
