@@ -34,7 +34,7 @@
   .slot::after{content:attr(data-label);position:absolute;font-family:"Jost",sans-serif;font-weight:300;text-transform:uppercase;
     letter-spacing:.26em;font-size:.58rem;color:var(--ink-faint);text-align:center;padding:1rem;line-height:1.9}
   .slot.filled::after{display:none}
-  .r-portrait{aspect-ratio:3/4}.r-land{aspect-ratio:4/3}.r-wide{aspect-ratio:16/9}
+  .r-portrait{aspect-ratio:3/4}.r-land{aspect-ratio:5/3}.r-wide{aspect-ratio:16/9}
   .r-square{aspect-ratio:5/6}.r-tall{aspect-ratio:2/3}.r-cinema{aspect-ratio:21/9}
 
   /* COVER */
