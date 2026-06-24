@@ -35,7 +35,7 @@
     letter-spacing:.26em;font-size:.58rem;color:var(--ink-faint);text-align:center;padding:1rem;line-height:1.9}
   .slot.filled::after{display:none}
   .r-portrait{aspect-ratio:3/4}.r-land{aspect-ratio:4/3}.r-wide{aspect-ratio:16/9}
-  .r-square{aspect-ratio:1/1}.r-tall{aspect-ratio:2/3}.r-cinema{aspect-ratio:21/9}
+  .r-square{aspect-ratio:5/6}.r-tall{aspect-ratio:2/3}.r-cinema{aspect-ratio:21/9}
 
   /* COVER */
   .cover{height:100vh;height:100dvh;min-height:640px;position:relative;background:var(--dark);color:var(--dark-paper);overflow:hidden;
@@ -111,7 +111,7 @@
 
   /* OBSERVATIONS ARCHIVE */
   .obs-archive{padding-left:clamp(2.5rem,6vw,6rem);padding-right:clamp(2.5rem,6vw,6rem)}
-  .obs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:60px 56px}
+  .obs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:60px 64px}
   .obs-item{display:flex;flex-direction:column}
   .obs-item.obs-land{grid-column:span 2}
   .obs-item figcaption{margin-top:.8rem;font-family:Jost,sans-serif;font-weight:300;font-size:0.72rem;letter-spacing:0.05em;color:var(--ink-soft);line-height:1.6}
