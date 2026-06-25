@@ -89,10 +89,14 @@ def process(src, dest):
                 check=True, capture_output=True
             )
             # Step 4: strip orientation tag (set to 1 = upright)
-            subprocess.run(
+            # sips may refuse to write orientation on some files — warn but continue,
+            # since the pixel data is already correct after the rotation above.
+            result = subprocess.run(
                 ['sips', '-s', 'orientation', '1', tmp_path],
-                check=True, capture_output=True
+                capture_output=True
             )
+            if result.returncode != 0:
+                print(f'  [warn] could not reset orientation tag on {os.path.basename(tmp_path)} (pixel data is correct)')
 
         shutil.move(tmp_path, dest)
         dims = subprocess.run(
