@@ -115,7 +115,7 @@
   .obs-item{display:flex;flex-direction:column}
   .obs-item.obs-land{grid-column:span 2}
   .obs-item figcaption{margin-top:.8rem;font-family:Jost,sans-serif;font-weight:300;font-size:0.72rem;letter-spacing:0.05em;color:var(--ink-soft);line-height:1.6}
-  @media(max-width:960px){.obs-grid{grid-template-columns:repeat(4,1fr);gap:44px 20px}}
+  @media(max-width:960px){.obs-grid{grid-template-columns:repeat(4,1fr);gap:44px 20px}.obs-item.obs-land{grid-column:span 1}.obs-item.obs-land .r-land{aspect-ratio:3/4}}
   @media(max-width:600px){.obs-grid{grid-template-columns:repeat(2,1fr);gap:clamp(2rem,5vw,2.8rem) clamp(.9rem,2.5vw,1.2rem)}}
 
   /* STUDIES */
