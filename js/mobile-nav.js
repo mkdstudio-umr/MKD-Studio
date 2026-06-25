@@ -27,7 +27,7 @@
       '<a href="/publications/">Publications</a>'+
       '<a href="/observations/">Observations</a>'+
       '<a href="/about/">About</a>'+
-      '<a href="/partnerships/">Collaborations</a>'+
+      '<a href="/collaborations/">Collaborations</a>'+
       '<a href="/contact/">Contact</a>'+
     '</div>';
   document.body.appendChild(ov);
