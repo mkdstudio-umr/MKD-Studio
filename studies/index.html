@@ -198,6 +198,7 @@
         ch.style.display=show?'':'none';
         ch.style.marginTop=f==='all'?'':0;
       });
+      if(f!=='all'){requestAnimationFrame(()=>{document.querySelectorAll('#'+f+' .reveal').forEach(el=>el.classList.add('in'));});}
     });
   });
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
