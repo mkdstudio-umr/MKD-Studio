@@ -5,6 +5,22 @@
 /
   Cache-Control: no-cache, no-store, must-revalidate
 
+# Directory URLs (no .html extension) — must be explicit for Netlify
+/studies/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/studies/hospitality/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/studies/places/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/studies/craft/
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/studies/experience/
+  Cache-Control: no-cache, no-store, must-revalidate
+
 # CSS versioned via ?v= query string — revalidate on change
 /css/style.css
   Cache-Control: no-cache, no-store, must-revalidate
