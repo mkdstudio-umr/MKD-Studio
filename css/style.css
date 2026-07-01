@@ -250,11 +250,11 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .journal-open{max-width:720px}
 .journal-open .stay{font-family:"Cormorant",serif;font-style:italic;font-weight:300;font-size:clamp(1.3rem,2.2vw,1.8rem);color:var(--ink);line-height:1.5;margin-bottom:clamp(1.8rem,3vw,2.4rem)}
 .journal-open p+p{margin-top:1.3rem}
-.journal-list{padding-top:clamp(1rem,3vw,2rem)}
+.journal-list{padding-top:0}
 .j-vol{padding-top:clamp(6rem,11vw,9rem)}
 .j-vol:first-child{padding-top:0}
 .j-vol .vol-no{font-family:"Cormorant",serif;font-style:italic;font-weight:300;font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--ink);display:block;margin-bottom:.5rem}
-.j-vol .vol-desc{font-size:clamp(0.88rem,1.05vw,0.94rem);color:var(--ink-faint);margin-bottom:clamp(2.6rem,5vw,3.6rem)}
+.j-vol .vol-desc{font-size:clamp(0.92rem,1.05vw,0.98rem);line-height:1.75;color:var(--ink-soft);max-width:640px;margin-bottom:clamp(2.6rem,5vw,3.6rem)}
 .j-vol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(2.4rem,5vw,4rem) clamp(2rem,4vw,3.4rem)}
 .j-row{text-decoration:none;color:inherit;display:block}
 .j-shot{margin-bottom:clamp(1.4rem,2.5vw,1.8rem)}
