@@ -17,6 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+.pub-three-col a.pub-card { display:flex;flex-direction:column;text-decoration:none;color:inherit; }
+.pub-three-col a.pub-card:hover img { transform:scale(1.025); }
 .pub-three-col {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -102,66 +104,60 @@
       <h2 class="display reveal d1" style="font-size:clamp(1.3rem,3.4vw,2.2rem)">The long form.</h2></a>
     </div>
     <div class="pub-three-col">
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal" href="/publications/the-spaces-between/" target="_blank" rel="noopener" style="display:block;overflow:hidden;background:var(--paper-2)">
+      <a class="reveal pub-card" href="/publications/the-spaces-between/" target="_blank" rel="noopener">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between, Formula One" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d1" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">The Spaces Between</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">001</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Formula One, Volume I. Silverstone and Lusail, away from the racing line.</p>
-          <a class="volume-link" href="/publications/the-spaces-between/" target="_blank" rel="noopener" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal d1" href="/publications/the-ned-doha/" target="_blank" rel="noopener" style="display:block;overflow:hidden;background:var(--paper-2)">
+      </a>
+      <a class="reveal d1 pub-card" href="/publications/the-ned-doha/" target="_blank" rel="noopener">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" alt="The Ned Doha" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d2" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">The Ned Doha</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">002</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Place, Volume I. Scale held quietly through marble corridors, members&rsquo; rooms and arrival.</p>
-          <a class="volume-link" href="/publications/the-ned-doha/" target="_blank" rel="noopener" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal d2" href="/publications/waiting-for-dusk/" target="_blank" rel="noopener" style="display:block;overflow:hidden;background:var(--paper-2)">
+      </a>
+      <a class="reveal d2 pub-card" href="/publications/waiting-for-dusk/" target="_blank" rel="noopener">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk, Doha Golf Club" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d3" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Waiting for Dusk</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">003</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Experience, Volume I. Ten photographs from Doha Golf Club in the last light of the afternoon.</p>
-          <a class="volume-link" href="/publications/waiting-for-dusk/" target="_blank" rel="noopener" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal d3" href="/publications/against-the-display/" style="display:block;overflow:hidden;background:var(--paper-2)">
+      </a>
+      <a class="reveal d2 pub-card" href="/publications/against-the-display/">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/atd_cover.png" alt="Against the Display, RHS Chelsea" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d3" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Against the Display</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">005</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Garden, Volume I. Two garden languages at RHS Chelsea, studied through the frame of institutional attention.</p>
-          <a class="volume-link" href="/publications/against-the-display/" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal d3" href="/publications/morocco/" style="display:block;overflow:hidden;background:var(--paper-2)">
+      </a>
+      <a class="reveal d3 pub-card" href="/publications/morocco/">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/tng_01.jpg" alt="Morocco, Tangier" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d3" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Morocco</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">006</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Place, Volume I. Tangier and Marrakech across three studies, from the medina to Dar El Bacha.</p>
-          <a class="volume-link" href="/publications/morocco/" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
-      <div style="display:flex;flex-direction:column">
-        <a class="reveal d3" href="/publications/lisbon-and-porto/" style="display:block;overflow:hidden;background:var(--paper-2)">
+      </a>
+      <a class="reveal d3 pub-card" href="/publications/lisbon-and-porto/">
+        <div style="overflow:hidden;background:var(--paper-2)">
           <img loading="lazy" decoding="async" src="/images/porto-after-the-river-07.jpg" alt="Lisbon &amp; Porto, Douro at sunset" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
-        </a>
-        <div class="reveal d3" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+        </div>
+        <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Lisbon &middot; Porto</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">007</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Place, Volume II. Two Portuguese cities at different distances from the Atlantic.</p>
-          <a class="volume-link" href="/publications/lisbon-and-porto/" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
-      </div>
+      </a>
     </div>
     <p class="reveal" style="margin-top:clamp(1.8rem,3vw,2.4rem);font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint)">Also: <a href="/publications/open-late/" style="color:inherit;text-decoration:none">Open Late, KAAWA, Manchester. Journal Edition 004. &nbsp;&#8594;</a></p>
 </div></section><section class="about pad about-note" id="about" style="padding-top:clamp(4rem,8vw,7rem);padding-bottom:clamp(4rem,8vw,7rem)"><a href="/about/" style="display:block;color:inherit;text-decoration:none;cursor:default"><div class="narrow"><span class="label reveal">About the Studio</span><p class="reveal d1">mkd STUDIO documents places, brands and experiences through photography, writing and design.</p><p class="reveal d1">The outcome is always a publication built to last.</p><p class="reveal d1">Publications exist digitally, in print, or both.</p><p class="reveal d1">The archive is where the independent work lives.</p><p class="reveal d1 about-contact"><a href="/contact/" style="position:relative;z-index:1">Contact the studio.</a></p></div></a></section>
