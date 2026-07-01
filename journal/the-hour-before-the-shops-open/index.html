@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Hour Before the Shops Open / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="A street belongs to itself for exactly one hour a day. An essay on the interval between a city waking and a city opening for business.">
+<link rel="canonical" href="https://mkdstudio.net/journal/the-hour-before-the-shops-open/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="The Hour Before the Shops Open / Journal / mkd STUDIO">
+<meta property="og:description" content="A street belongs to itself for exactly one hour a day. An essay on the interval between a city waking and a city opening for business.">
+<meta property="og:url" content="https://mkdstudio.net/journal/the-hour-before-the-shops-open/">
+<meta property="og:image" content="https://mkdstudio.net/images/milan-galleria.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 013</span>
+        <h1>The Hour Before the Shops Open</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/milan-galleria.jpg" alt="The Galleria before opening, Milan"></figure>
+      <div class="essay-body reveal">
+        <p>A street belongs to itself for exactly one hour a day. Later, it will belong to shoppers, to delivery vans, to the particular choreography of a working city. For now, the shutters are down, the pavement is being washed by somebody who works for the buildings rather than the businesses inside them, and the street is simply a street.</p>
+        <p>This hour is easy to miss, because nobody plans to be somewhere at the hour it is least useful to be there. But it is also the only hour in which a place shows you its architecture without competing for your attention. A grand arcade with the lights not yet on. A market square before the stalls arrive to claim it.</p>
+        <p>What becomes visible in that hour is proportion. The width of a colonnade, the height of a ceiling, the exact relationship between a building and the light that falls through it: all of it easier to see once the crowd that will later fill the space is not yet there to obscure it.</p>
+        <p>There is also something quietly reassuring about a city in this state. It suggests that the architecture was there first, and the commerce arrived afterwards, borrowing the space rather than defining it. Most of the day argues the opposite. This hour argues for the building.</p>
+        <p>By the time the shutters lift, the moment is gone, and will not return until the same hour tomorrow, when nobody in particular will be there to see it either.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/places/">Places</a></li>
+          <li><a href="/studies/milan/">Milan</a></li>
+          <li><a href="/studies/turin/">Turin</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
