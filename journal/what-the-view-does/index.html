@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What the View Does / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="A restaurant that faces a wall has already made a choice about what kind of evening it expects. An essay on what a view does to the room around it.">
+<link rel="canonical" href="https://mkdstudio.net/journal/what-the-view-does/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="What the View Does / Journal / mkd STUDIO">
+<meta property="og:description" content="A restaurant that faces a wall has already made a choice about what kind of evening it expects. An essay on what a view does to the room around it.">
+<meta property="og:url" content="https://mkdstudio.net/journal/what-the-view-does/">
+<meta property="og:image" content="https://mkdstudio.net/images/obs_a131.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 026</span>
+        <h1>What the View Does</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/obs_a131.jpg" alt="Dark restaurant interior with black Windsor chairs around tables, warm pendant light and large window onto woodland"></figure>
+      <div class="essay-body reveal">
+        <p>A restaurant that faces a wall has already made a choice about what kind of evening it expects.</p>
+        <p>The view is never neutral. A window onto a garden slows a meal down. It introduces something outside the room's control: the light changing, a bird crossing, the trees shifting. That movement outside makes the stillness inside feel more deliberate. Guests linger differently when there is something to watch that is not the person across the table.</p>
+        <p>Designers talk about a room's relationship to its exterior as though it were a spatial consideration. It is also an editorial one. A restaurant that turns its best seats toward a blank wall is making a statement about where it believes the experience lies. A restaurant that turns them toward a view is making the opposite statement, and both can be right, but neither can avoid having made the choice.</p>
+        <p>A large window onto woodland at dusk does something particular that a painting of woodland at dusk cannot replicate. It updates itself. The light that falls through it at six in the evening is not the light that will fall at eight, and the room those two different lights produce are not quite the same room. This means a guest who arrives early and stays late has, in a small way, eaten in two different places.</p>
+        <p>That is not an accident. It is what a view does when the room it is placed in understands why it is there.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/hospitality/">Hospitality</a></li>
+          <li><a href="/studies/earth-doha/">EARTH</a></li>
+          <li><a href="/studies/alila-ubud/">Alila Ubud</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
