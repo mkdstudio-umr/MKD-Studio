@@ -25,6 +25,7 @@
       '<a href="/">Home</a>'+
       '<a href="/studies/">Studies</a>'+
       '<a href="/publications/">Publications</a>'+
+      '<a href="/journal/">Journal</a>'+
       '<a href="/observations/">Observations</a>'+
       '<a href="/about/">About</a>'+
       '<a href="/collaborations/">Collaborations</a>'+
