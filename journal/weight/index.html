@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Weight / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="The first signal of quality in any object is its weight. The menu, the room key, the cutlery on a set table. An essay on what heaviness communicates before anything has been used.">
+<link rel="canonical" href="https://mkdstudio.net/journal/weight/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="Weight / Journal / mkd STUDIO">
+<meta property="og:description" content="The first signal of quality in any object is its weight. The menu, the room key, the cutlery on a set table. An essay on what heaviness communicates before anything has been used.">
+<meta property="og:url" content="https://mkdstudio.net/journal/weight/">
+<meta property="og:image" content="https://mkdstudio.net/images/pb_03.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 053</span>
+        <h1>Weight</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/pb_03.jpg" alt="Dark wooden bowl on worn timber plate, The Penny Bun, Askwith"></figure>
+      <div class="essay-body reveal">
+        <p>The first signal of quality in any object is its weight. This signal arrives before the object has been examined, before it has been used, before anyone has said anything about it.</p>
+        <p>Pick up a menu. The difference between a menu that has been printed on card stock and laminated and a menu that has been printed on heavy stock and bound is communicated in the moment of lifting it, before a single word has been read. The heavier menu is not necessarily better written or more legible. But it begins the experience of reading it with a different premise, one established entirely by the hand before the eye has engaged. The premise is that someone considered this object seriously enough to make it costly to produce, and that consideration is the first piece of information the guest receives about the meal to follow.</p>
+        <p>Cutlery operates the same way. Light cutlery communicates that the decision about what to eat with was made at a price point. Heavy cutlery does not guarantee that the food will be good, but it communicates that the people running the restaurant were thinking about the experience of eating rather than only the economics of providing it. The cutlery will be picked up dozens of times during a single meal. Its weight will be registered each time, not consciously, but cumulatively, as a consistent signal about the register of the occasion.</p>
+        <p>The decision to make something light is rarely neutral. In mass production, lightness is usually the consequence of material reduction: less metal, thinner card, a synthetic where a natural material would have been heavier. The object costs less to make and communicates that reduction at the moment of first contact. In considered design, lightness can be a deliberate choice, but it requires the designer to find another way to communicate seriousness, because weight is no longer carrying that signal. Most objects are not designed carefully enough for that substitution to succeed. For everything else, the question of how much it should weigh is the first question worth asking about how much it should matter.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/penny-bun/">The Penny Bun</a></li>
+          <li><a href="/journal/what-linen-says/">What Linen Says</a></li>
+          <li><a href="/journal/the-weight-of-paper/">The Weight of Paper</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
