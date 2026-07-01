@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Arrival Is Part of the Architecture / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="The first ninety seconds inside a building are designed as carefully as anything that follows. An essay on the architecture of arrival.">
+<link rel="canonical" href="https://mkdstudio.net/journal/arrival-is-part-of-the-architecture/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="Arrival Is Part of the Architecture / Journal / mkd STUDIO">
+<meta property="og:description" content="The first ninety seconds inside a building are designed as carefully as anything that follows. An essay on the architecture of arrival.">
+<meta property="og:url" content="https://mkdstudio.net/journal/arrival-is-part-of-the-architecture/">
+<meta property="og:image" content="https://mkdstudio.net/images/raffles_arrival.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 006</span>
+        <h1>Arrival Is Part of the Architecture</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/raffles_arrival.jpg" alt="Covered luggage carts, Raffles Hotel, Singapore"></figure>
+      <div class="essay-body reveal">
+        <p>The first ninety seconds inside a building are designed as carefully as anything that follows. Few guests notice. That is rather the point.</p>
+        <p>A porte-cochère is not simply a place cars stop. It is a decompression chamber, built to slow a person down from the speed of the street to the speed of the building they are entering. The width of the drive, the height of the canopy, the distance a guest must walk before the doors open: none of it is arbitrary, and all of it is deciding, before a single word is spoken, what kind of place this is going to be.</p>
+        <p>A luggage cart left exactly where it always sits communicates something a sign never could. A door held open a half-second before it strictly needed to be held tells a guest they were expected rather than merely admitted. These are architectural decisions as much as material ones, made by people who understood that a building's argument begins before its lobby.</p>
+        <p>Most photography of hospitality begins after arrival, inside the room the marketing was built to sell. These studies have often found more to say at the threshold, in the specific choreography of the first minute, because that minute is where the building's intentions are least disguised.</p>
+        <p>A hotel that has thought carefully about arrival is telling you, before you have unpacked a single bag, exactly how it intends to be remembered.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/hospitality/">Hospitality</a></li>
+          <li><a href="/studies/raffles-singapore/">Raffles, Singapore</a></li>
+          <li><a href="/studies/raffles-doha/">Raffles, Doha</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>

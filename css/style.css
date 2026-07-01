@@ -247,14 +247,28 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .study-nav .nx .t,.study-nav .pv .t{font-family:"Cormorant",serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:1.3rem;color:var(--ink);display:block;margin-top:.3rem}
 @media(max-width:760px){.study-nav{margin-top:3rem;padding-top:1.4rem}.study-nav .nx .t,.study-nav .pv .t{font-size:1rem;margin-top:.2rem}}
 /* journal */
-.journal-list{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(2rem,4vw,3.2rem)}
-@media(max-width:760px){.journal-list{grid-template-columns:1fr}}
-.j-card{text-decoration:none;color:inherit;display:block}
-.j-card .shot{margin-bottom:1rem}
-.j-card .kicker{font-family:"Jost",sans-serif;letter-spacing:.26em;text-transform:uppercase;font-size:.6rem;color:var(--accent)}
-.j-card h3{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.2;margin:.5rem 0 .5rem}
-.j-card p{color:var(--ink-soft);font-size:1.02rem;max-width:46ch}
-.j-card .meta{font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.58rem;color:var(--ink-faint);margin-top:.8rem;display:block}
+.journal-list{display:flex;flex-direction:column;max-width:640px;margin:0 auto}
+.j-card{text-decoration:none;color:inherit;display:block;padding:clamp(3rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
+.j-card:first-child{border-top:none;padding-top:0}
+.j-card .shot{margin-bottom:clamp(1.4rem,2.5vw,1.8rem)}
+.j-card .jno{font-family:"Jost",sans-serif;letter-spacing:.26em;text-transform:uppercase;font-size:.6rem;color:var(--ink-faint)}
+.j-card h3{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.2;margin:.6rem 0 .8rem}
+.j-card p{color:var(--ink-soft);font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.7;max-width:56ch}
+.j-card .continue{font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.62rem;color:var(--ink-faint);margin-top:1.1rem;display:inline-block;border-bottom:1px solid var(--line);padding-bottom:.2rem;transition:color .3s}
+.j-card:hover .continue{color:var(--accent)}
+/* journal essay */
+.essay{max-width:720px;margin:0 auto}
+.essay-head .jno{font-family:"Jost",sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--ink-faint);display:block;margin-bottom:1.1rem}
+.essay-head h1{font-family:"Cormorant",serif;font-weight:300;line-height:1.1;font-size:clamp(1.8rem,3.4vw,2.7rem)}
+.essay-photo{margin:clamp(2.2rem,4vw,3rem) 0}
+.essay-photo img{width:100%;display:block}
+.essay-body p{margin-bottom:1.5rem;font-size:clamp(1rem,1.2vw,1.1rem);line-height:1.8;color:var(--ink-soft)}
+.essay-body p:first-of-type{font-size:clamp(1.05rem,1.35vw,1.25rem);color:var(--ink)}
+.essay-refs{border-top:1px solid var(--line);margin-top:clamp(3rem,5vw,4rem);padding-top:clamp(2rem,3.5vw,2.6rem)}
+.essay-refs .label{display:block;margin-bottom:1.1rem}
+.essay-refs ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem}
+.essay-refs a{font-family:"Cormorant",serif;font-style:italic;font-size:1.05rem;color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.1rem}
+@media(max-width:760px){.j-card{padding:clamp(2.2rem,6vw,3rem) 0}}
 /* contact page */
 .contact-page{min-height:100vh}
 /* shared footer */

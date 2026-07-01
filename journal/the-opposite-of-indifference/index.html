@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Opposite of Indifference / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="Care is visible before it is explained. An essay on the door handle a brand thought about, and what that decision says without saying anything.">
+<link rel="canonical" href="https://mkdstudio.net/journal/the-opposite-of-indifference/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="The Opposite of Indifference / Journal / mkd STUDIO">
+<meta property="og:description" content="Care is visible before it is explained. An essay on the door handle a brand thought about, and what that decision says without saying anything.">
+<meta property="og:url" content="https://mkdstudio.net/journal/the-opposite-of-indifference/">
+<meta property="og:image" content="https://mkdstudio.net/images/ald_surface.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 003</span>
+        <h1>The Opposite of Indifference</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/ald_surface.jpg" alt="Surface, Aimé Leon Dore exterior signage, London"></figure>
+      <div class="essay-body reveal">
+        <p>Care is visible before it is explained. A brand that has thought about a door handle has told you something no advertisement could, and it told you before you noticed you were being told anything at all.</p>
+        <p>Most retail spaces are indifferent in ways nobody points out, because indifference does not announce itself. A shelf at the wrong height. A material chosen for cost rather than feel. A room that functions perfectly well and asks nothing further of anyone who enters it.</p>
+        <p>The opposite of indifference is not luxury. It is attention, and the two are frequently mistaken for one another. A brand can spend a great deal of money and remain indifferent. A brand can spend comparatively little and be the opposite.</p>
+        <p>What gives it away is consistency at a scale nobody is checking. The stitching on a shopfront awning. The particular timber chosen for a shelf that holds objects worth a fraction of the shelf's construction. A green canvas that softens a street corner for no functional reason except that somebody decided the street deserved it.</p>
+        <p>None of this is legible in a single glance. It becomes legible slowly, the way a good room does, through accumulation rather than announcement. A studio photographing that accumulation is not documenting objects. It is documenting a decision, made repeatedly, by people who could have made an easier one instead.</p>
+        <p>This is the argument these studies keep returning to. Not that beautiful things exist. That care is detectable, if you look for long enough, and that the photograph's job is to hold still in front of it until somebody else notices too.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/craft/">Craft</a></li>
+          <li><a href="/studies/aime-leon-dore/">Aimé Leon Dore, London</a></li>
+          <li><a href="/studies/byredo-leeds/">BYREDO, Leeds</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>How Cities Become Memory / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="Nobody remembers a city the way it was photographed for its own tourist board. An essay on the door, the hour, the itinerary a place resists.">
+<link rel="canonical" href="https://mkdstudio.net/journal/how-cities-become-memory/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="How Cities Become Memory / Journal / mkd STUDIO">
+<meta property="og:description" content="Nobody remembers a city the way it was photographed for its own tourist board. An essay on the door, the hour, the itinerary a place resists.">
+<meta property="og:url" content="https://mkdstudio.net/journal/how-cities-become-memory/">
+<meta property="og:image" content="https://mkdstudio.net/images/cph-door.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 002</span>
+        <h1>How Cities Become Memory</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/cph-door.jpg" alt="Quiet, Copenhagen, Denmark"></figure>
+      <div class="essay-body reveal">
+        <p>Nobody remembers a city the way it was photographed for its own tourist board. They remember a door. A smell that arrived from nowhere and vanished just as fast. An hour that belonged to no itinerary because no itinerary had planned for it.</p>
+        <p>A city gives you its official version first. The monument arranged for the angle. The view named on the postcard before you have earned it yourself. This version is not false. It is simply incomplete, and it is the version that leaves first.</p>
+        <p>What stays is smaller. The colour of water in a canal at an hour when nobody photographs it, because nobody with a schedule is awake to see it. A doorway painted a colour that made no sense against the building beside it. The particular quiet of a street between the morning rush and the shops opening, when a city briefly belongs to nobody in particular.</p>
+        <p>Memory does not organise itself by importance. It organises itself by attention. A place you looked at closely, even for a few seconds, outlasts a monument you photographed on schedule and forgot by dinner.</p>
+        <p>This is why these studies are rarely made at the obvious hour. Not out of contrarianism. Out of the simple fact that the obvious hour has already been photographed, by everyone, and shows everyone the same thing.</p>
+        <p>The early morning at a canal in Copenhagen holds a colour that the afternoon does not know about. A courtyard in Marrakech before the first tour group arrives has a stillness that no crowd will ever return. These are not better versions of the city. They are the versions most people never wait around long enough to see.</p>
+        <p>A photograph made in that window does not explain the place. It simply holds open the door a little longer than a glance would have.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/places/">Places</a></li>
+          <li><a href="/studies/copenhagen/">Copenhagen</a></li>
+          <li><a href="/studies/dar-el-bacha/">Dar El Bacha</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
