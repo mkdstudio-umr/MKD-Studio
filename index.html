@@ -19,10 +19,16 @@
 <style>
 .pub-three-col {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: clamp(1.2rem, 2.5vw, 2rem);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: clamp(1.2rem, 2vw, 1.8rem);
 }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
+  .pub-three-col {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+@media (max-width: 540px) {
   .pub-three-col {
     grid-template-columns: 1fr;
     gap: 2.4rem;
@@ -127,6 +133,17 @@
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Waiting for Dusk</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">003</span></div>
           <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Experience, Volume I. Ten photographs from Doha Golf Club in the last light of the afternoon.</p>
           <a class="volume-link" href="/publications/waiting-for-dusk/" target="_blank" rel="noopener" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <a class="reveal d3" href="/publications/against-the-display/" style="display:grid;grid-template-columns:1fr 1fr;gap:.4rem">
+          <div style="overflow:hidden;background:var(--paper-2)"><img loading="lazy" decoding="async" src="/images/atd_cover.png" alt="Against the Display, RHS Chelsea" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)"></div>
+          <div style="overflow:hidden;background:var(--paper-2)"><img loading="lazy" decoding="async" src="/images/atd_book.png" alt="Against the Display, book edition" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)"></div>
+        </a>
+        <div class="reveal d3" style="margin-top:clamp(1rem,1.6vw,1.4rem);display:flex;flex-direction:column;flex:1">
+          <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Against the Display</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">005</span></div>
+          <p style="margin-top:.5rem;font-size:.92rem;color:var(--ink-soft);line-height:1.75">Garden, Volume I. Two garden languages at RHS Chelsea, studied through the frame of institutional attention.</p>
+          <a class="volume-link" href="/publications/against-the-display/" style="margin-top:auto;padding-top:1rem;font-family:'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;font-size:.62rem;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:.8rem;padding-bottom:.3rem;border-bottom:1px solid transparent;transition:border-color .3s">Read <span class="arrow-mark">&rarr;</span></a>
         </div>
       </div>
     </div>
