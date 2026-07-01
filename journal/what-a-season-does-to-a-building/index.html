@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What a Season Does to a Building / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="Architecture is designed for a climate but experienced in weather. An essay on what seasonal change reveals about what a building was actually built for.">
+<link rel="canonical" href="https://mkdstudio.net/journal/what-a-season-does-to-a-building/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="What a Season Does to a Building / Journal / mkd STUDIO">
+<meta property="og:description" content="Architecture is designed for a climate but experienced in weather. An essay on what seasonal change reveals about what a building was actually built for.">
+<meta property="og:url" content="https://mkdstudio.net/journal/what-a-season-does-to-a-building/">
+<meta property="og:image" content="https://mkdstudio.net/images/kew-under-glass-04.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 044</span>
+        <h1>What a Season Does to a Building</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/kew-under-glass-04.jpg" alt="Greenhouse exterior through tree cover, Royal Botanic Gardens, Kew"></figure>
+      <div class="essay-body reveal">
+        <p>Architecture is designed for a climate but experienced in weather. The same building reads differently in every season, and the season it was designed for is not always the season that suits it best.</p>
+        <p>A colonnaded facade that was drawn for a southern sun becomes something else entirely under a grey northern sky. The shadows that were supposed to give it depth are absent. The stone that would have glowed amber in heat looks cold and institutional in low winter light. The building is not worse. It is simply not the building its architect imagined, because the climate the drawings assumed has not arrived.</p>
+        <p>The reverse also happens. A building designed for a temperate, overcast country, with modest windows and deep reveals calibrated for diffuse northern light, can be overwhelming in full Mediterranean sun. The interiors go dark at the wrong hours. The deep eaves that were meant to shelter become obstructions. What was sensitive in one context becomes a misread in another.</p>
+        <p>Seasonal change is the long version of this. A garden building that barely registers in summer, when it sits behind the fullness of the planting, becomes the dominant element in winter when everything around it has gone back. A glazed structure that reads as greenhouse in July reads as lantern in December. The building has not changed. The context around it has.</p>
+        <p>Editorial photography of architecture is almost always made in a single season, often in the season most flattering to the brief. What it misses is the character that emerges in the other three. A building's truest argument about itself is the one it makes in the season nobody planned to photograph it in, when its relationship to the light and the landscape is something its designers may not have anticipated and its owners may not have noticed until someone stood outside with a camera on a morning in February.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/kew-under-glass/">Kew Under Glass</a></li>
+          <li><a href="/studies/rhs-chelsea/">RHS Chelsea</a></li>
+          <li><a href="/journal/the-same-room-at-different-hours/">The Same Room at Different Hours</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>How to Date a Room / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="You can date a room from a single photograph without a timestamp. An essay on what ages a space and what does not.">
+<link rel="canonical" href="https://mkdstudio.net/journal/how-to-date-a-room/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="How to Date a Room / Journal / mkd STUDIO">
+<meta property="og:description" content="You can date a room from a single photograph without a timestamp. An essay on what ages a space and what does not.">
+<meta property="og:url" content="https://mkdstudio.net/journal/how-to-date-a-room/">
+<meta property="og:image" content="https://mkdstudio.net/images/corbusier.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 046</span>
+        <h1>How to Date a Room</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/corbusier.jpg" alt="Detail, Copenhagen, Denmark"></figure>
+      <div class="essay-body reveal">
+        <p>You can date a room from a single photograph without a timestamp. The question is which details carry the date and which do not.</p>
+        <p>Some things date a room immediately and completely. The profile of a light fitting will place a space within a decade almost without fail. The texture of a carpet, the radius on the corner of a piece of furniture, the colour chosen for the wall behind the bed, the typeface on the menu on the table. These are the details that respond to taste, and taste moves in cycles that are legible in retrospect even when they were invisible at the time. The room that felt entirely contemporary in 2008 is precisely dateable now from the things it chose that felt, then, like they had always been obvious.</p>
+        <p>Other things carry no date at all. A stone floor. A single well-proportioned window. Natural linen. A wooden table of honest construction. These sit outside the movement of taste not because they are timeless in any mystical sense but because they were made from materials and proportions that predate the cycle of fashion by long enough to have escaped it. They do not announce a decade because they predate the decades that have been announcing themselves around them.</p>
+        <p>The practical consequence of this distinction is significant for any space designed to last. A room built on dated elements will need replacing on the schedule that taste demands. A room built on undated elements will still be reading as considered long after the rooms around it have been refurbished twice. The investment is in the undateable layer: the floor, the window, the proportion of the ceiling. Everything placed above that layer can change as often as necessary without the room itself ever feeling in need of rescue.</p>
+        <p>What a photograph reveals about the age of a room is ultimately a test of the decisions made when the room was designed. The details that survive that test without a timestamp are the ones that were chosen for reasons the decade could not have invented and cannot take away.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/copenhagen/">Copenhagen</a></li>
+          <li><a href="/journal/what-survives-a-redesign/">What Survives a Redesign</a></li>
+          <li><a href="/journal/before-the-renovation/">Before the Renovation</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
