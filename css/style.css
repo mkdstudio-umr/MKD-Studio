@@ -259,6 +259,12 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .j-card .stand{font-family:"Cormorant",serif;font-style:italic;font-weight:300;color:var(--ink-soft);font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.65;max-width:52ch}
 .j-card .read{font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.6rem;color:var(--ink-faint);margin-top:1.3rem;display:inline-block;transition:color .3s}
 .j-card:hover .read{color:var(--accent)}
+.j-card.featured{padding-top:clamp(4.4rem,8vw,6.5rem);padding-bottom:clamp(4.4rem,8vw,6.5rem)}
+.j-card.featured:first-child{padding-top:0}
+.j-card.featured .feat-label{font-family:"Jost",sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:.58rem;color:var(--accent);display:block;margin-bottom:.6rem}
+.j-card.featured .shot{max-width:none}
+.j-card.featured h3{font-size:clamp(1.5rem,2.5vw,2.1rem)}
+.j-card.featured .stand{font-size:clamp(1.15rem,1.5vw,1.35rem);max-width:60ch}
 /* journal essay */
 .essay{max-width:720px;margin:0 auto}
 .essay-head .jno{font-family:"Jost",sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;color:var(--ink-faint);display:block;margin-bottom:1.1rem}
