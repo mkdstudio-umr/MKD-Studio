@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Against the Display / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── PAGES ──────────────────────────────── */
+
+.page {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+.page::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .032; mix-blend-mode: multiply;
+}
+
+.page.dark-page {
+  background: var(--dark);
+}
+.page.dark-page::before, .page.dark-page::after { mix-blend-mode: screen; opacity: .04; }
+
+.page.plate {
+  padding: 0; background: var(--dark);
+}
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 1;
+}
+.page.plate::before { z-index: 2; opacity: .02; }
+.page.plate::after  { z-index: 3; opacity: .014; }
+
+.page > *:not(img) { position: relative; z-index: 10; }
+#panel-left, #panel-right { background: var(--linen); }
+
+/* ── TYPOGRAPHY ──────────────────────────── */
+
+.cover-wrap {
+  text-align: center;
+  padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.cover-title {
+  font-style: italic; font-size: 2rem;
+  letter-spacing: .01em; color: var(--linen);
+  line-height: 1.1; margin-bottom: .65rem;
+}
+.cover-subtitle {
+  font-size: .46rem; letter-spacing: .34em;
+  text-transform: uppercase; color: rgba(243,241,236,.3);
+  margin-bottom: .5rem;
+}
+.cover-location {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: rgba(243,241,236,.22);
+  margin-bottom: 0;
+}
+.cover-studio {
+  font-size: .44rem; letter-spacing: .42em;
+  text-transform: uppercase; color: rgba(243,241,236,.16);
+  margin-top: auto; padding-bottom: 8%;
+}
+
+.title-wrap { text-align: center; padding: 2rem; }
+.title-main {
+  font-style: italic; font-size: 1.6rem;
+  color: var(--ink); line-height: 1.15;
+  margin-bottom: .7rem;
+}
+.title-sub {
+  font-size: .48rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--mid);
+  line-height: 2.4;
+}
+.title-studio {
+  font-size: .44rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-top: 3.5rem;
+}
+.title-note {
+  font-style: italic; font-size: .7rem;
+  color: var(--soft); margin-top: 3rem;
+}
+
+.colophon-wrap { text-align: left; padding: 13%; }
+.colophon-wrap p {
+  font-size: .52rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 2.5;
+}
+.colophon-wrap .col-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.25);
+  width: 100%; margin: 1.6rem 0;
+}
+
+.section-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.8rem;
+}
+
+.textwrap {
+  width: 100%; padding: 11% 13%; text-align: left;
+}
+.chapter-ref {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .06em;
+  margin-bottom: .55rem;
+}
+.text-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.35);
+  width: 28px; margin: 0 0 1.6rem; opacity: 1;
+}
+.body {
+  font-size: .8rem; line-height: 1.92;
+  margin-bottom: 1.25rem; color: var(--ink);
+}
+.body.i { font-style: italic; }
+.body.dim { color: var(--mid); font-size: .72rem; line-height: 2.1; }
+
+.chapter-wrap {
+  text-align: center; padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.ch-num {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .18em;
+  margin-bottom: 1rem;
+}
+.ch-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.3);
+  width: 24px; margin: 0 auto 1rem;
+}
+.ch-name {
+  font-style: italic; font-size: 1.55rem;
+  color: var(--ink); letter-spacing: .02em;
+  line-height: 1.15;
+}
+
+.closing-wrap {
+  text-align: center; padding: 14%;
+}
+.closing-wrap p {
+  font-style: italic; font-size: 1.02rem;
+  line-height: 1.72; color: var(--ink);
+  max-width: 22em; margin: 0 auto;
+}
+
+/* ── MOBILE LAYOUT ─────────────────────── */
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .46s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+
+#desktop-wrap { display: none; }
+
+/* ── INTRO ─────────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity 1.1s ease, visibility 1.1s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .035; mix-blend-mode: screen;
+  pointer-events: none; z-index: 0;
+}
+#intro > * { position: relative; z-index: 1; }
+.intro-title {
+  font-style: italic; font-size: 1.85rem;
+  color: var(--linen); letter-spacing: .01em;
+  margin-bottom: .6rem; line-height: 1.12;
+}
+.intro-sub {
+  font-size: .48rem; letter-spacing: .36em;
+  text-transform: uppercase; color: rgba(176,171,166,.55);
+  margin-bottom: 4rem;
+}
+.intro-open {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  border: .5px solid rgba(243,241,236,.3); background: none;
+  padding: 1rem 2.6rem; cursor: pointer;
+  font-family: inherit; color: rgba(243,241,236,.7);
+  transition: border-color .35s, color .35s, background .35s;
+}
+.intro-open:hover {
+  border-color: var(--linen);
+  color: var(--dark);
+  background: var(--linen);
+}
+
+/* ── CHROME ─────────────────────────────── */
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: .44rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .45; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .44rem; letter-spacing: .24em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .5; transition: opacity 1.2s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+/* ── DESKTOP ─────────────────────────────── */
+@media (min-width: 900px) {
+  body { background: #0a0908; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 3vh 3vw;
+  }
+
+  #book-spread {
+    display: flex; width: 100%; height: 100%;
+    max-width: 1520px; max-height: 88vh; gap: 0;
+  }
+
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0;
+    position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow:
+      0 24px 100px rgba(0,0,0,.85),
+      0 4px 12px rgba(0,0,0,.5),
+      inset 0 0 0 .5px rgba(180,160,130,.12);
+  }
+
+  #spine {
+    flex: 0 0 30px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 35%,
+      rgba(0,0,0,.06) 50%, rgba(0,0,0,.12) 65%,
+      rgba(0,0,0,.35) 100%
+    );
+    position: relative; z-index: 5;
+  }
+
+  #panel-left::after {
+    content: ""; position: absolute;
+    top:0; right:0; width:24px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute;
+    top:0; left:0; width:24px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+
+  #panel-left .page, #panel-right .page {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+  }
+
+  #counter { bottom: 1.8rem; left: auto; right: 3.5vw; transform: none; }
+
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: rgba(176,171,166,.4); font-family: inherit;
+    font-size: .44rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: color .25s; padding: 1rem 1.6rem;
+  }
+  #btn-prev { left: .4vw; }
+  #btn-next { right: .4vw; }
+  #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left,
+  .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-title">Against the Display</div>
+  <div class="intro-sub">RHS Chelsea &nbsp;&middot;&nbsp; mkd STUDIO</div>
+  <button class="intro-open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap"><div id="mobile-panel"></div></div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* 01 — COVER */
+`<section class="page dark-page">
+  <div class="cover-wrap">
+    <div class="cover-title">Against the Display</div>
+    <div class="cover-subtitle">Garden / Volume I</div>
+    <div class="cover-location">RHS Chelsea</div>
+    <div class="cover-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 02 — TITLE PAGE */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">Against the Display</div>
+    <div class="title-sub">Garden, Volume I<br>RHS Chelsea<br>Sarah Price &nbsp;&middot;&nbsp; Jihae Hwang</div>
+    <div class="title-studio">mkd STUDIO</div>
+    <div class="title-note">Two garden languages encountered inside the same show.</div>
+  </div>
+</section>`,
+
+/* 03 — COLOPHON */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Photography and editorial direction</p>
+    <p>mkd STUDIO</p>
+    <hr class="col-rule">
+    <p>All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+    <hr class="col-rule">
+    <p>First edition &nbsp;&middot;&nbsp; 2026</p>
+  </div>
+</section>`,
+
+/* 04 — INTRODUCTION */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Introduction</div>
+    <p class="body">This publication is built from two garden languages encountered inside the same show.</p>
+    <p class="body">It does not document RHS Chelsea. It studies what two designers brought into it, and what they managed to keep.</p>
+    <p class="body">Sarah Price. Jihae Hwang. One show. Two entirely different answers to the same question: what does a garden mean as a designed object, and how much of that meaning survives the institution presenting it?</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">The tension between those two things is the publication.</p>
+  </div>
+</section>`,
+
+/* 05 — CHAPTER I */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">I</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Frame</div>
+  </div>
+</section>`,
+
+/* 06 — THE FRAME TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">I &nbsp;&middot;&nbsp; The Frame</div>
+    <hr class="text-rule">
+    <p class="body">RHS Chelsea is a stage. That is worth saying plainly before anything else is said.</p>
+    <p class="body">A temporary structure rises each May in the grounds of the Royal Hospital, builds itself into the most observed garden environment in the world, and dismantles in a week. Within that week, a garden must appear, be judged, be seen and be remembered. The conditions are extreme. The gardening is, in some ways, the least of it.</p>
+    <p class="body">This is the frame around the two gardens this publication is concerned with. Not a subject in its own right, but a pressure that cannot be ignored. Chelsea gives these gardens their visibility. Chelsea also asks something of them: that they perform within its logic, produce images that circulate, behave in ways that a medal can follow.</p>
+    <p class="body">What is worth attending to is how they answered that ask, and how much they did not.</p>
+  </div>
+</section>`,
+
+/* 07 — IMAGE: chs_01 (establishing) */
+`<section class="page plate">
+  <img src="/images/chs_01.jpg" alt="RHS Chelsea Flower Show, London">
+</section>`,
+
+/* 08 — CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The show runs for five days.<br>The garden&rsquo;s argument, if it has one,<br>must be legible within that time.<br>Some arguments are not designed to be legible quickly.</p>
+  </div>
+</section>`,
+
+/* 09 — CHAPTER II */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">II</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Sarah Price</div>
+  </div>
+</section>`,
+
+/* 10 — IMAGE: sp_02 */
+`<section class="page plate">
+  <img src="/images/sp_02.jpg" alt="Sarah Price garden, RHS Chelsea">
+</section>`,
+
+/* 11 — SARAH PRICE TEXT I */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; Sarah Price</div>
+    <hr class="text-rule">
+    <p class="body">The first thing to notice in a Sarah Price garden is that it is difficult to describe. This is a quality, not a failing.</p>
+    <p class="body">The palette shifts between species. The edges between planted areas are not maintained as edges. What looks from the pathway like a single mass reveals itself, on closer attention, as a system of relationships: between height, between texture, between colour at different times of day and in different conditions of light.</p>
+    <p class="body">This is the register of a landscape painter applied to live material. The reference points are meadows observed across seasons, hedgerows in late summer, the way things grow together without instruction. Inside Chelsea, which tends toward the definitive, a Price garden holds an uncommon kind of ambiguity.</p>
+  </div>
+</section>`,
+
+/* 12 — IMAGE: sp_03 */
+`<section class="page plate">
+  <img src="/images/sp_03.jpg" alt="Sarah Price garden, RHS Chelsea">
+</section>`,
+
+/* 13 — IMAGE: sp_04 */
+`<section class="page plate">
+  <img src="/images/sp_04.jpg" alt="Sarah Price garden, RHS Chelsea">
+</section>`,
+
+/* 14 — SARAH PRICE TEXT II */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; Sarah Price</div>
+    <hr class="text-rule">
+    <p class="body">Chelsea&rsquo;s photographic grammar does not entirely fit this work. The images that come out of a Price garden are good, but they are slightly at odds with what the garden is doing.</p>
+    <p class="body">The garden extends past any frame. Its composition is not made for a single viewpoint. In this sense it resists documentation in a way that is itself a kind of resistance: the garden&rsquo;s full logic cannot be extracted and circulated. To understand it, you have to be inside it, and even then, what you understand may shift.</p>
+    <p class="body">There is resistance in this approach, though it is not declared resistance. It does not position itself against anything. It simply proceeds according to a different logic, and the difference is apparent.</p>
+  </div>
+</section>`,
+
+/* 15 — IMAGE: sp_05 */
+`<section class="page plate">
+  <img src="/images/sp_05.jpg" alt="Sarah Price garden, RHS Chelsea">
+</section>`,
+
+/* 16 — IMAGE: sp_06 */
+`<section class="page plate">
+  <img src="/images/sp_06.jpg" alt="Sarah Price garden, RHS Chelsea">
+</section>`,
+
+/* 17 — SARAH PRICE CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The garden is not made for the photograph.<br>The photograph is made from the garden.<br>The difference shows.</p>
+  </div>
+</section>`,
+
+/* 18 — CHAPTER III */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">III</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Jihae Hwang</div>
+  </div>
+</section>`,
+
+/* 19 — IMAGE: jh_01 */
+`<section class="page plate">
+  <img src="/images/jh_01.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 20 — JIHAE HWANG TEXT I */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &nbsp;&middot;&nbsp; Jihae Hwang</div>
+    <hr class="text-rule">
+    <p class="body">A Jihae Hwang garden introduces a different silence.</p>
+    <p class="body">Not the silence that comes from emptiness, but the silence that comes from a tradition that has refined its relationship with space over a long time. Between plants, there is space. Between stone and water, there is space. The space is not wasted. It is the material through which the rest of the garden becomes legible.</p>
+    <p class="body">This is not a European garden in Korean dress. It is a different design intelligence operating on its own terms: with its own relationship to enclosure, to naturalism, to the role of the designer in relation to natural material. To read it as a style is to miss the point. It arrives complete.</p>
+  </div>
+</section>`,
+
+/* 21 — IMAGE: jh_02 */
+`<section class="page plate">
+  <img src="/images/jh_02.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 22 — IMAGE: jh_03 */
+`<section class="page plate">
+  <img src="/images/jh_03.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 23 — JIHAE HWANG TEXT II */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &nbsp;&middot;&nbsp; Jihae Hwang</div>
+    <hr class="text-rule">
+    <p class="body">The materials carry memory. A particular stone, a specific way of setting it, the decision about how far apart two plants should stand: none of this is arbitrary. They are shaped by a tradition that extends well behind any single garden.</p>
+    <p class="body">At Chelsea, where the dominant language is English garden culture in its various contemporary inflections, this can be hard for a visitor to fully receive in a single visit. The work asks for a patience that the show&rsquo;s format does not easily provide.</p>
+    <p class="body">The restraint is structural. The emptiness is not absence. The space between things is not wasted space but the condition that makes each thing visible, allowed its full presence rather than competing for attention.</p>
+  </div>
+</section>`,
+
+/* 24 — IMAGE: jh_04 */
+`<section class="page plate">
+  <img src="/images/jh_04.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 25 — IMAGE: jh_05 */
+`<section class="page plate">
+  <img src="/images/jh_05.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 26 — JIHAE HWANG TEXT III */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &nbsp;&middot;&nbsp; Jihae Hwang</div>
+    <hr class="text-rule">
+    <p class="body">What the photographs can hold is the detail that the moving crowd misses: the quality of shadow on a surface, the texture of a material at close range, the relationship between two elements when no one else is looking.</p>
+    <p class="body">The camera, staying still while visitors move, becomes a tool for the kind of attention the garden was designed for.</p>
+    <p class="body">Chelsea, with its timed visits and moving crowds, makes this kind of looking difficult. The garden persists anyway.</p>
+  </div>
+</section>`,
+
+/* 27 — IMAGE: jh_06 */
+`<section class="page plate">
+  <img src="/images/jh_06.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 28 — IMAGE: jh_07 */
+`<section class="page plate">
+  <img src="/images/jh_07.jpg" alt="Jihae Hwang garden, RHS Chelsea">
+</section>`,
+
+/* 29 — JIHAE HWANG CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The garden was built for a particular kind of attention.<br>Chelsea provides the opportunity<br>and then prevents it.</p>
+  </div>
+</section>`,
+
+/* 30 — CHAPTER IV */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name" style="font-size:1.3rem;line-height:1.25">Two Languages<br>Inside One Show</div>
+  </div>
+</section>`,
+
+/* 31 — IMAGE: chs_02 */
+`<section class="page plate">
+  <img src="/images/chs_02.jpg" alt="RHS Chelsea Flower Show, London">
+</section>`,
+
+/* 32 — TWO LANGUAGES TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Two Languages Inside One Show</div>
+    <hr class="text-rule">
+    <p class="body">Seen together, even approximately, these two gardens define something important about the range of what a designed landscape can be.</p>
+    <p class="body">Sarah Price&rsquo;s garden is emotional, atmospheric, built on feeling and the long observation of natural processes. Jihae Hwang&rsquo;s garden is rooted, material, shaped by a tradition of restraint that produces meaning through proportion and placement rather than abundance.</p>
+    <p class="body">Neither is the other. Neither resembles the dominant Chelsea aesthetic of the years around them. Both received the highest recognition the show could give.</p>
+  </div>
+</section>`,
+
+/* 33 — IMAGE: chs_03 */
+`<section class="page plate">
+  <img src="/images/chs_03.jpg" alt="RHS Chelsea Flower Show, London">
+</section>`,
+
+/* 34 — TWO LANGUAGES TEXT II */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Two Languages Inside One Show</div>
+    <hr class="text-rule">
+    <p class="body">What that recognition means is worth sitting with. Chelsea applauded both of these garden languages without entirely understanding either. The medals confirm excellence by the show&rsquo;s criteria. They cannot confirm that the show understood what it was giving medals to.</p>
+    <p class="body">To celebrate a garden is to categorise it. To categorise it is to make it legible. To make it legible is to begin to remove from it whatever was most resistant to legibility. This is not bad faith. It is the nature of institutional recognition.</p>
+    <p class="body">The relationship is mutual and complicated. The institution needs what these gardens offer. The gardens need what the institution offers. Neither side gets exactly what it needs.</p>
+  </div>
+</section>`,
+
+/* 35 — CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>Two different answers to the same question:<br>what is a garden for?<br>Chelsea gave both the same medal.<br>The answers remain different.</p>
+  </div>
+</section>`,
+
+/* 36 — CHAPTER V */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Against the Display</div>
+  </div>
+</section>`,
+
+/* 37 — AGAINST THE DISPLAY TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; Against the Display</div>
+    <hr class="text-rule">
+    <p class="body">Some gardens do not need the show to be visible.</p>
+    <p class="body">Not that these gardens are opposed to display. They are, after all, show gardens, built to be shown. But their resistance is not rhetorical. It is in the work itself: in the way a Price garden refuses to be fully captured from a single viewpoint; in the way a Hwang garden&rsquo;s meaning is carried in its material tradition rather than its visual effect; in the way both gardens hold something that the institution cannot quite name or fully absorb, even as it applauds.</p>
+    <p class="body">Against the display does not mean against Chelsea. It means that certain gardens arrive with a language that is their own, and that language continues to speak after the medals are awarded, the crowds have moved through, and the garden has been taken down.</p>
+  </div>
+</section>`,
+
+/* 38 — IMAGE: chs_04 */
+`<section class="page plate">
+  <img src="/images/chs_04.jpg" alt="RHS Chelsea Flower Show, London">
+</section>`,
+
+/* 39 — FINAL CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>Against the display is not a position.<br>It is a quality.<br>Some gardens have it without trying.</p>
+  </div>
+</section>`,
+
+/* 40 — CLOSING REFLECTION */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Closing Reflection</div>
+    <p class="body">These photographs were not made to document a flower show. They were made because two gardens appeared inside one, and both had something to say that the format of the show could not fully contain.</p>
+    <p class="body">The garden existed for a week. The photographs are what remains. They do not show everything. They hold what was worth attending to.</p>
+    <p class="body">That is enough of a reason. It is also what mkd STUDIO is for: to stay with the thing that is worth looking at for long enough that it becomes visible to someone who was not there.</p>
+    <p class="body dim" style="margin-top:2.2rem">mkd STUDIO &nbsp;&middot;&nbsp; 2026</p>
+  </div>
+</section>`,
+
+];
+
+const N = PAGES.length;
+let cur = 0;
+let busy = false;
+let cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) {
+    el.innerHTML = '';
+    el.style.background = 'var(--linen)';
+    return;
+  }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  const isDark = pg && (pg.classList.contains('plate') || pg.classList.contains('dark-page'));
+  el.style.background = isDark ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft,  cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+  setTimeout(() => {
+    out.remove();
+    mPanel.classList.remove(inCls);
+    busy = false;
+  }, 480);
+}
+
+function next() {
+  if (isDesk()) { renderDesk(cur + 2); }
+  else { if (cur < N - 1) slide('next', cur + 1); }
+}
+function prev() {
+  if (isDesk()) { renderDesk(cur - 2); }
+  else { if (cur > 0) slide('prev', cur - 1); }
+}
+
+function enter() {
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) {
+    btnPrev.style.display = btnNext.style.display = 'block';
+    renderDesk(0);
+  } else {
+    renderMobile(0);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => {
+  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+    dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur);
+    else renderMobile(cur);
+  }
+});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+</body>
+</html>
