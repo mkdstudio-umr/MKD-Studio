@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Photograph That Comes Second / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="The strongest image in a study is not always the right one to show first. An essay on hierarchy, sequence and what earns the opening position.">
+<link rel="canonical" href="https://mkdstudio.net/journal/the-photograph-that-comes-second/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="The Photograph That Comes Second / Journal / mkd STUDIO">
+<meta property="og:description" content="The strongest image in a study is not always the right one to show first. An essay on hierarchy, sequence and what earns the opening position.">
+<meta property="og:url" content="https://mkdstudio.net/journal/the-photograph-that-comes-second/">
+<meta property="og:image" content="https://mkdstudio.net/images/obs_a63.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 031</span>
+        <h1>The Photograph That Comes Second</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/obs_a63.jpg" alt="Interior detail, subdued light"></figure>
+      <div class="essay-body reveal">
+        <p>The strongest image in a study is not always the right one to show first.</p>
+        <p>When a body of work comes together, there is usually an image that presents itself as the obvious leader: the widest shot, the most immediately striking, the one that makes the clearest argument for the quality of the whole. It arrives at the front of every edit. It gets attached to every email. Nobody questions whether it should open the sequence, because it already feels like it does.</p>
+        <p>The problem with leading on the most impressive image is that it sets a ceiling. Everything that follows can only be smaller. The reader has seen the peak before they have had time to develop any relationship with the work, which means they experience the rest as a descent rather than a journey. A study that opens with its best image tends to produce the feeling that you have seen what there is to see before you have actually looked.</p>
+        <p>The image that earns the opening position is usually the one that opens a question rather than answers one. It asks where this is going rather than announcing where it has arrived. It creates a readiness in the reader for what follows. That quality — of readiness-creation — has almost nothing to do with whether the image is the technically strongest or the most visually spectacular in the study.</p>
+        <p>The photograph that comes second in the final sequence often did significant structural work in getting there. It gave the first image somewhere to hand off to. It absorbed the reader's attention at the moment when the first image released it. Without it, the sequence does not move.</p>
+        <p>Understanding which image leads requires understanding what the study is arguing, not just what it contains. The lead photograph is not chosen because it is impressive. It is chosen because it is the correct beginning of a specific sequence of thought.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/publications/">Publications</a></li>
+          <li><a href="/publications/the-spaces-between/">The Spaces Between</a></li>
+          <li><a href="/publications/waiting-for-dusk/">Waiting for Dusk</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
