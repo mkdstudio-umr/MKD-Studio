@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Room at Night / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="A room is designed once but experienced twice: in daylight and after dark. Many spaces pass the first test without anyone checking whether they pass the second. An essay on designing for the hours that cannot be photographed.">
+<link rel="canonical" href="https://mkdstudio.net/journal/the-room-at-night/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="The Room at Night / Journal / mkd STUDIO">
+<meta property="og:description" content="A room is designed once but experienced twice: in daylight and after dark. Many spaces pass the first test without anyone checking whether they pass the second. An essay on designing for the hours that cannot be photographed.">
+<meta property="og:url" content="https://mkdstudio.net/journal/the-room-at-night/">
+<meta property="og:image" content="https://mkdstudio.net/images/ned_atmosphere_new.jpeg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 058</span>
+        <h1>The Room at Night</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/ned_atmosphere_new.jpeg" alt="Atmosphere, The Ned Doha hotel"></figure>
+      <div class="essay-body reveal">
+        <p>A room is designed once but experienced twice: in daylight and after dark. Many spaces pass the first test without anyone checking whether they pass the second.</p>
+        <p>The failures are specific. A dining room that works at lunch becomes cold at dinner when the daylight that was softening the walls is gone and only the overhead lights remain. A hotel lobby that felt generous in the afternoon feels cavernous at midnight when the foot traffic has thinned and the ambient noise that filled the volume has disappeared. The room reveals what it is made of when it is no longer assisted by what happens inside it. Natural light is flattering to almost every material and almost every colour. It warms stone, softens white walls, and flatters the complexion of anyone passing through. Artificial light is none of those things unless someone has made those specific decisions deliberately.</p>
+        <p>Getting the night right requires decisions that cannot be resolved by choosing a shade of white paint or a quality of upholstery. The colour temperature of the lamp determines whether stone looks cold or warm. The placement of fixtures determines whether walls read as surfaces or as planes of shadow. The ratio of ambient to task light determines whether the room feels inhabited or operational. These are not finishing decisions. They belong in the same category as material selection and are best made at the same time, against real samples in real conditions, which almost always means an evening site visit that the programme does not include.</p>
+        <p>The room at night is the room the guest goes to sleep in, wakes up in, and eats dinner in. It is where the stay is actually experienced, in the hours between arrival and departure when no photographer is present and no one is managing an impression. It is worth designing for those hours specifically, rather than assuming that a room that works at the photography session will work at 10pm in November.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/the-ned-doha/">The Ned, Doha</a></li>
+          <li><a href="/journal/the-same-room-at-different-hours/">The Same Room at Different Hours</a></li>
+          <li><a href="/journal/what-overhead-light-flattens/">What Overhead Light Flattens</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What Candlelight Does / Journal / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=11">
+<meta name="description" content="Candlelight is the one light source in hospitality that flickers, burns down, and will look different in an hour. An essay on impermanence as atmosphere and what the decision to use candles actually communicates.">
+<link rel="canonical" href="https://mkdstudio.net/journal/what-candlelight-does/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="mkd STUDIO">
+<meta property="og:title" content="What Candlelight Does / Journal / mkd STUDIO">
+<meta property="og:description" content="Candlelight is the one light source in hospitality that flickers, burns down, and will look different in an hour. An essay on impermanence as atmosphere and what the decision to use candles actually communicates.">
+<meta property="og:url" content="https://mkdstudio.net/journal/what-candlelight-does/">
+<meta property="og:image" content="https://mkdstudio.net/images/ap_09.jpg">
+</head>
+<body class="light-head">
+<nav>
+  <a class="mark" href="/" style="text-decoration:none;color:inherit">mkd STUDIO</a>
+  <div class="menu"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div>
+</nav>
+<section class="pad" style="padding-top:clamp(5.5rem,7.5vw,7.5rem)">
+  <div class="wrap">
+    <article class="essay">
+      <div class="essay-head reveal">
+        <span class="jno">Journal 057</span>
+        <h1>What Candlelight Does</h1>
+      </div>
+      <figure class="essay-photo reveal"><img loading="lazy" decoding="async" src="/images/ap_09.jpg" alt="Light kept low on purpose, Apotek 57 cafe interior, Copenhagen"></figure>
+      <div class="essay-body reveal">
+        <p>Candlelight is the one light source in hospitality that the designer cannot fully control. It flickers. It burns down. It will look different in an hour than it does now. This is precisely what it communicates.</p>
+        <p>The decision to use candles on a table is a decision to introduce a time-based element into the room: something consumed by the occasion rather than outlasting it. Every other light source in a restaurant or hotel room can be set and left. Candles require attention. Someone has to light them. Someone has to replace them. That labour is invisible to the guest but its result is not. The table lit by a person, for the duration of this particular sitting, carries a care for the specific occasion that a switch does not replicate.</p>
+        <p>What candlelight does to a face is well known but worth stating plainly. It removes the harshness of direct light and adds warmth. It creates a small circle of attention around whatever it is placed near, gently excluding what lies beyond. The guest becomes more aware of what is directly in front of them and less aware of what is behind them. This is not accidental. It is the consequence of choosing a light source that cannot project. Candlelight illuminates the immediate. It does not claim the room.</p>
+        <p>The difference between a room lit on a dimmer and a room lit by candles is not primarily a difference in brightness or colour temperature, though both differ. It is a difference in what the lighting is asking of the occasion. The dimmer says: we have considered how much light you should have. The candle says: this light is for this evening, and it will change as the evening does. That is a different kind of consideration, and a guest who has experienced both knows it without being able to name it.</p>
+      </div>
+      <div class="essay-refs reveal">
+        <span class="label">Continue through the archive</span>
+        <ul>
+          <li><a href="/studies/apotek-57/">Apotek 57</a></li>
+          <li><a href="/journal/the-room-at-night/">The Room at Night</a></li>
+          <li><a href="/journal/weight/">Weight</a></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+<footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/" class="active">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO · An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">© mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;·&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+<script src="/js/mobile-nav.js" defer></script>
+</body>
+</html>
