@@ -357,6 +357,7 @@ html, body {
   .pg-exit-left, .pg-exit-right { animation: none; }
 }
 </style>
+<script defer data-domain="mkdstudio.net" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -714,6 +715,7 @@ const PAGES = [
 ];
 
 const N = PAGES.length;
+const KEY = 'mkd-reader-' + location.pathname;
 let cur = 0;
 let busy = false;
 let cTimer;
@@ -741,6 +743,7 @@ function inject(el, idx) {
 }
 
 function tick(n) {
+  try { localStorage.setItem(KEY, cur); } catch (e) {}
   counter.textContent = n + ' / ' + N;
   counter.classList.remove('fade');
   counter.classList.add('show');
@@ -793,16 +796,33 @@ function prev() {
   else { if (cur > 0) slide('prev', cur - 1); }
 }
 
-function enter() {
+function enter(start) {
+  start = start || 0;
   document.getElementById('intro').classList.add('gone');
   setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
   if (isDesk()) {
     btnPrev.style.display = btnNext.style.display = 'block';
-    renderDesk(0);
+    renderDesk(start);
   } else {
-    renderMobile(0);
+    renderMobile(start);
   }
 }
+
+(function () {
+  let s = 0;
+  try { s = parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) {}
+  if (s > 0 && s < N - 1) {
+    const first = document.querySelector('.intro-open');
+    if (!first) return;
+    const cont = first.cloneNode(false);
+    cont.textContent = 'Continue from page ' + (s + 1);
+    cont.removeAttribute('onclick');
+    cont.onclick = function () { enter(s); };
+    cont.style.marginTop = '1rem';
+    first.insertAdjacentElement('afterend', cont);
+    first.textContent = 'Start from the beginning';
+  }
+})();
 
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
