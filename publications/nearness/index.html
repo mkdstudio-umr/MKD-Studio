@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Waiting for Dusk / mkd STUDIO</title>
-<meta name="description" content="Waiting for Dusk. An editorial publication by mkd STUDIO. Ten photographs made at Doha Golf Club during the Commercial Bank Qatar Masters. A study of ritual, atmosphere and the light of a tournament day moving toward evening.">
-<link rel="canonical" href="https://mkdstudio.net/publications/waiting-for-dusk/">
+<title>Nearness / mkd STUDIO</title>
+<meta name="description" content="Nearness. Pilgrimage, Volume I. An editorial publication by mkd STUDIO. Makkah and Madinah photographed at the edges of a journey that cannot itself be photographed.">
+<link rel="canonical" href="https://mkdstudio.net/publications/nearness/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="mkd STUDIO">
-<meta property="og:title" content="Waiting for Dusk / mkd STUDIO">
-<meta property="og:description" content="An editorial publication by mkd STUDIO. Ten photographs from Doha Golf Club. A study of ritual, atmosphere and the light of a tournament day moving toward evening.">
-<meta property="og:url" content="https://mkdstudio.net/publications/waiting-for-dusk/">
-<meta property="og:image" content="https://mkdstudio.net/images/waiting_dusk_thumb.jpg">
+<meta property="og:title" content="Nearness / mkd STUDIO">
+<meta property="og:description" content="Pilgrimage, Volume I. Makkah and Madinah, photographed at the edges of the journey.">
+<meta property="og:url" content="https://mkdstudio.net/publications/nearness/">
+<meta property="og:image" content="https://mkdstudio.net/images/makkah-01.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Waiting for Dusk / mkd STUDIO">
-<meta name="twitter:description" content="An editorial publication by mkd STUDIO. Ten photographs from Doha Golf Club. A study of ritual, atmosphere and the light of a tournament day moving toward evening.">
-<meta name="twitter:image" content="https://mkdstudio.net/images/waiting_dusk_thumb.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Waiting for Dusk","description":"An editorial publication by mkd STUDIO. Ten photographs made at Doha Golf Club during the Commercial Bank Qatar Masters. A study of ritual, atmosphere and the light of a tournament day moving toward evening.","url":"https://mkdstudio.net/publications/waiting-for-dusk/","image":"https://mkdstudio.net/images/waiting_dusk_thumb.jpg","author":{"@id":"https://mkdstudio.net/#organization"},"publisher":{"@id":"https://mkdstudio.net/#organization"},"inLanguage":"en"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"mkd STUDIO","item":"https://mkdstudio.net/"},{"@type":"ListItem","position":2,"name":"Publications","item":"https://mkdstudio.net/publications/"},{"@type":"ListItem","position":3,"name":"Waiting for Dusk","item":"https://mkdstudio.net/publications/waiting-for-dusk/"}]}</script>
+<meta name="twitter:title" content="Nearness / mkd STUDIO">
+<meta name="twitter:description" content="Pilgrimage, Volume I. Makkah and Madinah, photographed at the edges of the journey.">
+<meta name="twitter:image" content="https://mkdstudio.net/images/makkah-01.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Nearness","description":"Pilgrimage, Volume I. An editorial publication by mkd STUDIO. Makkah and Madinah photographed at the edges of a journey that cannot itself be photographed.","url":"https://mkdstudio.net/publications/nearness/","image":"https://mkdstudio.net/images/makkah-01.jpg","author":{"@id":"https://mkdstudio.net/#organization"},"publisher":{"@id":"https://mkdstudio.net/#organization"},"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"mkd STUDIO","item":"https://mkdstudio.net/"},{"@type":"ListItem","position":2,"name":"Publications","item":"https://mkdstudio.net/publications/"},{"@type":"ListItem","position":3,"name":"Nearness","item":"https://mkdstudio.net/publications/nearness/"}]}</script>
 <link rel="icon" href="/favicon.ico?v=5" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
@@ -143,7 +143,7 @@
   margin-top: 0;
 }
 
-/* ── READER EMBED ─────────────────────────────────────── */
+/* ── READER EMBED ─────────────────────────────── */
 
 .pubp-preview-note {
   font-family: "Cormorant", serif;
@@ -164,7 +164,7 @@
   display: block;
   aspect-ratio: 8/5;
   border: 1px solid var(--line);
-  background: #0d0d0c;
+  background: #111009;
   pointer-events: none;
 }
 .pubp-reader-overlay {
@@ -188,7 +188,6 @@
 }
 .pubp-open-btn:hover { color: var(--accent); border-color: var(--accent); }
 
-/* full-screen modal */
 #pub-modal {
   display: none;
   position: fixed; inset: 0; z-index: 200;
@@ -213,7 +212,7 @@
   .pubp-reader-frame { aspect-ratio: 3/5; }
 }
 
-/* ── REGISTER ─────────────────────────────────────────── */
+/* ── REGISTER ─────────────────────────────────── */
 
 .pubp-register p {
   margin-bottom: .6rem;
@@ -229,7 +228,7 @@
   border-color: var(--accent);
 }
 
-/* ── RELATED PUBLICATIONS ─────────────────────────────── */
+/* ── RELATED ─────────────────────────────────── */
 
 .pubp-related .wrap {
   display: block;
@@ -277,20 +276,6 @@
   display: inline-block;
   margin-top: .3rem;
 }
-.pubp-related-item.is-upcoming {
-  cursor: default;
-}
-.pubp-related-item.is-upcoming .pubp-related-shot img {
-  filter: grayscale(1) blur(2px);
-  transform: scale(1.03);
-}
-.pubp-related-item.is-upcoming .pubp-related-shot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--paper, #f5f3ef);
-  opacity: .55;
-}
 
 @media (max-width: 760px) {
   .pubp-head .wrap,
@@ -312,17 +297,18 @@
 
 <section class="pad pubp-head"><div class="wrap">
   <div class="pubp-cover book-pair reveal">
-    <img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk, Doha Golf Club, Qatar">
-    <img loading="lazy" decoding="async" src="/images/waiting_dusk_cover.jpg" alt="Waiting for Dusk, hardcover edition">
+    <img loading="eager" decoding="async" src="/images/makkah-01.jpg" alt="The Kaaba seen through a dark architectural frame, Makkah al-Mukarramah">
+    <img loading="eager" decoding="async" src="/images/nearness-03.jpg" alt="The door of the Kaaba, gold embroidery on black silk, Makkah al-Mukarramah">
   </div>
   <div class="pubp-title-block reveal d1">
-    <span class="label">Publication 003</span>
-    <h1>Waiting for Dusk</h1>
-    <p class="pubp-edition">Experience / Volume I</p>
-    <p class="pubp-place">Doha Golf Club, Qatar</p>
+    <span class="label">Publication 008</span>
+    <h1>Nearness</h1>
+    <p class="pubp-edition">Pilgrimage / Volume I</p>
+    <p class="pubp-place">Makkah &middot; Madinah</p>
     <div class="pubp-meta">
-      <p>40 pages</p>
-      <p>Ten photographs</p>
+      <p>48 pages</p>
+      <p>Five sections</p>
+      <p>Twenty-seven photographs</p>
       <p>First Edition</p>
     </div>
     <p class="pubp-published">Published by mkd STUDIO</p>
@@ -332,10 +318,32 @@
 <section class="pad pubp-section"><div class="wrap">
   <span class="field-label">Publication Statement</span>
   <div>
-    <p>Waiting for Dusk is an editorial publication made from ten photographs taken at Doha Golf Club during the Commercial Bank Qatar Masters.</p>
-    <p>This is not a golf publication. The game provides the structure: the reason the bags are there, the reason the caddies are crossing the fairway, the reason anyone is standing at the edge of the course in the last hour of the afternoon. But the subject is something else. The subject is the atmosphere that a particular kind of day, in a particular kind of place, produces at a particular time.</p>
-    <p>Across seven chapters, the publication moves through the day in sequence. Arrival, when the course belongs to the people who prepare it rather than the people who play it. Movement, when the figures crossing the landscape become a pattern visible from a distance. Measurement, when the objects placed in the ground to divide time and distance reveal something about what measurement cannot say. Observation, when the photographs keep returning to the stillness that surrounds each moment of action. Landscape, when the city on the horizon and the course in the foreground reveal a distance that is not only geographical. Light, when the afternoon begins to do what only the last forty minutes of a desert afternoon can do. And Dusk, when the grass holds its colour a little longer than the sky does.</p>
-    <p>The sport is the reason everyone is there. The light is what remains.</p>
+    <p>Every other publication in this catalogue documents a place that can be visited. This one does not. Makkah and Madinah are not destinations in the ordinary sense: nobody passes through, and nobody arrives without having intended to for a long time, sometimes a whole life.</p>
+    <p>The camera is an awkward companion on a journey like this. It wants to stand back, and the entire point of being here is nearness: to the Kaaba, to the Prophet&rsquo;s mosque, to the millions who have stood on the same marble before you. Most of what matters cannot be photographed at all. These photographs do not attempt the whole. They hold the edges of it: the first sight of the sanctuary from a dark hotel window, the gold embroidery on the door, the umbrellas opening over the courtyards at dawn, the quiet of Quba at sunset, the objects that travel home.</p>
+    <p>Makkah is gravity. Madinah is rest. Between the two sits everything a pilgrim goes to find, none of which reflects light, all of which the camera spends the whole journey circling. This volume is that circling, printed. Those who know, know. It is for them, and for the ones still intending to go.</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Structure</span>
+  <div class="pubp-list">
+    <p>I &nbsp;&middot;&nbsp; Before</p>
+    <p>II &nbsp;&middot;&nbsp; Makkah</p>
+    <p>III &nbsp;&middot;&nbsp; The Nearness</p>
+    <p>IV &nbsp;&middot;&nbsp; Madinah</p>
+    <p>V &nbsp;&middot;&nbsp; What Stays</p>
+  </div>
+</div></section>
+
+<section class="pad pubp-section"><div class="wrap">
+  <span class="field-label">Read the Publication</span>
+  <div>
+    <p class="pubp-preview-note">The full publication is available to read below. Click to open in full.</p>
+    <div class="pubp-reader-wrap reveal">
+      <iframe class="pubp-reader-frame" src="/publications/nearness/reader.html" title="Nearness: mkd STUDIO" loading="lazy"></iframe>
+      <div class="pubp-reader-overlay" onclick="openPublication()"></div>
+    </div>
+    <a class="pubp-open-btn" href="javascript:void(0)" onclick="openPublication()">Open publication in full</a>
   </div>
 </div></section>
 
@@ -343,46 +351,32 @@
   <span class="field-label">Publication Details</span>
   <div class="pubp-list">
     <p>Volume I</p>
-    <p>Experience</p>
-    <p>Doha Golf Club, Qatar</p>
-    <p>Commercial Bank Qatar Masters</p>
-    <p>40 Pages</p>
-    <p>Ten Photographs</p>
-    <p>Seven Chapters</p>
+    <p>Pilgrimage</p>
+    <p>Makkah al-Mukarramah, Saudi Arabia</p>
+    <p>Madinah al-Munawwarah, Saudi Arabia</p>
+    <p>Photographed September 2025</p>
+    <p>48 Pages</p>
     <p>First Edition</p>
-    <p>Published 2024</p>
+    <p>Published 2026</p>
     <p>Photography and text by mkd STUDIO</p>
   </div>
 </div></section>
 
-<section class="pad pubp-section"><div class="wrap">
-  <span class="field-label">The Publication</span>
-  <div>
-    <p class="pubp-preview-note">The complete publication is available to read below. Forty pages, ten photographs, seven chapters. Click to open in full.</p>
-    <div class="pubp-reader-wrap reveal">
-      <iframe class="pubp-reader-frame" src="/publications/waiting-for-dusk/reader.html" title="Waiting for Dusk, mkd STUDIO" loading="lazy"></iframe>
-      <div class="pubp-reader-overlay" onclick="openPublication()"></div>
-    </div>
-    <a class="pubp-open-btn" href="javascript:void(0)" onclick="openPublication()">Open publication in full</a>
-  </div>
-</div></section>
-
 <section class="pad pubp-section pubp-register"><div class="wrap">
-  <span class="field-label">Commissioned Work</span>
+  <span class="field-label">The Printed Edition</span>
   <div>
-    <p>This publication demonstrates how mkd STUDIO approaches sporting and hospitality events: the attention directed away from the competition itself, toward the atmosphere, the ritual, the light of a specific day in a specific place.</p>
-    <p>For event partners and hospitality organisations interested in editorial work of this kind, the <a href="/collaborations/">Collaborations page</a> describes how the studio works.</p>
-    <p>For direct enquiries, contact <a href="mailto:hello@mkdstudio.net">hello@mkdstudio.net</a></p>
-    <p>The printed first editions are described on the <a href="/editions/">Printed Editions page</a>.</p>
+    <p>This publication is produced as a printed first edition, bound in linen and made in small numbers. How the editions are made is on the <a href="/editions/" style="color:inherit;border-bottom:1px solid var(--line);text-decoration:none">Printed Editions page</a>.</p>
+    <p>For availability, write to <a href="mailto:hello@mkdstudio.net">hello@mkdstudio.net</a></p>
   </div>
 </div></section>
 
 <section class="pad pubp-section"><div class="wrap">
   <span class="field-label">Studies in the Archive</span>
   <div>
-    <p>The study that preceded and informed this publication is in the archive.</p>
+    <p>The two studies that preceded and informed this publication are in the archive.</p>
     <ul style="list-style:none;padding:0;margin:clamp(1rem,2vw,1.5rem) 0 0">
-      <li style="margin-bottom:.75rem"><a href="/studies/waiting-for-dusk/" style="color:inherit;border-bottom:1px solid var(--line);text-decoration:none">Waiting for Dusk</a> &nbsp;&middot;&nbsp; Doha Golf Club, Qatar &nbsp;&middot;&nbsp; Commercial Bank Qatar Masters</li>
+      <li style="margin-bottom:.75rem"><a href="/studies/makkah/" style="color:inherit;border-bottom:1px solid var(--line);text-decoration:none">Makkah</a> &nbsp;&middot;&nbsp; Gravity and nearness</li>
+      <li style="margin-bottom:.75rem"><a href="/studies/madinah-al-munawwarah/" style="color:inherit;border-bottom:1px solid var(--line);text-decoration:none">Madinah al-Munawwarah</a> &nbsp;&middot;&nbsp; Peace and the green dome</li>
     </ul>
   </div>
 </div></section>
@@ -390,50 +384,55 @@
 <section class="pad pubp-section pubp-related"><div class="wrap">
   <span class="field-label">Publications</span>
   <div class="pubp-related-grid">
-    <a class="pubp-related-item" href="/publications/the-spaces-between/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between"></div>
-      <span class="rel-title">The Spaces Between</span>
-    </a>
-    <a class="pubp-related-item" href="/publications/waiting-for-dusk/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk"></div>
-      <span class="rel-title">Waiting for Dusk</span>
-    </a>
-    <a class="pubp-related-item" href="/publications/the-ned-doha/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" alt="The Ned Doha"></div>
-      <span class="rel-title">The Ned Doha</span>
-    </a>
-    <a class="pubp-related-item" href="/publications/against-the-display/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/atd_cover.jpg" alt="Against the Display"></div>
-      <span class="rel-title">Against the Display</span>
+    <a class="pubp-related-item" href="/publications/lisbon-and-porto/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/porto-after-the-river-07.jpg" alt="Lisbon &amp; Porto"></div>
+      <span class="rel-title">Lisbon &middot; Porto</span>
     </a>
     <a class="pubp-related-item" href="/publications/morocco/">
       <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/tng_01.jpg" alt="Morocco"></div>
       <span class="rel-title">Morocco</span>
     </a>
-<a class="pubp-related-item" href="/publications/lisbon-and-porto/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/porto-after-the-river-07.jpg" alt="Lisbon &amp; Porto"></div>
-      <span class="rel-title">Lisbon &middot; Porto</span>
+    <a class="pubp-related-item" href="/publications/the-spaces-between/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between"></div>
+      <span class="rel-title">The Spaces Between</span>
     </a>
-    <a class="pubp-related-item" href="/publications/nearness/">
-      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/makkah-01.jpg" alt="Nearness"></div>
-      <span class="rel-title">Nearness</span>
+    <a class="pubp-related-item" href="/publications/the-ned-doha/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" alt="The Ned Doha"></div>
+      <span class="rel-title">The Ned, Doha</span>
+    </a>
+    <a class="pubp-related-item" href="/publications/waiting-for-dusk/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk"></div>
+      <span class="rel-title">Waiting for Dusk</span>
+    </a>
+    <a class="pubp-related-item" href="/publications/against-the-display/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/atd_cover.jpg" alt="Against the Display"></div>
+      <span class="rel-title">Against the Display</span>
+    </a>
+    <a class="pubp-related-item" href="/publications/open-late/">
+      <div class="pubp-related-shot"><img loading="lazy" decoding="async" src="/images/kaawa_01.jpg" alt="Open Late"></div>
+      <span class="rel-title">Open Late</span>
     </a>
   </div>
 </div></section>
 
 <footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO &middot; An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">&copy; mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
-<!-- full-screen publication modal -->
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
+</script>
+
 <div id="pub-modal">
   <button id="pub-modal-close" onclick="closePublication()">Close &times;</button>
-  <iframe id="pub-modal-frame" src="" title="Waiting for Dusk, mkd STUDIO"></iframe>
+  <iframe id="pub-modal-frame" src="" title="Nearness, mkd STUDIO"></iframe>
 </div>
-
 <script>
 function openPublication() {
   const modal = document.getElementById('pub-modal');
   const frame = document.getElementById('pub-modal-frame');
   if (!frame.src || frame.src === window.location.href) {
-    frame.src = '/publications/waiting-for-dusk/reader.html';
+    frame.src = '/publications/nearness/reader.html';
   }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -445,12 +444,6 @@ function closePublication() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePublication();
 });
-</script>
-
-<script>
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
 </script>
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
 <script src="/js/mobile-nav.js" defer></script>

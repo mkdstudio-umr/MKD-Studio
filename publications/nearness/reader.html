@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Nearness / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── PAGES ──────────────────────────────── */
+
+.page {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+.page::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .032; mix-blend-mode: multiply;
+}
+
+.page.dark-page {
+  background: var(--dark);
+}
+.page.dark-page::before, .page.dark-page::after { mix-blend-mode: screen; opacity: .04; }
+
+.page.plate {
+  padding: 0; background: var(--dark);
+}
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 1;
+}
+.page.plate::before { z-index: 2; opacity: .02; }
+.page.plate::after  { z-index: 3; opacity: .014; }
+
+.page > *:not(img) { position: relative; z-index: 10; }
+#panel-left, #panel-right { background: var(--linen); }
+
+/* ── TYPOGRAPHY ──────────────────────────── */
+
+.cover-wrap {
+  text-align: center;
+  padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.cover-title {
+  font-style: italic; font-size: 2rem;
+  letter-spacing: .01em; color: var(--linen);
+  line-height: 1.1; margin-bottom: .65rem;
+}
+.cover-subtitle {
+  font-size: .46rem; letter-spacing: .34em;
+  text-transform: uppercase; color: rgba(243,241,236,.3);
+  margin-bottom: .5rem;
+}
+.cover-location {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: rgba(243,241,236,.22);
+  margin-bottom: 0;
+}
+.cover-studio {
+  font-size: .44rem; letter-spacing: .42em;
+  text-transform: uppercase; color: rgba(243,241,236,.16);
+  margin-top: auto; padding-bottom: 8%;
+}
+
+.title-wrap { text-align: center; padding: 2rem; }
+.title-main {
+  font-style: italic; font-size: 1.6rem;
+  color: var(--ink); line-height: 1.15;
+  margin-bottom: .7rem;
+}
+.title-sub {
+  font-size: .48rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--mid);
+  line-height: 2.4;
+}
+.title-studio {
+  font-size: .44rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-top: 3.5rem;
+}
+.title-note {
+  font-style: italic; font-size: .7rem;
+  color: var(--soft); margin-top: 3rem;
+}
+
+.colophon-wrap { text-align: left; padding: 13%; }
+.colophon-wrap p {
+  font-size: .52rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 2.5;
+}
+.colophon-wrap .col-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.25);
+  width: 100%; margin: 1.6rem 0;
+}
+
+.section-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.8rem;
+}
+
+.textwrap {
+  width: 100%; padding: 11% 13%; text-align: left;
+}
+.chapter-ref {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .06em;
+  margin-bottom: .55rem;
+}
+.text-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.35);
+  width: 28px; margin: 0 0 1.6rem; opacity: 1;
+}
+.body {
+  font-size: .8rem; line-height: 1.92;
+  margin-bottom: 1.25rem; color: var(--ink);
+}
+.body.i { font-style: italic; }
+.body.dim { color: var(--mid); font-size: .72rem; line-height: 2.1; }
+
+.chapter-wrap {
+  text-align: center; padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.ch-num {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .18em;
+  margin-bottom: 1rem;
+}
+.ch-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.3);
+  width: 24px; margin: 0 auto 1rem;
+}
+.ch-name {
+  font-style: italic; font-size: 1.55rem;
+  color: var(--ink); letter-spacing: .02em;
+  line-height: 1.15;
+}
+
+.closing-wrap {
+  text-align: center; padding: 14%;
+}
+.closing-wrap p {
+  font-style: italic; font-size: 1.02rem;
+  line-height: 1.72; color: var(--ink);
+  max-width: 22em; margin: 0 auto;
+}
+
+/* ── MOBILE LAYOUT ─────────────────────── */
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .46s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+
+#desktop-wrap { display: none; }
+
+/* ── INTRO ─────────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity 1.1s ease, visibility 1.1s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .035; mix-blend-mode: screen;
+  pointer-events: none; z-index: 0;
+}
+#intro > * { position: relative; z-index: 1; }
+.intro-title {
+  font-style: italic; font-size: 1.85rem;
+  color: var(--linen); letter-spacing: .01em;
+  margin-bottom: .6rem; line-height: 1.12;
+}
+.intro-sub {
+  font-size: .48rem; letter-spacing: .36em;
+  text-transform: uppercase; color: rgba(176,171,166,.55);
+  margin-bottom: 4rem;
+}
+.intro-open {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  border: .5px solid rgba(243,241,236,.3); background: none;
+  padding: 1rem 2.6rem; cursor: pointer;
+  font-family: inherit; color: rgba(243,241,236,.7);
+  transition: border-color .35s, color .35s, background .35s;
+}
+.intro-open:hover {
+  border-color: var(--linen);
+  color: var(--dark);
+  background: var(--linen);
+}
+
+/* ── CHROME ─────────────────────────────── */
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: .44rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .45; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .44rem; letter-spacing: .24em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .5; transition: opacity 1.2s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+/* ── DESKTOP ─────────────────────────────── */
+@media (min-width: 900px) {
+  body { background: #0a0908; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 3vh 3vw;
+  }
+
+  #book-spread {
+    display: flex; width: 100%; height: 100%;
+    max-width: 1520px; max-height: 88vh; gap: 0;
+  }
+
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0;
+    position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow:
+      0 24px 100px rgba(0,0,0,.85),
+      0 4px 12px rgba(0,0,0,.5),
+      inset 0 0 0 .5px rgba(180,160,130,.12);
+  }
+
+  #spine {
+    flex: 0 0 30px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 35%,
+      rgba(0,0,0,.06) 50%, rgba(0,0,0,.12) 65%,
+      rgba(0,0,0,.35) 100%
+    );
+    position: relative; z-index: 5;
+  }
+
+  #panel-left::after {
+    content: ""; position: absolute;
+    top:0; right:0; width:24px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute;
+    top:0; left:0; width:24px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+
+  #panel-left .page, #panel-right .page {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+  }
+
+  #counter { bottom: 1.8rem; left: auto; right: 3.5vw; transform: none; }
+
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: rgba(176,171,166,.4); font-family: inherit;
+    font-size: .44rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: color .25s; padding: 1rem 1.6rem;
+  }
+  #btn-prev { left: .4vw; }
+  #btn-next { right: .4vw; }
+  #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left,
+  .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-title">Nearness</div>
+  <div class="intro-sub">Makkah &nbsp;&middot;&nbsp; Madinah &nbsp;&middot;&nbsp; mkd STUDIO</div>
+  <button class="intro-open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap"><div id="mobile-panel"></div></div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* 01 — COVER */
+`<section class="page dark-page">
+  <div class="cover-wrap">
+    <div class="cover-title">Nearness</div>
+    <div class="cover-subtitle">Pilgrimage / Volume I</div>
+    <div class="cover-location">Makkah &nbsp;&middot;&nbsp; Madinah</div>
+    <div class="cover-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 02 — TITLE PAGE */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">Nearness</div>
+    <div class="title-sub">Pilgrimage, Volume I<br>Makkah &nbsp;&middot;&nbsp; Madinah</div>
+    <div class="title-studio">mkd STUDIO</div>
+    <div class="title-note">Two cities you do not visit. You are received.</div>
+  </div>
+</section>`,
+
+/* 03 — COLOPHON */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Photography and editorial direction</p>
+    <p>mkd STUDIO</p>
+    <hr class="col-rule">
+    <p>Makkah al-Mukarramah, Saudi Arabia</p>
+    <p>Madinah al-Munawwarah, Saudi Arabia</p>
+    <p>Photographed September 2025</p>
+    <p>Published 2026</p>
+    <hr class="col-rule">
+    <p>All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+    <hr class="col-rule">
+    <p>First edition &nbsp;&middot;&nbsp; 2026</p>
+  </div>
+</section>`,
+
+/* 04 — INTRODUCTION */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Introduction</div>
+    <p class="body">Every other publication in this catalogue documents a place that can be visited. This one does not. Makkah and Madinah are not destinations in the ordinary sense: nobody passes through, nobody stumbles across them, and nobody arrives without having intended to for a long time, sometimes a whole life.</p>
+    <p class="body">The camera is an awkward companion on a journey like this. It wants to stand back, and the entire point of being here is nearness: to the Kaaba, to the Prophet&rsquo;s mosque, to the millions who have stood on the same marble before you and the millions who will after. Most of what matters cannot be photographed at all.</p>
+    <p class="body">These photographs do not attempt the whole. They hold the edges of it: the first sight of the sanctuary from a dark window, the embroidery on a door, the quiet of a courtyard at sunset, the objects that travel home. What they surround, each reader will know or will not, and no caption can change which.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">Twenty-seven photographs. Five sections. One journey.</p>
+  </div>
+</section>`,
+
+/* 05 — CHAPTER I */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">I</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Before</div>
+  </div>
+</section>`,
+
+/* 06 — IMAGE: nearness-01 (haram at night through dark window) */
+`<section class="page plate">
+  <img src="/images/nearness-01.jpg" alt="The Grand Mosque at night, seen from a dark hotel window, Makkah al-Mukarramah">
+</section>`,
+
+/* 07 — BEFORE TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">I &nbsp;&middot;&nbsp; Before</div>
+    <hr class="text-rule">
+    <p class="body">The journey begins long before the aeroplane. It begins with an intention, spoken quietly, and with two lengths of white cloth that make a king indistinguishable from anyone else. By the time the city appears, the traveller has already been changed into a pilgrim, and the difference is not cosmetic.</p>
+    <p class="body">The first sight of the sanctuary usually arrives at an odd moment. Through a coach window in traffic. Between buildings. Or, as here, at three in the morning from an unlit hotel room: the mosque below, white and gold against the dark, still moving with people at an hour when every other city in the world has gone quiet. Nobody sleeps well the night they arrive. This is what the window is for.</p>
+    <p class="body">Above the old centre stands the clock tower, visible from everywhere, enormous beyond argument. Opinions differ on it and will continue to. But at dusk, with the crescent lit at its peak, it does what minarets have always done: it tells you, from a great distance, exactly where you are going.</p>
+  </div>
+</section>`,
+
+/* 08 — IMAGE: nearness-02 (clock tower at dusk) */
+`<section class="page plate">
+  <img src="/images/nearness-02.jpg" alt="The Makkah clock tower at dusk, crescent lit, Makkah al-Mukarramah">
+</section>`,
+
+/* 09 — CHAPTER II */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">II</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Makkah</div>
+  </div>
+</section>`,
+
+/* 10 — IMAGE: makkah-01 (Kaaba through dark frame) */
+`<section class="page plate">
+  <img src="/images/makkah-01.jpg" alt="The Kaaba seen through a dark architectural frame, Makkah al-Mukarramah">
+</section>`,
+
+/* 11 — MAKKAH TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; Makkah</div>
+    <hr class="text-rule">
+    <p class="body">The building at the centre is a cube of stone draped in black silk, and it is the plainest structure in the entire city. Everything around it reaches upward: minarets, hotels, cranes, the tower with its clock. The Kaaba does not reach. It sits. And a quarter of humanity turns toward it five times a day from wherever on earth they happen to be standing.</p>
+    <p class="body">Gravity is the only honest word for what it does. The crowd moves around it in a slow constant circle that has not stopped, day or night, for centuries. Individual people enter the circle and are absorbed by it. From the upper floors the movement looks like water finding its level. From within it, there is no view at all: only the black cloth ahead, nearer with each turn, and the press of every nation on earth around you.</p>
+    <p class="body">The mosque that surrounds this is vast beyond photographing, corridor after corridor of chandeliers and cool marble, shelves of Qur&rsquo;ans in brass cages, green carpets that mark where prayer rows form. It absorbs two million people and remains, somehow, a quiet building. The scale is not for display. It is for capacity, which is a different and humbler kind of ambition.</p>
+  </div>
+</section>`,
+
+/* 12 — IMAGE: makkah-02 (Kaaba and crowd) */
+`<section class="page plate">
+  <img src="/images/makkah-02.jpg" alt="The Kaaba surrounded by the crowd, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 13 — IMAGE: makkah-04 (Kaaba corner at night, clock tower above) */
+`<section class="page plate">
+  <img src="/images/makkah-04.jpg" alt="Kaaba corner at night with gold calligraphy and the clock tower above, Makkah al-Mukarramah">
+</section>`,
+
+/* 14 — IMAGE: nearness-03 (kiswa door full frame) */
+`<section class="page plate">
+  <img src="/images/nearness-03.jpg" alt="The door of the Kaaba, gold embroidery on black silk, Makkah al-Mukarramah">
+</section>`,
+
+/* 15 — IMAGE: makkah-06 (kiswah band detail) */
+`<section class="page plate">
+  <img src="/images/makkah-06.jpg" alt="Kiswah black cloth with gold calligraphy band, close detail, Makkah al-Mukarramah">
+</section>`,
+
+/* 16 — IMAGE: nearness-04 (congregation under chandelier) */
+`<section class="page plate">
+  <img src="/images/nearness-04.jpg" alt="The congregation beneath a chandelier, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 17 — IMAGE: nearness-05 (pilgrims in dark arches) */
+`<section class="page plate">
+  <img src="/images/nearness-05.jpg" alt="Pilgrims in the shaded arcades, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 18 — IMAGE: makkah-07 (chandelier corridor) */
+`<section class="page plate">
+  <img src="/images/makkah-07.jpg" alt="Chandeliers along an arched corridor, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 19 — IMAGE: nearness-06 (green carpets, Quran shelves) */
+`<section class="page plate">
+  <img src="/images/nearness-06.jpg" alt="Green prayer carpets and brass shelves of Qur'ans, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 20 — IMAGE: makkah-10 (minarets and lanterns at night) */
+`<section class="page plate">
+  <img src="/images/makkah-10.jpg" alt="Minarets and hanging lanterns at night, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 21 — CLOSING LINE II */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>A plain stone cube,<br>and everything on earth<br>arranged around it.</p>
+  </div>
+</section>`,
+
+/* 22 — CHAPTER III */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">III</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Nearness</div>
+  </div>
+</section>`,
+
+/* 23 — IMAGE: makkah-05 (Kaaba door close detail) */
+`<section class="page plate">
+  <img src="/images/makkah-05.jpg" alt="The Kaaba door, gold calligraphy and embroidery, close, Makkah al-Mukarramah">
+</section>`,
+
+/* 24 — THE NEARNESS TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &nbsp;&middot;&nbsp; The Nearness</div>
+    <hr class="text-rule">
+    <p class="body">There is a moment, somewhere in the circling, when the crowd loosens for a breath and the cloth is suddenly close enough to read. Gold thread on black silk. Verses embroidered by hand, by craftsmen whose names are not on it, in a workshop that has been remaking this cloth every single year for generations.</p>
+    <p class="body">This is as near as most people will ever be. Some reach out. Some cannot. Nobody photographs well here, and nobody minds, because this was never the point of the journey that the photograph could hold anyway.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">The camera stops here. The pilgrim continues.</p>
+  </div>
+</section>`,
+
+/* 25 — CHAPTER IV */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Madinah</div>
+  </div>
+</section>`,
+
+/* 26 — IMAGE: madinah-01 (sunset beneath umbrellas) */
+`<section class="page plate">
+  <img src="/images/madinah-01.jpg" alt="Sunset beneath the mosque umbrellas, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 27 — MADINAH TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Madinah</div>
+    <hr class="text-rule">
+    <p class="body">Four hundred and fifty kilometres north, the register changes completely. Makkah is gravity. Madinah is rest. Pilgrims arrive here exhausted and something in the city receives that exhaustion and answers it. Nobody who has made the journey needs this explained, and nobody who has not will quite believe how physical the difference is.</p>
+    <p class="body">The Prophet&rsquo;s mosque is one of the largest buildings in the world and behaves like a courtyard house. The great umbrellas open each morning over the plazas like a garden blooming on schedule. Inside, white and gold columns hold up a ceiling that took four centuries of dynasties to decorate, and old men lean against them reading, and children sleep on the green carpet, and nobody is hurried anywhere.</p>
+    <p class="body">Beneath the green dome lies the man whose city this is. The dome has been painted that colour since 1837 and has become, quietly, one of the most recognised silhouettes on earth. The nearness here is different from Makkah&rsquo;s: not a building at the centre of the world, but a person, and the endless, patient, moving line of those who have come simply to say peace be upon you, in person, having travelled five thousand miles to say it.</p>
+  </div>
+</section>`,
+
+/* 28 — IMAGE: madinah-02 (green dome) */
+`<section class="page plate">
+  <img src="/images/madinah-02.jpg" alt="The green dome of Al-Masjid an-Nabawi with minaret and umbrella shade, Madinah al-Munawwarah">
+</section>`,
+
+/* 29 — IMAGE: nearness-07 (Nabawi minaret and lamps at dusk) */
+`<section class="page plate">
+  <img src="/images/nearness-07.jpg" alt="Minaret and rows of lamps at dusk, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 30 — IMAGE: nearness-08 (Nabawi interior, columns and chandelier) */
+`<section class="page plate">
+  <img src="/images/nearness-08.jpg" alt="Columns and the great chandelier, interior, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 31 — IMAGE: nearness-09 (Nabawi arcade perspective) */
+`<section class="page plate">
+  <img src="/images/nearness-09.jpg" alt="The arcades in perspective, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 32 — IMAGE: nearness-10 (Nabawi golden door detail) */
+`<section class="page plate">
+  <img src="/images/nearness-10.jpg" alt="Golden door with calligraphy, close detail, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 33 — IMAGE: madinah-03 (chandelier in warm arch light) */
+`<section class="page plate">
+  <img src="/images/madinah-03.jpg" alt="Chandelier in warm golden arch light, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 34 — IMAGE: nearness-11 (Quba minaret against blue sky) */
+`<section class="page plate">
+  <img src="/images/nearness-11.jpg" alt="Minaret of Quba Mosque against a blue sky, Madinah al-Munawwarah">
+</section>`,
+
+/* 35 — IMAGE: nearness-12 (Quba at sunset, bird) */
+`<section class="page plate">
+  <img src="/images/nearness-12.jpg" alt="Quba Mosque at sunset, a bird passing the minaret, Madinah al-Munawwarah">
+</section>`,
+
+/* 36 — CLOSING LINE IV */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>Makkah asks everything of you.<br>Madinah asks only<br>that you rest.</p>
+  </div>
+</section>`,
+
+/* 37 — CHAPTER V */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">What Stays</div>
+  </div>
+</section>`,
+
+/* 38 — IMAGE: nearness-13 (palm grove cafe) */
+`<section class="page plate">
+  <img src="/images/nearness-13.jpg" alt="Tables beneath the date palms, a cafe on the edge of Madinah">
+</section>`,
+
+/* 39 — WHAT STAYS TEXT */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; What Stays</div>
+    <hr class="text-rule">
+    <p class="body">Around the sanctuaries, life continues at its own scale, and it would be dishonest to leave it out. A caf&eacute; under the date palms where the gravel is raked and the chairs are bentwood and the shade does the work air conditioning does everywhere else. A coffee counter where the cups are stacked in patterned sleeves and the machine is the colour of terracotta. The holy cities are also, simply, cities, and their ordinary mornings deserve a page.</p>
+    <p class="body">Then there are the objects that make the journey home. Oud wood in a shop drawer, sold by weight. Attar in small bottles, chosen slowly. A misbaha of pale amber, coiled on a table beside the watches and the pen, with the sanctuary out of focus through the window behind. Scent is the pilgrim&rsquo;s photograph: years later, one breath of the right oil returns the entire journey in a way no image manages.</p>
+    <p class="body">In a night market, a painting of the green dome stands on an easel among modern canvases. Someone who was here tried to hold it too, in oil instead of light. Every pilgrim carries a version home: a painting, a photograph, a scent, a date pressed in a suitcase. None of them are the place. All of them point at it.</p>
+  </div>
+</section>`,
+
+/* 40 — IMAGE: nearness-14 (coffee counter) */
+`<section class="page plate">
+  <img src="/images/nearness-14.jpg" alt="Stacked cups at a coffee counter, Madinah al-Munawwarah">
+</section>`,
+
+/* 41 — IMAGE: makkah-09 (oud wood in drawer) */
+`<section class="page plate">
+  <img src="/images/makkah-09.jpg" alt="Oud wood in an open drawer, Makkah al-Mukarramah">
+</section>`,
+
+/* 42 — IMAGE: nearness-15 (attar and misbaha still life) */
+`<section class="page plate">
+  <img src="/images/nearness-15.jpg" alt="Attar bottles, prayer beads and watches on a table, the sanctuary beyond the window, Makkah al-Mukarramah">
+</section>`,
+
+/* 43 — IMAGE: nearness-16 (painting of the green dome, night market) */
+`<section class="page plate">
+  <img src="/images/nearness-16.jpg" alt="A painting of the green dome on an easel in a night market, Madinah al-Munawwarah">
+</section>`,
+
+/* 44 — CLOSING REFLECTION */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Closing Reflection</div>
+    <p class="body">This publication set out knowing it would fail, in the way any photograph of these two cities fails. What the pilgrim goes to find is not visible. It does not reflect light. The camera, which knows only light, spends the whole journey documenting the container and never the thing contained.</p>
+    <p class="body">And yet the container is worth holding. The gold thread on the black silk. The umbrellas opening at dawn. The old man asleep against the column, five thousand miles from his front door and entirely at home. These are the edges of something, photographed carefully, in the hope that an edge is enough to suggest the shape of the whole.</p>
+    <p class="body">Twenty-seven photographs of the nearest that most of us will ever be. What was actually near cannot be printed. Those who know, know. This book is for them, and for the ones still intending to go.</p>
+    <p class="body dim" style="margin-top:2.2rem">mkd STUDIO &nbsp;&middot;&nbsp; 2026</p>
+  </div>
+</section>`,
+
+/* 45 — END MATTER */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Publication 008</p>
+    <p>Nearness</p>
+    <p>Pilgrimage / Volume I</p>
+    <hr class="col-rule">
+    <p>Forty-eight pages</p>
+    <p>Five sections</p>
+    <p>Twenty-seven photographs</p>
+    <hr class="col-rule">
+    <p>mkdstudio.net</p>
+  </div>
+</section>`,
+
+/* 46 — STUDIES */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Studies</div>
+    <p class="body dim">The studies that inform this publication are available in the archive.</p>
+    <p class="body dim" style="margin-top:1.4rem">Makkah &nbsp;&middot;&nbsp; mkd STUDIO<br>Madinah al-Munawwarah &nbsp;&middot;&nbsp; mkd STUDIO</p>
+    <p class="body dim" style="margin-top:1.4rem">mkdstudio.net/studies/makkah<br>mkdstudio.net/studies/madinah-al-munawwarah</p>
+  </div>
+</section>`,
+
+/* 47 — EDITIONS */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">The Printed Edition</div>
+    <p class="body">This publication is produced as a printed first edition, bound in linen and made in small numbers.</p>
+    <p class="body dim" style="margin-top:1.4rem">hello@mkdstudio.net</p>
+  </div>
+</section>`,
+
+/* 48 — FINAL */
+`<section class="page dark-page">
+  <div class="cover-wrap">
+    <div class="cover-studio" style="margin-top:0;padding-bottom:0">mkd STUDIO</div>
+  </div>
+</section>`,
+
+];
+
+const N = PAGES.length;
+let cur = 0;
+let busy = false;
+let cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) {
+    el.innerHTML = '';
+    el.style.background = 'var(--linen)';
+    return;
+  }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  const isDark = pg && (pg.classList.contains('plate') || pg.classList.contains('dark-page'));
+  el.style.background = isDark ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft,  cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+  setTimeout(() => {
+    out.remove();
+    mPanel.classList.remove(inCls);
+    busy = false;
+  }, 480);
+}
+
+function next() {
+  if (isDesk()) { renderDesk(cur + 2); }
+  else { if (cur < N - 1) slide('next', cur + 1); }
+}
+function prev() {
+  if (isDesk()) { renderDesk(cur - 2); }
+  else { if (cur > 0) slide('prev', cur - 1); }
+}
+
+function enter() {
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) {
+    btnPrev.style.display = btnNext.style.display = 'block';
+    renderDesk(0);
+  } else {
+    renderMobile(0);
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => {
+  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+    dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur);
+    else renderMobile(cur);
+  }
+});
+</script>
+<script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
+</body>
+</html>
