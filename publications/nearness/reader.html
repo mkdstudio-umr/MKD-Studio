@@ -380,7 +380,7 @@ html, body {
 <script>
 const PAGES = [
 
-/* 01 — COVER */
+/* 01 — COVER
 `<section class="page dark-page">
   <div class="cover-wrap">
     <div class="cover-title">Nearness</div>
@@ -390,7 +390,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 02 — TITLE PAGE */
+/* 02 — TITLE PAGE
 `<section class="page">
   <div class="title-wrap">
     <div class="title-main">Nearness</div>
@@ -400,7 +400,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 03 — COLOPHON */
+/* 03 — COLOPHON
 `<section class="page">
   <div class="colophon-wrap">
     <p>Photography and editorial direction</p>
@@ -418,7 +418,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 04 — INTRODUCTION */
+/* 04 — INTRODUCTION
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Introduction</div>
@@ -429,7 +429,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 05 — CHAPTER I */
+/* 05 — CHAPTER I
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">I</div>
@@ -438,12 +438,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 06 — IMAGE: nearness-01 (haram at night through dark window) */
+/* 06 — IMAGE: nearness-01 (haram at night through dark window)
 `<section class="page plate">
-  <img src="/images/nearness-01.jpg" alt="The Grand Mosque at night, seen from a dark hotel window, Makkah al-Mukarramah">
+  <img src="/images/nearness-01.jpg?v=2" alt="The Grand Mosque at night, seen from a dark hotel window, Makkah al-Mukarramah">
 </section>`,
 
-/* 07 — BEFORE TEXT */
+/* 07 — BEFORE TEXT
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">I &nbsp;&middot;&nbsp; Before</div>
@@ -454,12 +454,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 08 — IMAGE: nearness-02 (clock tower at dusk) */
+/* 08 — IMAGE: nearness-02 (clock tower at dusk)
 `<section class="page plate">
-  <img src="/images/nearness-02.jpg" alt="The Makkah clock tower at dusk, crescent lit, Makkah al-Mukarramah">
+  <img src="/images/nearness-02.jpg?v=2" alt="The Makkah clock tower at dusk, crescent lit, Makkah al-Mukarramah">
 </section>`,
 
-/* 09 — CHAPTER II */
+/* 09 — CHAPTER II
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">II</div>
@@ -468,12 +468,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 10 — IMAGE: makkah-01 (Kaaba through dark frame) */
+/* 10 — IMAGE: makkah-01 (Kaaba through dark frame)
 `<section class="page plate">
   <img src="/images/makkah-01.jpg" alt="The Kaaba seen through a dark architectural frame, Makkah al-Mukarramah">
 </section>`,
 
-/* 11 — MAKKAH TEXT */
+/* 11 — MAKKAH TEXT
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">II &nbsp;&middot;&nbsp; Makkah</div>
@@ -484,59 +484,69 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 12 — IMAGE: makkah-02 (Kaaba and crowd) */
+/* 12 — IMAGE: makkah-02 (Kaaba and crowd)
 `<section class="page plate">
   <img src="/images/makkah-02.jpg" alt="The Kaaba surrounded by the crowd, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 13 — IMAGE: makkah-04 (Kaaba corner at night, clock tower above) */
+/* 13 — IMAGE: makkah-04 (Kaaba corner at night, clock tower above)
 `<section class="page plate">
   <img src="/images/makkah-04.jpg" alt="Kaaba corner at night with gold calligraphy and the clock tower above, Makkah al-Mukarramah">
 </section>`,
 
-/* 14 — IMAGE: nearness-03 (kiswa door full frame) */
+/* 14 — IMAGE: nearness-03 (kiswa door full frame)
 `<section class="page plate">
-  <img src="/images/nearness-03.jpg" alt="The door of the Kaaba, gold embroidery on black silk, Makkah al-Mukarramah">
+  <img src="/images/nearness-03.jpg?v=2" alt="The door of the Kaaba, gold embroidery on black silk, Makkah al-Mukarramah">
 </section>`,
 
-/* 15 — IMAGE: makkah-06 (kiswah band detail) */
+/* 15 — IMAGE: makkah-06 (kiswah band detail)
 `<section class="page plate">
   <img src="/images/makkah-06.jpg" alt="Kiswah black cloth with gold calligraphy band, close detail, Makkah al-Mukarramah">
 </section>`,
 
-/* 16 — IMAGE: nearness-04 (congregation under chandelier) */
+/* 16 — IMAGE: nearness-04 (congregation under chandelier)
 `<section class="page plate">
-  <img src="/images/nearness-04.jpg" alt="The congregation beneath a chandelier, Grand Mosque, Makkah al-Mukarramah">
+  <img src="/images/nearness-04.jpg?v=2" alt="The congregation beneath a chandelier, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 17 — IMAGE: nearness-05 (pilgrims in dark arches) */
+/* 17 — IMAGE: nearness-05 (pilgrims in dark arches)
 `<section class="page plate">
-  <img src="/images/nearness-05.jpg" alt="Pilgrims in the shaded arcades, Grand Mosque, Makkah al-Mukarramah">
+  <img src="/images/nearness-05.jpg?v=2" alt="Pilgrims in the shaded arcades, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 18 — IMAGE: makkah-07 (chandelier corridor) */
+/* 18 — THE NATIONS TEXT
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; Makkah</div>
+    <hr class="text-rule">
+    <p class="body">Sit still in any corridor of the mosque for ten minutes and the whole world passes. Indonesian grandmothers in white, moving in careful convoys. Nigerian men in green, singing quietly. Turkish families, Uzbek scholars, converts from cities that have no mosque, carried here by savings gathered over decades. Nobody checks anyone&rsquo;s passport at prayer. The rows form by arrival time, not by nation, and a millionaire prays shoulder to shoulder with the man who swept the marble an hour earlier.</p>
+    <p class="body">This is the other thing the photographs keep finding: not the building but the levelling. Two lengths of white cloth were the beginning of it. The prayer rows complete it. There is no other place on earth where humanity organises itself this way, at this scale, every single day, without anyone directing it.</p>
+  </div>
+</section>`,
+
+/* 19 — IMAGE: makkah-07 (chandelier corridor)
 `<section class="page plate">
   <img src="/images/makkah-07.jpg" alt="Chandeliers along an arched corridor, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 19 — IMAGE: nearness-06 (green carpets, Quran shelves) */
+/* 20 — IMAGE: nearness-06 (green carpets, Quran shelves)
 `<section class="page plate">
-  <img src="/images/nearness-06.jpg" alt="Green prayer carpets and brass shelves of Qur'ans, Grand Mosque, Makkah al-Mukarramah">
+  <img src="/images/nearness-06.jpg?v=2" alt="Green prayer carpets and brass shelves of Qur'ans, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 20 — IMAGE: makkah-10 (minarets and lanterns at night) */
+/* 21 — IMAGE: makkah-10 (minarets and lanterns at night)
 `<section class="page plate">
   <img src="/images/makkah-10.jpg" alt="Minarets and hanging lanterns at night, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 21 — CLOSING LINE II */
+/* 22 — CLOSING LINE II
 `<section class="page">
   <div class="closing-wrap">
     <p>A plain stone cube,<br>and everything on earth<br>arranged around it.</p>
   </div>
 </section>`,
 
-/* 22 — CHAPTER III */
+/* 23 — CHAPTER III
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">III</div>
@@ -545,12 +555,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 23 — IMAGE: makkah-05 (Kaaba door close detail) */
+/* 24 — IMAGE: makkah-05 (Kaaba door close detail)
 `<section class="page plate">
   <img src="/images/makkah-05.jpg" alt="The Kaaba door, gold calligraphy and embroidery, close, Makkah al-Mukarramah">
 </section>`,
 
-/* 24 — THE NEARNESS TEXT */
+/* 25 — THE NEARNESS TEXT
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">III &nbsp;&middot;&nbsp; The Nearness</div>
@@ -561,7 +571,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 25 — CHAPTER IV */
+/* 26 — CHAPTER IV
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">IV</div>
@@ -570,12 +580,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 26 — IMAGE: madinah-01 (sunset beneath umbrellas) */
+/* 27 — IMAGE: madinah-01 (sunset beneath umbrellas)
 `<section class="page plate">
   <img src="/images/madinah-01.jpg" alt="Sunset beneath the mosque umbrellas, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 27 — MADINAH TEXT */
+/* 28 — MADINAH TEXT
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Madinah</div>
@@ -586,54 +596,74 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 28 — IMAGE: madinah-02 (green dome) */
+/* 29 — IMAGE: madinah-02 (green dome)
 `<section class="page plate">
   <img src="/images/madinah-02.jpg" alt="The green dome of Al-Masjid an-Nabawi with minaret and umbrella shade, Madinah al-Munawwarah">
 </section>`,
 
-/* 29 — IMAGE: nearness-07 (Nabawi minaret and lamps at dusk) */
+/* 30 — IMAGE: nearness-07 (Nabawi minaret and lamps at dusk)
 `<section class="page plate">
-  <img src="/images/nearness-07.jpg" alt="Minaret and rows of lamps at dusk, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+  <img src="/images/nearness-07.jpg?v=2" alt="Minaret and rows of lamps at dusk, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 30 — IMAGE: nearness-08 (Nabawi interior, columns and chandelier) */
+/* 31 — IMAGE: nearness-08 (Nabawi interior, columns and chandelier)
 `<section class="page plate">
-  <img src="/images/nearness-08.jpg" alt="Columns and the great chandelier, interior, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+  <img src="/images/nearness-08.jpg?v=2" alt="Columns and the great chandelier, interior, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 31 — IMAGE: nearness-09 (Nabawi arcade perspective) */
-`<section class="page plate">
-  <img src="/images/nearness-09.jpg" alt="The arcades in perspective, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+/* 32 — THE INTERIOR TEXT
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Madinah</div>
+    <hr class="text-rule">
+    <p class="body">The interior rewards slowness. The columns are dressed in white marble with gilded collars, and the arches above them alternate dark and pale stone in a rhythm that continues, bay after bay, further than the eye can resolve. Ottoman craftsmen decorated one section, Mamluk hands another, the Saudi expansions added acres more, and somehow the whole thing reads as one continuous room.</p>
+    <p class="body">People live here during their stay in a way no other great building permits. They read against the columns. They sleep between prayers. They eat dates quietly and share them with strangers. The building has held prayer continuously for fourteen centuries, and it carries that use the way old furniture carries polish: not as wear, but as depth.</p>
+  </div>
 </section>`,
 
-/* 32 — IMAGE: nearness-10 (Nabawi golden door detail) */
+/* 33 — IMAGE: nearness-09 (Nabawi arcade perspective)
 `<section class="page plate">
-  <img src="/images/nearness-10.jpg" alt="Golden door with calligraphy, close detail, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+  <img src="/images/nearness-09.jpg?v=2" alt="The arcades in perspective, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 33 — IMAGE: madinah-03 (chandelier in warm arch light) */
+/* 34 — IMAGE: nearness-10 (Nabawi golden door detail)
+`<section class="page plate">
+  <img src="/images/nearness-10.jpg?v=2" alt="Golden door with calligraphy, close detail, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 35 — IMAGE: madinah-03 (chandelier in warm arch light)
 `<section class="page plate">
   <img src="/images/madinah-03.jpg" alt="Chandelier in warm golden arch light, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 34 — IMAGE: nearness-11 (Quba minaret against blue sky) */
+/* 36 — IMAGE: nearness-11 (Quba minaret against blue sky)
 `<section class="page plate">
-  <img src="/images/nearness-11.jpg" alt="Minaret of Quba Mosque against a blue sky, Madinah al-Munawwarah">
+  <img src="/images/nearness-11.jpg?v=2" alt="Minaret of Quba Mosque against a blue sky, Madinah al-Munawwarah">
 </section>`,
 
-/* 35 — IMAGE: nearness-12 (Quba at sunset, bird) */
+/* 37 — IMAGE: nearness-12 (Quba at sunset, bird)
 `<section class="page plate">
-  <img src="/images/nearness-12.jpg" alt="Quba Mosque at sunset, a bird passing the minaret, Madinah al-Munawwarah">
+  <img src="/images/nearness-12.jpg?v=2" alt="Quba Mosque at sunset, a bird passing the minaret, Madinah al-Munawwarah">
 </section>`,
 
-/* 36 — CLOSING LINE IV */
+/* 38 — QUBA TEXT
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Quba</div>
+    <hr class="text-rule">
+    <p class="body">On the southern edge of the city stands the first mosque of them all: Quba, founded by the Prophet himself on his arrival from Makkah, before he had even entered the city that would take his name. The building has been rebuilt many times since. The significance has not moved an inch.</p>
+    <p class="body">It is a lighter place than the great mosques, white and open under a wide sky, with palms at its edges and pigeons working the courtyards. Pilgrims come here in the late afternoon, pray briefly, and sit for a while in the shade. At sunset the minarets go to silhouette and a single bird crosses the frame, and for a moment the fourteen centuries between the first mud-brick courtyard and this evening feel very short indeed.</p>
+  </div>
+</section>`,
+
+/* 39 — CLOSING LINE IV
 `<section class="page">
   <div class="closing-wrap">
     <p>Makkah asks everything of you.<br>Madinah asks only<br>that you rest.</p>
   </div>
 </section>`,
 
-/* 37 — CHAPTER V */
+/* 40 — CHAPTER V
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">V</div>
@@ -642,12 +672,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 38 — IMAGE: nearness-13 (palm grove cafe) */
+/* 41 — IMAGE: nearness-13 (palm grove cafe)
 `<section class="page plate">
-  <img src="/images/nearness-13.jpg" alt="Tables beneath the date palms, a cafe on the edge of Madinah">
+  <img src="/images/nearness-13.jpg?v=2" alt="Tables beneath the date palms, a cafe on the edge of Madinah">
 </section>`,
 
-/* 39 — WHAT STAYS TEXT */
+/* 42 — WHAT STAYS TEXT
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">V &nbsp;&middot;&nbsp; What Stays</div>
@@ -658,27 +688,37 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 40 — IMAGE: nearness-14 (coffee counter) */
+/* 43 — IMAGE: nearness-14 (coffee counter)
 `<section class="page plate">
-  <img src="/images/nearness-14.jpg" alt="Stacked cups at a coffee counter, Madinah al-Munawwarah">
+  <img src="/images/nearness-14.jpg?v=2" alt="Stacked cups at a coffee counter, Madinah al-Munawwarah">
 </section>`,
 
-/* 41 — IMAGE: makkah-09 (oud wood in drawer) */
+/* 44 — IMAGE: makkah-09 (oud wood in drawer)
 `<section class="page plate">
   <img src="/images/makkah-09.jpg" alt="Oud wood in an open drawer, Makkah al-Mukarramah">
 </section>`,
 
-/* 42 — IMAGE: nearness-15 (attar and misbaha still life) */
+/* 45 — IMAGE: nearness-15 (attar and misbaha still life)
 `<section class="page plate">
-  <img src="/images/nearness-15.jpg" alt="Attar bottles, prayer beads and watches on a table, the sanctuary beyond the window, Makkah al-Mukarramah">
+  <img src="/images/nearness-15.jpg?v=2" alt="Attar bottles, prayer beads and watches on a table, the sanctuary beyond the window, Makkah al-Mukarramah">
 </section>`,
 
-/* 43 — IMAGE: nearness-16 (painting of the green dome, night market) */
-`<section class="page plate">
-  <img src="/images/nearness-16.jpg" alt="A painting of the green dome on an easel in a night market, Madinah al-Munawwarah">
+/* 46 — THE RETURN TEXT
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; The Return</div>
+    <hr class="text-rule">
+    <p class="body">Leaving is its own ritual. There is a final circling in Makkah, a farewell that the books name as such, and most people perform it more slowly than they need to. Then the coach, the airport, the ordinary indignities of travel, and somewhere over the sea the white cloth goes back into the suitcase and the pilgrim becomes a passenger again.</p>
+    <p class="body">Except not entirely. Ask anyone who has been. Something in the ordering of their days is different afterwards, usually quietly, occasionally completely. The journey continues working long after the return, which is the one thing about it that everyone agrees on and nobody can explain.</p>
+  </div>
 </section>`,
 
-/* 44 — CLOSING REFLECTION */
+/* 47 — IMAGE: nearness-16 (painting of the green dome, night market)
+`<section class="page plate">
+  <img src="/images/nearness-16.jpg?v=2" alt="A painting of the green dome on an easel in a night market, Madinah al-Munawwarah">
+</section>`,
+
+/* 48 — CLOSING REFLECTION
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Closing Reflection</div>
@@ -689,14 +729,14 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 45 — END MATTER */
+/* 49 — END MATTER
 `<section class="page">
   <div class="colophon-wrap">
     <p>Publication 008</p>
     <p>Nearness</p>
     <p>Pilgrimage / Volume I</p>
     <hr class="col-rule">
-    <p>Forty-eight pages</p>
+    <p>Fifty-two pages</p>
     <p>Five sections</p>
     <p>Twenty-seven photographs</p>
     <hr class="col-rule">
@@ -704,7 +744,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 46 — STUDIES */
+/* 50 — STUDIES
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Studies</div>
@@ -714,7 +754,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 47 — EDITIONS */
+/* 51 — EDITIONS
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">The Printed Edition</div>
@@ -723,7 +763,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 48 — FINAL */
+/* 52 — FINAL
 `<section class="page dark-page">
   <div class="cover-wrap">
     <div class="cover-studio" style="margin-top:0;padding-bottom:0">mkd STUDIO</div>

@@ -23,9 +23,9 @@ except ImportError:
     sys.exit('Pillow is required: python3 -m pip install Pillow')
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MAX_EDGE = 2400
+MAX_EDGE = 3000
 QUALITY = 85
-HEAVY_BYTES = 2_000_000  # flag anything over ~2MB even if dimensions are fine
+HEAVY_BYTES = 3_000_000  # flag anything over ~3MB even if dimensions are fine
 
 
 def candidates():
