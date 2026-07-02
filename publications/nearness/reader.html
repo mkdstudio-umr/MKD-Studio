@@ -380,7 +380,7 @@ html, body {
 <script>
 const PAGES = [
 
-/* 01 — COVER */
+/* 01 */
 `<section class="page dark-page">
   <div class="cover-wrap">
     <div class="cover-title">Nearness</div>
@@ -390,7 +390,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 02 — TITLE PAGE */
+/* 02 */
 `<section class="page">
   <div class="title-wrap">
     <div class="title-main">Nearness</div>
@@ -400,7 +400,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 03 — COLOPHON */
+/* 03 */
 `<section class="page">
   <div class="colophon-wrap">
     <p>Photography and editorial direction</p>
@@ -418,18 +418,18 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 04 — INTRODUCTION */
+/* 04 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Introduction</div>
     <p class="body">Every other publication in this catalogue documents a place that can be visited. This one does not. Makkah and Madinah are not destinations in the ordinary sense: nobody passes through, nobody stumbles across them, and nobody arrives without having intended to for a long time, sometimes a whole life.</p>
-    <p class="body">The camera is an awkward companion on a journey like this. It wants to stand back, and the entire point of being here is nearness: to the Kaaba, to the Prophet&rsquo;s mosque, to the millions who have stood on the same marble before you and the millions who will after. Most of what matters cannot be photographed at all.</p>
-    <p class="body">These photographs do not attempt the whole. They hold the edges of it: the first sight of the sanctuary from a dark window, the embroidery on a door, the quiet of a courtyard at sunset, the objects that travel home. What they surround, each reader will know or will not, and no caption can change which.</p>
-    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">Twenty-seven photographs. Five sections. One journey.</p>
+    <p class="body">The camera is an awkward companion on a journey like this. It wants to stand back, and the entire point of being here is nearness: to the Kaaba, to the mosque of the Prophet &#65018;, to the millions who have stood on the same marble before you and the millions who will after. Most of what matters cannot be photographed at all.</p>
+    <p class="body">These photographs do not attempt the whole. They hold the edges of it: the first sight of the sanctuary from a dark window, the embroidery on a door, the train that now crosses in two hours a distance that was once walked in flight, the quiet of Quba at sunset, the objects that travel home. What they surround, each reader will know or will not, and no caption can change which.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">Forty-three photographs. Seven sections. One journey.</p>
   </div>
 </section>`,
 
-/* 05 — CHAPTER I */
+/* 05 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">I</div>
@@ -438,28 +438,28 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 06 — IMAGE: nearness-01 (haram at night through dark window) */
+/* 06 */
 `<section class="page plate">
   <img src="/images/nearness-01.jpg?v=2" alt="The Grand Mosque at night, seen from a dark hotel window, Makkah al-Mukarramah">
 </section>`,
 
-/* 07 — BEFORE TEXT */
+/* 07 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">I &nbsp;&middot;&nbsp; Before</div>
     <hr class="text-rule">
-    <p class="body">The journey begins long before the aeroplane. It begins with an intention, spoken quietly, and with two lengths of white cloth that make a king indistinguishable from anyone else. By the time the city appears, the traveller has already been changed into a pilgrim, and the difference is not cosmetic.</p>
-    <p class="body">The first sight of the sanctuary usually arrives at an odd moment. Through a coach window in traffic. Between buildings. Or, as here, at three in the morning from an unlit hotel room: the mosque below, white and gold against the dark, still moving with people at an hour when every other city in the world has gone quiet. Nobody sleeps well the night they arrive. This is what the window is for.</p>
+    <p class="body">The journey begins long before the aeroplane. It begins with an intention, spoken quietly, and with two lengths of white cloth that make a king indistinguishable from anyone else. The state is called ihram, which means prohibition: no perfume, no argument, no harm to so much as an insect. By the time the city appears, the traveller has already been changed into a pilgrim, and the difference is not cosmetic.</p>
+    <p class="body">The first sight of the sanctuary usually arrives at an odd moment. Through a coach window in traffic. Between buildings. Or, as here, at three in the morning from an unlit hotel room: the mosque below, white and gold against the dark, still moving with people at an hour when every other city in the world has gone quiet. There is a prayer taught for this moment of first seeing. Nobody sleeps well the night they arrive. This is what the window is for.</p>
     <p class="body">Above the old centre stands the clock tower, visible from everywhere, enormous beyond argument. Opinions differ on it and will continue to. But at dusk, with the crescent lit at its peak, it does what minarets have always done: it tells you, from a great distance, exactly where you are going.</p>
   </div>
 </section>`,
 
-/* 08 — IMAGE: nearness-02 (clock tower at dusk) */
+/* 08 */
 `<section class="page plate">
   <img src="/images/nearness-02.jpg?v=2" alt="The Makkah clock tower at dusk, crescent lit, Makkah al-Mukarramah">
 </section>`,
 
-/* 09 — CHAPTER II */
+/* 09 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">II</div>
@@ -468,85 +468,112 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 10 — IMAGE: makkah-01 (Kaaba through dark frame) */
+/* 10 */
 `<section class="page plate">
   <img src="/images/makkah-01.jpg?v=2" alt="The Kaaba seen through a dark architectural frame, Makkah al-Mukarramah">
 </section>`,
 
-/* 11 — MAKKAH TEXT */
+/* 11 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">II &nbsp;&middot;&nbsp; Makkah</div>
     <hr class="text-rule">
     <p class="body">The building at the centre is a cube of stone draped in black silk, and it is the plainest structure in the entire city. Everything around it reaches upward: minarets, hotels, cranes, the tower with its clock. The Kaaba does not reach. It sits. And a quarter of humanity turns toward it five times a day from wherever on earth they happen to be standing.</p>
-    <p class="body">Gravity is the only honest word for what it does. The crowd moves around it in a slow constant circle that has not stopped, day or night, for centuries. Individual people enter the circle and are absorbed by it. From the upper floors the movement looks like water finding its level. From within it, there is no view at all: only the black cloth ahead, nearer with each turn, and the press of every nation on earth around you.</p>
-    <p class="body">The mosque that surrounds this is vast beyond photographing, corridor after corridor of chandeliers and cool marble, shelves of Qur&rsquo;ans in brass cages, green carpets that mark where prayer rows form. It absorbs two million people and remains, somehow, a quiet building. The scale is not for display. It is for capacity, which is a different and humbler kind of ambition.</p>
+    <p class="body">The tradition holds that this is the first house of worship established for mankind, raised by Ibrahim and his son Ismail, peace be upon them both, on foundations older than either. Whatever a visitor believes, the claim explains something the eye confirms: nothing about the building asks to be admired. It was never architecture. It is an address. The one fixed point toward which a billion prayers travel every day, and from which, standing here, there is nowhere further to go.</p>
+    <p class="body">This is what the word qibla means: direction. Every mosque on earth is a compass needle, and this is where they all point. To arrive is to stand at the place where direction itself ends.</p>
   </div>
 </section>`,
 
-/* 12 — IMAGE: makkah-02 (Kaaba and crowd) */
+/* 12 */
+`<section class="page plate">
+  <img src="/images/nearness-17.jpg?v=2" alt="The Kaaba and the circling crowd in daylight, from the upper level, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 13 */
 `<section class="page plate">
   <img src="/images/makkah-02.jpg?v=2" alt="The Kaaba surrounded by the crowd, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 13 — IMAGE: makkah-04 (Kaaba corner at night, clock tower above) */
+/* 14 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; The Circling</div>
+    <hr class="text-rule">
+    <p class="body">The crowd moves around the Kaaba in a slow, constant circle that has not stopped, day or night, for as long as anyone can establish. Seven circuits, anticlockwise, beginning at the black stone. The old, carried. The young, carrying. Individual people enter the circle and are absorbed by it, and from the upper floors the movement looks like water finding its level.</p>
+    <p class="body">From within it there is no view at all: only the black cloth ahead, nearer with each turn, and the press of every nation on earth around you, and the words each person brought with them, said under the breath in a hundred languages at once. The tawaf is the only ritual in the faith performed in imitation of the angels, who are described circling the Throne in exactly this way. Whether the pilgrim thinks of that or simply concentrates on keeping their footing, the body learns something the mind takes longer to accept: the centre does not move. You do.</p>
+    <p class="body">Nobody times it. Nobody has ever wanted it to end quickly.</p>
+  </div>
+</section>`,
+
+/* 15 */
 `<section class="page plate">
   <img src="/images/makkah-04.jpg?v=2" alt="Kaaba corner at night with gold calligraphy and the clock tower above, Makkah al-Mukarramah">
 </section>`,
 
-/* 14 — IMAGE: nearness-03 (kiswa door full frame) */
+/* 16 */
 `<section class="page plate">
   <img src="/images/nearness-03.jpg?v=2" alt="The door of the Kaaba, gold embroidery on black silk, Makkah al-Mukarramah">
 </section>`,
 
-/* 15 — IMAGE: makkah-06 (kiswah band detail) */
+/* 17 */
 `<section class="page plate">
   <img src="/images/makkah-06.jpg?v=2" alt="Kiswah black cloth with gold calligraphy band, close detail, Makkah al-Mukarramah">
 </section>`,
 
-/* 16 — IMAGE: nearness-04 (congregation under chandelier) */
+/* 18 */
 `<section class="page plate">
   <img src="/images/nearness-04.jpg?v=2" alt="The congregation beneath a chandelier, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 17 — IMAGE: nearness-05 (pilgrims in dark arches) */
+/* 19 */
 `<section class="page plate">
   <img src="/images/nearness-05.jpg?v=2" alt="Pilgrims in the shaded arcades, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 18 — THE NATIONS TEXT */
+/* 20 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">II &nbsp;&middot;&nbsp; Makkah</div>
+    <div class="chapter-ref">II &nbsp;&middot;&nbsp; The Nations</div>
     <hr class="text-rule">
     <p class="body">Sit still in any corridor of the mosque for ten minutes and the whole world passes. Indonesian grandmothers in white, moving in careful convoys. Nigerian men in green, singing quietly. Turkish families, Uzbek scholars, converts from cities that have no mosque, carried here by savings gathered over decades. Nobody checks anyone&rsquo;s passport at prayer. The rows form by arrival time, not by nation, and a millionaire prays shoulder to shoulder with the man who swept the marble an hour earlier.</p>
-    <p class="body">This is the other thing the photographs keep finding: not the building but the levelling. Two lengths of white cloth were the beginning of it. The prayer rows complete it. There is no other place on earth where humanity organises itself this way, at this scale, every single day, without anyone directing it.</p>
+    <p class="body">This is the other thing the photographs keep finding: not the building but the levelling. The Prophet &#65018; declared it plainly in his final sermon, delivered a few miles from here: no Arab has superiority over a non-Arab, nor white over black, except in righteousness. Two lengths of white cloth were the beginning of it. The prayer rows complete it. The same cloth, worn at the beginning of the journey, will one day be the burial shroud, and every pilgrim knows this is not a coincidence.</p>
+    <p class="body">There is no other place on earth where humanity organises itself this way, at this scale, every single day, without anyone directing it.</p>
   </div>
 </section>`,
 
-/* 19 — IMAGE: makkah-07 (chandelier corridor) */
+/* 21 */
 `<section class="page plate">
   <img src="/images/makkah-07.jpg?v=2" alt="Chandeliers along an arched corridor, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 20 — IMAGE: nearness-06 (green carpets, Quran shelves) */
+/* 22 */
+`<section class="page plate">
+  <img src="/images/nearness-19.jpg?v=2" alt="Carved geometric ceiling and gilt chandelier, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 23 */
+`<section class="page plate">
+  <img src="/images/nearness-18.jpg?v=2" alt="Gate 91, marble and inscription, Grand Mosque, Makkah al-Mukarramah">
+</section>`,
+
+/* 24 */
 `<section class="page plate">
   <img src="/images/nearness-06.jpg?v=2" alt="Green prayer carpets and brass shelves of Qur'ans, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 21 — IMAGE: makkah-10 (minarets and lanterns at night) */
+/* 25 */
 `<section class="page plate">
   <img src="/images/makkah-10.jpg?v=2" alt="Minarets and hanging lanterns at night, Grand Mosque, Makkah al-Mukarramah">
 </section>`,
 
-/* 22 — CLOSING LINE II */
+/* 26 */
 `<section class="page">
   <div class="closing-wrap">
     <p>A plain stone cube,<br>and everything on earth<br>arranged around it.</p>
   </div>
 </section>`,
 
-/* 23 — CHAPTER III */
+/* 27 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">III</div>
@@ -555,196 +582,315 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 24 — IMAGE: makkah-05 (Kaaba door close detail) */
+/* 28 */
 `<section class="page plate">
   <img src="/images/makkah-05.jpg?v=2" alt="The Kaaba door, gold calligraphy and embroidery, close, Makkah al-Mukarramah">
 </section>`,
 
-/* 25 — THE NEARNESS TEXT */
+/* 29 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">III &nbsp;&middot;&nbsp; The Nearness</div>
     <hr class="text-rule">
-    <p class="body">There is a moment, somewhere in the circling, when the crowd loosens for a breath and the cloth is suddenly close enough to read. Gold thread on black silk. Verses embroidered by hand, by craftsmen whose names are not on it, in a workshop that has been remaking this cloth every single year for generations.</p>
-    <p class="body">This is as near as most people will ever be. Some reach out. Some cannot. Nobody photographs well here, and nobody minds, because this was never the point of the journey that the photograph could hold anyway.</p>
-    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">The camera stops here. The pilgrim continues.</p>
+    <p class="body">There is a moment, somewhere in the circling, when the crowd loosens for a breath and the cloth is suddenly close enough to read. Gold thread on black silk. Verses embroidered by hand, by craftsmen whose names are not on it, in a workshop that has been remaking this cloth every single year for generations, because nothing this near to the centre is permitted to fade.</p>
+    <p class="body">This is as near as most people will ever be. Some reach out. Some cannot. Some weep without deciding to, and are held up by strangers who do not ask why, because nobody here needs the reason explained. Nobody photographs well in this moment, and nobody minds, because this was never the point of the journey that a photograph could hold anyway.</p>
+    <p class="bodyi">The camera stops here. The pilgrim continues.</p>
   </div>
 </section>`,
 
-/* 26 — CHAPTER IV */
+/* 30 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Crossing</div>
+  </div>
+</section>`,
+
+/* 31 */
+`<section class="page plate">
+  <img src="/images/nearness-20.jpg?v=2" alt="The Haramain high-speed rail platform, Madinah sign, departure">
+</section>`,
+
+/* 32 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; The Crossing</div>
+    <hr class="text-rule">
+    <p class="body">Four hundred and fifty kilometres separate the two sanctuaries. The Prophet &#65018; made this journey once, northward, in flight, hunted by his own city, travelling by night with a single companion and resting in caves. That journey is called the Hijrah, and the Muslim calendar does not begin with his birth or his first revelation. It begins with this road.</p>
+    <p class="body">Today a train makes the crossing in two hours. The onboard screen shows the route drawn over the same desert, the speed steady at two hundred and eighty-one kilometres per hour, and the destination written in a font that takes none of it seriously: Madinah. Pilgrims doze. Children negotiate for snacks. The mountains through the window are the same mountains.</p>
+    <p class="body">It is worth sitting with the arithmetic. What cost the best man of his generation &#65018; two weeks of fear and thirst now costs an afternoon nap. Nobody on the train has forgotten this. It is, in a quiet way, the entire reason the train exists.</p>
+  </div>
+</section>`,
+
+/* 33 */
+`<section class="page plate">
+  <img src="/images/nearness-21.jpg?v=2" alt="The onboard display at 281 km/h, destination Madinah, Haramain railway">
+</section>`,
+
+/* 34 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
     <div class="ch-rule"></div>
     <div class="ch-name">Madinah</div>
   </div>
 </section>`,
 
-/* 27 — IMAGE: madinah-01 (sunset beneath umbrellas) */
+/* 35 */
 `<section class="page plate">
   <img src="/images/madinah-01.jpg?v=2" alt="Sunset beneath the mosque umbrellas, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 28 — MADINAH TEXT */
+/* 36 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Madinah</div>
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; Madinah</div>
     <hr class="text-rule">
-    <p class="body">Four hundred and fifty kilometres north, the register changes completely. Makkah is gravity. Madinah is rest. Pilgrims arrive here exhausted and something in the city receives that exhaustion and answers it. Nobody who has made the journey needs this explained, and nobody who has not will quite believe how physical the difference is.</p>
-    <p class="body">The Prophet&rsquo;s mosque is one of the largest buildings in the world and behaves like a courtyard house. The great umbrellas open each morning over the plazas like a garden blooming on schedule. Inside, white and gold columns hold up a ceiling that took four centuries of dynasties to decorate, and old men lean against them reading, and children sleep on the green carpet, and nobody is hurried anywhere.</p>
-    <p class="body">Beneath the green dome lies the man whose city this is. The dome has been painted that colour since 1837 and has become, quietly, one of the most recognised silhouettes on earth. The nearness here is different from Makkah&rsquo;s: not a building at the centre of the world, but a person, and the endless, patient, moving line of those who have come simply to say peace be upon you, in person, having travelled five thousand miles to say it.</p>
+    <p class="body">The register changes completely. Makkah is gravity. Madinah is rest. Pilgrims arrive here exhausted and something in the city receives that exhaustion and answers it. Nobody who has made the journey needs this explained, and nobody who has not will quite believe how physical the difference is.</p>
+    <p class="body">This is the city that took the Prophet &#65018; in when his own would not. It was called Yathrib then; it has been called al-Madinah al-Munawwarah, the Illuminated City, ever since, and the light in the name is not a metaphor the visitor has to work for. It is there in the late afternoon, on the stone of the plazas, under the great umbrellas that open each morning like a garden blooming on schedule.</p>
+    <p class="body">Beneath the green dome lies the man whose city this is &#65018;. The dome has been painted that colour since 1837 and has become, quietly, one of the most recognised silhouettes on earth. The nearness here is different from Makkah&rsquo;s: not a building at the centre of the world, but a person, and the endless, patient, moving line of those who have come simply to say: peace be upon you, O Messenger of God. In person. Having travelled five thousand miles to say it.</p>
   </div>
 </section>`,
 
-/* 29 — IMAGE: madinah-02 (green dome) */
+/* 37 */
 `<section class="page plate">
-  <img src="/images/madinah-02.jpg?v=2" alt="The green dome of Al-Masjid an-Nabawi with minaret and umbrella shade, Madinah al-Munawwarah">
+  <img src="/images/nearness-22.jpg?v=2" alt="The green dome and the city against the mountains, morning haze, Madinah al-Munawwarah">
 </section>`,
 
-/* 30 — IMAGE: nearness-07 (Nabawi minaret and lamps at dusk) */
+/* 38 */
+`<section class="page plate">
+  <img src="/images/nearness-23.jpg?v=2" alt="The green dome and main minaret in daylight, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 39 */
 `<section class="page plate">
   <img src="/images/nearness-07.jpg?v=2" alt="Minaret and rows of lamps at dusk, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 31 — IMAGE: nearness-08 (Nabawi interior, columns and chandelier) */
+/* 40 */
 `<section class="page plate">
   <img src="/images/nearness-08.jpg?v=2" alt="Columns and the great chandelier, interior, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 32 — THE INTERIOR TEXT */
+/* 41 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Madinah</div>
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; The Interior</div>
     <hr class="text-rule">
     <p class="body">The interior rewards slowness. The columns are dressed in white marble with gilded collars, and the arches above them alternate dark and pale stone in a rhythm that continues, bay after bay, further than the eye can resolve. Ottoman craftsmen decorated one section, Mamluk hands another, the Saudi expansions added acres more, and somehow the whole thing reads as one continuous room.</p>
+    <p class="body">In the oldest section the ceilings drop, the chandeliers age a century at a stride, and the tilework turns Ottoman blue and green. Somewhere within this quarter is the Rawdah, the small garden the Prophet &#65018; described as a garden from the gardens of Paradise, between his house and his pulpit. The queue for it forms before dawn and never entirely disperses.</p>
     <p class="body">People live here during their stay in a way no other great building permits. They read against the columns. They sleep between prayers. They eat dates quietly and share them with strangers. The building has held prayer continuously for fourteen centuries, and it carries that use the way old furniture carries polish: not as wear, but as depth.</p>
   </div>
 </section>`,
 
-/* 33 — IMAGE: nearness-09 (Nabawi arcade perspective) */
+/* 42 */
+`<section class="page plate">
+  <img src="/images/nearness-33.jpg?v=2" alt="Ottoman tilework and brass chandelier in the old section, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 43 */
 `<section class="page plate">
   <img src="/images/nearness-09.jpg?v=2" alt="The arcades in perspective, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 34 — IMAGE: nearness-10 (Nabawi golden door detail) */
+/* 44 */
+`<section class="page plate">
+  <img src="/images/nearness-24.jpg?v=2" alt="The prayer carpet, close detail, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 45 */
 `<section class="page plate">
   <img src="/images/nearness-10.jpg?v=2" alt="Golden door with calligraphy, close detail, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 35 — IMAGE: madinah-03 (chandelier in warm arch light) */
+/* 46 */
 `<section class="page plate">
   <img src="/images/madinah-03.jpg?v=2" alt="Chandelier in warm golden arch light, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
 </section>`,
 
-/* 36 — IMAGE: nearness-11 (Quba minaret against blue sky) */
-`<section class="page plate">
-  <img src="/images/nearness-11.jpg?v=2" alt="Minaret of Quba Mosque against a blue sky, Madinah al-Munawwarah">
-</section>`,
-
-/* 37 — IMAGE: nearness-12 (Quba at sunset, bird) */
-`<section class="page plate">
-  <img src="/images/nearness-12.jpg?v=2" alt="Quba Mosque at sunset, a bird passing the minaret, Madinah al-Munawwarah">
-</section>`,
-
-/* 38 — QUBA TEXT */
+/* 47 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">IV &nbsp;&middot;&nbsp; Quba</div>
+    <div class="chapter-ref">V &nbsp;&middot;&nbsp; The Provision</div>
     <hr class="text-rule">
-    <p class="body">On the southern edge of the city stands the first mosque of them all: Quba, founded by the Prophet himself on his arrival from Makkah, before he had even entered the city that would take his name. The building has been rebuilt many times since. The significance has not moved an inch.</p>
-    <p class="body">It is a lighter place than the great mosques, white and open under a wide sky, with palms at its edges and pigeons working the courtyards. Pilgrims come here in the late afternoon, pray briefly, and sit for a while in the shade. At sunset the minarets go to silhouette and a single bird crosses the frame, and for a moment the fourteen centuries between the first mud-brick courtyard and this evening feel very short indeed.</p>
+    <p class="body">Before the sunset prayer, plastic sheets unroll down the length of the carpets, and on them appear dates, bread, yoghurt, coffee: thousands of individual meals, laid out by people who will not eat them. Families in Madinah compete for the honour. Some have held the same stretch of carpet for generations, and guard the right to feed strangers there the way other families guard land.</p>
+    <p class="body">The guest of the two sanctuaries is considered the guest of God, and Madinah takes the implication personally. A pilgrim can arrive with nothing at the right hour and be fed, insistently, by six different hosts before finding a place to sit. The Prophet &#65018; said that whoever believes in God and the Last Day should honour their guest. His city has treated the instruction as standing orders for fourteen hundred years.</p>
+    <p class="body">The photographs of this are ordinary on purpose: rows of seated men, sealed bags, paper cups. Hospitality at this scale does not look like a banquet. It looks like logistics, performed nightly, for no one&rsquo;s credit.</p>
   </div>
 </section>`,
 
-/* 39 — CLOSING LINE IV */
+/* 48 */
+`<section class="page plate">
+  <img src="/images/nearness-25.jpg?v=2" alt="Rows seated before the provision, laid out along the carpets, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 49 */
+`<section class="page plate">
+  <img src="/images/nearness-26.jpg?v=2" alt="Lanterns on the umbrella columns, the green dome beyond, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 50 */
+`<section class="page plate">
+  <img src="/images/nearness-27.jpg?v=2" alt="The plaza at sunset, crowds beneath the umbrella towers, Madinah al-Munawwarah">
+</section>`,
+
+/* 51 */
+`<section class="page plate">
+  <img src="/images/nearness-28.jpg?v=2" alt="The green dome and lit minarets at night, Al-Masjid an-Nabawi, Madinah al-Munawwarah">
+</section>`,
+
+/* 52 */
 `<section class="page">
   <div class="closing-wrap">
     <p>Makkah asks everything of you.<br>Madinah asks only<br>that you rest.</p>
   </div>
 </section>`,
 
-/* 40 — CHAPTER V */
+/* 53 */
 `<section class="page">
   <div class="chapter-wrap">
-    <div class="ch-num">V</div>
+    <div class="ch-num">VI</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Ziyarah</div>
+  </div>
+</section>`,
+
+/* 54 */
+`<section class="page plate">
+  <img src="/images/nearness-11.jpg?v=2" alt="Minaret of Quba Mosque against a blue sky, Madinah al-Munawwarah">
+</section>`,
+
+/* 55 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">VI &nbsp;&middot;&nbsp; Quba</div>
+    <hr class="text-rule">
+    <p class="body">On the southern edge of the city stands the first mosque of them all: Quba, founded by the Prophet &#65018; on his arrival from Makkah, before he had even entered the city that would take his name. He laid its first stones with his own hands. The building has been rebuilt many times since. The significance has not moved an inch.</p>
+    <p class="body">He &#65018; used to ride out to Quba every Saturday, and said that prayer in it carries the reward of a lesser pilgrimage. So the pilgrims come as he came, in the late afternoon mostly, and pray briefly, and sit for a while in the shade. It is a lighter place than the great mosques: white and open under a wide sky, green-banded arches inside, the names of the companions set in gold medallions along the vaults, palms at its edges and pigeons working the courtyards.</p>
+    <p class="body">At sunset the minarets go to silhouette and a single bird crosses the frame, and for a moment the fourteen centuries between the first mud-brick courtyard and this evening feel very short indeed.</p>
+  </div>
+</section>`,
+
+/* 56 */
+`<section class="page plate">
+  <img src="/images/nearness-29.jpg?v=2" alt="Green-banded arches and gold medallions, interior, Quba Mosque, Madinah al-Munawwarah">
+</section>`,
+
+/* 57 */
+`<section class="page plate">
+  <img src="/images/nearness-30.jpg?v=2" alt="Chandeliers receding beneath the domes, Quba Mosque, Madinah al-Munawwarah">
+</section>`,
+
+/* 58 */
+`<section class="page plate">
+  <img src="/images/nearness-12.jpg?v=2" alt="Quba Mosque at sunset, a bird passing the minaret, Madinah al-Munawwarah">
+</section>`,
+
+/* 59 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">VI &nbsp;&middot;&nbsp; Uhud</div>
+    <hr class="text-rule">
+    <p class="body">North of the city the mountain of Uhud stands red-brown and bare, and at its foot lies the field where the community&rsquo;s hardest day was endured. Seventy of the Prophet&rsquo;s &#65018; companions fell here, among them his uncle Hamzah, and the visit to their resting place is made in near silence, because there is a form of greeting taught for it and very little to add.</p>
+    <p class="body">The Prophet &#65018; said of this mountain: Uhud is a mountain that loves us, and we love it. Visitors tend to look up at the rock differently after learning the sentence. Geology is not usually spoken of this way. Here, it is.</p>
+    <p class="body">The city has grown to meet the mountain, and around the sites of memory it has built quarters of remembrance: walls where the names of the prophets are cut in light, museums of the Hijrah route, gardens planted where armies once formed. A place this old does not preserve its history behind glass. It continues living in the middle of it.</p>
+  </div>
+</section>`,
+
+/* 60 */
+`<section class="page plate">
+  <img src="/images/nearness-31.jpg?v=2" alt="The mosque at the foot of Mount Uhud, pigeons over the courtyard, Madinah al-Munawwarah">
+</section>`,
+
+/* 61 */
+`<section class="page plate">
+  <img src="/images/nearness-32.jpg?v=2" alt="The names of the prophets, peace be upon them, cut in light along a wall, Madinah al-Munawwarah">
+</section>`,
+
+/* 62 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">VII</div>
     <div class="ch-rule"></div>
     <div class="ch-name">What Stays</div>
   </div>
 </section>`,
 
-/* 41 — IMAGE: nearness-13 (palm grove cafe) */
+/* 63 */
 `<section class="page plate">
   <img src="/images/nearness-13.jpg?v=2" alt="Tables beneath the date palms, a cafe on the edge of Madinah">
 </section>`,
 
-/* 42 — WHAT STAYS TEXT */
+/* 64 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">V &nbsp;&middot;&nbsp; What Stays</div>
+    <div class="chapter-ref">VII &nbsp;&middot;&nbsp; What Stays</div>
     <hr class="text-rule">
     <p class="body">Around the sanctuaries, life continues at its own scale, and it would be dishonest to leave it out. A caf&eacute; under the date palms where the gravel is raked and the chairs are bentwood and the shade does the work air conditioning does everywhere else. A coffee counter where the cups are stacked in patterned sleeves and the machine is the colour of terracotta. The holy cities are also, simply, cities, and their ordinary mornings deserve a page.</p>
-    <p class="body">Then there are the objects that make the journey home. Oud wood in a shop drawer, sold by weight. Attar in small bottles, chosen slowly. A misbaha of pale amber, coiled on a table beside the watches and the pen, with the sanctuary out of focus through the window behind. Scent is the pilgrim&rsquo;s photograph: years later, one breath of the right oil returns the entire journey in a way no image manages.</p>
-    <p class="body">In a night market, a painting of the green dome stands on an easel among modern canvases. Someone who was here tried to hold it too, in oil instead of light. Every pilgrim carries a version home: a painting, a photograph, a scent, a date pressed in a suitcase. None of them are the place. All of them point at it.</p>
+    <p class="body">Then there are the objects that make the journey home. Oud wood in a shop drawer, sold by weight. Attar in small bottles, chosen slowly, because the Prophet &#65018; loved perfume and his community has never needed a second reason. A misbaha of pale amber, coiled on a table beside the watches and the pen, with the sanctuary out of focus through the window behind.</p>
+    <p class="body">Scent is the pilgrim&rsquo;s photograph: years later, one breath of the right oil returns the entire journey in a way no image manages.</p>
   </div>
 </section>`,
 
-/* 43 — IMAGE: nearness-14 (coffee counter) */
+/* 65 */
 `<section class="page plate">
   <img src="/images/nearness-14.jpg?v=2" alt="Stacked cups at a coffee counter, Madinah al-Munawwarah">
 </section>`,
 
-/* 44 — IMAGE: makkah-09 (oud wood in drawer) */
+/* 66 */
 `<section class="page plate">
   <img src="/images/makkah-09.jpg?v=2" alt="Oud wood in an open drawer, Makkah al-Mukarramah">
 </section>`,
 
-/* 45 — IMAGE: nearness-15 (attar and misbaha still life) */
+/* 67 */
 `<section class="page plate">
   <img src="/images/nearness-15.jpg?v=2" alt="Attar bottles, prayer beads and watches on a table, the sanctuary beyond the window, Makkah al-Mukarramah">
 </section>`,
 
-/* 46 — THE RETURN TEXT */
+/* 68 */
 `<section class="page">
   <div class="textwrap">
-    <div class="chapter-ref">V &nbsp;&middot;&nbsp; The Return</div>
+    <div class="chapter-ref">VII &nbsp;&middot;&nbsp; The Return</div>
     <hr class="text-rule">
-    <p class="body">Leaving is its own ritual. There is a final circling in Makkah, a farewell that the books name as such, and most people perform it more slowly than they need to. Then the coach, the airport, the ordinary indignities of travel, and somewhere over the sea the white cloth goes back into the suitcase and the pilgrim becomes a passenger again.</p>
-    <p class="body">Except not entirely. Ask anyone who has been. Something in the ordering of their days is different afterwards, usually quietly, occasionally completely. The journey continues working long after the return, which is the one thing about it that everyone agrees on and nobody can explain.</p>
+    <p class="body">Leaving is its own ritual. There is a farewell circling in Makkah, named as such in the books, and most people perform it more slowly than they need to. Then the coach, the airport, the ordinary indignities of travel, and somewhere over the sea the white cloth goes back into the suitcase and the pilgrim becomes a passenger again.</p>
+    <p class="body">Except not entirely. Ask anyone who has been. Something in the ordering of their days is different afterwards, usually quietly, occasionally completely. The accepted pilgrimage, the tradition says, has no reward except Paradise, and its sign is not in the certificate or the photographs but in the person who returns. The journey continues working long after the return, which is the one thing about it that everyone agrees on and nobody can explain.</p>
+    <p class="body">In a night market, a painting of the green dome stands on an easel among modern canvases. Someone who was here tried to hold it too, in oil instead of light. Every pilgrim carries a version home: a painting, a photograph, a scent, a date pressed in a suitcase. None of them are the place. All of them point at it.</p>
   </div>
 </section>`,
 
-/* 47 — IMAGE: nearness-16 (painting of the green dome, night market) */
+/* 69 */
 `<section class="page plate">
   <img src="/images/nearness-16.jpg?v=2" alt="A painting of the green dome on an easel in a night market, Madinah al-Munawwarah">
 </section>`,
 
-/* 48 — CLOSING REFLECTION */
+/* 70 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Closing Reflection</div>
     <p class="body">This publication set out knowing it would fail, in the way any photograph of these two cities fails. What the pilgrim goes to find is not visible. It does not reflect light. The camera, which knows only light, spends the whole journey documenting the container and never the thing contained.</p>
-    <p class="body">And yet the container is worth holding. The gold thread on the black silk. The umbrellas opening at dawn. The old man asleep against the column, five thousand miles from his front door and entirely at home. These are the edges of something, photographed carefully, in the hope that an edge is enough to suggest the shape of the whole.</p>
-    <p class="body">Twenty-seven photographs of the nearest that most of us will ever be. What was actually near cannot be printed. Those who know, know. This book is for them, and for the ones still intending to go.</p>
+    <p class="body">And yet the container is worth holding. The gold thread on the black silk. The train crossing the Hijrah road at two hundred and eighty-one kilometres per hour. The umbrellas opening at dawn. The meals laid out nightly by families who will not eat them. The old man asleep against the column, five thousand miles from his front door and entirely at home. These are the edges of something, photographed carefully, in the hope that an edge is enough to suggest the shape of the whole.</p>
+    <p class="body">Forty-three photographs of the nearest that most of us will ever be. What was actually near cannot be printed. Those who know, know. This book is for them, and for the ones still intending to go.</p>
     <p class="body dim" style="margin-top:2.2rem">mkd STUDIO &nbsp;&middot;&nbsp; 2026</p>
   </div>
 </section>`,
 
-/* 49 — END MATTER */
+/* 71 */
 `<section class="page">
   <div class="colophon-wrap">
     <p>Publication 008</p>
     <p>Nearness</p>
     <p>Pilgrimage / Volume I</p>
     <hr class="col-rule">
-    <p>Fifty-two pages</p>
-    <p>Five sections</p>
-    <p>Twenty-seven photographs</p>
+    <p>Seventy-four pages</p>
+    <p>Seven sections</p>
+    <p>Forty-three photographs</p>
     <hr class="col-rule">
     <p>mkdstudio.net</p>
   </div>
 </section>`,
 
-/* 50 — STUDIES */
+/* 72 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Studies</div>
@@ -754,7 +900,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 51 — EDITIONS */
+/* 73 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">The Printed Edition</div>
@@ -763,7 +909,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 52 — FINAL */
+/* 74 */
 `<section class="page dark-page">
   <div class="cover-wrap">
     <div class="cover-studio" style="margin-top:0;padding-bottom:0">mkd STUDIO</div>
