@@ -263,7 +263,13 @@ nav .menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-3p
 .j-row h3{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.05rem,1.4vw,1.3rem);line-height:1.2;margin:0 0 .6rem}
 .j-row .stand{color:var(--ink-soft);font-size:clamp(0.86rem,0.95vw,0.92rem);line-height:1.6;max-width:44ch}
 @media(max-width:960px){.j-vol-grid{grid-template-columns:repeat(2,1fr);gap:clamp(2.4rem,5vw,4rem) clamp(1.6rem,3vw,2.6rem)}}
-@media(max-width:560px){.j-vol-grid{grid-template-columns:1fr;gap:clamp(3rem,8vw,4rem)}}
+@media(max-width:560px){
+  .j-vol-grid{grid-template-columns:1fr 1fr;gap:1.8rem 1rem}
+  .j-shot{margin-bottom:.7rem}
+  .j-row .jno{font-size:.52rem;letter-spacing:.2em;margin-bottom:.45rem}
+  .j-row h3{font-size:.95rem;line-height:1.25}
+  .j-row .stand,.j-row .read{display:none}
+}
 .j-row .read{font-family:"Jost",sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.6rem;color:var(--ink-faint);margin-top:.9rem;display:inline-block;transition:color .3s}
 .j-row:hover .read{color:var(--accent)}
 /* journal essay */
