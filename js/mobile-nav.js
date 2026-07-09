@@ -73,3 +73,24 @@
   btn.addEventListener('click',openMenu);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeMenu(); });
 })();
+
+/* Back to top: appears after deep scroll, returns quietly */
+(function(){
+  if(!document.querySelector('nav'))return;
+  var bt=document.createElement('button');
+  bt.className='back-top';
+  bt.setAttribute('aria-label','Back to top');
+  bt.textContent='Top';
+  document.body.appendChild(bt);
+  var shown=false;
+  function check(){
+    var want=window.scrollY>window.innerHeight*1.6;
+    if(want!==shown){shown=want;bt.classList.toggle('is-shown',want);}
+  }
+  addEventListener('scroll',check,{passive:true});
+  check();
+  bt.addEventListener('click',function(){
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  });
+})();

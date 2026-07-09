@@ -3,8 +3,15 @@
   "configurations": [
     {
       "name": "MKD Studio",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4000", "--directory", "/Users/umarmakda/Desktop/GitHub/MKD-Studio"],
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": [
+        "-run",
+        "-e",
+        "httpd",
+        "/Users/umarmakda/Desktop/GitHub/MKD-Studio",
+        "-p",
+        "4000"
+      ],
       "port": 4000
     }
   ]

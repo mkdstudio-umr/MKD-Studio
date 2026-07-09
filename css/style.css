@@ -691,3 +691,17 @@ a.volume-link:hover{border-color:var(--accent) !important}
   .study-visual .shot:nth-child(n+5):nth-child(-n+7){order:5}
   .study-visual .shot:nth-child(n+8):nth-child(-n+10){order:7}
 }
+
+/* === Back to top: quiet fixed control for long pages === */
+.back-top{position:fixed;right:clamp(1rem,3vw,1.6rem);bottom:calc(clamp(1rem,3vw,1.6rem) + env(safe-area-inset-bottom));z-index:900;
+  font-family:"Jost",sans-serif;font-weight:300;letter-spacing:.22em;font-size:.6rem;text-transform:uppercase;line-height:1;
+  color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line);padding:.7em 1.1em;cursor:pointer;
+  opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+.back-top.is-shown{opacity:1;transform:none;pointer-events:auto}
+@media(hover:hover){.back-top:hover{color:var(--ink)}}
+
+/* Footer: legible type and comfortable tap targets on mobile */
+@media(max-width:600px){
+  .site-foot .fnav a{font-size:.62rem;margin:.45rem .9rem .45rem 0;letter-spacing:.16em}
+  .site-foot .cp{font-size:.58rem;letter-spacing:.08em;line-height:1.7}
+}
