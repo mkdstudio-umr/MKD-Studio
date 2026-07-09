@@ -30,6 +30,9 @@
     gap: clamp(1.2rem, 3vw, 2rem);
   }
 }
+@media (max-width: 760px) {
+  .cover.home-hero .bg { background-image: url('/images/homepage-hero-1100.jpg') !important; }
+}
 @media (max-width: 540px) {
   .pub-three-col {
     grid-template-columns: 1fr 1fr;
@@ -47,6 +50,8 @@
 
 
 
+<link rel="preload" as="image" href="/images/homepage-hero-1100.jpg" media="(max-width:760px)">
+<link rel="preload" as="image" href="/images/homepage-hero.jpg" media="(min-width:761px)">
 <link rel="stylesheet" href="/css/style.css?v=11">
 <meta name="description" content="mkd STUDIO produces commissioned editorial publications for hospitality brands, places and experiences. Photography, writing and design brought together in print and online, for clients with a story worth documenting.">
 <link rel="canonical" href="https://mkdstudio.net/">
@@ -98,9 +103,9 @@
       <h2 class="display reveal d1" style="font-size:clamp(1.3rem,3.4vw,2.2rem)">Four worlds, one way of seeing.</h2>
     </div>
     <div class="pillars">
-      <a class="pillar reveal" href="/studies/#hospitality" data-chapter="Hospitality"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/ned-stair.jpg" alt="Hotel staircase, hospitality photography"></figure><div class="cap"><h3>Hospitality</h3><span class="no">01</span></div><p>Hotels and rooms that hold a chapter of a life.</p><span class="obs"></span></a>
-      <a class="pillar reveal d1" href="/studies/#places" data-chapter="Places"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/lisbon_04.jpg" alt="Lisbon street, places photography"></figure><div class="cap"><h3>Places</h3><span class="no">02</span></div><p>Places reveal themselves gradually.</p><span class="obs"></span></a>
-      <a class="pillar reveal" href="/studies/#craft" data-chapter="Craft"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/fueguia_archive.jpg" alt="Fueguia fragrance archive, craft photography"></figure><div class="cap"><h3>Craft</h3><span class="no">03</span></div><p>Fragrance, coffee and the made things that reward close attention.</p><span class="obs"></span></a>
+      <a class="pillar reveal" href="/studies/#hospitality" data-chapter="Hospitality"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/ned-stair.jpg" srcset="/images/ned-stair-700.jpg 700w, /images/ned-stair.jpg 805w" sizes="(max-width:760px) 100vw, 25vw" alt="Hotel staircase, hospitality photography"></figure><div class="cap"><h3>Hospitality</h3><span class="no">01</span></div><p>Hotels and rooms that hold a chapter of a life.</p><span class="obs"></span></a>
+      <a class="pillar reveal d1" href="/studies/#places" data-chapter="Places"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/lisbon_04.jpg" srcset="/images/lisbon_04-700.jpg 700w, /images/lisbon_04.jpg 1333w" sizes="(max-width:760px) 100vw, 25vw" alt="Lisbon street, places photography"></figure><div class="cap"><h3>Places</h3><span class="no">02</span></div><p>Places reveal themselves gradually.</p><span class="obs"></span></a>
+      <a class="pillar reveal" href="/studies/#craft" data-chapter="Craft"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/fueguia_archive.jpg" srcset="/images/fueguia_archive-700.jpg 700w, /images/fueguia_archive.jpg 1130w" sizes="(max-width:760px) 100vw, 25vw" alt="Fueguia fragrance archive, craft photography"></figure><div class="cap"><h3>Craft</h3><span class="no">03</span></div><p>Fragrance, coffee and the made things that reward close attention.</p><span class="obs"></span></a>
       <a class="pillar reveal d1" href="/studies/#experience" data-chapter="Experience"><figure class="shot r-tall"><img loading="lazy" decoding="async" src="/images/lewis-experience.JPG" alt="Lewis Hamilton at Formula One, experience photography"></figure><div class="cap"><h3>Experience</h3><span class="no">04</span></div><p>The anticipation and scale around the moments people remember being part of.</p><span style="display:block;margin-top:.5rem;font-size:.72rem;line-height:1.5;color:var(--ink-faint);font-style:italic">One independent Qatar Grand Prix film reached 1.3M organic views.</span><span class="obs"></span></a>
     </div>
   </div>
@@ -112,7 +117,7 @@
     <div class="pub-three-col">
       <a class="reveal pub-card" href="/publications/the-spaces-between/" target="_blank" rel="noopener">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" alt="The Spaces Between, Formula One" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/spaces_between_cover.jpg" srcset="/images/spaces_between_cover-700.jpg 700w, /images/spaces_between_cover.jpg 1200w" sizes="(max-width:900px) 50vw, 25vw" alt="The Spaces Between, Formula One" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">The Spaces Between</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">001</span></div>
@@ -121,7 +126,7 @@
       </a>
       <a class="reveal d1 pub-card" href="/publications/the-ned-doha/" target="_blank" rel="noopener">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" alt="The Ned Doha" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/ned_doha_pub.jpg" srcset="/images/ned_doha_pub-700.jpg 700w, /images/ned_doha_pub.jpg 799w" sizes="(max-width:900px) 50vw, 25vw" alt="The Ned Doha" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">The Ned Doha</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">002</span></div>
@@ -130,7 +135,7 @@
       </a>
       <a class="reveal d2 pub-card" href="/publications/waiting-for-dusk/" target="_blank" rel="noopener">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" alt="Waiting for Dusk, Doha Golf Club" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/waiting_dusk_04.jpg" srcset="/images/waiting_dusk_04-700.jpg 700w, /images/waiting_dusk_04.jpg 1440w" sizes="(max-width:900px) 50vw, 25vw" alt="Waiting for Dusk, Doha Golf Club" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Waiting for Dusk</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">003</span></div>
@@ -139,7 +144,7 @@
       </a>
       <a class="reveal d2 pub-card" href="/publications/open-late/" target="_blank" rel="noopener">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/kaawa_01.jpg?v=2" alt="Open Late, KAAWA, Manchester" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/kaawa_01.jpg?v=2" srcset="/images/kaawa_01-700.jpg?v=2 700w, /images/kaawa_01.jpg?v=2 1800w" sizes="(max-width:900px) 50vw, 25vw" alt="Open Late, KAAWA, Manchester" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Open Late</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">004</span></div>
@@ -148,7 +153,7 @@
       </a>
       <a class="reveal d2 pub-card" href="/publications/against-the-display/">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/atd_cover.jpg" alt="Against the Display, RHS Chelsea" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/atd_cover.jpg" srcset="/images/atd_cover-700.jpg 700w, /images/atd_cover.jpg 877w" sizes="(max-width:900px) 50vw, 25vw" alt="Against the Display, RHS Chelsea" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Against the Display</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">005</span></div>
@@ -157,7 +162,7 @@
       </a>
       <a class="reveal d3 pub-card" href="/publications/morocco/">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/tng_01.jpg" alt="Morocco, Tangier" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/tng_01.jpg" srcset="/images/tng_01-700.jpg 700w, /images/tng_01.jpg 1500w" sizes="(max-width:900px) 50vw, 25vw" alt="Morocco, Tangier" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Morocco</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">006</span></div>
@@ -166,7 +171,7 @@
       </a>
       <a class="reveal d3 pub-card" href="/publications/lisbon-and-porto/">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/porto-after-the-river-07.jpg" alt="Lisbon &amp; Porto, Douro at sunset" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/porto-after-the-river-07.jpg" srcset="/images/porto-after-the-river-07-700.jpg 700w, /images/porto-after-the-river-07.jpg 1000w" sizes="(max-width:900px) 50vw, 25vw" alt="Lisbon &amp; Porto, Douro at sunset" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Lisbon &middot; Porto</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">007</span></div>
@@ -175,7 +180,7 @@
       </a>
       <a class="reveal d3 pub-card" href="/publications/nearness/">
         <div style="overflow:hidden;background:var(--paper-2)">
-          <img loading="lazy" decoding="async" src="/images/makkah-01.jpg?v=2" alt="Nearness, the Kaaba through a dark frame" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
+          <img loading="lazy" decoding="async" src="/images/makkah-01.jpg?v=2" srcset="/images/makkah-01-700.jpg?v=2 700w, /images/makkah-01.jpg?v=2 1687w" sizes="(max-width:900px) 50vw, 25vw" alt="Nearness, the Kaaba through a dark frame" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.8,.3,1)">
         </div>
         <div style="margin-top:clamp(1rem,1.6vw,1.4rem)">
           <div style="display:flex;align-items:baseline;justify-content:flex-start;gap:.8rem"><h3 style="font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.1">Nearness</h3><span style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;color:var(--ink-faint)">008</span></div>
