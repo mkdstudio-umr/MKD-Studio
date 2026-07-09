@@ -672,3 +672,22 @@ a.volume-link:hover{border-color:var(--accent) !important}
 .mob-overlay-links a.active{color:var(--ink);font-weight:400}
 .mob-overlay-links a:active{color:var(--ink)}
 @media(max-width:760px){.light-head nav{border-bottom:1px solid rgba(207,199,182,.25)}}
+
+/* === Mobile study rhythm: chapters and photographs interleaved === */
+/* Desktop is untouched. On phones the two study columns dissolve
+   (display:contents) and reflow: hero image under the title, three
+   photographs after each of the first three chapters, the remaining
+   chapters together, and the rest of the sequence closing the study. */
+@media(max-width:760px){
+  .study-grid{display:flex;flex-direction:column;gap:clamp(1.8rem,7vw,2.6rem)}
+  .study-fields,.study-visual{display:contents}
+  .study-fields .field{order:9}
+  .study-fields .field:nth-child(1){order:2}
+  .study-fields .field:nth-child(2){order:4}
+  .study-fields .field:nth-child(3){order:6}
+  .study-visual .shot{order:11}
+  .study-visual .shot:nth-child(1){order:1}
+  .study-visual .shot:nth-child(n+2):nth-child(-n+4){order:3}
+  .study-visual .shot:nth-child(n+5):nth-child(-n+7){order:5}
+  .study-visual .shot:nth-child(n+8):nth-child(-n+10){order:7}
+}
