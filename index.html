@@ -32,9 +32,13 @@
 }
 @media (max-width: 540px) {
   .pub-three-col {
-    grid-template-columns: 1fr;
-    gap: 2.4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem 1rem;
   }
+  .pub-three-col .pub-card h3 { font-size: .92rem !important; }
+  .pub-three-col .pub-card p { font-size: .74rem !important; line-height: 1.6 !important; margin-top: .35rem !important; }
+  .pub-three-col .pub-card div + div { margin-top: .7rem !important; }
+  .pub-three-col .pub-card span { font-size: .56rem !important; }
 }
 </style>
 
