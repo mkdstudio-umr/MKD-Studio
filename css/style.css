@@ -439,10 +439,10 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 .study-cards .s-card .shot{flex:none;}
 .study-cards .s-card .shot img{width:100%;height:100%;object-fit:cover;display:block;}
 /* Per-category image proportions — locked sizing system */
-#hospitality .study-cards .s-card .shot{aspect-ratio:2/3;}
-#places      .study-cards .s-card .shot{aspect-ratio:3/4;}
-#craft       .study-cards .s-card .shot{aspect-ratio:4/5;}
-#experience  .study-cards .s-card .shot{aspect-ratio:3/4;}
+#hospitality .study-cards .s-card .shot.r-portrait,
+#places      .study-cards .s-card .shot.r-portrait,
+#craft       .study-cards .s-card .shot.r-portrait,
+#experience  .study-cards .s-card .shot.r-portrait{aspect-ratio:3/4;}
 
 /* Homepage Four Worlds — clickable chapters, observation counts, restrained hover */
 .pillars a.pillar{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
