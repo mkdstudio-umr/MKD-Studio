@@ -705,6 +705,8 @@ a.volume-link:hover{border-color:var(--accent) !important}
   opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .35s ease,transform .35s ease}
 .back-top.is-shown{opacity:1;transform:none;pointer-events:auto}
 @media(hover:hover){.back-top:hover{color:var(--ink)}}
+/* the reader modal owns the whole viewport: the back-top control stays out of it */
+body:has(#pub-modal.open) .back-top{display:none!important}
 
 /* Footer: legible type and comfortable tap targets on mobile */
 @media(max-width:600px){
