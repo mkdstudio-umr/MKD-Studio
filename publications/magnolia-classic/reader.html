@@ -76,6 +76,16 @@ html, body {
 .page.plate::before { z-index: 2; opacity: .02; }
 .page.plate::after  { z-index: 3; opacity: .014; }
 
+/* landscape plates run across both pages of the spread:
+   each half shows exactly half the image, spine through the middle */
+.page.plate.spread-l img,
+.page.plate.spread-r img {
+  width: 200%; max-width: none;
+  height: 100%; top: 0;
+}
+.page.plate.spread-l img { left: 0; }
+.page.plate.spread-r img { left: -100%; }
+
 /* margin plate pages: the photograph sits in white space */
 .page.plate-white {
   padding: 0; background: var(--linen);
@@ -450,9 +460,7 @@ html, body {
 <script>
 const PAGES = [
 
-/* ═══ OPENING ═══════════════════════════════ */
-
-/* 01 — COVER */
+/* 001 — plate 01 */
 `<section class="page plate cover">
   <img src="/images/magnolia-01.jpg" alt="A club scorecard holder and glove in the back pocket of a golfer, Magnolia Classic">
   <div class="cover-block">
@@ -463,10 +471,10 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 02 — HALF TITLE */
+/* 002 */
 `<section class="page"><div class="halftitle">Magnolia Classic</div></section>`,
 
-/* 03 — TITLE PAGE */
+/* 003 */
 `<section class="page">
   <div class="title-wrap">
     <div class="title-main">Magnolia Classic</div>
@@ -476,7 +484,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 04 — EDITORIAL NOTE */
+/* 004 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Editorial Note</div>
@@ -485,7 +493,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 05 — EDITORIAL NOTE CONTINUED */
+/* 005 */
 `<section class="page">
   <div class="textwrap">
     <p class="body">The cover photograph sets the terms. A club scorecard holder, navy with gold lettering, tucked into a back pocket above a folded glove. At a glance it reads as a passport, and the misreading is the point. A day of this kind is a small act of travel, with its own documents, its own border ceremonies, its own currency of handshakes and prizes. The details carry the day, and the details are what this publication collects.</p>
@@ -493,7 +501,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 06 — CONTENTS */
+/* 006 */
 `<section class="page">
   <div class="contents-wrap">
     <div class="contents-label">Contents</div>
@@ -505,7 +513,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 07 — EPIGRAPH */
+/* 007 */
 `<section class="page">
   <div class="closing-wrap">
     <p>This is not a record of a competition.</p>
@@ -513,7 +521,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 08 — SETTING */
+/* 008 */
 `<section class="page">
   <div class="whisper-wrap">
     <p>Horsforth Golf Club &middot; Yorkshire</p>
@@ -521,9 +529,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* ═══ I — ARRIVAL ═══════════════════════════ */
-
-/* 09 — CHAPTER I */
+/* 009 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">I</div>
@@ -533,7 +539,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 10 — ARRIVAL ESSAY */
+/* 010 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">I &middot; Arrival</div>
@@ -544,32 +550,37 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 11 — PLATE 02: green in dappled light */
-`<section class="page plate">
+/* 011 — plate 02 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-02.jpg" alt="A green and yellow flag in dappled morning light, Horsforth Golf Club">
 </section>`,
 
-/* 12 — PLATE 03: SGH flag */
+/* 012 — plate 02 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-02.jpg" alt="A green and yellow flag in dappled morning light, Horsforth Golf Club">
+</section>`,
+
+/* 013 — plate 03 */
 `<section class="page plate">
   <img src="/images/magnolia-03.jpg" alt="An SGH Events banner standing against the tree line">
 </section>`,
 
-/* 13 — PLATE 04: BMW and bags */
-`<section class="page plate-white">
+/* 014 — plate 04 */
+`<section class="page plate">
   <img src="/images/magnolia-04.jpg" alt="A BMW parked beside golf bags at the clubhouse">
 </section>`,
 
-/* 14 — PLATE 05: BMW interior */
+/* 015 — plate 05 */
 `<section class="page plate">
   <img src="/images/magnolia-05.jpg" alt="The interior of a BMW in morning light, Magnolia Classic">
 </section>`,
 
-/* 15 — PLATE 06: BMW interior, bags beyond */
-`<section class="page plate-white">
+/* 016 — plate 06 */
+`<section class="page plate">
   <img src="/images/magnolia-06.jpg" alt="Golf bags seen through the open door of a BMW">
 </section>`,
 
-/* 16 — ARRIVAL FRAGMENT */
+/* 017 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>The cars arrive before the golf does.</p>
@@ -577,41 +588,57 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 17 — PLATE 07: buggy */
-`<section class="page plate-white">
+/* 018 — plate 07 */
+`<section class="page plate">
   <img src="/images/magnolia-07.jpg" alt="Club Car buggy number five waiting under the trees">
 </section>`,
 
-/* 18 — PLATE 08: guests arriving */
-`<section class="page plate-white">
+/* 019 — plate 08 */
+`<section class="page plate">
   <img src="/images/magnolia-08.jpg" alt="Guests arriving with trolleys beside the clubhouse steps">
 </section>`,
 
-/* 19 — PLATE 09: practice green */
-`<section class="page plate-white">
+/* 020 — blank */
+`<section class="page"></section>`,
+
+/* 021 — plate 09 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-09.jpg" alt="A player rolling three balls across the practice green">
 </section>`,
 
-/* 20 — PLATE 10: practice ground */
-`<section class="page plate-white">
+/* 022 — plate 09 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-09.jpg" alt="A player rolling three balls across the practice green">
+</section>`,
+
+/* 023 — plate 10 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-10.jpg" alt="The practice ground with partner banners, Magnolia Classic">
 </section>`,
 
-/* 21 — PLATE 11: the first tee */
-`<section class="page plate-white">
+/* 024 — plate 10 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-10.jpg" alt="The practice ground with partner banners, Magnolia Classic">
+</section>`,
+
+/* 025 — plate 11 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-11.jpg" alt="The opening drive from the first tee, Horsforth Golf Club">
 </section>`,
 
-/* 22 — ARRIVAL CLOSING LINE */
+/* 026 — plate 11 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-11.jpg" alt="The opening drive from the first tee, Horsforth Golf Club">
+</section>`,
+
+/* 027 */
 `<section class="page">
   <div class="closing-wrap">
     <p>Nothing has happened yet.<br>Everything has been made ready.<br>The difference between the two is the first act of hospitality.</p>
   </div>
 </section>`,
 
-/* ═══ II — RITUAL ═══════════════════════════ */
-
-/* 23 — CHAPTER II */
+/* 028 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">II</div>
@@ -621,7 +648,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 24 — RITUAL ESSAY */
+/* 029 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">II &middot; Ritual</div>
@@ -631,7 +658,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 25 — RITUAL ESSAY CONTINUED */
+/* 030 */
 `<section class="page">
   <div class="textwrap">
     <p class="body">The hands carry the chapter. Hands pulling a glove tight, hands holding a pencil over a scorecard, a gloved hand resting on a fence post while its owner watches someone else's ball in the air. Golf is a game played mostly standing still, and while a player waits, the hands rehearse.</p>
@@ -640,22 +667,22 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 26 — PLATE 12: bowl of tees */
+/* 031 — plate 12 */
 `<section class="page plate">
   <img src="/images/magnolia-12.jpg" alt="A bowl of wooden tees on the grass, Magnolia Classic">
 </section>`,
 
-/* 27 — PLATE 13: gopher headcover */
+/* 032 — plate 13 */
 `<section class="page plate">
   <img src="/images/magnolia-13.jpg" alt="A cartoon gopher headcover riding a bag of irons">
 </section>`,
 
-/* 28 — PLATE 14: personalised bag */
-`<section class="page plate-white">
+/* 033 — plate 14 */
+`<section class="page plate">
   <img src="/images/magnolia-14.jpg" alt="A personalised tournament golf bag resting on the grass">
 </section>`,
 
-/* 29 — RITUAL FRAGMENT */
+/* 034 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>An object carried all day stops being equipment.</p>
@@ -663,27 +690,32 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 30 — PLATE 15: driver behind ball, black and white */
+/* 035 — plate 15 */
 `<section class="page plate">
   <img src="/images/magnolia-15.jpg" alt="A driver set behind the ball on the tee, in black and white">
 </section>`,
 
-/* 31 — PLATE 16: glove and watch */
+/* 036 — plate 16 */
 `<section class="page plate">
   <img src="/images/magnolia-16.jpg" alt="A gloved hand at rest beside a watch, Magnolia Classic">
 </section>`,
 
-/* 32 — PLATE 17: glove at the waistband */
-`<section class="page plate-white sm">
+/* 037 — plate 17 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-17.jpg" alt="A glove tucked into a waistband between shots">
 </section>`,
 
-/* 33 — PLATE 18: glove on the post */
-`<section class="page plate-white">
+/* 038 — plate 17 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-17.jpg" alt="A glove tucked into a waistband between shots">
+</section>`,
+
+/* 039 — plate 18 */
+`<section class="page plate">
   <img src="/images/magnolia-18.jpg" alt="A gloved hand resting on a fence post">
 </section>`,
 
-/* 34 — RITUAL FRAGMENT */
+/* 040 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>Golf is played standing still.</p>
@@ -691,41 +723,55 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 35 — PLATE 19: the scorecard */
+/* 041 — plate 19 */
 `<section class="page plate">
   <img src="/images/magnolia-19.jpg" alt="A scorecard being marked at the hip, Magnolia Classic">
 </section>`,
 
-/* 36 — PLATE 20: shoes on the tee */
-`<section class="page plate-white">
+/* 042 — blank */
+`<section class="page"></section>`,
+
+/* 043 — plate 20 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-20.jpg" alt="Suede shoes and white socks beside a club laid on the turf">
 </section>`,
 
-/* 37 — PLATE 21: reading the green */
+/* 044 — plate 20 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-20.jpg" alt="Suede shoes and white socks beside a club laid on the turf">
+</section>`,
+
+/* 045 — plate 21 */
 `<section class="page plate">
   <img src="/images/magnolia-21.jpg" alt="A player crouched low, reading the line of a putt">
 </section>`,
 
-/* 38 — PLATE 22: shadow with putter */
-`<section class="page plate">
+/* 046 — blank */
+`<section class="page"></section>`,
+
+/* 047 — plate 22 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-22.jpg" alt="The shadow of a golfer falling across the green beside the ball">
 </section>`,
 
-/* 39 — PLATE 23: the hole */
+/* 048 — plate 22 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-22.jpg" alt="The shadow of a golfer falling across the green beside the ball">
+</section>`,
+
+/* 049 — plate 23 */
 `<section class="page plate">
   <img src="/images/magnolia-23.jpg" alt="The hole with its marker, cut clean into the green">
 </section>`,
 
-/* 40 — RITUAL CLOSING LINE */
+/* 050 */
 `<section class="page">
   <div class="closing-wrap">
     <p>Four and a quarter inches of air.<br>Everything in this chapter is aimed at it.</p>
   </div>
 </section>`,
 
-/* ═══ III — HOSPITALITY ═════════════════════ */
-
-/* 41 — CHAPTER III */
+/* 051 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">III</div>
@@ -735,7 +781,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 42 — HOSPITALITY ESSAY */
+/* 052 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">III &middot; Hospitality</div>
@@ -746,32 +792,42 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 43 — PLATE 24: watching at the boards */
-`<section class="page plate-white">
+/* 053 — plate 24 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-24.jpg" alt="Guests gathered at the SGH Events boards">
 </section>`,
 
-/* 44 — PLATE 25: the greeting */
-`<section class="page plate-white">
+/* 054 — plate 24 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-24.jpg" alt="Guests gathered at the SGH Events boards">
+</section>`,
+
+/* 055 — plate 25 */
+`<section class="page plate">
   <img src="/images/magnolia-25.jpg" alt="A greeting, one hand on a shoulder, Magnolia Classic">
 </section>`,
 
-/* 45 — PLATE 26: fist bump */
-`<section class="page plate-white">
+/* 056 — plate 26 */
+`<section class="page plate">
   <img src="/images/magnolia-26.jpg" alt="Two players meeting beside the bags">
 </section>`,
 
-/* 46 — PLATE 27: the selfie */
-`<section class="page plate-white">
+/* 057 — plate 27 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-27.jpg" alt="Two friends, arm over shoulder, taking a photograph of themselves">
 </section>`,
 
-/* 47 — PLATE 28: laughing, black and white */
+/* 058 — plate 27 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-27.jpg" alt="Two friends, arm over shoulder, taking a photograph of themselves">
+</section>`,
+
+/* 059 — plate 28 */
 `<section class="page plate">
   <img src="/images/magnolia-28.jpg" alt="Two players laughing on the fairway, in black and white">
 </section>`,
 
-/* 48 — HOSPITALITY FRAGMENT */
+/* 060 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>Nobody here is networking.</p>
@@ -779,51 +835,62 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 49 — PLATE 29: two on the tee */
-`<section class="page plate-white">
+/* 061 — plate 29 */
+`<section class="page plate">
   <img src="/images/magnolia-29.jpg" alt="Two golfers leaning on a driver, waiting on the tee">
 </section>`,
 
-/* 50 — PLATE 30: three together */
-`<section class="page plate-white">
+/* 062 — plate 30 */
+`<section class="page plate">
   <img src="/images/magnolia-30.jpg" alt="Three players, arms around shoulders, on the tee">
 </section>`,
 
-/* 51 — PLATE 31: three generations */
-`<section class="page plate-white">
+/* 063 — plate 31 */
+`<section class="page plate">
   <img src="/images/magnolia-31.jpg" alt="Three players of three generations standing together">
 </section>`,
 
-/* 52 — PLATE 32: the flooring sign */
-`<section class="page plate-white">
+/* 064 — plate 32 */
+`<section class="page plate">
   <img src="/images/magnolia-32.jpg" alt="A partner sign at the edge of the fairway, players beyond">
 </section>`,
 
-/* 53 — PLATE 33: the hotel sign */
-`<section class="page plate-white">
+/* 065 — plate 33 */
+`<section class="page plate">
   <img src="/images/magnolia-33.jpg" alt="A hotel partner sign beneath the pines">
 </section>`,
 
-/* 54 — PLATE 34: the fourball */
-`<section class="page plate-white">
+/* 066 — blank */
+`<section class="page"></section>`,
+
+/* 067 — plate 34 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-34.jpg" alt="A fourball posed on the tee before setting out">
 </section>`,
 
-/* 55 — PLATE 35: another group */
-`<section class="page plate-white">
+/* 068 — plate 34 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-34.jpg" alt="A fourball posed on the tee before setting out">
+</section>`,
+
+/* 069 — plate 35 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-35.jpg" alt="A group waiting on the tee, drivers grounded">
 </section>`,
 
-/* 56 — HOSPITALITY CLOSING LINE */
+/* 070 — plate 35 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-35.jpg" alt="A group waiting on the tee, drivers grounded">
+</section>`,
+
+/* 071 */
 `<section class="page">
   <div class="closing-wrap">
     <p>The course does the introductions.<br>The day does the rest.</p>
   </div>
 </section>`,
 
-/* ═══ IV — PLAY ═════════════════════════════ */
-
-/* 57 — CHAPTER IV */
+/* 072 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">IV</div>
@@ -833,7 +900,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 58 — PLAY ESSAY */
+/* 073 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">IV &middot; Play</div>
@@ -844,27 +911,40 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 59 — PLATE 36: drive between the flags */
-`<section class="page plate-white">
+/* 074 — blank */
+`<section class="page"></section>`,
+
+/* 075 — plate 36 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-36.jpg" alt="A drive from the tee between the banners, Magnolia Classic">
 </section>`,
 
-/* 60 — PLATE 37: impact, black and white */
-`<section class="page plate-white">
+/* 076 — plate 36 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-36.jpg" alt="A drive from the tee between the banners, Magnolia Classic">
+</section>`,
+
+/* 077 — plate 37 */
+`<section class="page plate">
   <img src="/images/magnolia-37.jpg" alt="The moment of impact from the tee, in black and white">
 </section>`,
 
-/* 61 — PLATE 38: shadow of the swing */
+/* 078 — plate 38 */
 `<section class="page plate">
   <img src="/images/magnolia-38.jpg" alt="The shadow of a swing cast across the turf, in black and white">
 </section>`,
 
-/* 62 — PLATE 39: the airliner */
-`<section class="page plate">
+/* 079 — plate 39 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-39.jpg" alt="An airliner crossing above the tee box, Horsforth" style="object-position:center 30%">
 </section>`,
 
-/* 63 — PLAY FRAGMENT */
+/* 080 — plate 39 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-39.jpg" alt="An airliner crossing above the tee box, Horsforth" style="object-position:center 30%">
+</section>`,
+
+/* 081 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>The ball is in the air for seconds at a time.</p>
@@ -872,37 +952,60 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 64 — PLATE 40: tee shot, watched */
-`<section class="page plate-white">
+/* 082 — plate 40 */
+`<section class="page plate">
   <img src="/images/magnolia-40.jpg" alt="A tee shot watched from the edge of the box">
 </section>`,
 
-/* 65 — PLATE 41: the finish */
-`<section class="page plate-white">
+/* 083 — plate 41 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-41.jpg" alt="A full finish on the tee, Magnolia Classic">
 </section>`,
 
-/* 66 — PLATE 42: the divot */
-`<section class="page plate">
+/* 084 — plate 41 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-41.jpg" alt="A full finish on the tee, Magnolia Classic">
+</section>`,
+
+/* 085 — plate 42 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-42.jpg" alt="A divot lifted whole out of the turf, in black and white">
 </section>`,
 
-/* 67 — PLATE 43: the bunker */
-`<section class="page plate">
+/* 086 — plate 42 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-42.jpg" alt="A divot lifted whole out of the turf, in black and white">
+</section>`,
+
+/* 087 — plate 43 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-43.jpg" alt="Sand thrown from a bunker shot, in black and white">
 </section>`,
 
-/* 68 — PLATE 44: walking pair */
-`<section class="page plate-white">
+/* 088 — plate 43 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-43.jpg" alt="Sand thrown from a bunker shot, in black and white">
+</section>`,
+
+/* 089 — plate 44 */
+`<section class="page plate">
   <img src="/images/magnolia-44.jpg" alt="Two players walking the fairway with their trolleys">
 </section>`,
 
-/* 69 — PLATE 45: the path */
-`<section class="page plate-white">
+/* 090 — blank */
+`<section class="page"></section>`,
+
+/* 091 — plate 45 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-45.jpg" alt="Players pulling trolleys along the path between holes">
 </section>`,
 
-/* 70 — PLAY FRAGMENT */
+/* 092 — plate 45 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-45.jpg" alt="Players pulling trolleys along the path between holes">
+</section>`,
+
+/* 093 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>Every green is read twice.</p>
@@ -910,32 +1013,40 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 71 — PLATE 46: the approach */
-`<section class="page plate-white">
+/* 094 — plate 46 */
+`<section class="page plate">
   <img src="/images/magnolia-46.jpg" alt="An approach shot from the fairway">
 </section>`,
 
-/* 72 — PLATE 47: follow-through, black and white */
+/* 095 — plate 47 */
 `<section class="page plate">
   <img src="/images/magnolia-47.jpg" alt="A follow-through held against the trees, in black and white">
 </section>`,
 
-/* 73 — PLATE 48: putt at the yellow flag */
-`<section class="page plate-white">
+/* 096 — plate 48 */
+`<section class="page plate">
   <img src="/images/magnolia-48.jpg" alt="A putt rolling towards the yellow flag">
 </section>`,
 
-/* 74 — PLATE 49: on the green */
-`<section class="page plate-white sm">
+/* 097 — plate 49 */
+`<section class="page plate">
   <img src="/images/magnolia-49.jpg" alt="A putt away from the flag, late in the round">
 </section>`,
 
-/* 75 — PLATE 50: putting out */
-`<section class="page plate-white">
+/* 098 — blank */
+`<section class="page"></section>`,
+
+/* 099 — plate 50 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-50.jpg" alt="Putting out with the flag laid on the green">
 </section>`,
 
-/* 76 — PLAY FRAGMENT */
+/* 100 — plate 50 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-50.jpg" alt="Putting out with the flag laid on the green">
+</section>`,
+
+/* 101 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>The difference between joy and grief out here</p>
@@ -943,24 +1054,30 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 77 — PLATE 51: the reaction */
-`<section class="page plate-white">
+/* 102 — plate 51 */
+`<section class="page plate">
   <img src="/images/magnolia-51.jpg" alt="A player laughing as he walks off the green">
 </section>`,
 
-/* 78 — PLATE 52: walking on */
-`<section class="page plate-white">
+/* 103 — plate 52 */
+`<section class="page plate">
   <img src="/images/magnolia-52.jpg" alt="A player pushing his trolley to the next tee">
 </section>`,
 
-/* 79 — PLATE 53: handshakes */
-`<section class="page plate-white">
+/* 104 — blank */
+`<section class="page"></section>`,
+
+/* 105 — plate 53 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-53.jpg" alt="Handshakes on the final green, Magnolia Classic">
 </section>`,
 
-/* ═══ V — RECOGNITION ═══════════════════════ */
+/* 106 — plate 53 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-53.jpg" alt="Handshakes on the final green, Magnolia Classic">
+</section>`,
 
-/* 80 — CHAPTER V */
+/* 107 */
 `<section class="page">
   <div class="chapter-wrap">
     <div class="ch-num">V</div>
@@ -970,7 +1087,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 81 — RECOGNITION ESSAY */
+/* 108 */
 `<section class="page">
   <div class="textwrap">
     <div class="chapter-ref">V &middot; Recognition</div>
@@ -981,27 +1098,32 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 82 — PLATE 54: the interview */
-`<section class="page plate-white">
+/* 109 — plate 54 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-54.jpg" alt="A post-round interview beside the bags">
 </section>`,
 
-/* 83 — PLATE 55: interview under the tree */
-`<section class="page plate-white">
+/* 110 — plate 54 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-54.jpg" alt="A post-round interview beside the bags">
+</section>`,
+
+/* 111 — plate 55 */
+`<section class="page plate">
   <img src="/images/magnolia-55.jpg" alt="An interview at the bag beneath the tree">
 </section>`,
 
-/* 84 — PLATE 56: the books */
+/* 112 — plate 56 */
 `<section class="page plate">
   <img src="/images/magnolia-56.jpg" alt="A stack of the host's books, gold lettering on green cloth">
 </section>`,
 
-/* 85 — PLATE 57: champagne and the green envelope */
+/* 113 — plate 57 */
 `<section class="page plate">
   <img src="/images/magnolia-57.jpg" alt="Champagne and an envelope in Masters green on the prize table">
 </section>`,
 
-/* 86 — RECOGNITION FRAGMENT */
+/* 114 */
 `<section class="page">
   <div class="fragment-wrap">
     <p>The prizes certify the day.</p>
@@ -1009,36 +1131,39 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 87 — PLATE 58: the winner */
-`<section class="page plate-white">
+/* 115 — plate 58 */
+`<section class="page plate spread-l">
   <img src="/images/magnolia-58.jpg" alt="A winner with his prizes at the presentation table">
 </section>`,
 
-/* 88 — PLATE 59: two winners */
-`<section class="page plate-white">
+/* 116 — plate 58 */
+`<section class="page plate spread-r">
+  <img src="/images/magnolia-58.jpg" alt="A winner with his prizes at the presentation table">
+</section>`,
+
+/* 117 — plate 59 */
+`<section class="page plate">
   <img src="/images/magnolia-59.jpg" alt="Two winners with boxes and champagne at the SGH banner">
 </section>`,
 
-/* 89 — PLATE 60: the presentation */
-`<section class="page plate-white">
+/* 118 — plate 60 */
+`<section class="page plate">
   <img src="/images/magnolia-60.jpg" alt="A presentation with the Masters flag held between four players">
 </section>`,
 
-/* 90 — PLATE 61: flag over the shoulder */
+/* 119 — plate 61 */
 `<section class="page plate">
   <img src="/images/magnolia-61.jpg" alt="A player carrying the flag over his shoulder, in black and white">
 </section>`,
 
-/* 91 — RECOGNITION CLOSING LINE */
+/* 120 */
 `<section class="page">
   <div class="closing-wrap">
     <p>The event dissolves in under an hour.<br>The course begins to forget it immediately.</p>
   </div>
 </section>`,
 
-/* ═══ CLOSING ═══════════════════════════════ */
-
-/* 92 — FINAL ESSAY */
+/* 121 */
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Closing Essay</div>
@@ -1047,7 +1172,7 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 93 — FINAL ESSAY CONTINUED */
+/* 122 */
 `<section class="page">
   <div class="textwrap">
     <p class="body">That understanding is the real subject of Magnolia Classic. SGH Events organised the day. BMW and its fellow partners furnished it. Horsforth Golf Club held it. mkd STUDIO attended it the way we attend every place we document: as observers with no scores to settle, interested in how atmosphere is made.</p>
@@ -1056,24 +1181,24 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 94 — CLOSING LINE */
+/* 123 */
 `<section class="page">
   <div class="closing-wrap">
     <p>The course keeps none of it.<br>That is why it has to be photographed.</p>
   </div>
 </section>`,
 
-/* 95 — FINAL IMAGE */
+/* 124 — plate 62 */
 `<section class="page plate">
   <img src="/images/magnolia-62.jpg" alt="A red flag among dark trees at the end of the day">
 </section>`,
 
-/* 96 — WHISPER */
+/* 125 */
 `<section class="page">
   <div class="whisper-wrap"><p>The third of July, 2026.</p></div>
 </section>`,
 
-/* 97 — CREDITS */
+/* 126 */
 `<section class="page">
   <div class="colophon-wrap">
     <p>Photography, editorial direction and text</p>
@@ -1081,13 +1206,18 @@ const PAGES = [
     <hr class="col-rule">
     <p>The Magnolia Classic was organised by SGH Events</p>
     <p>Played at Horsforth Golf Club, Yorkshire</p>
-    <p>With partners including BMW</p>
+    <hr class="col-rule">
+    <p>With thanks to the partners of the day</p>
+    <p>Stratstone BMW</p>
+    <p>Cairns Cup</p>
+    <p>Yorkshire Flooring Company</p>
+    <p>Marriott Bonvoy &nbsp;&middot;&nbsp; Delta Hotels York</p>
     <hr class="col-rule">
     <p>This publication is an independent editorial work.<br>It is not an official record of the event.</p>
   </div>
 </section>`,
 
-/* 98 — COLOPHON */
+/* 127 */
 `<section class="page">
   <div class="colophon-wrap">
     <p>Publication 009</p>
@@ -1102,12 +1232,12 @@ const PAGES = [
   </div>
 </section>`,
 
-/* 99 — EPILOGUE LINE */
+/* 128 */
 `<section class="page">
   <div class="whisper-wrap"><p>Sport &middot; Volume II will follow another occasion.</p></div>
 </section>`,
 
-/* 100 — MASTHEAD */
+/* 129 */
 `<section class="page">
   <div class="masthead-wrap">
     <div class="mast-name">mkd STUDIO</div>
