@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Magnolia Classic / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── PAGES ──────────────────────────────── */
+
+.page {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+/* linen cloth texture */
+.page::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .032; mix-blend-mode: multiply;
+}
+
+/* full-bleed plate pages */
+.page.plate {
+  padding: 0; background: var(--dark);
+}
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 1;
+}
+.page.plate::before { z-index: 2; opacity: .02; }
+.page.plate::after  { z-index: 3; opacity: .014; }
+
+/* margin plate pages: the photograph sits in white space */
+.page.plate-white {
+  padding: 0; background: var(--linen);
+}
+.page.plate-white img {
+  display: block;
+  max-width: 74%; max-height: 80%;
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.page.plate-white.sm img {
+  max-width: 56%; max-height: 62%;
+}
+
+/* cover plate with overlaid title */
+.page.plate.cover .cover-block {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 0 2rem 9%;
+  background: linear-gradient(to top, rgba(13,13,12,.55), rgba(13,13,12,0));
+  padding-top: 5rem;
+}
+.cover-no {
+  font-size: .44rem; letter-spacing: .4em;
+  text-transform: uppercase; color: rgba(243,241,236,.55);
+  margin-bottom: 1.1rem;
+}
+.cover-title {
+  font-style: italic; font-size: 1.9rem;
+  letter-spacing: .01em; color: var(--linen);
+  line-height: 1.1; margin-bottom: .7rem;
+  text-shadow: 0 1px 14px rgba(13,13,12,.35);
+}
+.cover-sub {
+  font-size: .46rem; letter-spacing: .38em;
+  text-transform: uppercase; color: rgba(243,241,236,.6);
+  margin-bottom: 1.6rem;
+}
+.cover-studio {
+  font-size: .44rem; letter-spacing: .42em;
+  text-transform: uppercase; color: rgba(243,241,236,.38);
+}
+
+/* half title */
+.halftitle {
+  font-size: .6rem; letter-spacing: .34em;
+  color: var(--mid); text-transform: uppercase;
+}
+
+/* title page */
+.title-wrap { text-align: center; padding: 2rem; }
+.title-main {
+  font-style: italic; font-size: 1.6rem;
+  color: var(--ink); line-height: 1.15;
+  margin-bottom: .7rem;
+}
+.title-sub {
+  font-size: .48rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--mid);
+  line-height: 2.4;
+}
+.title-studio {
+  font-size: .44rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-top: 3.5rem;
+}
+.title-note {
+  font-style: italic; font-size: .7rem;
+  color: var(--soft); margin-top: 3rem;
+}
+
+/* contents */
+.contents-wrap { text-align: center; padding: 2rem; }
+.contents-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.6rem;
+}
+.contents-wrap .toc-row {
+  font-style: italic; font-size: .92rem;
+  color: var(--ink); line-height: 2.5;
+}
+.contents-wrap .toc-row span {
+  font-style: normal; font-size: .55rem;
+  color: var(--soft); letter-spacing: .14em;
+  margin-right: .9rem;
+}
+.contents-wrap .toc-quiet {
+  font-size: .55rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 3;
+}
+
+/* colophon / credits */
+.colophon-wrap { text-align: left; padding: 13%; }
+.colophon-wrap p {
+  font-size: .52rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 2.5;
+}
+.colophon-wrap .col-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.25);
+  width: 100%; margin: 1.6rem 0;
+}
+
+/* section label (editorial, closing essay) */
+.section-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.8rem;
+}
+
+/* body text pages */
+.textwrap {
+  width: 100%; padding: 11% 13%; text-align: left;
+}
+.chapter-ref {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .06em;
+  margin-bottom: .55rem;
+}
+.text-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.35);
+  width: 28px; margin: 0 0 1.6rem; opacity: 1;
+}
+.body {
+  font-size: .8rem; line-height: 1.92;
+  margin-bottom: 1.25rem; color: var(--ink);
+}
+.body.i { font-style: italic; }
+.body.dim { color: var(--mid); font-size: .72rem; line-height: 2.1; }
+
+/* chapter divider */
+.chapter-wrap {
+  text-align: center; padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.ch-num {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .18em;
+  margin-bottom: 1rem;
+}
+.ch-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.3);
+  width: 24px; margin: 0 auto 1rem;
+}
+.ch-name {
+  font-style: italic; font-size: 1.55rem;
+  color: var(--ink); letter-spacing: .02em;
+  line-height: 1.15;
+}
+.ch-theme {
+  font-style: italic; font-size: .72rem;
+  color: var(--mid); margin-top: 1.2rem;
+}
+
+/* quiet line pages */
+.closing-wrap {
+  text-align: center; padding: 14%;
+}
+.closing-wrap p {
+  font-style: italic; font-size: 1.02rem;
+  line-height: 1.72; color: var(--ink);
+  max-width: 22em; margin: 0 auto;
+}
+.fragment-wrap { text-align: center; padding: 14%; }
+.fragment-wrap p {
+  font-style: italic; font-size: .88rem;
+  line-height: 1.78; color: var(--mid);
+  max-width: 24em; margin: 0 auto;
+}
+.fragment-wrap p + p { margin-top: .9rem; }
+.whisper-wrap { text-align: center; padding: 2rem; }
+.whisper-wrap p {
+  font-style: italic; font-size: .82rem;
+  color: var(--soft); letter-spacing: .03em;
+  line-height: 1.9;
+}
+.masthead-wrap { text-align: center; padding: 2rem; }
+.masthead-wrap .mast-name { font-size: .95rem; letter-spacing: .04em; }
+.mast-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.45);
+  width: 36px; margin: 1rem auto;
+}
+.mast-worlds {
+  font-size: .5rem; letter-spacing: .32em;
+  color: var(--soft); text-transform: uppercase;
+}
+
+/* ── MOBILE LAYOUT ─────────────────────── */
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .46s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+
+#desktop-wrap { display: none; }
+
+/* ── INTRO ─────────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity 1.1s ease, visibility 1.1s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .035; mix-blend-mode: screen;
+  pointer-events: none; z-index: 0;
+}
+#intro > * { position: relative; z-index: 1; }
+.intro-title {
+  font-style: italic; font-size: 1.85rem;
+  color: var(--linen); letter-spacing: .01em;
+  margin-bottom: .6rem; line-height: 1.12;
+}
+.intro-sub {
+  font-size: .48rem; letter-spacing: .36em;
+  text-transform: uppercase; color: rgba(176,171,166,.55);
+  margin-bottom: 4rem;
+}
+.intro-open {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  border: .5px solid rgba(243,241,236,.3); background: none;
+  padding: 1rem 2.6rem; cursor: pointer;
+  font-family: inherit; color: rgba(243,241,236,.7);
+  transition: border-color .35s, color .35s, background .35s;
+}
+.intro-open:hover {
+  border-color: var(--linen);
+  color: var(--dark);
+  background: var(--linen);
+}
+
+/* ── CHROME ─────────────────────────────── */
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: .44rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .45; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .44rem; letter-spacing: .24em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .5; transition: opacity 1.2s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+/* ── DESKTOP ─────────────────────────────── */
+@media (min-width: 900px) {
+  body { background: #0a0908; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 3vh 3vw;
+  }
+
+  #book-spread {
+    display: flex; width: 100%; height: 100%;
+    max-width: 1520px; max-height: 88vh; gap: 0;
+  }
+
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0;
+    position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow:
+      0 24px 100px rgba(0,0,0,.85),
+      0 4px 12px rgba(0,0,0,.5),
+      inset 0 0 0 .5px rgba(180,160,130,.12);
+  }
+
+  #spine {
+    flex: 0 0 30px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 35%,
+      rgba(0,0,0,.06) 50%, rgba(0,0,0,.12) 65%,
+      rgba(0,0,0,.35) 100%
+    );
+    position: relative; z-index: 5;
+  }
+
+  #panel-left::after {
+    content: ""; position: absolute;
+    top:0; right:0; width:24px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute;
+    top:0; left:0; width:24px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+
+  #panel-left .page, #panel-right .page {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+  }
+
+  #counter { bottom: 1.8rem; left: auto; right: 3.5vw; transform: none; }
+
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: rgba(176,171,166,.4); font-family: inherit;
+    font-size: .44rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: color .25s; padding: 1rem 1.6rem;
+  }
+  #btn-prev { left: .4vw; }
+  #btn-next { right: .4vw; }
+  #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left,
+  .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+<script defer data-domain="mkdstudio.net" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-title">Magnolia Classic</div>
+  <div class="intro-sub">Sport &middot; Volume I &nbsp;&middot;&nbsp; mkd STUDIO</div>
+  <button class="intro-open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap"><div id="mobile-panel"></div></div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* ═══ OPENING ═══════════════════════════════ */
+
+/* 01 — COVER */
+`<section class="page plate cover">
+  <img src="/images/magnolia-01.jpg" alt="A club scorecard holder and glove in the back pocket of a golfer, Magnolia Classic">
+  <div class="cover-block">
+    <div class="cover-no">Publication 009</div>
+    <div class="cover-title">Magnolia Classic</div>
+    <div class="cover-sub">Sport &middot; Volume I</div>
+    <div class="cover-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 02 — HALF TITLE */
+`<section class="page"><div class="halftitle">Magnolia Classic</div></section>`,
+
+/* 03 — TITLE PAGE */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">Magnolia Classic</div>
+    <div class="title-sub">Sport &middot; Volume I<br>Horsforth Golf Club, Yorkshire</div>
+    <div class="title-studio">mkd STUDIO</div>
+    <div class="title-note">An editorial study of how a sporting day is assembled.</div>
+  </div>
+</section>`,
+
+/* 04 — EDITORIAL NOTE */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Editorial Note</div>
+    <p class="body">The Magnolia Classic is a golf day organised by SGH Events at Horsforth Golf Club in Yorkshire. This publication is not its official record. It was made independently, in the way we would document a hotel or a city: by paying attention to the things an event produces around its stated purpose.</p>
+    <p class="body">The stated purpose is golf. Golf is the reason the cars arrive, the reason the banners stand along the first fairway, the reason a hundred small objects are laid out on the grass before nine in the morning. But a golf day is mostly not golf. It is preparation, hospitality, conversation, movement, waiting, recognition. The sport holds the centre of the day the way a spine holds a book: essential, structural, and mostly invisible once the thing is open.</p>
+  </div>
+</section>`,
+
+/* 05 — EDITORIAL NOTE CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">The cover photograph sets the terms. A club scorecard holder, navy with gold lettering, tucked into a back pocket above a folded glove. At a glance it reads as a passport, and the misreading is the point. A day of this kind is a small act of travel, with its own documents, its own border ceremonies, its own currency of handshakes and prizes. The details carry the day, and the details are what this publication collects.</p>
+    <p class="body">The photographs were made in a single day, the third of July 2026. They are arranged in five chapters that follow the day's own sequence: arrival, ritual, hospitality, play, recognition. Read in order, they describe how a premium sporting event is assembled. Not one score is recorded in the pages that follow, and the day loses nothing by its absence.</p>
+  </div>
+</section>`,
+
+/* 06 — CONTENTS */
+`<section class="page">
+  <div class="contents-wrap">
+    <div class="contents-label">Contents</div>
+    <div class="toc-row"><span>I</span>Arrival</div>
+    <div class="toc-row"><span>II</span>Ritual</div>
+    <div class="toc-row"><span>III</span>Hospitality</div>
+    <div class="toc-row"><span>IV</span>Play</div>
+    <div class="toc-row"><span>V</span>Recognition</div>
+  </div>
+</section>`,
+
+/* 07 — EPIGRAPH */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>This is not a record of a competition.</p>
+    <p style="margin-top:1.2rem;color:var(--mid)">It is a study of how a day is assembled.</p>
+  </div>
+</section>`,
+
+/* 08 — SETTING */
+`<section class="page">
+  <div class="whisper-wrap">
+    <p>Horsforth Golf Club &middot; Yorkshire</p>
+    <p>The third of July, 2026</p>
+  </div>
+</section>`,
+
+/* ═══ I — ARRIVAL ═══════════════════════════ */
+
+/* 09 — CHAPTER I */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">I</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Arrival</div>
+    <div class="ch-theme">The event before it begins.</div>
+  </div>
+</section>`,
+
+/* 10 — ARRIVAL ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">I &middot; Arrival</div>
+    <hr class="text-rule">
+    <p class="body">The course wakes before its guests. Greens are cut, flags set, and for an hour the place holds a kind of institutional quiet: everything prepared, nothing yet used. The photographs from this hour are the emptiest in the publication and among the most important. They show the stage before the performance, which is the only time a stage tells the truth about itself.</p>
+    <p class="body">Then the cars. A day of this kind announces its register in the car park, and the vehicles that carry the guests belong to the event's architecture as surely as the clubhouse does. The partnership with BMW is not a logo on a banner here. It is upholstery, a steering wheel in morning light, an open door beside a golf bag: hospitality expressed as machinery.</p>
+    <p class="body">People arrive the way they arrive at airports, wheeling their equipment, scanning for faces they know. The practice green takes the first quiet rehearsals. By the time the first group stands on the first tee, the event has already been running for hours. What begins with the opening drive is only the visible part.</p>
+  </div>
+</section>`,
+
+/* 11 — PLATE 02: green in dappled light */
+`<section class="page plate">
+  <img src="/images/magnolia-02.jpg" alt="A green and yellow flag in dappled morning light, Horsforth Golf Club">
+</section>`,
+
+/* 12 — PLATE 03: SGH flag */
+`<section class="page plate">
+  <img src="/images/magnolia-03.jpg" alt="An SGH Events banner standing against the tree line">
+</section>`,
+
+/* 13 — PLATE 04: BMW and bags */
+`<section class="page plate-white">
+  <img src="/images/magnolia-04.jpg" alt="A BMW parked beside golf bags at the clubhouse">
+</section>`,
+
+/* 14 — PLATE 05: BMW interior */
+`<section class="page plate">
+  <img src="/images/magnolia-05.jpg" alt="The interior of a BMW in morning light, Magnolia Classic">
+</section>`,
+
+/* 15 — PLATE 06: BMW interior, bags beyond */
+`<section class="page plate-white">
+  <img src="/images/magnolia-06.jpg" alt="Golf bags seen through the open door of a BMW">
+</section>`,
+
+/* 16 — ARRIVAL FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>The cars arrive before the golf does.</p>
+    <p>For half an hour, the car park is the event.</p>
+  </div>
+</section>`,
+
+/* 17 — PLATE 07: buggy */
+`<section class="page plate-white">
+  <img src="/images/magnolia-07.jpg" alt="Club Car buggy number five waiting under the trees">
+</section>`,
+
+/* 18 — PLATE 08: guests arriving */
+`<section class="page plate-white">
+  <img src="/images/magnolia-08.jpg" alt="Guests arriving with trolleys beside the clubhouse steps">
+</section>`,
+
+/* 19 — PLATE 09: practice green */
+`<section class="page plate-white">
+  <img src="/images/magnolia-09.jpg" alt="A player rolling three balls across the practice green">
+</section>`,
+
+/* 20 — PLATE 10: practice ground */
+`<section class="page plate-white">
+  <img src="/images/magnolia-10.jpg" alt="The practice ground with partner banners, Magnolia Classic">
+</section>`,
+
+/* 21 — PLATE 11: the first tee */
+`<section class="page plate-white">
+  <img src="/images/magnolia-11.jpg" alt="The opening drive from the first tee, Horsforth Golf Club">
+</section>`,
+
+/* 22 — ARRIVAL CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>Nothing has happened yet.<br>Everything has been made ready.<br>The difference between the two is the first act of hospitality.</p>
+  </div>
+</section>`,
+
+/* ═══ II — RITUAL ═══════════════════════════ */
+
+/* 23 — CHAPTER II */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">II</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Ritual</div>
+    <div class="ch-theme">The objects and the habits.</div>
+  </div>
+</section>`,
+
+/* 24 — RITUAL ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &middot; Ritual</div>
+    <hr class="text-rule">
+    <p class="body">Golf carries more ritual per hour than any other social sport. Most of it happens below the level of event photography: the glove worked onto the hand, the card folded into the pocket, the tee pressed into the ground at a depth learned over years. This chapter attends to those movements, and to the objects that make them possible.</p>
+    <p class="body">The objects reward slow reading. A bowl of tees set down on the grass like sugar cubes on a café table. A headcover in the shape of a cartoon gopher, riding a bag of otherwise serious equipment. A tournament bag with a name and a title worked into the leather. None of this is necessary for the striking of a golf ball. All of it is necessary for the day to mean something to the people inside it. Equipment, dressed this carefully, stops being equipment and becomes biography.</p>
+  </div>
+</section>`,
+
+/* 25 — RITUAL ESSAY CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">The hands carry the chapter. Hands pulling a glove tight, hands holding a pencil over a scorecard, a gloved hand resting on a fence post while its owner watches someone else's ball in the air. Golf is a game played mostly standing still, and while a player waits, the hands rehearse.</p>
+    <p class="body">Then the reading. A player crouches behind his ball and studies the green the way a surveyor studies a site, looking for the slope that will not announce itself. A shadow leans across the grass with a putter, the player himself outside the frame. The chapter closes at the smallest piece of architecture on the course: the hole, cut clean as a core sample, holding its marker against the afternoon.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">Still life, played at walking pace.</p>
+  </div>
+</section>`,
+
+/* 26 — PLATE 12: bowl of tees */
+`<section class="page plate">
+  <img src="/images/magnolia-12.jpg" alt="A bowl of wooden tees on the grass, Magnolia Classic">
+</section>`,
+
+/* 27 — PLATE 13: gopher headcover */
+`<section class="page plate">
+  <img src="/images/magnolia-13.jpg" alt="A cartoon gopher headcover riding a bag of irons">
+</section>`,
+
+/* 28 — PLATE 14: personalised bag */
+`<section class="page plate-white">
+  <img src="/images/magnolia-14.jpg" alt="A personalised tournament golf bag resting on the grass">
+</section>`,
+
+/* 29 — RITUAL FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>An object carried all day stops being equipment.</p>
+    <p>It becomes company.</p>
+  </div>
+</section>`,
+
+/* 30 — PLATE 15: driver behind ball, black and white */
+`<section class="page plate">
+  <img src="/images/magnolia-15.jpg" alt="A driver set behind the ball on the tee, in black and white">
+</section>`,
+
+/* 31 — PLATE 16: glove and watch */
+`<section class="page plate">
+  <img src="/images/magnolia-16.jpg" alt="A gloved hand at rest beside a watch, Magnolia Classic">
+</section>`,
+
+/* 32 — PLATE 17: glove at the waistband */
+`<section class="page plate-white sm">
+  <img src="/images/magnolia-17.jpg" alt="A glove tucked into a waistband between shots">
+</section>`,
+
+/* 33 — PLATE 18: glove on the post */
+`<section class="page plate-white">
+  <img src="/images/magnolia-18.jpg" alt="A gloved hand resting on a fence post">
+</section>`,
+
+/* 34 — RITUAL FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>Golf is played standing still.</p>
+    <p>The hands do the waiting.</p>
+  </div>
+</section>`,
+
+/* 35 — PLATE 19: the scorecard */
+`<section class="page plate">
+  <img src="/images/magnolia-19.jpg" alt="A scorecard being marked at the hip, Magnolia Classic">
+</section>`,
+
+/* 36 — PLATE 20: shoes on the tee */
+`<section class="page plate-white">
+  <img src="/images/magnolia-20.jpg" alt="Suede shoes and white socks beside a club laid on the turf">
+</section>`,
+
+/* 37 — PLATE 21: reading the green */
+`<section class="page plate">
+  <img src="/images/magnolia-21.jpg" alt="A player crouched low, reading the line of a putt">
+</section>`,
+
+/* 38 — PLATE 22: shadow with putter */
+`<section class="page plate">
+  <img src="/images/magnolia-22.jpg" alt="The shadow of a golfer falling across the green beside the ball">
+</section>`,
+
+/* 39 — PLATE 23: the hole */
+`<section class="page plate">
+  <img src="/images/magnolia-23.jpg" alt="The hole with its marker, cut clean into the green">
+</section>`,
+
+/* 40 — RITUAL CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>Four and a quarter inches of air.<br>Everything in this chapter is aimed at it.</p>
+  </div>
+</section>`,
+
+/* ═══ III — HOSPITALITY ═════════════════════ */
+
+/* 41 — CHAPTER III */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">III</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Hospitality</div>
+    <div class="ch-theme">How strangers become guests.</div>
+  </div>
+</section>`,
+
+/* 42 — HOSPITALITY ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &middot; Hospitality</div>
+    <hr class="text-rule">
+    <p class="body">SGH Events builds days like this one for a living, and its method is visible in the photographs without ever being their subject. The method is introductions. A hand on a shoulder. A fist offered and met. Two men laughing at something that was probably not that funny, which is precisely how strangers become guests.</p>
+    <p class="body">A golf day seats its hospitality outdoors, along four miles of walking, and that changes what hospitality means. There is no table plan. Groups assemble on tees, dissolve down fairways and reform on greens, and every pairing is a small act of curation by the organisers. The photographs of people standing together, arms over shoulders, phones out, are not interruptions to the sporting day. They are its purpose.</p>
+    <p class="body">The partners take their places in the landscape rather than on it. A sign stands at the edge of a fairway with players moving behind it. A hotel brand names a hole beneath the pines. Sponsorship of this kind works the way street furniture works: not by demanding attention but by being reliably present. By mid-morning the banners have stopped being advertising and become part of the course, which is the quiet achievement every partnership here is aiming at.</p>
+  </div>
+</section>`,
+
+/* 43 — PLATE 24: watching at the boards */
+`<section class="page plate-white">
+  <img src="/images/magnolia-24.jpg" alt="Guests gathered at the SGH Events boards">
+</section>`,
+
+/* 44 — PLATE 25: the greeting */
+`<section class="page plate-white">
+  <img src="/images/magnolia-25.jpg" alt="A greeting, one hand on a shoulder, Magnolia Classic">
+</section>`,
+
+/* 45 — PLATE 26: fist bump */
+`<section class="page plate-white">
+  <img src="/images/magnolia-26.jpg" alt="Two players meeting beside the bags">
+</section>`,
+
+/* 46 — PLATE 27: the selfie */
+`<section class="page plate-white">
+  <img src="/images/magnolia-27.jpg" alt="Two friends, arm over shoulder, taking a photograph of themselves">
+</section>`,
+
+/* 47 — PLATE 28: laughing, black and white */
+`<section class="page plate">
+  <img src="/images/magnolia-28.jpg" alt="Two players laughing on the fairway, in black and white">
+</section>`,
+
+/* 48 — HOSPITALITY FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>Nobody here is networking.</p>
+    <p>That is what makes it networking.</p>
+  </div>
+</section>`,
+
+/* 49 — PLATE 29: two on the tee */
+`<section class="page plate-white">
+  <img src="/images/magnolia-29.jpg" alt="Two golfers leaning on a driver, waiting on the tee">
+</section>`,
+
+/* 50 — PLATE 30: three together */
+`<section class="page plate-white">
+  <img src="/images/magnolia-30.jpg" alt="Three players, arms around shoulders, on the tee">
+</section>`,
+
+/* 51 — PLATE 31: three generations */
+`<section class="page plate-white">
+  <img src="/images/magnolia-31.jpg" alt="Three players of three generations standing together">
+</section>`,
+
+/* 52 — PLATE 32: the flooring sign */
+`<section class="page plate-white">
+  <img src="/images/magnolia-32.jpg" alt="A partner sign at the edge of the fairway, players beyond">
+</section>`,
+
+/* 53 — PLATE 33: the hotel sign */
+`<section class="page plate-white">
+  <img src="/images/magnolia-33.jpg" alt="A hotel partner sign beneath the pines">
+</section>`,
+
+/* 54 — PLATE 34: the fourball */
+`<section class="page plate-white">
+  <img src="/images/magnolia-34.jpg" alt="A fourball posed on the tee before setting out">
+</section>`,
+
+/* 55 — PLATE 35: another group */
+`<section class="page plate-white">
+  <img src="/images/magnolia-35.jpg" alt="A group waiting on the tee, drivers grounded">
+</section>`,
+
+/* 56 — HOSPITALITY CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The course does the introductions.<br>The day does the rest.</p>
+  </div>
+</section>`,
+
+/* ═══ IV — PLAY ═════════════════════════════ */
+
+/* 57 — CHAPTER IV */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Play</div>
+    <div class="ch-theme">Action, then stillness.</div>
+  </div>
+</section>`,
+
+/* 58 — PLAY ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &middot; Play</div>
+    <hr class="text-rule">
+    <p class="body">Play is the longest chapter because play is the longest part of the day, and the least of it is the striking of the ball. Photography that honours the true proportions of golf would be mostly pictures of walking, and this chapter leans that way deliberately.</p>
+    <p class="body">The action is here: drives against the tree line, a divot lifted whole out of the turf, sand thrown from a bunker in a black and white arc. But each is surrounded by its opposite. A shadow rehearsing a swing on empty grass. A tee box waiting under an airliner sliding down towards the airport beyond the trees, a reminder that this green corridor sits inside an ordinary working county. Flags holding their positions with nobody near them at all.</p>
+    <p class="body">What organised the chapter, in the end, was rhythm. A ball struck, then a ball walked after. The laughing and the grimacing arrive together, usually on the same green, separated by a putt whose length nobody outside the group will ever know. The round ends the way every round ends, in handshakes, and the score, which mattered intensely for four hours, begins its evening-long conversion into anecdote.</p>
+  </div>
+</section>`,
+
+/* 59 — PLATE 36: drive between the flags */
+`<section class="page plate-white">
+  <img src="/images/magnolia-36.jpg" alt="A drive from the tee between the banners, Magnolia Classic">
+</section>`,
+
+/* 60 — PLATE 37: impact, black and white */
+`<section class="page plate-white">
+  <img src="/images/magnolia-37.jpg" alt="The moment of impact from the tee, in black and white">
+</section>`,
+
+/* 61 — PLATE 38: shadow of the swing */
+`<section class="page plate">
+  <img src="/images/magnolia-38.jpg" alt="The shadow of a swing cast across the turf, in black and white">
+</section>`,
+
+/* 62 — PLATE 39: the airliner */
+`<section class="page plate">
+  <img src="/images/magnolia-39.jpg" alt="An airliner crossing above the tee box, Horsforth" style="object-position:center 30%">
+</section>`,
+
+/* 63 — PLAY FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>The ball is in the air for seconds at a time.</p>
+    <p>The day is spent walking after it.</p>
+  </div>
+</section>`,
+
+/* 64 — PLATE 40: tee shot, watched */
+`<section class="page plate-white">
+  <img src="/images/magnolia-40.jpg" alt="A tee shot watched from the edge of the box">
+</section>`,
+
+/* 65 — PLATE 41: the finish */
+`<section class="page plate-white">
+  <img src="/images/magnolia-41.jpg" alt="A full finish on the tee, Magnolia Classic">
+</section>`,
+
+/* 66 — PLATE 42: the divot */
+`<section class="page plate">
+  <img src="/images/magnolia-42.jpg" alt="A divot lifted whole out of the turf, in black and white">
+</section>`,
+
+/* 67 — PLATE 43: the bunker */
+`<section class="page plate">
+  <img src="/images/magnolia-43.jpg" alt="Sand thrown from a bunker shot, in black and white">
+</section>`,
+
+/* 68 — PLATE 44: walking pair */
+`<section class="page plate-white">
+  <img src="/images/magnolia-44.jpg" alt="Two players walking the fairway with their trolleys">
+</section>`,
+
+/* 69 — PLATE 45: the path */
+`<section class="page plate-white">
+  <img src="/images/magnolia-45.jpg" alt="Players pulling trolleys along the path between holes">
+</section>`,
+
+/* 70 — PLAY FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>Every green is read twice.</p>
+    <p>Once by the eyes, once by the ball.</p>
+  </div>
+</section>`,
+
+/* 71 — PLATE 46: the approach */
+`<section class="page plate-white">
+  <img src="/images/magnolia-46.jpg" alt="An approach shot from the fairway">
+</section>`,
+
+/* 72 — PLATE 47: follow-through, black and white */
+`<section class="page plate">
+  <img src="/images/magnolia-47.jpg" alt="A follow-through held against the trees, in black and white">
+</section>`,
+
+/* 73 — PLATE 48: putt at the yellow flag */
+`<section class="page plate-white">
+  <img src="/images/magnolia-48.jpg" alt="A putt rolling towards the yellow flag">
+</section>`,
+
+/* 74 — PLATE 49: on the green */
+`<section class="page plate-white sm">
+  <img src="/images/magnolia-49.jpg" alt="A putt away from the flag, late in the round">
+</section>`,
+
+/* 75 — PLATE 50: putting out */
+`<section class="page plate-white">
+  <img src="/images/magnolia-50.jpg" alt="Putting out with the flag laid on the green">
+</section>`,
+
+/* 76 — PLAY FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>The difference between joy and grief out here</p>
+    <p>is eighteen inches of grass.</p>
+  </div>
+</section>`,
+
+/* 77 — PLATE 51: the reaction */
+`<section class="page plate-white">
+  <img src="/images/magnolia-51.jpg" alt="A player laughing as he walks off the green">
+</section>`,
+
+/* 78 — PLATE 52: walking on */
+`<section class="page plate-white">
+  <img src="/images/magnolia-52.jpg" alt="A player pushing his trolley to the next tee">
+</section>`,
+
+/* 79 — PLATE 53: handshakes */
+`<section class="page plate-white">
+  <img src="/images/magnolia-53.jpg" alt="Handshakes on the final green, Magnolia Classic">
+</section>`,
+
+/* ═══ V — RECOGNITION ═══════════════════════ */
+
+/* 80 — CHAPTER V */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Recognition</div>
+    <div class="ch-theme">The day ends twice.</div>
+  </div>
+</section>`,
+
+/* 81 — RECOGNITION ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">V &middot; Recognition</div>
+    <hr class="text-rule">
+    <p class="body">Days like this one end twice. The first ending is ceremonial. A microphone appears, and players are interviewed beside their bags with the mock seriousness of a major, which is to say with complete seriousness. Prizes accumulate on a black-clothed table: champagne, boxes with ribbons, an envelope in Masters green that needs no explanation for anyone who has watched golf in April. A stack of the host's books waits in a column, gold lettering on green cloth.</p>
+    <p class="body">The presentations are the day's only organised photographs, guests arranged in rows, prizes held at chest height, and even these keep slipping towards laughter. Recognition at an event of this kind is not about establishing who played best. It is about certifying that the day happened, that it had winners, and that its winners were witnessed.</p>
+    <p class="body">The second ending is quieter and has no ceremony at all. The crowd thins. Someone carries a flag over his shoulder like a workman carrying a spade. The light goes long. The event, which took a season to organise, dissolves in under an hour, and the course begins to forget it immediately.</p>
+  </div>
+</section>`,
+
+/* 82 — PLATE 54: the interview */
+`<section class="page plate-white">
+  <img src="/images/magnolia-54.jpg" alt="A post-round interview beside the bags">
+</section>`,
+
+/* 83 — PLATE 55: interview under the tree */
+`<section class="page plate-white">
+  <img src="/images/magnolia-55.jpg" alt="An interview at the bag beneath the tree">
+</section>`,
+
+/* 84 — PLATE 56: the books */
+`<section class="page plate">
+  <img src="/images/magnolia-56.jpg" alt="A stack of the host's books, gold lettering on green cloth">
+</section>`,
+
+/* 85 — PLATE 57: champagne and the green envelope */
+`<section class="page plate">
+  <img src="/images/magnolia-57.jpg" alt="Champagne and an envelope in Masters green on the prize table">
+</section>`,
+
+/* 86 — RECOGNITION FRAGMENT */
+`<section class="page">
+  <div class="fragment-wrap">
+    <p>The prizes certify the day.</p>
+    <p>The witnesses make it true.</p>
+  </div>
+</section>`,
+
+/* 87 — PLATE 58: the winner */
+`<section class="page plate-white">
+  <img src="/images/magnolia-58.jpg" alt="A winner with his prizes at the presentation table">
+</section>`,
+
+/* 88 — PLATE 59: two winners */
+`<section class="page plate-white">
+  <img src="/images/magnolia-59.jpg" alt="Two winners with boxes and champagne at the SGH banner">
+</section>`,
+
+/* 89 — PLATE 60: the presentation */
+`<section class="page plate-white">
+  <img src="/images/magnolia-60.jpg" alt="A presentation with the Masters flag held between four players">
+</section>`,
+
+/* 90 — PLATE 61: flag over the shoulder */
+`<section class="page plate">
+  <img src="/images/magnolia-61.jpg" alt="A player carrying the flag over his shoulder, in black and white">
+</section>`,
+
+/* 91 — RECOGNITION CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The event dissolves in under an hour.<br>The course begins to forget it immediately.</p>
+  </div>
+</section>`,
+
+/* ═══ CLOSING ═══════════════════════════════ */
+
+/* 92 — FINAL ESSAY */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Closing Essay</div>
+    <p class="body">Sixty-two photographs, one day, no scores. What they document, taken together, is a form of construction. A premium sporting event is a temporary building. It is assembled in the early morning out of banners, vehicles, printed cards and cut grass. It is occupied for a day by people whose enjoyment appears effortless precisely because none of it is. It is dismantled by evening, leaving a golf course where it stood.</p>
+    <p class="body">The materials of that building are what this publication has collected. The passport that is really a scorecard. The bowl of tees. The gopher riding a bag of serious equipment. The airliner crossing above the tee box. The green envelope on the prize table. None of these things is the event, and the event is nothing except these things, arranged in the right order by people who understand how days are built.</p>
+  </div>
+</section>`,
+
+/* 93 — FINAL ESSAY CONTINUED */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">That understanding is the real subject of Magnolia Classic. SGH Events organised the day. BMW and its fellow partners furnished it. Horsforth Golf Club held it. mkd STUDIO attended it the way we attend every place we document: as observers with no scores to settle, interested in how atmosphere is made.</p>
+    <p class="body">The conclusion, on the evidence of one day in July, is that atmosphere is made deliberately. It is made in the spacing of banners and the timing of champagne, in pairings chosen so that strangers finish as acquaintances, in a hundred small permissions to take the game seriously and the day lightly. This is Sport, Volume I: the first in a series about how occasions are constructed around the things people gather to watch and play.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">A reader who finishes these pages knowing nothing about who won has missed nothing. The scores were the day's pretext. The day was the point.</p>
+  </div>
+</section>`,
+
+/* 94 — CLOSING LINE */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The course keeps none of it.<br>That is why it has to be photographed.</p>
+  </div>
+</section>`,
+
+/* 95 — FINAL IMAGE */
+`<section class="page plate">
+  <img src="/images/magnolia-62.jpg" alt="A red flag among dark trees at the end of the day">
+</section>`,
+
+/* 96 — WHISPER */
+`<section class="page">
+  <div class="whisper-wrap"><p>The third of July, 2026.</p></div>
+</section>`,
+
+/* 97 — CREDITS */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Photography, editorial direction and text</p>
+    <p>mkd STUDIO</p>
+    <hr class="col-rule">
+    <p>The Magnolia Classic was organised by SGH Events</p>
+    <p>Played at Horsforth Golf Club, Yorkshire</p>
+    <p>With partners including BMW</p>
+    <hr class="col-rule">
+    <p>This publication is an independent editorial work.<br>It is not an official record of the event.</p>
+  </div>
+</section>`,
+
+/* 98 — COLOPHON */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Publication 009</p>
+    <p>Magnolia Classic &nbsp;&middot;&nbsp; Sport, Volume I</p>
+    <hr class="col-rule">
+    <p>Photographed July 2026</p>
+    <p>Published in Yorkshire &nbsp;&middot;&nbsp; 2026</p>
+    <p>First Edition</p>
+    <hr class="col-rule">
+    <p>All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+  </div>
+</section>`,
+
+/* 99 — EPILOGUE LINE */
+`<section class="page">
+  <div class="whisper-wrap"><p>Sport &middot; Volume II will follow another occasion.</p></div>
+</section>`,
+
+/* 100 — MASTHEAD */
+`<section class="page">
+  <div class="masthead-wrap">
+    <div class="mast-name">mkd STUDIO</div>
+    <hr class="mast-rule">
+    <div class="mast-worlds">Hospitality &middot; Places &middot; Craft &middot; Experience</div>
+  </div>
+</section>`,
+
+];
+
+const N = PAGES.length;
+const KEY = 'mkd-reader-' + location.pathname;
+let cur = 0;
+let busy = false;
+let cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+/* preload plate images near the current page */
+const SRC_OF = PAGES.map(p => {
+  const m = p.match(/img src="([^"]+)"/);
+  return m ? m[1] : null;
+});
+const loaded = new Set();
+function preloadAround(idx) {
+  for (let i = Math.max(0, idx - 2); i <= Math.min(N - 1, idx + 6); i++) {
+    const s = SRC_OF[i];
+    if (s && !loaded.has(s)) {
+      loaded.add(s);
+      const im = new Image();
+      im.src = s;
+    }
+  }
+}
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) {
+    el.innerHTML = '';
+    el.style.background = 'var(--linen)';
+    return;
+  }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  const isDark = pg && (pg.classList.contains('plate') || pg.classList.contains('dark-page'));
+  el.style.background = isDark ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  try { localStorage.setItem(KEY, cur); } catch (e) {}
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
+  preloadAround(cur);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft,  cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+
+  setTimeout(() => {
+    out.remove();
+    mPanel.classList.remove(inCls);
+    busy = false;
+  }, 480);
+}
+
+function next() {
+  if (isDesk()) {
+    renderDesk(cur + 2);
+  } else {
+    if (cur < N - 1) slide('next', cur + 1);
+  }
+}
+function prev() {
+  if (isDesk()) {
+    renderDesk(cur - 2);
+  } else {
+    if (cur > 0) slide('prev', cur - 1);
+  }
+}
+
+function enter(start) {
+  start = start || 0;
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) {
+    btnPrev.style.display = btnNext.style.display = 'block';
+    renderDesk(start);
+  } else {
+    renderMobile(start);
+  }
+}
+
+(function () {
+  let s = 0;
+  try { s = parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) {}
+  if (s > 0 && s < N - 1) {
+    const first = document.querySelector('.intro-open');
+    if (!first) return;
+    const cont = first.cloneNode(false);
+    cont.textContent = 'Continue from page ' + (s + 1);
+    cont.removeAttribute('onclick');
+    cont.onclick = function () { enter(s); };
+    cont.style.marginTop = '1rem';
+    first.insertAdjacentElement('afterend', cont);
+    first.textContent = 'Start from the beginning';
+  }
+})();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => {
+  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+    dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur);
+    else renderMobile(cur);
+  }
+});
+
+/* preload the opening pages while the intro is showing */
+preloadAround(0);
+</script>
+<script src="/js/mobile-nav.js?v=2" defer></script>
+</body>
+</html>
