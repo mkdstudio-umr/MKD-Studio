@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Kept Close / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png?v=5">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<link rel="manifest" href="/site.webmanifest?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── PAGES ──────────────────────────────── */
+
+.page {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+
+/* linen cloth texture */
+.page::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .032; mix-blend-mode: multiply;
+}
+
+/* full-bleed plate pages */
+.page.plate {
+  padding: 0; background: var(--dark);
+}
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center; z-index: 1;
+}
+.page.plate::before { z-index: 2; opacity: .02; }
+.page.plate::after  { z-index: 3; opacity: .014; }
+
+/* landscape plates run across both pages of the spread:
+   each half shows exactly half the image, spine through the middle */
+.page.plate.spread-l img,
+.page.plate.spread-r img {
+  width: 200%; max-width: none;
+  height: 100%; top: 0;
+}
+.page.plate.spread-l img { left: 0; }
+.page.plate.spread-r img { left: -100%; }
+
+/* margin plate pages: the photograph sits in white space */
+.page.plate-white {
+  padding: 0; background: var(--linen);
+}
+.page.plate-white img {
+  display: block;
+  max-width: 74%; max-height: 80%;
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.page.plate-white.sm img {
+  max-width: 56%; max-height: 62%;
+}
+
+/* cover plate with overlaid title */
+.page.plate.cover .cover-block {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 0 2rem 9%;
+  background: linear-gradient(to top, rgba(13,13,12,.55), rgba(13,13,12,0));
+  padding-top: 5rem;
+}
+.cover-no {
+  font-size: .44rem; letter-spacing: .4em;
+  text-transform: uppercase; color: rgba(243,241,236,.55);
+  margin-bottom: 1.1rem;
+}
+.cover-title {
+  font-style: italic; font-size: 1.9rem;
+  letter-spacing: .01em; color: var(--linen);
+  line-height: 1.1; margin-bottom: .7rem;
+  text-shadow: 0 1px 14px rgba(13,13,12,.35);
+}
+.cover-sub {
+  font-size: .46rem; letter-spacing: .38em;
+  text-transform: uppercase; color: rgba(243,241,236,.6);
+  margin-bottom: 1.6rem;
+}
+.cover-studio {
+  font-size: .44rem; letter-spacing: .42em;
+  text-transform: uppercase; color: rgba(243,241,236,.38);
+}
+
+/* half title */
+.halftitle {
+  font-size: .6rem; letter-spacing: .34em;
+  color: var(--mid); text-transform: uppercase;
+}
+
+/* title page */
+.title-wrap { text-align: center; padding: 2rem; }
+.title-main {
+  font-style: italic; font-size: 1.6rem;
+  color: var(--ink); line-height: 1.15;
+  margin-bottom: .7rem;
+}
+.title-sub {
+  font-size: .48rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--mid);
+  line-height: 2.4;
+}
+.title-studio {
+  font-size: .44rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-top: 3.5rem;
+}
+.title-note {
+  font-style: italic; font-size: .7rem;
+  color: var(--soft); margin-top: 3rem;
+}
+
+/* contents */
+.contents-wrap { text-align: center; padding: 2rem; }
+.contents-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.6rem;
+}
+.contents-wrap .toc-row {
+  font-style: italic; font-size: .92rem;
+  color: var(--ink); line-height: 2.5;
+}
+.contents-wrap .toc-row span {
+  font-style: normal; font-size: .55rem;
+  color: var(--soft); letter-spacing: .14em;
+  margin-right: .9rem;
+}
+.contents-wrap .toc-quiet {
+  font-size: .55rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 3;
+}
+
+/* colophon / credits */
+.colophon-wrap { text-align: left; padding: 13%; }
+.colophon-wrap p {
+  font-size: .52rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--soft);
+  line-height: 2.5;
+}
+.colophon-wrap .col-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.25);
+  width: 100%; margin: 1.6rem 0;
+}
+
+/* section label (editorial, closing essay) */
+.section-label {
+  font-size: .48rem; letter-spacing: .38em;
+  text-transform: uppercase; color: var(--soft);
+  margin-bottom: 2.8rem;
+}
+
+/* body text pages */
+.textwrap {
+  width: 100%; padding: 11% 13%; text-align: left;
+}
+.chapter-ref {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .06em;
+  margin-bottom: .55rem;
+}
+.text-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.35);
+  width: 28px; margin: 0 0 1.6rem; opacity: 1;
+}
+.body {
+  font-size: .8rem; line-height: 1.92;
+  margin-bottom: 1.25rem; color: var(--ink);
+}
+.body.i { font-style: italic; }
+.body.dim { color: var(--mid); font-size: .72rem; line-height: 2.1; }
+
+/* chapter divider */
+.chapter-wrap {
+  text-align: center; padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+.ch-num {
+  font-style: italic; font-size: .58rem;
+  color: var(--soft); letter-spacing: .18em;
+  margin-bottom: 1rem;
+}
+.ch-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.3);
+  width: 24px; margin: 0 auto 1rem;
+}
+.ch-name {
+  font-style: italic; font-size: 1.55rem;
+  color: var(--ink); letter-spacing: .02em;
+  line-height: 1.15;
+}
+.ch-theme {
+  font-style: italic; font-size: .72rem;
+  color: var(--mid); margin-top: 1.2rem;
+}
+
+/* quiet line pages */
+.closing-wrap {
+  text-align: center; padding: 14%;
+}
+.closing-wrap p {
+  font-style: italic; font-size: 1.02rem;
+  line-height: 1.72; color: var(--ink);
+  max-width: 22em; margin: 0 auto;
+}
+/* reflection pages: small left-aligned text in white space */
+.reflection-wrap {
+  width: 100%;
+  padding: 0 20% 0 15%;
+  text-align: left;
+}
+.reflection-wrap p {
+  font-style: italic;
+  font-size: .84rem;
+  line-height: 1.95;
+  color: var(--ink);
+  max-width: 26em;
+}
+.reflection-wrap p + p { margin-top: 1rem; }
+
+.fragment-wrap { text-align: center; padding: 14%; }
+.fragment-wrap p {
+  font-style: italic; font-size: .88rem;
+  line-height: 1.78; color: var(--mid);
+  max-width: 24em; margin: 0 auto;
+}
+.fragment-wrap p + p { margin-top: .9rem; }
+.whisper-wrap { text-align: center; padding: 2rem; }
+.whisper-wrap p {
+  font-style: italic; font-size: .82rem;
+  color: var(--soft); letter-spacing: .03em;
+  line-height: 1.9;
+}
+.masthead-wrap { text-align: center; padding: 2rem; }
+.masthead-wrap .mast-name { font-size: .95rem; letter-spacing: .04em; }
+.mast-rule {
+  border: none; border-top: .4px solid rgba(176,171,166,.45);
+  width: 36px; margin: 1rem auto;
+}
+.mast-worlds {
+  font-size: .5rem; letter-spacing: .32em;
+  color: var(--soft); text-transform: uppercase;
+}
+
+/* ── MOBILE LAYOUT ─────────────────────── */
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .46s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+
+#desktop-wrap { display: none; }
+
+/* ── INTRO ─────────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity 1.1s ease, visibility 1.1s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+#intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .035; mix-blend-mode: screen;
+  pointer-events: none; z-index: 0;
+}
+#intro > * { position: relative; z-index: 1; }
+.intro-title {
+  font-style: italic; font-size: 1.85rem;
+  color: var(--linen); letter-spacing: .01em;
+  margin-bottom: .6rem; line-height: 1.12;
+}
+.intro-sub {
+  font-size: .48rem; letter-spacing: .36em;
+  text-transform: uppercase; color: rgba(176,171,166,.55);
+  margin-bottom: 4rem;
+}
+.intro-open {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  border: .5px solid rgba(243,241,236,.3); background: none;
+  padding: 1rem 2.6rem; cursor: pointer;
+  font-family: inherit; color: rgba(243,241,236,.7);
+  transition: border-color .35s, color .35s, background .35s;
+}
+.intro-open:hover {
+  border-color: var(--linen);
+  color: var(--dark);
+  background: var(--linen);
+}
+
+/* ── CHROME ─────────────────────────────── */
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: .44rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .45; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .44rem; letter-spacing: .24em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .5; transition: opacity 1.2s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+/* ── DESKTOP ─────────────────────────────── */
+@media (min-width: 900px) {
+  body { background: #0a0908; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 3vh 3vw;
+  }
+
+  #book-spread {
+    display: flex; width: 100%; height: 100%;
+    max-width: 1520px; max-height: 88vh; gap: 0;
+  }
+
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0;
+    position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow:
+      0 24px 100px rgba(0,0,0,.85),
+      0 4px 12px rgba(0,0,0,.5),
+      inset 0 0 0 .5px rgba(180,160,130,.12);
+  }
+
+  #spine {
+    flex: 0 0 30px;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 35%,
+      rgba(0,0,0,.06) 50%, rgba(0,0,0,.12) 65%,
+      rgba(0,0,0,.35) 100%
+    );
+    position: relative; z-index: 5;
+  }
+
+  #panel-left::after {
+    content: ""; position: absolute;
+    top:0; right:0; width:24px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute;
+    top:0; left:0; width:24px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.1), transparent);
+    z-index: 4; pointer-events: none;
+  }
+
+  #panel-left .page, #panel-right .page {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+  }
+
+  #counter { bottom: 1.8rem; left: auto; right: 3.5vw; transform: none; }
+
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: rgba(176,171,166,.4); font-family: inherit;
+    font-size: .44rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: color .25s; padding: 1rem 1.6rem;
+  }
+  #btn-prev { left: .4vw; }
+  #btn-next { right: .4vw; }
+  #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left,
+  .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+<script defer data-domain="mkdstudio.net" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-title">Kept Close</div>
+  <div class="intro-sub">Craft &middot; Volume I &nbsp;&middot;&nbsp; mkd STUDIO</div>
+  <button class="intro-open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap"><div id="mobile-panel"></div></div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* 001 */
+`<section class="page plate cover">
+  <img src="/images/kept-close-01.jpg" alt="A wall of perfume bottles on backlit shelves at dusk, Kept Close">
+  <div class="cover-block">
+    <div class="cover-no">Publication 010</div>
+    <div class="cover-title">Kept Close</div>
+    <div class="cover-sub">Craft &middot; Volume I</div>
+    <div class="cover-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 002 */
+`<section class="page"><div class="halftitle">Kept Close</div></section>`,
+
+/* 003 */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">Kept Close</div>
+    <div class="title-sub">Craft &middot; Volume I<br>Scent, in the rooms that sell it<br>and the life that keeps it</div>
+    <div class="title-studio">mkd STUDIO</div>
+    <div class="title-note">An editorial study of living with fragrance.</div>
+  </div>
+</section>`,
+
+/* 004 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Editorial Note</div>
+    <p class="body">Fragrance is the one product a photograph cannot show. Everything else that commands a considered room, watches, leather, porcelain, can at least be seen. Scent is invisible at the moment of sale and invisible in use, and everything in this publication follows from that single inconvenient fact.</p>
+    <p class="body">Because the product cannot be shown, rooms are built so that it can be believed. Cabinets are joined to museum standard, light is folded through gold and glass, and an entire floor of a department store is arranged as a district of small maisons. The first chapters of this book walk through those rooms as they were found: in London, Leeds, Doha, Milan and Copenhagen, photographed over four years of standing quietly in places built for a substance nobody can see.</p>
+  </div>
+</section>`,
+
+/* 005 */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">The later chapters follow the bottles home. This is the half of the subject that retail photography never reaches: the shelf that grows by one, the box kept long after the ribbon, the bottle beside the bed that ends a day, the small vials of oud that travel further than their owners intended. The photographs become smaller and quieter as the book goes on. That is not an accident of method. It is the argument.</p>
+    <p class="body">Nothing here is reviewed and nothing is ranked. No notes are listed, no bottles recommended. The publication attends to fragrance the way this studio attends to hotels and cities: as a made thing, held in made places, that ends up holding memory better than photographs do.</p>
+  </div>
+</section>`,
+
+/* 006 */
+`<section class="page">
+  <div class="contents-wrap">
+    <div class="contents-label">Contents</div>
+    <div class="toc-row"><span>I</span>The Room</div>
+    <div class="toc-row"><span>II</span>The Purchase</div>
+    <div class="toc-row"><span>III</span>The Shelf</div>
+    <div class="toc-row"><span>IV</span>The Evening</div>
+    <div class="toc-row"><span>V</span>The Journey</div>
+  </div>
+</section>`,
+
+/* 007 */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>This is not a guide to perfume.</p>
+    <p style="margin-top:1.2rem;color:var(--mid)">It is a study of what it means to keep it.</p>
+  </div>
+</section>`,
+
+/* 008 */
+`<section class="page">
+  <div class="whisper-wrap">
+    <p>London &middot; Leeds &middot; Doha &middot; Milan &middot; Copenhagen &middot; Makkah</p>
+    <p>Photographed 2024 to 2026</p>
+  </div>
+</section>`,
+
+/* 009 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">I</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Room</div>
+    <div class="ch-theme">Architecture for something invisible.</div>
+  </div>
+</section>`,
+
+/* 010 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">I &middot; The Room</div>
+    <hr class="text-rule">
+    <p class="body">Begin where the subject is grandest. Harrods gives fragrance its sixth floor, reached on purpose rather than in passing, and the remove is the point: by the time the salon opens, the noise of the store has fallen away and scent is no longer something casual. Each house keeps a small architecture of its own up there, dark lacquer for one, pale glass and flowers for another, arranged less like a department than a district.</p>
+    <p class="body">The same intention repeats at every scale. A Guerlain counter in Leeds is built with the care of the Paris flagship. A courtyard in Doha sets gold chairs under gold parasols and calls it a boutique. In Milan, Fueguia keeps its bottles on laboratory plinths below a ladder wall, closer to an apothecary archive than a shop. None of these rooms can show the thing they sell. Every one of them is certain you will believe it anyway.</p>
+  </div>
+</section>`,
+
+/* 011 */
+`<section class="page plate">
+  <img src="/images/harrods-05.jpg" alt="The Harrods facade in Knightsbridge, London">
+</section>`,
+
+/* 012 */
+`<section class="page plate">
+  <img src="/images/salon-de-parfums-00.jpg" alt="The Floor 6 entrance to Salon de Parfums, Harrods">
+</section>`,
+
+/* 013 */
+`<section class="page plate">
+  <img src="/images/salon-de-parfums-02.jpg" alt="A stained glass screen and globe chandelier, Salon de Parfums">
+</section>`,
+
+/* 014 */
+`<section class="page plate">
+  <img src="/images/salon-de-parfums-04.jpg" alt="Casamorati bottles on arched shelves with gold lattice, Salon de Parfums">
+</section>`,
+
+/* 015 */
+`<section class="page plate">
+  <img src="/images/salon-de-parfums-05.jpg" alt="A dark lacquer Kilian cabinet with mirrored panels, Salon de Parfums">
+</section>`,
+
+/* 016 */
+`<section class="page plate">
+  <img src="/images/salon-de-parfums-08.jpg" alt="Gold capped bottles beside a flower arrangement, Salon de Parfums">
+</section>`,
+
+/* 017 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>A room built for scent is a theatre with an invisible lead.</p>
+  </div>
+</section>`,
+
+/* 018 */
+`<section class="page plate">
+  <img src="/images/kept-close-02.jpg" alt="The Guerlain boutique wall in gold lettering, Leeds">
+</section>`,
+
+/* 019 */
+`<section class="page plate">
+  <img src="/images/guerlain-leeds-02.jpg" alt="A Guerlain bag against brick and morning light, Leeds">
+</section>`,
+
+/* 020 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>Glass keeps the distance that makes desire possible.</p>
+  </div>
+</section>`,
+
+/* 021 */
+`<section class="page plate spread-l">
+  <img src="/images/guerlain-leeds-11.jpg" alt="The Guerlain counter with its lit display, Leeds" style="width:260.0%;left:-58.6%;object-position:center 52%">
+</section>`,
+
+/* 022 */
+`<section class="page plate spread-r">
+  <img src="/images/guerlain-leeds-11.jpg" alt="The Guerlain counter with its lit display, Leeds" style="width:260.0%;left:-158.6%;object-position:center 52%">
+</section>`,
+
+/* 023 */
+`<section class="page plate">
+  <img src="/images/guerlain-leeds-15.jpg" alt="A pleated fan and gold vessel on the Guerlain counter, Leeds">
+</section>`,
+
+/* 024 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>Every house has its own weather. You learn it by standing inside.</p>
+  </div>
+</section>`,
+
+/* 025 */
+`<section class="page plate">
+  <img src="/images/gl_10.jpg" alt="The Guerlain terrace under a colonnade, Katara, Doha">
+</section>`,
+
+/* 026 */
+`<section class="page plate">
+  <img src="/images/gl_03.jpg" alt="A gold bee bottle behind glass, Guerlain at Katara">
+</section>`,
+
+/* 027 */
+`<section class="page plate">
+  <img src="/images/gl_09.jpg" alt="A row of L'Art et la Matière bottles in the Doha light">
+</section>`,
+
+/* 028 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>What cannot be photographed can still be staged.</p>
+  </div>
+</section>`,
+
+/* 029 */
+`<section class="page plate">
+  <img src="/images/fueguia_house.jpg" alt="The Fueguia plaque beside a Milan doorway">
+</section>`,
+
+/* 030 */
+`<section class="page plate">
+  <img src="/images/fueguia_archive.jpg" alt="The Fueguia archive wall and ladder, Milan">
+</section>`,
+
+/* 031 */
+`<section class="page plate">
+  <img src="/images/fueguia_bottle.jpg" alt="Glass stills and bottles on wooden plinths, Fueguia Milan">
+</section>`,
+
+/* 032 */
+`<section class="page plate">
+  <img src="/images/byredo-store.jpg" alt="The BYREDO storefront, Leeds">
+</section>`,
+
+/* 033 */
+`<section class="page plate">
+  <img src="/images/byredo-display.jpg" alt="BYREDO bottles in rows on a stone counter">
+</section>`,
+
+/* 034 */
+`<section class="page plate">
+  <img src="/images/apotek_plaque.jpg" alt="The Apotek 57 sign, Copenhagen">
+</section>`,
+
+/* 035 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>The purchase is a small ceremony conducted in whispers.</p>
+  </div>
+</section>`,
+
+/* 036 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>A receipt is forgotten. A handwritten note is kept.</p>
+  </div>
+</section>`,
+
+/* 037 */
+`<section class="page plate spread-l">
+  <img src="/images/kept-close-03.jpg" alt="A backlit apothecary wall of amber bottles and folded towels" style="width:210.0%;left:-5.0%;object-position:center 50%">
+</section>`,
+
+/* 038 */
+`<section class="page plate spread-r">
+  <img src="/images/kept-close-03.jpg" alt="A backlit apothecary wall of amber bottles and folded towels" style="width:210.0%;left:-105.0%;object-position:center 50%">
+</section>`,
+
+/* 039 */
+`<section class="page plate">
+  <img src="/images/kept-close-04.jpg" alt="Louis Vuitton fragrance bottles on a backlit display">
+</section>`,
+
+/* 040 */
+`<section class="page plate">
+  <img src="/images/kept-close-05.jpg" alt="The Roja Parfums name etched in glass above gold bottles">
+</section>`,
+
+/* 041 */
+`<section class="page plate">
+  <img src="/images/kept-close-07.jpg" alt="An Ex Nihilo pair on wooden plinths">
+</section>`,
+
+/* 042 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">II</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Purchase</div>
+    <div class="ch-theme">The transaction as ceremony.</div>
+  </div>
+</section>`,
+
+/* 043 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">II &middot; The Purchase</div>
+    <hr class="text-rule">
+    <p class="body">Nobody needs any of this, which is why the buying of it is staged with such care. The counter is dressed, the tissue folded, the box closed with a weight that no shampoo bottle will ever know. A purchase of fragrance is a ceremony conducted at conversation volume, and both parties understand their parts in it.</p>
+    <p class="body">What is actually acquired is mostly not liquid. It is the drawer sliding open, the bag carried out into the weather, the handwritten line on a card that turns a transaction into a correspondence. The photographs in this chapter were made on both sides of that exchange, and the objects in them are still owned. None of the boxes have been thrown away. That, too, is evidence.</p>
+  </div>
+</section>`,
+
+/* 044 */
+`<section class="page plate">
+  <img src="/images/kept-close-08.jpg" alt="The Penhaligon's counter dressed for winter, London">
+</section>`,
+
+/* 045 */
+`<section class="page plate">
+  <img src="/images/kept-close-09.jpg" alt="A Creed box and bottle of Oud Zarian on a marble counter">
+</section>`,
+
+/* 046 */
+`<section class="page plate">
+  <img src="/images/guerlain-leeds-05.jpg" alt="A Guerlain drawer box sliding open, Leeds">
+</section>`,
+
+/* 047 */
+`<section class="page plate">
+  <img src="/images/guerlain-leeds-12.jpg" alt="A sculpted bottle held in its presentation box, Guerlain Leeds">
+</section>`,
+
+/* 048 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>A collection is a diary that opens at any page.</p>
+  </div>
+</section>`,
+
+/* 049 */
+`<section class="page plate">
+  <img src="/images/kept-close-10.jpg" alt="A Guerlain bag, an opened box and a handwritten note on a courtyard table">
+</section>`,
+
+/* 050 */
+`<section class="page plate">
+  <img src="/images/kept-close-11.jpg" alt="A Thameen bottle in a gold silk lined box">
+</section>`,
+
+/* 051 */
+`<section class="page plate">
+  <img src="/images/kept-close-12.jpg" alt="An Electimuss bottle on its purple box beneath a brass lamp">
+</section>`,
+
+/* 052 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">III</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Shelf</div>
+    <div class="ch-theme">The collection at home.</div>
+  </div>
+</section>`,
+
+/* 053 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">III &middot; The Shelf</div>
+    <hr class="text-rule">
+    <p class="body">Home is where the argument of the boutique either survives or dissolves. It survives. The wall photographed at the start of this chapter was not assembled for a camera. It grew, bottle by bottle, each one carrying a date and a place and, in most cases, a person, until the shelves needed their own light.</p>
+    <p class="body">A collection of scent is unlike a collection of anything else, because its objects are consumed by their use. Every bottle on these shelves is quietly emptying. The collector keeps not artefacts but rates of disappearance, and the wall is a calendar as much as it is a cabinet: what stands here is the part of the past that has not yet been used up.</p>
+  </div>
+</section>`,
+
+/* 054 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>The shelf remembers evenings the calendar has lost.</p>
+  </div>
+</section>`,
+
+/* 055 */
+`<section class="page plate spread-l">
+  <img src="/images/kept-close-13.jpg" alt="The collection wall, a hundred bottles on backlit shelves" style="width:220.0%;left:-6.7%;object-position:center 45%">
+</section>`,
+
+/* 056 */
+`<section class="page plate spread-r">
+  <img src="/images/kept-close-13.jpg" alt="The collection wall, a hundred bottles on backlit shelves" style="width:220.0%;left:-106.7%;object-position:center 45%">
+</section>`,
+
+/* 057 */
+`<section class="page plate">
+  <img src="/images/kept-close-14.jpg" alt="BYREDO bottles gathered on a chest of drawers at home">
+</section>`,
+
+/* 058 */
+`<section class="page plate">
+  <img src="/images/kept-close-15.jpg" alt="Bottles of Amouage, Frédéric Malle and Guerlain laid on a wooden table">
+</section>`,
+
+/* 059 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>Nothing is worn as briefly, or remembered as long.</p>
+  </div>
+</section>`,
+
+/* 060 */
+`<section class="page plate">
+  <img src="/images/kept-close-16.jpg" alt="Sculptural bottles on a dark garden table">
+</section>`,
+
+/* 061 */
+`<section class="page plate">
+  <img src="/images/kept-close-17.jpg" alt="A Maison Crivelli lineup beside cut flowers">
+</section>`,
+
+/* 062 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Evening</div>
+    <div class="ch-theme">Scent at the scale of a single day.</div>
+  </div>
+</section>`,
+
+/* 063 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">IV &middot; The Evening</div>
+    <hr class="text-rule">
+    <p class="body">The bottles leave the shelf one at a time. This chapter photographs them where they are actually used: on bedsheets in the last light, under the brass lamp of a hotel nightstand, on a garden table while the day cools. The scale of the pictures drops accordingly. A room can be documented from across the street; an evening only ever from arm's length.</p>
+    <p class="body">There is a reason the bedside is where fragrance ends its day. Scent is the last thing applied and the first thing remembered, and the bottle that stands by the lamp is chosen with more honesty than any bottle downstairs. Nobody performs for their own nightstand.</p>
+  </div>
+</section>`,
+
+/* 064 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-18.jpg" alt="Three BDK Parfums bottles on white sheets">
+</section>`,
+
+/* 065 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-19.jpg" alt="A bottle of Vanilla Powder resting on bedding">
+</section>`,
+
+/* 066 */
+`<section class="page plate">
+  <img src="/images/kept-close-20.jpg" alt="A bedside group of Diptyque and Givenchy bottles">
+</section>`,
+
+/* 067 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>The last thing applied is the first thing recalled.</p>
+  </div>
+</section>`,
+
+/* 068 */
+`<section class="page plate">
+  <img src="/images/kept-close-21.jpg" alt="A Maison Francis Kurkdjian oud beneath a hotel lamp">
+</section>`,
+
+/* 069 */
+`<section class="page plate">
+  <img src="/images/kept-close-22.jpg" alt="Black Saffron and Oud Stallion under lamplight">
+</section>`,
+
+/* 070 */
+`<section class="page plate">
+  <img src="/images/kept-close-23.jpg" alt="Three Louis Vuitton bottles on a stone table in the garden">
+</section>`,
+
+/* 071 */
+`<section class="page plate">
+  <img src="/images/kept-close-24.jpg" alt="A Roja bottle catching the sun on a garden table">
+</section>`,
+
+/* 072 */
+`<section class="page plate">
+  <img src="/images/kept-close-25.jpg" alt="The amber glass of Enigma, close up">
+</section>`,
+
+/* 073 */
+`<section class="page plate">
+  <img src="/images/kept-close-06.jpg" alt="A Roja bottle on a side table in the evening light">
+</section>`,
+
+/* 074 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>Scent is the one souvenir that survives the suitcase.</p>
+  </div>
+</section>`,
+
+/* 075 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-26.jpg" alt="A marble table with a green bottle, an attar vial, books and a camera">
+</section>`,
+
+/* 076 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">The Journey</div>
+    <div class="ch-theme">Oud, attars, and the oldest route of all.</div>
+  </div>
+</section>`,
+
+/* 077 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">V &middot; The Journey</div>
+    <hr class="text-rule">
+    <p class="body">Follow the materials far enough and the story leaves the boutique altogether. Oud is older than any of the houses in this book, and it moves differently: as chips of dark wood weighed out into pouches, as oils in vials small enough to disappear into a pocket, as a display of gold capped bottles against a patterned copper wall in the Gulf, where this way of wearing scent never needed reinventing.</p>
+    <p class="body">The attar has one property the spray will never have. It is made for the person who carries it rather than the room they enter, worn close to the skin, at a volume only the wearer knows. The final photographs in this book were made where that tradition points: at a window above the Haram, where a travelling case of scent, a set of prayer beads and a row of watches wait on a table for the days to begin.</p>
+  </div>
+</section>`,
+
+/* 078 */
+`<section class="page plate">
+  <img src="/images/kept-close-27.jpg" alt="Gold capped bottles and mashrabiya boxes against a patterned copper wall">
+</section>`,
+
+/* 079 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-28.jpg" alt="A Cartier coffret of attars beside a box of oud wood">
+</section>`,
+
+/* 080 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-29.jpg" alt="An Amouage bottle with two attar vials on red boxes">
+</section>`,
+
+/* 081 */
+`<section class="page">
+  <div class="reflection-wrap">
+    <p>Some bottles are bought for the person their owner intends to become.</p>
+  </div>
+</section>`,
+
+/* 082 */
+`<section class="page plate-white">
+  <img src="/images/kept-close-30.jpg" alt="A linen pouch of oud chips and a bottle of Purple Oud on white sheets">
+</section>`,
+
+/* 083 */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The oldest perfumes never needed a room at all.</p>
+  </div>
+</section>`,
+
+/* 084 */
+`<section class="page plate">
+  <img src="/images/kept-close-31.jpg" alt="Bottles, prayer beads and watches on a table before a window above the Haram, Makkah">
+</section>`,
+
+/* 085 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="section-label">Closing Essay</div>
+    <p class="body">Fifty-one photographs, six cities, four years. What they document, taken together, is a loop. It begins in rooms built to make an invisible product believable, runs through the ceremony of buying, settles onto a wall of shelves at home, contracts to a single bottle beside a lamp, and ends with a vial of oil carried to the holiest place its owner knows. At every stage the same thing is being purchased, and at no stage is it liquid.</p>
+    <p class="body">What is being purchased is memory, paid for in advance. The maisons understand this, which is why their rooms are built like reliquaries. The collector understands it, which is why the shelf is lit like an archive. And the pilgrim understands it best of all, which is why scent has accompanied worship for as long as either has existed. A photograph and a fragrance are attempts at the same impossible thing: keeping.</p>
+  </div>
+</section>`,
+
+/* 086 */
+`<section class="page">
+  <div class="textwrap">
+    <p class="body">This is Craft, Volume I: the first in a series about made things and the attention they reward. It begins with fragrance because fragrance is the limiting case, the craft whose product cannot be seen, photographed, or kept, and which is therefore surrounded by more deliberate making than any other: bottles, boxes, cabinets, counters, rooms, rituals. Strip away the invisible centre and everything that remains is design.</p>
+    <p class="body i" style="margin-top:1.8rem;color:var(--mid)">A reader who finishes these pages unable to smell anything has missed nothing. The bottles were never the point. The keeping was.</p>
+  </div>
+</section>`,
+
+/* 087 */
+`<section class="page">
+  <div class="closing-wrap">
+    <p>The scent fades by morning.<br>The shelf remembers.</p>
+  </div>
+</section>`,
+
+/* 088 */
+`<section class="page">
+  <div class="whisper-wrap"><p>Photographed 2024 to 2026.</p></div>
+</section>`,
+
+/* 089 */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Photography, editorial direction and text</p>
+    <p>mkd STUDIO</p>
+    <hr class="col-rule">
+    <p>Made in the rooms of Harrods and Salon de Parfums, London<br>Guerlain, Leeds and Katara &nbsp;&middot;&nbsp; BYREDO, Leeds<br>Fueguia 1833, Milan &nbsp;&middot;&nbsp; Apotek 57, Copenhagen</p>
+    <hr class="col-rule">
+    <p>And in the rooms of home.</p>
+    <hr class="col-rule">
+    <p>This publication is an independent editorial work.<br>No house or retailer commissioned or approved it.</p>
+  </div>
+</section>`,
+
+/* 090 */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Publication 010</p>
+    <p>Kept Close &nbsp;&middot;&nbsp; Craft, Volume I</p>
+    <hr class="col-rule">
+    <p>Photographed 2024 to 2026</p>
+    <p>Published in Yorkshire &nbsp;&middot;&nbsp; 2026</p>
+    <p>First Edition</p>
+    <hr class="col-rule">
+    <p>All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+  </div>
+</section>`,
+
+/* 091 */
+`<section class="page">
+  <div class="whisper-wrap"><p>Craft &middot; Volume II will follow another made thing.</p></div>
+</section>`,
+
+/* 092 */
+`<section class="page">
+  <div class="masthead-wrap">
+    <div class="mast-name">mkd STUDIO</div>
+    <hr class="mast-rule">
+    <div class="mast-worlds">Hospitality &middot; Places &middot; Craft &middot; Experience</div>
+  </div>
+</section>`,
+
+];
+
+const N = PAGES.length;
+const KEY = 'mkd-reader-' + location.pathname;
+let cur = 0;
+let busy = false;
+let cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+/* preload plate images near the current page */
+const SRC_OF = PAGES.map(p => {
+  const m = p.match(/img src="([^"]+)"/);
+  return m ? m[1] : null;
+});
+const loaded = new Set();
+function preloadAround(idx) {
+  for (let i = Math.max(0, idx - 2); i <= Math.min(N - 1, idx + 6); i++) {
+    const s = SRC_OF[i];
+    if (s && !loaded.has(s)) {
+      loaded.add(s);
+      const im = new Image();
+      im.src = s;
+    }
+  }
+}
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) {
+    el.innerHTML = '';
+    el.style.background = 'var(--linen)';
+    return;
+  }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  const isDark = pg && (pg.classList.contains('plate') || pg.classList.contains('dark-page'));
+  el.style.background = isDark ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  try { localStorage.setItem(KEY, cur); } catch (e) {}
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
+  preloadAround(cur);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft,  cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+
+  setTimeout(() => {
+    out.remove();
+    mPanel.classList.remove(inCls);
+    busy = false;
+  }, 480);
+}
+
+function next() {
+  if (isDesk()) {
+    renderDesk(cur + 2);
+  } else {
+    if (cur < N - 1) slide('next', cur + 1);
+  }
+}
+function prev() {
+  if (isDesk()) {
+    renderDesk(cur - 2);
+  } else {
+    if (cur > 0) slide('prev', cur - 1);
+  }
+}
+
+function enter(start) {
+  start = start || 0;
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) {
+    btnPrev.style.display = btnNext.style.display = 'block';
+    renderDesk(start);
+  } else {
+    renderMobile(start);
+  }
+}
+
+(function () {
+  let s = 0;
+  try { s = parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) {}
+  if (s > 0 && s < N - 1) {
+    const first = document.querySelector('.intro-open');
+    if (!first) return;
+    const cont = first.cloneNode(false);
+    cont.textContent = 'Continue from page ' + (s + 1);
+    cont.removeAttribute('onclick');
+    cont.onclick = function () { enter(s); };
+    cont.style.marginTop = '1rem';
+    first.insertAdjacentElement('afterend', cont);
+    first.textContent = 'Start from the beginning';
+  }
+})();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => {
+  sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+    dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur);
+    else renderMobile(cur);
+  }
+});
+
+/* preload the opening pages while the intro is showing */
+preloadAround(0);
+</script>
+<script src="/js/mobile-nav.js?v=2" defer></script>
+</body>
+</html>
