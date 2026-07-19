@@ -160,6 +160,13 @@ html, body {
 /* Centre / display pages */
 .center { text-align: center; padding: 2rem; }
 .cover-inner { text-align: center; padding: 2rem; }
+.page.plate.cover{background:var(--dark);}
+.page.plate.cover img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.page.plate.cover .cover-inner{position:absolute;left:0;right:0;bottom:0;z-index:10;padding:0 2rem 9%;padding-top:6rem;background:linear-gradient(to top,rgba(13,13,12,.78),rgba(13,13,12,.28) 55%,rgba(13,13,12,0));text-align:center;}
+.page.plate.cover .eyebrow{color:var(--linen);}
+.page.plate.cover .cover-sub{color:rgba(243,241,236,.7);}
+.page.plate.cover .cover-studio,.page.plate.cover .cover-no{color:rgba(243,241,236,.45);}
+
 .eyebrow {
   font-size: .68rem;
   letter-spacing: .38em;
@@ -468,7 +475,9 @@ html, body {
 <button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
 <script>
 const PAGES = [
-`<section class="page cover"><div class="cover-inner">
+`<section class="page plate cover">
+  <img src="/images/ned_doha_pub.jpg" alt="A scalloped burl-wood headboard beneath a golden chandelier and coffered ceiling, The Ned Doha">
+  <div class="cover-inner">
   <div class="eyebrow">The Ned Doha</div>
   <div class="cover-sub">A Study of Place</div>
   <div class="cover-studio">mkd STUDIO</div>
