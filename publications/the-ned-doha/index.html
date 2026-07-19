@@ -346,9 +346,9 @@
     <p class="pubp-preview-note">The complete publication is available to read below. Click to open in full.</p>
     <div class="pubp-reader-wrap reveal">
       <iframe class="pubp-reader-frame" src="/publications/the-ned-doha/reader.html" title="The Ned Doha, mkd STUDIO" loading="lazy"></iframe>
-      <div class="pubp-reader-overlay" onclick="openPublication()"></div>
+      <a class="pubp-reader-overlay" href="/publications/the-ned-doha/reader.html?auto=1"></a>
     </div>
-    <a class="pubp-open-btn" href="javascript:void(0)" onclick="openPublication()">Open publication in full</a>
+    <a class="pubp-open-btn" href="/publications/the-ned-doha/reader.html?auto=1">Open publication in full</a>
   </div>
 </div></section>
 
@@ -416,35 +416,7 @@
 
 <footer class="site-foot"><div class="wrap"><div class="mk">mkd STUDIO</div><div class="fnav"><a href="/">Home</a><a href="/studies/">Studies</a><a href="/publications/">Publications</a><a href="/journal/">Journal</a><a href="/observations/">Observations</a><a href="/about/">About</a><a href="/collaborations/">Collaborations</a><a href="/contact/">Contact</a></div><div class="cp">mkd STUDIO &middot; An editorial studio founded by Umar &amp; Zahra</div><div class="cp" style="margin-top:.5rem">&copy; mkd STUDIO. All editorial works are protected by copyright.</div><div class="cp" style="margin-top:.5rem"><a href="/privacy/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="/cookies/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">Cookie Policy</a></div></div></footer>
 <!-- full-screen publication modal -->
-<div id="pub-modal">
-  <button id="pub-modal-close" onclick="closePublication()">Close &times;</button>
-  <iframe id="pub-modal-frame" src="" title="The Ned Doha, mkd STUDIO"></iframe>
-</div>
 
-<script>
-function openPublication() {
-  const modal = document.getElementById('pub-modal');
-  const frame = document.getElementById('pub-modal-frame');
-  if (!frame.src || frame.src === window.location.href) {
-    frame.src = '/publications/the-ned-doha/reader.html?auto=1';
-  }
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  const rf = modal.requestFullscreen || modal.webkitRequestFullscreen;
-  if (rf) { try { rf.call(modal); } catch (e) {} }
-}
-function closePublication() {
-  document.getElementById('pub-modal').classList.remove('open');
-  document.body.style.overflow = '';
-  const ex = document.exitFullscreen || document.webkitExitFullscreen;
-  if ((document.fullscreenElement || document.webkitFullscreenElement) && ex) { try { ex.call(document); } catch (e) {} }
-}
-document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) closePublication(); });
-document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) closePublication(); });
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closePublication();
-});
-</script>
 
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});

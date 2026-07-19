@@ -339,9 +339,9 @@
     <p class="pubp-preview-note">The full publication is available to read below. Click to open in full.</p>
     <div class="pubp-reader-wrap reveal">
       <iframe class="pubp-reader-frame" src="/publications/kept-close/reader.html" title="Kept Close: mkd STUDIO" loading="lazy"></iframe>
-      <div class="pubp-reader-overlay" onclick="openPublication()"></div>
+      <a class="pubp-reader-overlay" href="/publications/kept-close/reader.html?auto=1"></a>
     </div>
-    <a class="pubp-open-btn" href="javascript:void(0)" onclick="openPublication()">Open publication in full</a>
+    <a class="pubp-open-btn" href="/publications/kept-close/reader.html?auto=1">Open publication in full</a>
   </div>
 </div></section>
 
@@ -432,34 +432,7 @@
   let last=0;addEventListener('scroll',()=>{const n=document.querySelector('nav');const y=scrollY;if(innerWidth<=760){n.style.opacity='';n.classList.remove('scrolled');return;}n.classList.toggle('scrolled',y>40);n.style.opacity=(y>40&&y>last)?'0':'1';last=y;},{passive:true});
 </script>
 
-<div id="pub-modal">
-  <button id="pub-modal-close" onclick="closePublication()">Close &times;</button>
-  <iframe id="pub-modal-frame" src="" title="Kept Close, mkd STUDIO"></iframe>
-</div>
-<script>
-function openPublication() {
-  const modal = document.getElementById('pub-modal');
-  const frame = document.getElementById('pub-modal-frame');
-  if (!frame.src || frame.src === window.location.href) {
-    frame.src = '/publications/kept-close/reader.html?auto=1';
-  }
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  const rf = modal.requestFullscreen || modal.webkitRequestFullscreen;
-  if (rf) { try { rf.call(modal); } catch (e) {} }
-}
-function closePublication() {
-  document.getElementById('pub-modal').classList.remove('open');
-  document.body.style.overflow = '';
-  const ex = document.exitFullscreen || document.webkitExitFullscreen;
-  if ((document.fullscreenElement || document.webkitFullscreenElement) && ex) { try { ex.call(document); } catch (e) {} }
-}
-document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) closePublication(); });
-document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) closePublication(); });
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closePublication();
-});
-</script>
+
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
 <script src="/js/mobile-nav.js?v=2" defer></script>
 </body>
