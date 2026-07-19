@@ -78,6 +78,13 @@ html, body {
   align-items: center; justify-content: center;
   height: 100%;
 }
+.page.plate.cover{background:var(--dark);}
+.page.plate.cover img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.page.plate.cover .cover-wrap{position:absolute;left:0;right:0;bottom:0;height:auto;z-index:10;padding:0 2rem 9%;padding-top:6rem;background:linear-gradient(to top,rgba(13,13,12,.78),rgba(13,13,12,.28) 55%,rgba(13,13,12,0));display:block;}
+.page.plate.cover .cover-title{color:var(--linen);text-shadow:0 1px 14px rgba(13,13,12,.4);}
+.page.plate.cover .cover-subtitle,.page.plate.cover .cover-location,.page.plate.cover .cover-sub{color:rgba(243,241,236,.7);}
+.page.plate.cover .cover-studio{color:rgba(243,241,236,.45);margin-top:.9rem;padding-bottom:0;}
+
 .cover-title {
   font-weight: 400;
   font-size: clamp(1.7rem, 3.5vw, 2.4rem);
@@ -449,7 +456,8 @@ html, body {
 const PAGES = [
 
 /* 00 — COVER */
-`<section class="page dark-page">
+`<section class="page plate cover">
+  <img src="/images/kaawa_01.jpg" alt="KAAWA's lit corner window on a wet Manchester street at night">
   <div class="cover-wrap">
     <div class="cover-title">Open Late</div>
     <div class="cover-rule"></div>
