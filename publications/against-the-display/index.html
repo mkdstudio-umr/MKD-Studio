@@ -449,11 +449,17 @@ function openPublication() {
   }
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+  const rf = modal.requestFullscreen || modal.webkitRequestFullscreen;
+  if (rf) { try { rf.call(modal); } catch (e) {} }
 }
 function closePublication() {
   document.getElementById('pub-modal').classList.remove('open');
   document.body.style.overflow = '';
+  const ex = document.exitFullscreen || document.webkitExitFullscreen;
+  if ((document.fullscreenElement || document.webkitFullscreenElement) && ex) { try { ex.call(document); } catch (e) {} }
 }
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) closePublication(); });
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) closePublication(); });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closePublication();
 });
