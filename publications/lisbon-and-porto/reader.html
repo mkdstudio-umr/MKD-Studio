@@ -832,5 +832,42 @@ window.addEventListener('resize', () => {
 </script>
 <script>document.addEventListener("contextmenu",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});document.addEventListener("dragstart",function(e){if(e.target&&e.target.tagName==="IMG")e.preventDefault();});</script>
 <script>if(/[?&]auto=1/.test(location.search)){enter();}</script>
+<script>
+(function(){
+  function fitPage(pageEl){
+    var inner = pageEl.firstElementChild;
+    if(!inner || inner.tagName === 'IMG') return;
+    inner.style.transform = '';
+    inner.style.transformOrigin = 'center center';
+    pageEl.style.overflowY = '';
+    var natural = inner.scrollHeight;
+    var avail = pageEl.clientHeight;
+    if (!natural || !avail || natural <= avail) return;
+    var scale = 1, tries = 16;
+    while (natural * scale > avail && scale > 0.68 && tries-- > 0) {
+      scale -= 0.03;
+      inner.style.transform = 'scale(' + scale.toFixed(2) + ')';
+    }
+    if (natural * scale > avail) {
+      pageEl.style.overflowY = 'auto';
+      pageEl.style.webkitOverflowScrolling = 'touch';
+    }
+  }
+  function checkAll(){
+    ['panel-left','panel-right','mobile-panel'].forEach(function(id){
+      var host = document.getElementById(id);
+      if (!host) return;
+      host.querySelectorAll('.page').forEach(fitPage);
+    });
+  }
+  var mo = new MutationObserver(function(){ requestAnimationFrame(checkAll); });
+  ['panel-left','panel-right','mobile-panel'].forEach(function(id){
+    var host = document.getElementById(id);
+    if (host) mo.observe(host, {childList:true, subtree:true});
+  });
+  window.addEventListener('resize', checkAll);
+  window.addEventListener('orientationchange', function(){ setTimeout(checkAll, 300); });
+})();
+</script>
 </body>
 </html>
