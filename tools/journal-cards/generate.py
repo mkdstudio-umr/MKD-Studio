@@ -57,6 +57,8 @@ def parse_volumes():
             r'src="/images/(?P<img>[^"]+?)"(?:\s+srcset="[^"]*?")?[^>]*?alt="[^"]*?">.*?'
             r'<span class="jno">(?P<jno>[^<]+?)</span><h3>(?P<title>[^<]+?)</h3>', re.S)
         essays = [{k: (v or "").strip() for k, v in m.groupdict().items()} for m in rr.finditer(b)]
+        for e in essays:
+            e["img"] = e["img"].split("?")[0]   # drop ?v=N cache-bust suffix
         vols.append({"num": num, "name": names.get(num, ""), "thread": thread, "essays": essays})
     return {v["num"]: v for v in vols}
 
@@ -105,8 +107,16 @@ def build(v):
                key=lambda c: abs(sum(r[i] for i in c) - sum(r[i] for i in range(6) if i not in c)))
     rowA, rowB = sorted(best), sorted(i for i in range(6) if i not in best)
     GAP = 30
-    row_h = lambda idx: round((CW - 2 * GAP) / sum(r[i] for i in idx))
-    hA, hB = row_h(rowA), row_h(rowB)
+    CAP_H = 1120  # max row height; portrait-heavy volumes get a centered (inset) grid
+    hf = lambda idx, gw: (gw - 2 * GAP) / sum(r[i] for i in idx)
+    hA_full, hB_full = hf(rowA, CW), hf(rowB, CW)
+    if max(hA_full, hB_full) > CAP_H:
+        taller = rowA if hA_full >= hB_full else rowB
+        GW = round(CAP_H * sum(r[i] for i in taller) + 2 * GAP)
+    else:
+        GW = CW
+    GX = M + (CW - GW) // 2
+    hA, hB = round(hf(rowA, GW)), round(hf(rowB, GW))
 
     y_title, y_desc = 604, 764
     desc_bottom = y_desc + len(desc_lines) * desc_lh
@@ -130,19 +140,27 @@ def build(v):
         d.text((M, yy), ln, font=desc_f, fill=GREY, anchor="la"); yy += desc_lh
 
     for idxs, top, h in ((rowA, rowA_top, hA), (rowB, rowB_top, hB)):
-        x = M
+        x = GX
         for i in idxs:
             w = round(h * r[i]); paste(img, es[i]["img"], x, top, w, h); x += w + GAP
 
-    num_f, ttl_f = font(JOST, 26, 300), font(COR, 50, 500)
-    def col(entries, cx):
+    num_f = font(JOST, 26, 300)
+    def fit(text, avail):
+        for s in range(50, 39, -2):
+            f = font(COR, s, 500)
+            if d.textlength(text, font=f) <= avail:
+                return f
+        return font(COR, 40, 500)
+    def col(entries, cx, avail):
         yy = contents_top
         for e in entries:
             n = e["jno"].replace("Journal ", "")
+            t = htmlmod.unescape(e["title"])
             d.text((cx, yy + 10), n, font=num_f, fill=FAINT, anchor="la")
-            d.text((cx + 78, yy), htmlmod.unescape(e["title"]), font=ttl_f, fill=INK, anchor="la")
+            d.text((cx + 78, yy), t, font=fit(t, avail), fill=INK, anchor="la")
             yy += step
-    col(es[:3], M); col(es[3:], M + 1180)
+    col(es[:3], M, 1180 - 78 - 14)            # col1: stop before col2
+    col(es[3:], M + 1180, (W - M) - (M + 1180 + 78) - 6)
 
     tracked(d, (M, H - 190), "mkdstudio.net/journal", font(JOST, 28, 400), GREY, 5.6)
 
