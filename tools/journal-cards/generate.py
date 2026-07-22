@@ -40,7 +40,7 @@ GREY  = (122, 116, 105)
 FAINT = (176, 169, 156)
 W, M = 2960, 280
 CW = W - 2 * M
-MONTHYEAR = os.environ.get("MKD_CARD_DATE", "JULY 2026")   # override if needed
+MONTHYEAR = os.environ.get("MKD_CARD_DATE", "2026")   # year only; override if needed
 
 # ---- parse volumes from the live journal index ----
 def parse_volumes():
