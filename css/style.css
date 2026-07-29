@@ -134,6 +134,7 @@
   .field .field-label{font-family:"Jost",sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:.64rem;color:var(--ink-faint);display:block;margin-bottom:.6rem}
   .field p{font-size:clamp(0.95rem,1.14vw,1.0rem);line-height:1.62;color:var(--ink-soft)}
   .field.response p{color:var(--ink);font-family:"Cormorant",serif;font-style:italic;font-weight:300;font-size:clamp(1.0rem,1.37vw,1.2rem);line-height:1.4}
+  .study .field p + p{margin-top:1.1rem}
   .reach-num{font-family:"Cormorant",serif;font-weight:300;font-size:clamp(1.7rem,2.63vw,2.3rem);line-height:1;color:var(--ink);display:block}
 
   /* REACH */
