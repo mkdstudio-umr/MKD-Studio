@@ -58,8 +58,10 @@ html, body {
 .page.plate img {
   display: block; position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; object-position: center; z-index: 1;
+  object-fit: cover; object-position: center 82%; z-index: 1;
 }
+/* spreads carry their own per-image framing */
+.page.plate.spread-l img, .page.plate.spread-r img { object-position: center; }
 .page.plate::before { z-index: 2; opacity: .02; }
 .page.plate::after  { z-index: 3; opacity: .014; }
 
@@ -69,7 +71,7 @@ html, body {
 .page.plate-centre { padding: 0; background: var(--linen); }
 .page.plate-centre img {
   display: block;
-  max-width: 76%; max-height: 72%;
+  max-width: 86%; max-height: 80%;
   width: auto; height: auto; object-fit: contain; z-index: 10;
 }
 
@@ -211,7 +213,13 @@ html, body {
     align-items: center; justify-content: center;
     padding: 3vh 3vw;
   }
-  #book-spread { display: flex; width: 100%; height: 100%; max-width: 1520px; max-height: 88vh; }
+  /* each page sits at book proportions (~2:3) so a portrait plate barely crops */
+  #book-spread {
+    display: flex;
+    height: min(88vh, calc(94vw / 1.44));
+    aspect-ratio: 1.44;
+    width: auto;
+  }
   #panel-left, #panel-right {
     flex: 1 1 0; min-width: 0; position: relative; overflow: hidden;
     background: var(--linen);
@@ -253,7 +261,7 @@ html, body {
 
 <div id="intro">
   <div class="intro-title">Common Ground</div>
-  <div class="intro-sub">Publication 011 &nbsp;&middot;&nbsp; McLaren Construction Golf Day<br>Rochester &amp; Cobham Park &nbsp;&middot;&nbsp; 17 September 2026</div>
+  <div class="intro-sub">Publication 011 &nbsp;&middot;&nbsp; McLaren Construction Group Golf Day<br>Rochester &amp; Cobham Park &nbsp;&middot;&nbsp; 17 September 2026</div>
   <button class="intro-open" onclick="enter()">Open the publication</button>
 </div>
 
@@ -283,7 +291,7 @@ const PAGES = [
   <div class="cover-block">
     <div class="cover-no">Publication 011</div>
     <div class="cover-title">Common Ground</div>
-    <div class="cover-sub">McLaren Construction Golf Day</div>
+    <div class="cover-sub">McLaren Construction Group Golf Day</div>
     <div class="cover-date">17 September 2026</div>
   </div>
 </section>`,
@@ -295,7 +303,7 @@ const PAGES = [
 `<section class="page">
   <div class="title-wrap">
     <div class="title-main">Common Ground</div>
-    <div class="title-sub">McLaren Construction Golf Day<br>Rochester &amp; Cobham Park Golf Club<br>17 September 2026</div>
+    <div class="title-sub">McLaren Construction Group Golf Day<br>Rochester &amp; Cobham Park Golf Club<br>17 September 2026</div>
     <div class="title-studio">mkd STUDIO</div>
   </div>
 </section>`,
@@ -402,7 +410,7 @@ const PAGES = [
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Opening Note</div>
-    <p class="body">We were given the opportunity to sponsor the McLaren Construction golf day this year, and we took it gladly.</p>
+    <p class="body">We were given the opportunity to sponsor the McLaren Construction Group golf day this year, and we took it gladly.</p>
     <p class="body">Part of the appeal was straightforward. There were people on the sheet we have worked alongside for years, and a golf course is a better place to catch up with them than a site meeting or a phone call. The rest was less obvious. Much of our working relationship with McLaren, like most relationships in this industry, is conducted through drawings, programmes and email. You come to know people well without ever having stood next to them. The day put faces to a good number of those names.</p>
   </div>
 </section>`,
@@ -438,7 +446,7 @@ const PAGES = [
 `<section class="page">
   <div class="textwrap">
     <p class="body">This is not a complaint. It is how construction works, and it works. But it means the relationships holding a project together are conducted at a distance, and that distance carries a cost which is difficult to see until it is briefly removed.</p>
-    <p class="body">Rochester and Cobham Park removed it for a day. McLaren Construction organised and hosted. Glaze Aluminium Facades sponsored, and brought five of its own suppliers with it. For the better part of a working day, people who normally exist to each other as names in a signature block walked the same ground in the same rain.</p>
+    <p class="body">Rochester and Cobham Park removed it for a day. McLaren Construction Group organised and hosted. Glaze Aluminium Facades sponsored, and brought five of its own suppliers with it. For the better part of a working day, people who normally exist to each other as names in a signature block walked the same ground in the same rain.</p>
     <p class="body">Very little was decided. That was not the point. What a day of this kind produces is not a decision but a reference. The next time a detail is awkward or a date moves, somebody is ringing a person rather than an address.</p>
   </div>
 </section>`,
@@ -1092,7 +1100,7 @@ const PAGES = [
 `<section class="page">
   <div class="textwrap">
     <div class="section-label">Closing</div>
-    <p class="body">Our thanks go to McLaren Construction for organising and hosting the day, to Press Glass, OTIIMA, RGB, Weldall and Liquid Peel for supporting it, and to everyone who turned out and played.</p>
+    <p class="body">Our thanks go to McLaren Construction Group for organising and hosting the day, to Press Glass, OTIIMA, RGB, Weldall and Liquid Peel for supporting it, and to everyone who turned out and played.</p>
     <p class="body">The rain stopped at some point in the early afternoon. By then it had long since ceased to matter.</p>
   </div>
 </section>`,
@@ -1115,7 +1123,7 @@ const PAGES = [
 `<section class="page">
   <div class="colophon-wrap">
     <p>Commissioned by Glaze Aluminium Facades</p>
-    <p>Hosted by McLaren Construction</p>
+    <p>Hosted by McLaren Construction Group</p>
     <hr class="col-rule">
     <p>Rochester &amp; Cobham Park Golf Club</p>
     <p>17 September 2026</p>
