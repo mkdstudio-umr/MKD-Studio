@@ -267,6 +267,10 @@ html, body {
   #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
 }
 
+/* last page: next is dimmed and inert, prev stays available */
+#btn-next.nav-off { opacity: .16; pointer-events: none; cursor: default; }
+.tap.r.nav-off { pointer-events: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .pg-enter-right, .pg-enter-left, .pg-exit-left, .pg-exit-right { animation: none; }
 }
@@ -276,7 +280,7 @@ html, body {
 
 <div id="intro">
   <div class="intro-title">Before Kensington</div>
-  <div class="intro-sub">Barkers &nbsp;&middot;&nbsp; Publication 001<br>Glaze Aluminium Facades &nbsp;&middot;&nbsp; 12 October 2026</div>
+  <div class="intro-sub">Barkers Record &nbsp;&middot;&nbsp; Chapter 01<br>Glaze Aluminium Facades &nbsp;&middot;&nbsp; 12 October 2026</div>
   <button class="intro-open" onclick="enter()">Open the publication</button>
 </div>
 
@@ -304,7 +308,7 @@ const PAGES = [
 `<section class="page plate cover">
   <img src="img/bk-001.jpg" alt="A bundle of cut brass profile ends, fanned open on the rack" style="object-position:center 62%">
   <div class="cover-block" style="background:linear-gradient(to top,rgba(13,13,12,.86) 0%,rgba(13,13,12,.55) 45%,rgba(13,13,12,0) 100%)">
-    <div class="cover-no">Barkers &middot; Publication 001</div>
+    <div class="cover-no">Barkers Record &middot; Chapter 01</div>
     <div class="cover-title">Before Kensington</div>
     <div class="cover-sub">Glaze Aluminium Facades &middot; Barkers</div>
     <div class="cover-date">12 October 2026</div>
@@ -703,7 +707,7 @@ const PAGES = [
     <p>Facade contractor</p>
     <p>Glaze Aluminium Facades</p>
     <hr class="col-rule">
-    <p>System</p>
+    <p>Profiles</p>
     <p>Secco Sistemi</p>
     <p>Material &nbsp;&middot;&nbsp; Brass</p>
     <hr class="col-rule">
@@ -719,7 +723,7 @@ const PAGES = [
 /* 061 */
 `<section class="page">
   <div class="colophon-wrap">
-    <p>Barkers &nbsp;&middot;&nbsp; Publication 001</p>
+    <p>Barkers Record &nbsp;&middot;&nbsp; Chapter 01</p>
     <p>Before Kensington</p>
     <hr class="col-rule">
     <p>Photography and publication</p>
@@ -783,6 +787,16 @@ function tick(n) {
   clearTimeout(cTimer);
   cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
   preloadAround(cur);
+  syncNav();
+}
+
+/* true on the final page (desktop shows two pages at once, mobile one) */
+function atEnd() { return isDesk() ? cur + 2 >= N : cur >= N - 1; }
+function syncNav() {
+  const off = atEnd();
+  if (btnNext) btnNext.classList.toggle('nav-off', off);
+  const tapR = document.querySelector('.tap.r');
+  if (tapR) tapR.classList.toggle('nav-off', off);
 }
 
 function renderDesk(idx) {
@@ -824,6 +838,7 @@ function step(from, dir) {
 }
 
 function next() {
+  if (atEnd()) return;
   if (isDesk()) renderDesk(cur + 2);
   else if (cur < N - 1) slide('next', step(cur + 1, 1));
 }
