@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Before Kensington / mkd STUDIO</title>
+<link rel="icon" href="/favicon.ico?v=5" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png?v=5">
+<style>
+
+:root {
+  --linen: #f3f1ec;
+  --ink: #26241f;
+  --mid: #8a8480;
+  --soft: #b0aba6;
+  --dark: #0d0d0c;
+}
+
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--dark);
+  font-family: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--linen);
+  position: relative;
+}
+.page::before {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='linen'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68 0.72' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23linen)'/%3E%3C/svg%3E");
+  background-size: 220px 220px; opacity: .055; mix-blend-mode: multiply;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0;
+  pointer-events: none; z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.95' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)'/%3E%3C/svg%3E");
+  background-size: 120px 120px; opacity: .032; mix-blend-mode: multiply;
+}
+
+.page.plate { padding: 0; background: var(--dark); }
+.page.plate img {
+  display: block; position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 82%; z-index: 1;
+}
+/* spreads carry their own per-image framing */
+.page.plate.spread-l img, .page.plate.spread-r img { object-position: center; }
+.page.plate::before { z-index: 2; opacity: .02; }
+.page.plate::after  { z-index: 3; opacity: .014; }
+
+.page.plate.spread-l img,
+.page.plate.spread-r img { max-width: none; height: 100%; top: 0; }
+
+.page.plate-centre { padding: 0; background: var(--linen); }
+.page.plate-centre img {
+  display: block;
+  max-width: 86%; max-height: 80%;
+  width: auto; height: auto; object-fit: contain; z-index: 10;
+}
+
+/* grid pages: a set of frames read as a set, not a run of singles */
+.page.plate-grid {
+  padding: 0; background: var(--linen);
+  display: flex; align-items: center; justify-content: center;
+}
+.page.plate-grid .grid { display: grid; gap: 5%; width: 58%; height: 80%; }
+.page.plate-grid .grid.g6 { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); }
+.page.plate-grid .grid.g4 { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(2, 1fr); }
+.page.plate-grid img {
+  display: block; width: 100%; height: 100%;
+  min-width: 0; min-height: 0;          /* let 1fr tracks actually shrink */
+  object-fit: cover; object-position: center 72%;
+}
+
+.page.plate.cover .cover-block {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 10;
+  text-align: center; padding: 6rem 2rem 9%;
+  background: linear-gradient(to top, rgba(13,13,12,.6), rgba(13,13,12,0));
+}
+.cover-no { font-size: .44rem; letter-spacing: .4em; text-transform: uppercase; color: rgba(243,241,236,.5); margin-bottom: 1rem; }
+.cover-title {
+  font-style: italic; font-size: 1.95rem;
+  color: var(--linen); line-height: 1.1; margin-bottom: 1rem;
+  text-shadow: 0 1px 16px rgba(13,13,12,.4);
+}
+.cover-sub { font-size: .46rem; letter-spacing: .36em; text-transform: uppercase; color: rgba(243,241,236,.66); margin-bottom: .55rem; }
+.cover-date { font-size: .44rem; letter-spacing: .34em; text-transform: uppercase; color: rgba(243,241,236,.4); }
+
+.halftitle { font-size: .6rem; letter-spacing: .34em; color: var(--mid); text-transform: uppercase; }
+
+.title-wrap { text-align: center; padding: 2rem; }
+.title-main { font-style: italic; font-size: 1.6rem; color: var(--ink); line-height: 1.15; margin-bottom: .9rem; }
+.title-sub { font-size: .48rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mid); line-height: 2.5; }
+.title-studio { font-size: .44rem; letter-spacing: .38em; text-transform: uppercase; color: var(--soft); margin-top: 3.5rem; }
+
+.contents-wrap { text-align: center; padding: 2rem; }
+.contents-label { font-size: .48rem; letter-spacing: .38em; text-transform: uppercase; color: var(--soft); margin-bottom: 2.4rem; }
+.contents-wrap .toc-row { font-style: italic; font-size: .9rem; color: var(--ink); line-height: 2.45; }
+.contents-wrap .toc-row span { font-style: normal; font-size: .55rem; color: var(--soft); letter-spacing: .14em; margin-right: .9rem; }
+
+.colophon-wrap { text-align: left; padding: 13%; }
+.colophon-wrap p { font-size: .52rem; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); line-height: 2.5; }
+.colophon-wrap .col-rule { border: none; border-top: .4px solid rgba(176,171,166,.25); width: 100%; margin: 1.6rem 0; }
+
+.section-label { font-size: .48rem; letter-spacing: .38em; text-transform: uppercase; color: var(--soft); margin-bottom: 2.8rem; }
+
+.textwrap { width: 100%; padding: 11% 13%; text-align: left; }
+.chapter-ref { font-style: italic; font-size: .58rem; color: var(--soft); letter-spacing: .06em; margin-bottom: .55rem; }
+.text-rule { border: none; border-top: .4px solid rgba(176,171,166,.35); width: 28px; margin: 0 0 1.6rem; }
+.body { font-size: .8rem; line-height: 1.92; margin-bottom: 1.25rem; color: var(--ink); }
+
+.byline-wrap { text-align: left; width: 100%; padding: 0 13%; }
+.byline-name { font-style: italic; font-size: .92rem; color: var(--ink); margin-bottom: .5rem; }
+.byline-role, .byline-org { font-size: .5rem; letter-spacing: .22em; text-transform: uppercase; color: var(--soft); line-height: 2.1; }
+
+.chapter-wrap {
+  text-align: center; padding: 2rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; height: 100%;
+}
+.ch-num { font-style: italic; font-size: .58rem; color: var(--soft); letter-spacing: .18em; margin-bottom: 1rem; }
+.ch-rule { border: none; border-top: .4px solid rgba(176,171,166,.3); width: 24px; margin: 0 auto 1rem; }
+.ch-name { font-style: italic; font-size: 1.55rem; color: var(--ink); line-height: 1.15; }
+.ch-theme { font-style: italic; font-size: .72rem; color: var(--mid); margin-top: 1.2rem; }
+
+.quiet-wrap { width: 100%; padding: 0 20% 0 15%; text-align: left; }
+.quiet-wrap p { font-style: italic; font-size: .84rem; line-height: 1.95; color: var(--ink); max-width: 26em; }
+.quiet-wrap p + p { margin-top: .4rem; }
+
+.fragment-wrap { text-align: center; padding: 14%; }
+.fragment-wrap p { font-style: italic; font-size: .88rem; line-height: 1.78; color: var(--mid); max-width: 24em; margin: 0 auto; }
+.fragment-wrap p + p { margin-top: .9rem; }
+
+.masthead-wrap { text-align: center; padding: 2rem; }
+.masthead-wrap .mast-name { font-size: .95rem; letter-spacing: .04em; }
+.mast-rule { border: none; border-top: .4px solid rgba(176,171,166,.45); width: 36px; margin: 1rem auto; }
+.mast-worlds { font-size: .5rem; letter-spacing: .32em; color: var(--soft); text-transform: uppercase; }
+
+#mobile-wrap { position: fixed; inset: 0; }
+#mobile-panel { position: absolute; inset: 0; overflow: hidden; }
+.pg-enter-right { animation: pgInRight .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-enter-left  { animation: pgInLeft  .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-left   { animation: pgOutLeft .46s cubic-bezier(.7,0,.2,1) both; }
+.pg-exit-right  { animation: pgOutRight .46s cubic-bezier(.7,0,.2,1) both; }
+@keyframes pgInRight  { from{transform:translateX(100%)} to{transform:translateX(0)} }
+@keyframes pgInLeft   { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+@keyframes pgOutLeft  { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+@keyframes pgOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+.tap { position:fixed; top:0; height:100%; width:40%; z-index:30; cursor:pointer; }
+.tap.l { left:0; } .tap.r { right:0; }
+#desktop-wrap { display: none; }
+
+/* on a single column there is no spine, so a spread shows once, whole */
+@media (max-width: 899px) {
+  .page.plate-grid .grid { width: 84%; height: 72%; }
+  .page.plate.spread-l { background: var(--linen); }
+  .page.plate.spread-l img {
+    position: static;
+    width: 100% !important; left: auto !important;
+    height: auto; max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+#intro {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  transition: opacity 1.1s ease, visibility 1.1s ease;
+}
+#intro.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+.intro-title { font-style: italic; font-size: 1.85rem; color: var(--linen); margin-bottom: .7rem; line-height: 1.12; }
+.intro-sub { font-size: .46rem; letter-spacing: .34em; text-transform: uppercase; color: rgba(176,171,166,.55); margin-bottom: 4rem; line-height: 2.2; }
+.intro-open {
+  font-size: .52rem; letter-spacing: .28em; text-transform: uppercase;
+  border: .5px solid rgba(243,241,236,.3); background: none;
+  padding: 1rem 2.6rem; cursor: pointer;
+  font-family: inherit; color: rgba(243,241,236,.7);
+  transition: border-color .35s, color .35s, background .35s;
+}
+.intro-open:hover { border-color: var(--linen); color: var(--dark); background: var(--linen); }
+
+#counter {
+  position: fixed; z-index: 50;
+  bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  font-size: .44rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--soft);
+  opacity: 0; transition: opacity 2s ease; pointer-events: none;
+}
+#counter.show { opacity: .45; transition: opacity .1s ease; }
+#counter.fade { opacity: 0; transition: opacity 2s ease; }
+
+#hint {
+  position: fixed; bottom: 2.8rem; left: 50%; transform: translateX(-50%);
+  z-index: 35; font-size: .44rem; letter-spacing: .24em;
+  color: var(--soft); text-transform: uppercase;
+  opacity: .5; transition: opacity 1.2s; pointer-events: none;
+}
+#hint.gone { opacity: 0; }
+
+@media (min-width: 900px) {
+  body { background: #0a0908; }
+  #mobile-wrap { display: none; }
+  .tap { display: none; }
+  #hint { display: none; }
+
+  #desktop-wrap {
+    display: flex; position: fixed; inset: 0;
+    align-items: center; justify-content: center;
+    padding: 3vh 3vw;
+  }
+  /* each page sits at book proportions (~2:3) so a portrait plate barely crops */
+  #book-spread {
+    display: flex;
+    height: min(88vh, calc(94vw / 1.44));
+    aspect-ratio: 1.44;
+    width: auto;
+  }
+  #panel-left, #panel-right {
+    flex: 1 1 0; min-width: 0; position: relative; overflow: hidden;
+    background: var(--linen);
+    box-shadow: 0 24px 100px rgba(0,0,0,.85), 0 4px 12px rgba(0,0,0,.5), inset 0 0 0 .5px rgba(180,160,130,.12);
+  }
+  #spine {
+    flex: 0 0 30px;
+    background: linear-gradient(to right, rgba(0,0,0,.35) 0%, rgba(0,0,0,.12) 35%, rgba(0,0,0,.06) 50%, rgba(0,0,0,.12) 65%, rgba(0,0,0,.35) 100%);
+    position: relative; z-index: 5;
+  }
+  #panel-left::after {
+    content: ""; position: absolute; top:0; right:0; width:24px; height:100%;
+    background: linear-gradient(to left, rgba(0,0,0,.1), transparent); z-index: 4; pointer-events: none;
+  }
+  #panel-right::before {
+    content: ""; position: absolute; top:0; left:0; width:24px; height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,.1), transparent); z-index: 4; pointer-events: none;
+  }
+  #panel-left .page, #panel-right .page { position: absolute; top:0; left:0; width:100%; height:100%; }
+  #counter { bottom: 1.8rem; left: auto; right: 3.5vw; transform: none; }
+  #btn-prev, #btn-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    z-index: 40; background: none; border: none; cursor: pointer;
+    color: rgba(176,171,166,.4); font-family: inherit;
+    font-size: .44rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: color .25s; padding: 1rem 1.6rem;
+  }
+  #btn-prev { left: .4vw; }
+  #btn-next { right: .4vw; }
+  #btn-prev:hover, #btn-next:hover { color: rgba(176,171,166,.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-enter-right, .pg-enter-left, .pg-exit-left, .pg-exit-right { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-title">Before Kensington</div>
+  <div class="intro-sub">Barkers &nbsp;&middot;&nbsp; Publication 001<br>Glaze Aluminium Facades &nbsp;&middot;&nbsp; 12 October 2026</div>
+  <button class="intro-open" onclick="enter()">Open the publication</button>
+</div>
+
+<div id="mobile-wrap"><div id="mobile-panel"></div></div>
+<div class="tap l" onclick="prev()"></div>
+<div class="tap r" onclick="next()"></div>
+
+<div id="desktop-wrap">
+  <div id="book-spread">
+    <div id="panel-left"></div>
+    <div id="spine"></div>
+    <div id="panel-right"></div>
+  </div>
+</div>
+
+<div id="hint">Swipe or tap edges to turn</div>
+<div id="counter"></div>
+<button id="btn-prev" style="display:none" onclick="prev()">&#8592; prev</button>
+<button id="btn-next" style="display:none" onclick="next()">next &#8594;</button>
+
+<script>
+const PAGES = [
+
+/* 001 */
+`<section class="page plate cover">
+  <img src="img/bk-001.jpg" alt="A bundle of cut brass profile ends, fanned open on the rack" style="object-position:center 62%">
+  <div class="cover-block" style="background:linear-gradient(to top,rgba(13,13,12,.86) 0%,rgba(13,13,12,.55) 45%,rgba(13,13,12,0) 100%)">
+    <div class="cover-no">Barkers &middot; Publication 001</div>
+    <div class="cover-title">Before Kensington</div>
+    <div class="cover-sub">Glaze Aluminium Facades &middot; Barkers</div>
+    <div class="cover-date">12 October 2026</div>
+  </div>
+</section>`,
+
+/* 002 */
+`<section class="page">
+  <div class="halftitle">Before Kensington</div>
+</section>`,
+
+/* 003 */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">Before Kensington</div>
+    <div class="title-sub">Glaze Aluminium Facades<br>and the making of Barkers<br>12 October 2026</div>
+    <div class="title-studio">mkd STUDIO</div>
+  </div>
+</section>`,
+
+/* 004 */
+`<section class="page">
+  <div class="contents-wrap">
+    <div class="contents-label">Contents</div>
+    <div class="toc-row"><span>I</span>Material</div>
+    <div class="toc-row"><span>II</span>Measure</div>
+    <div class="toc-row"><span>III</span>Machine</div>
+    <div class="toc-row"><span>IV</span>Assembly</div>
+    <div class="toc-row"><span>V</span>People</div>
+    <div class="toc-row"><span>VI</span>Coordination</div>
+  </div>
+</section>`,
+
+/* 005 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>Kensington is the destination.</p>
+    <p>The factory is the beginning.</p>
+  </div>
+</section>`,
+
+/* 006 */
+`<section class="page plate">
+  <img src="img/bk-002.jpg" alt="A whiteboard headed Barkers of Kensington, ruled, with two outstanding actions below">
+</section>`,
+
+/* 007 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">The work before the building</div>
+    <hr class="text-rule">
+    <p class="body">The building is in Kensington. The work is somewhere else, behind a glass door with a black disc on it reading GLAZE ALUMINIUM FACADES, EST 2013.</p>
+    <p class="body">Inside, on a whiteboard standing near the machines, someone has written BARKER&rsquo;S OF KENSINGTON and ruled a line under it. Two items follow. Confirm delivery date, brass. Order wire, and this one is bracketed in red and marked urgent. Below, in blue, a column of numbers runs off the bottom of the frame. At this stage, that is the whole building. A heading, two outstanding actions and a count.</p>
+  </div>
+</section>`,
+
+/* 008 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">The work before the building</div>
+    <hr class="text-rule">
+    <p class="body">The brass arrives in cardboard. The cartons are long, the length of the sections inside them, and they carry a small red label printed SECCO, with an address at seccosistemi.it and a telephone number in Italy. The cartons are stacked on timber bearers and opened at one end, so that what is visible of the material is a bright cut edge in a cardboard mouth.</p>
+    <p class="body">Unwrapped, the profiles are not the colour brass is in photographs of brass. They are paler and drier, greyer where they have been handled, and they brighten only along a machined edge where the light runs. Each length is sleeved in teal foam at the bearing points and taped. On a trestle, six of them lie together, and the eye reads them as one object before it separates them again.</p>
+    <p class="body">Cut square and stood on end, a section explains itself. The outer skin is brass. Behind it there is a black core, and between the two brass faces sit a pair of white struts moulded into the shape of a letter H, repeated. The brass is the part that will be seen from the street. Most of the section is the part that will not.</p>
+  </div>
+</section>`,
+
+/* 009 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">The work before the building</div>
+    <hr class="text-rule">
+    <p class="body">Measuring is continuous and mostly silent. A digital level lies along a profile and holds a reading. A tape is pulled against an edge and held there with a thumb. A flat hand runs down the face of a length, not to check anything a tool could not check faster, but because that is how a surface is read.</p>
+    <p class="body">A few steps away, two men are working at a whiteboard. One is older, in a grey fleece and a navy scarf, glasses pushed back. The other is younger and in black. The blue drawings on the board were put there earlier: elevations, a jamb, small squared off sections. What is being added now is in black marker, freehand, over the top of them. The conversation is happening on the board rather than beside it.</p>
+    <p class="body">The machinery carries the name Sch&uuml;co and it is quiet in the way heavy machinery is quiet between operations. On the control screen a profile turns in three dimensions beside a column of figures. Two cutters wait in a carousel. Chips of metal lie across the black bed of the saw, fine and bright, the only warm colour on that side of the building. A man leans in over the clamps, turns something by hand, and withdraws.</p>
+  </div>
+</section>`,
+
+/* 010 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">The work before the building</div>
+    <hr class="text-rule">
+    <p class="body">Then a frame. On a green trestle table, flat, a rectangle of brass large enough to need two people to lift it. The corners are closed. The gasket is seated. The ceiling lights of the unit run the whole length of it. Two men stand at the long edge with their hands resting on the top rail, one of them making a shape in the air with his fingers. In the racks behind them, leaning vertically, are more sections than that frame needed.</p>
+    <p class="body">Elsewhere in the same building there is aluminium, and a great deal of it. Box sections in shrink wrap, stacked in grids. Bundles of extrusion cut square and fitted together end on like a honeycomb. A pallet label in red capitals reads ALUMINIUM. The brass is a small part of what this factory does. It is the part that will be visible from a pavement.</p>
+    <p class="body">The last photographs of the day are of cardboard again. A carton with GLAZE written across it in marker and a white sticker numbered 4312 in red. Packing timber. A bundle still half open at the end.</p>
+    <p class="body">Nothing is finished. Nothing is in Kensington. On the whiteboard, the delivery date is still to be confirmed.</p>
+  </div>
+</section>`,
+
+/* 011 */
+`<section class="page plate">
+  <img src="img/bk-003.jpg" alt="The Glaze Aluminium Facades disc on the glass door of the unit">
+</section>`,
+
+/* 012 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">I</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Material</div>
+    <div class="ch-theme">It arrives in cardboard, from Italy.</div>
+  </div>
+</section>`,
+
+/* 013 */
+`<section class="page plate">
+  <img src="img/bk-004.jpg" alt="A packing carton carrying the manufacturer label">
+</section>`,
+
+/* 014 */
+`<section class="page plate">
+  <img src="img/bk-005.jpg" alt="Brass lengths lying on a trestle, sleeved in foam and taped">
+</section>`,
+
+/* 015 */
+`<section class="page">
+  <div class="textwrap">
+    <div class="chapter-ref">I &middot; Material</div>
+    <hr class="text-rule">
+    <p class="body">The profiles were delivered in cartons labelled Secco Sistemi, a manufacturer in Italy producing architectural window and door systems in brass, galvanised steel, stainless steel and corten.</p>
+    <p class="body">Cut square, the section is not solid. Two brass faces are held apart by moulded white struts, with a dark core between them. What will be read from the street as a band of metal is in fact a composite, and the brass is its outer surface.</p>
+    <p class="body">Brass does not stay as it is delivered. Exposed to air it oxidises, deepening in tone and losing the paleness it has in the factory, moving towards the colouring associated with antique bronze.</p>
+  </div>
+</section>`,
+
+/* 016 */
+`<section class="page plate">
+  <img src="img/bk-006.jpg" alt="A brass section stood on end">
+</section>`,
+
+/* 017 */
+`<section class="page plate">
+  <img src="img/bk-007.jpg" alt="The cut end of a brass section against the bench">
+</section>`,
+
+/* 018 */
+`<section class="page plate">
+  <img src="img/bk-008.jpg" alt="Cross section. Two brass faces, a dark core, moulded struts between them">
+</section>`,
+
+/* 019 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>The brass is the part that will be seen.</p>
+    <p>Most of the section is the part that will not.</p>
+  </div>
+</section>`,
+
+/* 020 */
+`<section class="page plate">
+  <img src="img/bk-009.jpg" alt="The maker name stamped small into the brass face">
+</section>`,
+
+/* 021 */
+`<section class="page plate">
+  <img src="img/bk-010.jpg" alt="A machined brass edge against the black gasket">
+</section>`,
+
+/* 022 */
+`<section class="page plate">
+  <img src="img/bk-011.jpg" alt="A profile resting on blue protective foam">
+</section>`,
+
+/* 023 */
+`<section class="page plate">
+  <img src="img/bk-012.jpg" alt="A hand steadying a length into the rack">
+</section>`,
+
+/* 024 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">II</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Measure</div>
+    <div class="ch-theme">Before the frame can occupy the building, its dimensions must exist here.</div>
+  </div>
+</section>`,
+
+/* 025 */
+`<section class="page plate">
+  <img src="img/bk-013.jpg" alt="A digital level held along a brass profile">
+</section>`,
+
+/* 026 */
+`<section class="page plate">
+  <img src="img/bk-014.jpg" alt="A tape measure pulled against a brass edge">
+</section>`,
+
+/* 027 */
+`<section class="page plate">
+  <img src="img/bk-015.jpg" alt="A flat hand reading the face of a profile">
+</section>`,
+
+/* 028 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>A hand runs flat down a length that has already been checked twice.</p>
+    <p>Not because the tool was doubted.</p>
+  </div>
+</section>`,
+
+/* 029 */
+`<section class="page plate">
+  <img src="img/bk-016.jpg" alt="A hand drawing in black marker over elevations already on the board">
+</section>`,
+
+/* 030 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">III</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Machine</div>
+    <div class="ch-theme">The machine repeats what it is told to repeat.</div>
+  </div>
+</section>`,
+
+/* 031 */
+`<section class="page plate">
+  <img src="img/bk-017.jpg" alt="The machine in the room, cable across the floor">
+</section>`,
+
+/* 032 */
+`<section class="page plate">
+  <img src="img/bk-018.jpg" alt="Two cutters waiting in the tool carousel">
+</section>`,
+
+/* 033 */
+`<section class="page plate">
+  <img src="img/bk-019.jpg" alt="A pneumatic cylinder on the machine">
+</section>`,
+
+/* 034 */
+`<section class="page plate">
+  <img src="img/bk-020.jpg" alt="Clamps along the length of the machine bed">
+</section>`,
+
+/* 035 */
+`<section class="page plate">
+  <img src="img/bk-021.jpg" alt="A hand turning a fixing inside the machine">
+</section>`,
+
+/* 036 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>Everything upstream of it was a decision.</p>
+  </div>
+</section>`,
+
+/* 037 */
+`<section class="page plate">
+  <img src="img/bk-022.jpg" alt="A section turning in three dimensions on the control screen">
+</section>`,
+
+/* 038 */
+`<section class="page plate">
+  <img src="img/bk-023.jpg" alt="Swarf across the black bed of the saw">
+</section>`,
+
+/* 039 */
+`<section class="page plate">
+  <img src="img/bk-024.jpg" alt="A profile under the cutting head">
+</section>`,
+
+/* 040 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">IV</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Assembly</div>
+    <div class="ch-theme">A collection of individual sections begins to take the proportions of a building.</div>
+  </div>
+</section>`,
+
+/* 041 */
+`<section class="page plate">
+  <img src="img/bk-025.jpg" alt="A brass frame lying flat on a green trestle table">
+</section>`,
+
+/* 042 */
+`<section class="page plate">
+  <img src="img/bk-026.jpg" alt="A frame with a tape measure still lying on it, racks behind">
+</section>`,
+
+/* 043 */
+`<section class="page plate">
+  <img src="img/bk-027.jpg" alt="Two men at the long edge of a completed frame">
+</section>`,
+
+/* 044 */
+`<section class="page plate">
+  <img src="img/bk-028.jpg" alt="A brass section held upright, corner closed">
+</section>`,
+
+/* 045 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">V</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">People</div>
+    <div class="ch-theme">Names that will not appear on the building.</div>
+  </div>
+</section>`,
+
+/* 046 */
+`<section class="page plate">
+  <img src="img/bk-029.jpg" alt="Two men at the whiteboard, one of them drawing">
+</section>`,
+
+/* 047 */
+`<section class="page plate">
+  <img src="img/bk-030.jpg" alt="The same two measuring along a frame">
+</section>`,
+
+/* 048 */
+`<section class="page plate">
+  <img src="img/bk-031.jpg" alt="Reading the control screen, glasses, red ear defenders">
+</section>`,
+
+/* 049 */
+`<section class="page plate">
+  <img src="img/bk-032.jpg" alt="A hand pointing into the drawing on the screen">
+</section>`,
+
+/* 050 */
+`<section class="page plate">
+  <img src="img/bk-033.jpg" alt="Three men at the machine console, the unit behind them">
+</section>`,
+
+/* 051 */
+`<section class="page">
+  <div class="chapter-wrap">
+    <div class="ch-num">VI</div>
+    <div class="ch-rule"></div>
+    <div class="ch-name">Coordination</div>
+    <div class="ch-theme">The brass is a small part of what this factory does.</div>
+  </div>
+</section>`,
+
+/* 052 */
+`<section class="page plate">
+  <img src="img/bk-034.jpg" alt="Aluminium box section, wrapped and stacked in grids">
+</section>`,
+
+/* 053 */
+`<section class="page plate">
+  <img src="img/bk-035.jpg" alt="Aluminium box sections above a red pallet label">
+</section>`,
+
+/* 054 */
+`<section class="page plate">
+  <img src="img/bk-036.jpg" alt="Bundles of extrusion in the racks, a forklift beyond">
+</section>`,
+
+/* 055 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>For now, the building remains elsewhere.</p>
+    <p>What exists here as profiles, measurements and separate frames</p>
+    <p>will eventually become part of a public elevation in Kensington.</p>
+  </div>
+</section>`,
+
+/* 056 */
+`<section class="page plate">
+  <img src="img/bk-037.jpg" alt="A carton still half open at the end, a section visible inside">
+</section>`,
+
+/* 057 */
+`<section class="page plate">
+  <img src="img/bk-038.jpg" alt="A carton marked GLAZE in marker, with a consignment number in red">
+</section>`,
+
+/* 058 */
+`<section class="page">
+  <div class="quiet-wrap">
+    <p>Nothing is finished.</p>
+    <p>That is the point.</p>
+  </div>
+</section>`,
+
+/* 059 */
+`<section class="page">
+  <div class="title-wrap">
+    <div class="title-main">To be continued<br>at Barkers, Kensington.</div>
+    <div class="title-studio">Chapter one</div>
+  </div>
+</section>`,
+
+/* 060 */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Barkers of Kensington</p>
+    <p>Kensington High Street, London</p>
+    <hr class="col-rule">
+    <p>Facade contractor</p>
+    <p>Glaze Aluminium Facades</p>
+    <hr class="col-rule">
+    <p>System</p>
+    <p>Secco Sistemi</p>
+    <p>Material &nbsp;&middot;&nbsp; Brass</p>
+    <hr class="col-rule">
+    <p>Photographed at the fabrication facility</p>
+    <p>12 October 2026</p>
+    <hr class="col-rule">
+    <p>Project and product information in this publication</p>
+    <p>is subject to final approval by</p>
+    <p>Glaze Aluminium Facades</p>
+  </div>
+</section>`,
+
+/* 061 */
+`<section class="page">
+  <div class="colophon-wrap">
+    <p>Barkers &nbsp;&middot;&nbsp; Publication 001</p>
+    <p>Before Kensington</p>
+    <hr class="col-rule">
+    <p>Photography and publication</p>
+    <p>Umar Makda &nbsp;&middot;&nbsp; mkd STUDIO</p>
+    <hr class="col-rule">
+    <p>Photographed 12 October 2026</p>
+    <p>Published 2026 &nbsp;&middot;&nbsp; First Edition</p>
+    <hr class="col-rule">
+    <p>All photography, editorial writing and publication design<br>are protected by copyright.</p>
+    <p>No part of this publication may be reproduced<br>in any form without prior written permission.</p>
+  </div>
+</section>`,
+
+/* 062 */
+`<section class="page">
+  <div class="masthead-wrap">
+    <div class="mast-name">mkd STUDIO</div>
+    <hr class="mast-rule">
+    <div class="mast-worlds">Hospitality &middot; Places &middot; Craft &middot; Experience</div>
+  </div>
+</section>`,
+];
+
+const N = PAGES.length;
+const KEY = 'mkd-reader-' + location.pathname;
+let cur = 0, busy = false, cTimer;
+
+const mPanel  = document.getElementById('mobile-panel');
+const pLeft   = document.getElementById('panel-left');
+const pRight  = document.getElementById('panel-right');
+const counter = document.getElementById('counter');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+const isDesk = () => window.innerWidth >= 900;
+
+const SRC_OF = PAGES.map(p => { const m = p.match(/img src="([^"]+)"/); return m ? m[1] : null; });
+const loaded = new Set();
+function preloadAround(idx) {
+  for (let i = Math.max(0, idx - 2); i <= Math.min(N - 1, idx + 6); i++) {
+    const s = SRC_OF[i];
+    if (s && !loaded.has(s)) { loaded.add(s); const im = new Image(); im.src = s; }
+  }
+}
+
+function isSpreadRight(i) { return i >= 0 && i < N && PAGES[i].indexOf('spread-r') !== -1; }
+
+function inject(el, idx) {
+  if (!el) return;
+  if (idx < 0 || idx >= N) { el.innerHTML = ''; el.style.background = 'var(--linen)'; return; }
+  el.innerHTML = PAGES[idx];
+  const pg = el.querySelector('.page');
+  el.style.background = (pg && pg.classList.contains('plate')) ? 'var(--dark)' : 'var(--linen)';
+}
+
+function tick(n) {
+  try { localStorage.setItem(KEY, cur); } catch (e) {}
+  counter.textContent = n + ' / ' + N;
+  counter.classList.remove('fade');
+  counter.classList.add('show');
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => counter.classList.add('fade'), 2400);
+  preloadAround(cur);
+}
+
+function renderDesk(idx) {
+  const left = idx % 2 === 0 ? idx : idx - 1;
+  cur = Math.max(0, Math.min(N - 1, left));
+  inject(pLeft, cur);
+  inject(pRight, cur + 1 < N ? cur + 1 : -1);
+  tick(cur + 1);
+}
+function renderMobile(idx) {
+  cur = Math.max(0, Math.min(N - 1, idx));
+  inject(mPanel, cur);
+  tick(cur + 1);
+}
+
+function slide(dir, newIdx) {
+  if (busy) return;
+  busy = true;
+  const out = mPanel.cloneNode(true);
+  out.style.cssText = 'position:absolute;inset:0;z-index:3;';
+  document.getElementById('mobile-wrap').appendChild(out);
+  inject(mPanel, newIdx);
+  cur = newIdx;
+  tick(cur + 1);
+  const inCls  = dir === 'next' ? 'pg-enter-right' : 'pg-enter-left';
+  const outCls = dir === 'next' ? 'pg-exit-left'   : 'pg-exit-right';
+  mPanel.style.animation = 'none';
+  void mPanel.offsetWidth;
+  mPanel.classList.add(inCls);
+  out.classList.add(outCls);
+  setTimeout(() => { out.remove(); mPanel.classList.remove(inCls); busy = false; }, 480);
+}
+
+/* on mobile a spread shows as its left half only, so skip the right half */
+function step(from, dir) {
+  let i = from;
+  while (i > 0 && i < N - 1 && isSpreadRight(i)) i += dir;
+  return i;
+}
+
+function next() {
+  if (isDesk()) renderDesk(cur + 2);
+  else if (cur < N - 1) slide('next', step(cur + 1, 1));
+}
+function prev() {
+  if (isDesk()) renderDesk(cur - 2);
+  else if (cur > 0) slide('prev', step(cur - 1, -1));
+}
+
+function enter(start) {
+  start = start || 0;
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(() => document.getElementById('hint').classList.add('gone'), 3500);
+  if (isDesk()) { btnPrev.style.display = btnNext.style.display = 'block'; renderDesk(start); }
+  else renderMobile(start);
+}
+
+(function () {
+  let s = 0;
+  try { s = parseInt(localStorage.getItem(KEY), 10) || 0; } catch (e) {}
+  if (s > 0 && s < N - 1) {
+    const first = document.querySelector('.intro-open');
+    if (!first) return;
+    const cont = first.cloneNode(false);
+    cont.textContent = 'Continue from page ' + (s + 1);
+    cont.removeAttribute('onclick');
+    cont.onclick = function () { enter(s); };
+    cont.style.marginTop = '1rem';
+    first.insertAdjacentElement('afterend', cont);
+    first.textContent = 'Start from the beginning';
+  }
+})();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
+});
+
+let sx = 0, sy = 0;
+document.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - sx;
+  const dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) dx < 0 ? next() : prev();
+}, {passive:true});
+
+let wasDesk = isDesk();
+window.addEventListener('resize', () => {
+  const now = isDesk();
+  if (now !== wasDesk) {
+    wasDesk = now;
+    btnPrev.style.display = btnNext.style.display = now ? 'block' : 'none';
+    if (now) renderDesk(cur); else renderMobile(cur);
+  }
+});
+
+preloadAround(0);
+</script>
+<script>if(/[?&]auto=1/.test(location.search)){enter();}</script>
+<script>
+(function(){
+  function fitPage(pageEl){
+    var inner = pageEl.firstElementChild;
+    if(!inner || inner.tagName === 'IMG') return;
+    inner.style.transform = '';
+    inner.style.transformOrigin = 'center center';
+    pageEl.style.overflowY = '';
+    var natural = inner.scrollHeight;
+    var avail = pageEl.clientHeight;
+    if (!natural || !avail || natural <= avail) return;
+    var scale = 1, tries = 16;
+    while (natural * scale > avail && scale > 0.68 && tries-- > 0) {
+      scale -= 0.03;
+      inner.style.transform = 'scale(' + scale.toFixed(2) + ')';
+    }
+    if (natural * scale > avail) {
+      pageEl.style.overflowY = 'auto';
+      pageEl.style.webkitOverflowScrolling = 'touch';
+    }
+  }
+  function checkAll(){
+    ['panel-left','panel-right','mobile-panel'].forEach(function(id){
+      var host = document.getElementById(id);
+      if (!host) return;
+      host.querySelectorAll('.page').forEach(fitPage);
+    });
+  }
+  var mo = new MutationObserver(function(){ requestAnimationFrame(checkAll); });
+  ['panel-left','panel-right','mobile-panel'].forEach(function(id){
+    var host = document.getElementById(id);
+    if (host) mo.observe(host, {childList:true, subtree:true});
+  });
+  window.addEventListener('resize', checkAll);
+  window.addEventListener('orientationchange', function(){ setTimeout(checkAll, 300); });
+})();
+</script>
+</body>
+</html>
